@@ -36,6 +36,11 @@
 
 # Visual Studio cache directory
 .vs/
+.vscode/*
+.vscode/settings.json
+.vscode/launch.json
+.vscode/extensions.json
+.vsconfig
 
 # Gradle cache directory
 .gradle/
@@ -104,3 +109,5 @@ InitTestScene*.unity*
 
 # Auto-generated cache in Assets folder
 /[Aa]ssets/[Ss]ceneDependencyCache*
+
+Thumbs.db
