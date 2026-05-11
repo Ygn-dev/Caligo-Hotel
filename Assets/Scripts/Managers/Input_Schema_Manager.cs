@@ -83,7 +83,7 @@ public class Input_Schema_Manager : MonoBehaviour
 
     private void OnAnyActionPerformed(InputAction.CallbackContext context)
     {
-        Debug.Log($"Acción realizada: {context.action.name} en el mapa {context.action.actionMap.name}");
+        //Debug.Log($"Acción realizada: {context.action.name} en el mapa {context.action.actionMap.name}");
         if(esDrift(context)) return;
         if( currentSchema != GetSchema(context))
         {

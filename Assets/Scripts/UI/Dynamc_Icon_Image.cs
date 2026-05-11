@@ -17,7 +17,7 @@ public class Dynamc_Icon_Image : MonoBehaviour
 
     private void UpdateIcon(string newSchema)
     {
-        Debug.Log($"Actualizando icono para el esquema: {newSchema}");
+        //Debug.Log($"Actualizando icono para el esquema: {newSchema}");
         var action = actionReference.action;
 
         for (int i = 0; i < action.bindings.Count; i++)

@@ -13,7 +13,7 @@ public class Main_Menu_Animations : MonoBehaviour
     public GameObject logoFinal;
     public GameObject textMenu;
     public InputActionAsset inputActionAsset;
-    public Initial_Button initialButtonScript;
+    public Main_Menu_Initial_Button initialButtonScript;
 
     private InputAction accept;
 
