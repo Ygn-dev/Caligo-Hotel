@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 public class Lobby_Initiator : MonoBehaviour
 {
@@ -14,8 +15,21 @@ public class Lobby_Initiator : MonoBehaviour
 
     void Start()
     {
-        Cinematic_Manager.Instance.PlayCinematic("Lobby_Cinematic");
-        inputActions.FindActionMap("Gameplay").Enable();
+        StartCoroutine(seguirCinematic());
+    }
+
+    private IEnumerator seguirCinematic()
+    {
+        bool cinematicPlayed = false;
+        yield return StartCoroutine(Game_Loader_Manager.Instance.CompleteLoadScene());
+        Cinematic_Manager.Instance.PlayCinematic("Lobby_Cinematic", () =>
+        {
+            cinematicPlayed = true;
+        });
+        while (!cinematicPlayed) yield return null;
+        Debug.Log("Cinematic completed. Starting the game...");
+
+        yield return null;
     }
 }
 

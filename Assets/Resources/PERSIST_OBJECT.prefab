@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5634667766300344599
 RectTransform:
   m_ObjectHideFlags: 0
@@ -301,6 +301,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64c517c3e3d003c45a582507d0dfd5c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game_Loader_Manager
+  canvas: {fileID: 4064699177347184686}
+  loader: {fileID: 2722383307528363848}
 --- !u!114 &4989836440508157183
 MonoBehaviour:
   m_ObjectHideFlags: 0
