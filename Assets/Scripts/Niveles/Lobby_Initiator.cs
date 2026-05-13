@@ -5,30 +5,45 @@ using System.Collections;
 public class Lobby_Initiator : MonoBehaviour
 {
     public InputActionAsset inputActions;
-
-    void Awake()
-    {
-        GameObject character = Resources.Load<GameObject>("Character");
-        character.GetComponent<Player_Controller>().move = InputActionReference.Create(inputActions.FindAction("Move"));
-        Instantiate(character);
-    }
+    public GameObject characterPrefab;
 
     void Start()
     {
-        StartCoroutine(seguirCinematic());
+        StartCoroutine(InitializeLobby());
     }
 
-    private IEnumerator seguirCinematic()
+    private IEnumerator InitializeLobby()
+    {
+        // Completar Fade de Carga
+        yield return StartCoroutine(Game_Loader_Manager.Instance.CompleteLoadScene());
+        
+        //Settear Personaje mientras se reproduce la cinemática
+        bool spawned = false;
+        StartCoroutine(SpawnCharacter(() => spawned = true));
+        //yield return StartCoroutine(CinematicaInicial());
+        yield return new WaitUntil(() => spawned);
+        
+        //Habilitar Input
+        inputActions.FindActionMap("Gameplay").Enable();
+
+    }
+
+    private IEnumerator CinematicaInicial()
     {
         bool cinematicPlayed = false;
-        yield return StartCoroutine(Game_Loader_Manager.Instance.CompleteLoadScene());
+        
         Cinematic_Manager.Instance.PlayCinematic("Lobby_Cinematic", () =>
         {
             cinematicPlayed = true;
         });
         while (!cinematicPlayed) yield return null;
-        Debug.Log("Cinematic completed. Starting the game...");
+        yield return null;
+    }
 
+    private IEnumerator SpawnCharacter(System.Action onSpawned)
+    {
+        GameObject character = Instantiate(characterPrefab);
+        onSpawned?.Invoke();
         yield return null;
     }
 }

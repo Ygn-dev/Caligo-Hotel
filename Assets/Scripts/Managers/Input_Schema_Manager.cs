@@ -11,16 +11,13 @@ public class Input_Schema_Manager : MonoBehaviour
 {
     //SINGLETON
     public static Input_Schema_Manager Instance { get; private set; }
-    
-    //REFERENCIA AL ASSET DE INPUT ACTIONS
-    public InputActionAsset actions;
 
-    //EVENTO PARA NOTIFICAR CAMBIO DE ESQUEMA
-    public static event Action<String> ChangedSchema;
-    
     //HIDE IN INSPECTOR
     [HideInInspector] public String currentSchema;
     [HideInInspector] public bool isCursorMode;
+    
+    public InputActionAsset actions;
+    public static event Action<String> ChangedSchema;    
     public GameObject defaultCovered = null;
  
     

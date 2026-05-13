@@ -21,7 +21,7 @@ public class Main_Menu_Initial_Button : MonoBehaviour
 
     private void DeterminarPrimerBoton()
     {
-       //Por ahora se determina el nuevo juego de manera automatica
+        //Por ahora se determina el nuevo juego de manera automatica
         primerBoton = newGameButton;
         continueButton.GetComponent<Button>().interactable = false;
 

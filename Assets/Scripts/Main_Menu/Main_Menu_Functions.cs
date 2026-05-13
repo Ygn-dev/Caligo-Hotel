@@ -6,4 +6,9 @@ public class Main_Menu_Functions : MonoBehaviour
     {
         Game_Loader_Manager.Instance.NewGame();
     }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 }

@@ -7,18 +7,17 @@ public class Cinematic_Manager : MonoBehaviour
     //SINGLETON
     public static Cinematic_Manager Instance { get; private set; }
 
+    public GameObject rendererPrefab;
+    public VideoPlayer videoPlayer;
+
     private Canvas canvas;
-    private VideoPlayer videoPlayer;
     private Action onFinishedCallback;
-    private GameObject rendererPrefab;
     private GameObject rendererInstance;
 
     private void Awake()
     {
         // Implementación del patrón Singleton
         if (Instance == null) Instance = this;
-        videoPlayer = GetComponent<VideoPlayer>();
-        rendererPrefab = Resources.Load<GameObject>("Renderer_Prefab");
     }
 
     void Start()

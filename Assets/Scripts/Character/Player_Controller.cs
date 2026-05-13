@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class Player_Controller : MonoBehaviour
 {
     public float speed = 5f;
-    [HideInInspector] public InputActionReference move;
+    public InputActionReference move;
     [HideInInspector] public Vector2 moveInputVector;
     
     void Update()

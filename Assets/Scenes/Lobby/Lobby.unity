@@ -180,6 +180,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b4c7673f4df4af47a80c1215ef268ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Cinematic_Manager
+  rendererPrefab: {fileID: 2988423803599393631, guid: cd268ebf6ce0bab4faf4b6a68ee9037e, type: 3}
+  videoPlayer: {fileID: 355587890}
 --- !u!4 &355587889
 Transform:
   m_ObjectHideFlags: 0
@@ -225,8 +227,8 @@ VideoPlayer:
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
   m_ControlledAudioTrackCount: 1
-  m_PlayOnAwake: 1
-  m_SkipOnDrop: 1
+  m_PlayOnAwake: 0
+  m_SkipOnDrop: 0
   m_Looping: 0
   m_WaitForFirstFrame: 1
   m_FrameReadyEventEnabled: 0
@@ -276,6 +278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Lobby_Initiator
   inputActions: {fileID: -944628639613478452, guid: e75c53da0f7f49f4aae3d0a6e4b3cca4, type: 3}
+  characterPrefab: {fileID: 3851179027187527990, guid: ad7913bd969e63d49ac0e729cf821025, type: 3}
 --- !u!1 &558984755
 GameObject:
   m_ObjectHideFlags: 0
