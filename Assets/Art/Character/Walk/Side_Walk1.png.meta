@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 397da9e12b1737a41b972663e3ab8e31
+guid: fee61707ab10100409e3413b0377b2ca
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5699236650348513910
-    second: Idle_Back0_0
+      213: -7622528674278107895
+    second: RIGHT_walk_2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -101,7 +101,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Idle_Back0_0
+      name: RIGHT_walk_2_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 15
         y: 0
         width: 200
         height: 400
-      alignment: 9
-      pivot: {x: 0.4979762, y: 0.003136964}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 67a09e2a981c71f40800000000000000
-      internalID: 5699236650348513910
+      spriteID: 9059c6f7e86573690800000000000000
+      internalID: -7622528674278107895
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 143242243a5903842aa49680b74b83cf
+    spriteID: 6389e7b73b097e44682bd82e6549dd5e
     internalID: 0
     vertices: []
     indices: 
@@ -146,9 +146,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":200.0,"y":400.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Idle_Back0_0: 5699236650348513910
+      RIGHT_walk_2_0: -7622528674278107895
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

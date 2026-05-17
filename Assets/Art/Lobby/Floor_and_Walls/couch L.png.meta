@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 397da9e12b1737a41b972663e3ab8e31
+guid: 5c032f90e8a34b04f9420e5092729fe6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5699236650348513910
-    second: Idle_Back0_0
+      213: 419548653128479599
+    second: couch L_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -101,7 +101,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Idle_Back0_0
+      name: couch L_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 4
         y: 0
-        width: 200
-        height: 400
-      alignment: 9
-      pivot: {x: 0.4979762, y: 0.003136964}
+        width: 196
+        height: 399
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 67a09e2a981c71f40800000000000000
-      internalID: 5699236650348513910
+      spriteID: f6377b3f64982d500800000000000000
+      internalID: 419548653128479599
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 143242243a5903842aa49680b74b83cf
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Idle_Back0_0: 5699236650348513910
+      couch L_0: 419548653128479599
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
