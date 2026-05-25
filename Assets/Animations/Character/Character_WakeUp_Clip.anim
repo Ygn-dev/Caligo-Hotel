@@ -28,6 +28,8 @@ AnimationClip:
       value: {fileID: 4894018330949939931, guid: e30cfa9f31c04d1438f36ac42a8a4d28, type: 3}
     - time: 0.05
       value: {fileID: -5528504535398856052, guid: a800baa90bd3e714a9440e870665e221, type: 3}
+    - time: 0.06666667
+      value: {fileID: 2297253894833909740, guid: 5d2fc14b8f3039645b4405f5349051c7, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -54,12 +56,13 @@ AnimationClip:
     - {fileID: -6233983601165137387, guid: bb3062e5ce1759642b49dec68a45d4f1, type: 3}
     - {fileID: 4894018330949939931, guid: e30cfa9f31c04d1438f36ac42a8a4d28, type: 3}
     - {fileID: -5528504535398856052, guid: a800baa90bd3e714a9440e870665e221, type: 3}
+    - {fileID: 2297253894833909740, guid: 5d2fc14b8f3039645b4405f5349051c7, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.06666667
+    m_StopTime: 0.083333336
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -78,4 +81,32 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.033333335
+    functionName: ForceMoveX
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: -0.13
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.05
+    functionName: ForceMoveX
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: -0.2
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.06666667
+    functionName: ForceMoveX
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: -0.38
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.06666667
+    functionName: ForceMoveY
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: -0.4
+    intParameter: 0
+    messageOptions: 0

@@ -83,6 +83,7 @@ GameObject:
   - component: {fileID: 6819438732546028102}
   - component: {fileID: 7493177133635484899}
   - component: {fileID: 5446591379806569782}
+  - component: {fileID: 303699484658207876}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -266,3 +267,15 @@ MonoBehaviour:
   speed: 4.5
   move: {fileID: 9071938090449222851, guid: e75c53da0f7f49f4aae3d0a6e4b3cca4, type: 3}
   moveInputVector: {x: 0, y: 0}
+--- !u!114 &303699484658207876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3851179027187527990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30ca99dac364fd244a5f69bd9570fd41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player_Animations_Helper

@@ -1,19 +1,31 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using Unity.Cinemachine;
 using UnityEngine.InputSystem;
+
 
 
 
 public class Lobby_Initiator : MonoBehaviour
 {
-    public InputActionAsset inputActions;
-    public GameObject characterPrefab;
     public Image fade;
-    public AnimationCurve fadeCurve;
-
     private GameObject character;
+    public AnimationCurve fadeCurve;
+    public ScriptableObject levelData;
+    public GameObject characterPrefab;
+    public InputActionAsset inputActions;
+    public CinemachineCamera cinemachineCamera;
 
+    void Awake()
+    {
+        inputActions.FindActionMap("Gameplay").Disable();
+        // Este nivel usara cinimatica, asi que se asegura de que el Cinematic Manager exista en la escena
+        if (Cinematic_Manager.Instance == null) DevTools.SetupCinematicManager();
+        if (Dialogue_Manager.Instance == null) DevTools.SetupDialogueManager();
+        return;
+    }
+    
     void Start()
     {
         StartCoroutine(InitializeLobby());
@@ -23,52 +35,54 @@ public class Lobby_Initiator : MonoBehaviour
     {
         
         // Completar Fade de Carga
-        //yield return StartCoroutine(Game_Loader_Manager.Instance.CompleteLoadScene());
-        //yield return StartCoroutine(FadeBlanco());
+        yield return StartCoroutine(Game_Loader_Manager.Instance.CompleteLoadScene());
+        yield return StartCoroutine(FadeBlanco());
 
-        //Settear Personaje mientras se reproduce la cinemática
-        bool spawned = false;
-        StartCoroutine(SpawnCharacter(() => spawned = true));
-        /*StartCoroutine(EsperarYquitarFade(3f));
+        //Settear Personaje y Camara mientras se reproduce la cinemática
+    
+        StartCoroutine(SpawnCharacter());
+        StartCoroutine(SetupCamara());
+        StartCoroutine(EsperarYquitarFade(3f));
         yield return StartCoroutine(CinematicaInicial());
-        yield return new WaitUntil(() => spawned);
-        */
+        
+
+        
 
         //Levantarse del sillon
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
+
+        //Animacion de levantarse
         character.GetComponent<Animator>().SetTrigger("WakeUp");
+        while (!character.GetComponent<Animator>().GetBool("isAwake")) yield return null;
         
-        //Esperar a que se presione X
-        
-        
-        
-        
-        
-        
-        
+        //Sistema de DIalogos
+
         
         //Habilitar Input
-        //inputActions.FindActionMap("Gameplay").Enable();
+        inputActions.FindActionMap("Gameplay").Enable();
+        yield return null;
+    }
+
+    private IEnumerator SetupCamara()
+    {
+        yield return StartCoroutine(DevTools.SetupCamara(cinemachineCamera, levelData, character));
         yield return null;
     }
 
     private IEnumerator CinematicaInicial()
     {
-        bool cinematicPlayed = false;
-        
-        Cinematic_Manager.Instance.PlayCinematic("Lobby_Cinematic", () =>
-        {
-            cinematicPlayed = true;
-        });
-        while (!cinematicPlayed) yield return null;
+        yield return Cinematic_Manager.Instance.PlayCinematic("Lobby_Cinematic");
+        Debug.Log("Cinematica Terminada");
         yield return null;
     }
 
-    private IEnumerator SpawnCharacter(System.Action onSpawned)
+    private IEnumerator SpawnCharacter()
     {
         character = Instantiate(characterPrefab,new Vector3(7.36f, 1.65f, 0f), Quaternion.identity);
         character.GetComponent<Animator>().SetTrigger("Sit");
-        onSpawned?.Invoke();
+        character.GetComponent<Player_Controller>().Turn(Vector2.left);
+        character.GetComponent<Animator>().SetFloat("moveX", -1);
+        character.GetComponent<Animator>().SetFloat("moveY", 0);
         yield return null;
     }
 

@@ -1,6 +1,7 @@
+using System;
 using UnityEngine;
 using UnityEngine.Video;
-using System;
+using System.Collections;
 
 public class Cinematic_Manager : MonoBehaviour
 {
@@ -11,8 +12,8 @@ public class Cinematic_Manager : MonoBehaviour
     public VideoPlayer videoPlayer;
 
     private Canvas canvas;
-    private Action onFinishedCallback;
     private GameObject rendererInstance;
+    private bool videoFinished = false;
 
     private void Awake()
     {
@@ -25,28 +26,42 @@ public class Cinematic_Manager : MonoBehaviour
         canvas = FindAnyObjectByType<Canvas>();
     }
 
-    public void PlayCinematic(string cinematicName, Action onFinished = null)
+    public IEnumerator PlayCinematic(string cinematicName)
     {
-        // Limpieza defensiva (IMPORTANTE)
+        // Limpieza defensiva
+        videoPlayer.Stop();
         videoPlayer.loopPointReached -= OnVideoFinished;
         videoPlayer.prepareCompleted -= OnPrepared;
 
-        // Callback
-        onFinishedCallback = onFinished;
+        // Destruir renderer anterior si existe
+        if (rendererInstance != null)
+        {
+            Destroy(rendererInstance);
+            rendererInstance = null;
+        }
 
         // Renderer
         rendererInstance = Instantiate(rendererPrefab, canvas.transform);
+
+        // Conectar renderer al VideoPlayer
+        videoPlayer.targetMaterialRenderer = rendererInstance.GetComponent<Renderer>();
 
         // Video
         string videoPath = System.IO.Path.Combine(Application.streamingAssetsPath, cinematicName + ".mp4");
         videoPlayer.source = VideoSource.Url;
         videoPlayer.url = videoPath;
 
+        // Flag de control
+        videoFinished = false;
+
         // Eventos
         videoPlayer.prepareCompleted += OnPrepared;
         videoPlayer.loopPointReached += OnVideoFinished;
 
         videoPlayer.Prepare();
+
+        // Esperar hasta que el video termine completamente
+        yield return new WaitUntil(() => videoFinished);
     }
 
     private void OnPrepared(VideoPlayer vp)
@@ -57,11 +72,14 @@ public class Cinematic_Manager : MonoBehaviour
 
     private void OnVideoFinished(VideoPlayer vp)
     {
-        if (rendererInstance != null) Destroy(rendererInstance);
         vp.loopPointReached -= OnVideoFinished;
-        onFinishedCallback?.Invoke();
-        onFinishedCallback = null;
+
+        if (rendererInstance != null)
+        {
+            Destroy(rendererInstance);
+            rendererInstance = null;
+        }
+
+        videoFinished = true;
     }
-
-
 }
