@@ -107,6 +107,6 @@ AnimationClip:
     functionName: ForceMoveY
     data: 
     objectReferenceParameter: {fileID: 0}
-    floatParameter: -0.4
+    floatParameter: -0.38
     intParameter: 0
     messageOptions: 0

@@ -1,11 +1,14 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Unity.Cinemachine;
 using System.Collections;
+using Unity.VisualScripting;
 
 public static class DevTools
 {
-    public static IEnumerator Animar(Image image, float targetAlpha, float duration, AnimationCurve curve)
+    //ANIMACIONES
+    public static IEnumerator AnimarImage(Image image, float targetAlpha, float duration, AnimationCurve curve)
     {
         float startAlpha = image.color.a;
         float time = 0f;
@@ -26,6 +29,40 @@ public static class DevTools
         yield return null;
     }
 
+    public static IEnumerator AnimarCamara(CinemachineCamera camera, float zoomCamara, float camPosX, float camPosY, float duracionZoom, AnimationCurve curvaZoom,
+                                            GameObject InstanceBlackBackground, float posBlackX, AnimationCurve curvaBlackBackground)
+    {
+        //debe haber un previo cinemachineCamera.Follow = null;
+        float prevZoom = camera.Lens.OrthographicSize;
+        Vector3 prevPosCam = camera.transform.position;
+        Vector3 prevPosBlack = InstanceBlackBackground.transform.localPosition;
+
+        float tiempoTranscurrido = 0f;
+
+        while (tiempoTranscurrido < duracionZoom)
+        {
+            float t = Mathf.Clamp01(tiempoTranscurrido / duracionZoom);
+            float curveZoom = curvaZoom.Evaluate(t);
+            float curveBlack = curvaBlackBackground.Evaluate(t);
+
+            camera.Lens.OrthographicSize = Mathf.LerpUnclamped(prevZoom, zoomCamara, curveZoom);
+            camera.transform.position = Vector3.LerpUnclamped(prevPosCam, new Vector3(camPosX, camPosY, prevPosCam.z), curveZoom);
+            InstanceBlackBackground.transform.localPosition = Vector3.LerpUnclamped(prevPosBlack, new Vector3(posBlackX, 0, 0), curveBlack);
+
+            //if (interact.action.triggered) break; //interrumpir animacion
+
+            tiempoTranscurrido += Time.deltaTime;
+            yield return null;
+        }
+
+        camera.Lens.OrthographicSize = zoomCamara;
+        camera.transform.position = new Vector3(camPosX, camPosY, prevPosCam.z);
+        InstanceBlackBackground.transform.localPosition = new Vector3(posBlackX, 0, 0);
+
+        yield return null;
+    }
+
+    //SETUPS
     public static IEnumerator SetupCamara(CinemachineCamera camera, ScriptableObject levelDataSO, GameObject character)
     {
         //camera.Follow = character.transform;
@@ -68,13 +105,13 @@ public static class DevTools
     
     public static void SetupCinematicManager()
     {
-        GameObject cinematicManagerPrefab = Resources.Load<GameObject>("Cinematic_Manager/Cinematic_Manager_Prefab");
+        GameObject cinematicManagerPrefab = Resources.Load<GameObject>("Prefabs/Cinematic_System/Cinematic_Manager");
         Object.Instantiate(cinematicManagerPrefab);
     }
 
     public static void SetupDialogueManager()
     {
-        GameObject dialogueManagerPrefab = Resources.Load<GameObject>("Dialogue_Manager");
+        GameObject dialogueManagerPrefab = Resources.Load<GameObject>("Prefabs/Dialogue_System/Dialogue_Manager");
         Object.Instantiate(dialogueManagerPrefab);
     }
 }

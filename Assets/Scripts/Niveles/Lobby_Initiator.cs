@@ -19,9 +19,11 @@ public class Lobby_Initiator : MonoBehaviour
 
     void Awake()
     {
-        inputActions.FindActionMap("Gameplay").Disable();
+        inputActions.Disable();
+
         // Este nivel usara cinimatica, asi que se asegura de que el Cinematic Manager exista en la escena
         if (Cinematic_Manager.Instance == null) DevTools.SetupCinematicManager();
+        // Este nivel usara sistema de dialogos, asi que se asegura de que el Dialogue Manager exista en la escena
         if (Dialogue_Manager.Instance == null) DevTools.SetupDialogueManager();
         return;
     }
@@ -36,14 +38,14 @@ public class Lobby_Initiator : MonoBehaviour
         
         // Completar Fade de Carga
         yield return StartCoroutine(Game_Loader_Manager.Instance.CompleteLoadScene());
-        yield return StartCoroutine(FadeBlanco());
+        //yield return StartCoroutine(FadeBlanco());
 
         //Settear Personaje y Camara mientras se reproduce la cinemática
     
         StartCoroutine(SpawnCharacter());
         StartCoroutine(SetupCamara());
-        StartCoroutine(EsperarYquitarFade(3f));
-        yield return StartCoroutine(CinematicaInicial());
+        //StartCoroutine(EsperarYquitarFade(3f));
+        //yield return StartCoroutine(CinematicaInicial());
         
 
         
@@ -55,8 +57,9 @@ public class Lobby_Initiator : MonoBehaviour
         character.GetComponent<Animator>().SetTrigger("WakeUp");
         while (!character.GetComponent<Animator>().GetBool("isAwake")) yield return null;
         
-        //Sistema de DIalogos
-
+        //Dialogo de introduccion
+        yield return new WaitForSeconds(1f);
+        yield return Dialogue_Manager.Instance.StartDialogueCoroutine("Lobby_Introduccion", 6f);
         
         //Habilitar Input
         inputActions.FindActionMap("Gameplay").Enable();
@@ -72,7 +75,6 @@ public class Lobby_Initiator : MonoBehaviour
     private IEnumerator CinematicaInicial()
     {
         yield return Cinematic_Manager.Instance.PlayCinematic("Lobby_Cinematic");
-        Debug.Log("Cinematica Terminada");
         yield return null;
     }
 
@@ -90,7 +92,7 @@ public class Lobby_Initiator : MonoBehaviour
     {
         fade.color = new Color(1f, 1f, 1f, 0f);
         fade.gameObject.SetActive(true);
-        yield return DevTools.Animar(fade, 1f,3f, fadeCurve);
+        yield return DevTools.AnimarImage(fade, 1f,3f, fadeCurve);
         yield return null;
     }
 

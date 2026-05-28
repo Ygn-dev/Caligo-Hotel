@@ -16,4 +16,7 @@ public class Level_Data_Base : ScriptableObject
 
     [Header("Confiner")]
     public GameObject confiner;
+
+    [Header("Spawn")]
+    public Vector3 spawnPoint;
 }

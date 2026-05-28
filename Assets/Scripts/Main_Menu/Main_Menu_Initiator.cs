@@ -60,10 +60,10 @@ public class Main_Menu_Initiator : MonoBehaviour
     {
         image.color = new Color(image.color.r, image.color.g, image.color.b, 0f);
         float targetAlpha = 1f;
-        yield return DevTools.Animar(image,targetAlpha,duracionAparicion,curvaAparicion);
+        yield return DevTools.AnimarImage(image,targetAlpha,duracionAparicion,curvaAparicion);
         yield return new WaitForSeconds(duracionEspera);
         targetAlpha = 0f;
-        yield return DevTools.Animar(image,targetAlpha,duracionDesaparicion,curvaAparicion);
+        yield return DevTools.AnimarImage(image,targetAlpha,duracionDesaparicion,curvaAparicion);
     }
 
     private IEnumerator MostrarCaja()
