@@ -19,5 +19,5 @@ MonoBehaviour:
   deadZoneWidthHeight: {x: 2, y: 0.2}
   damping: 0.5
   slowingDistance: 5
-  confiner: {fileID: 0}
+  confiner: {fileID: 6175812146738131852, guid: 323a7a2414a90274bb43dca0c2ebb949, type: 3}
   spawnPoint: {x: 0, y: 0, z: 0}
