@@ -3,7 +3,7 @@ using Unity.Cinemachine;
 using System.Collections;
 using UnityEngine.InputSystem;
 
-public class ZC_Nivel_1_Initiator : MonoBehaviour
+public class ZC_Nivel_2_Initiator : MonoBehaviour
 {
     [Header("La parte editable está en su Scriptable Object")]
     
@@ -12,9 +12,11 @@ public class ZC_Nivel_1_Initiator : MonoBehaviour
     public InputActionAsset inputActions;
     public ScriptableObject levelData;
 
+
     private GameObject character;
-    private CinemachineCamera cinemachineCamera;
     private Level_Data_Base nivelData;
+    private CinemachineCamera cinemachineCamera;
+
     void Awake()
     {
         inputActions.Disable();

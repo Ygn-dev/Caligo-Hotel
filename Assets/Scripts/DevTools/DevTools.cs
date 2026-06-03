@@ -63,18 +63,16 @@ public static class DevTools
     //SETUPS
     public static IEnumerator SetupCamara(CinemachineCamera camera, ScriptableObject levelDataSO, GameObject character)
     {
-        //camera.Follow = character.transform;
+        camera.Follow = null;
 
         // Obtener componentes necesarios
         Level_Data_Base nivelData = (Level_Data_Base)levelDataSO;
-        camera.Follow = character.transform;
 
-
-        CinemachinePositionComposer camPosCom =  camera.GetComponent<CinemachinePositionComposer>();
         CinemachineConfiner2D camConfiner = camera.GetComponent<CinemachineConfiner2D>();
+        CinemachinePositionComposer camPosCom =  camera.GetComponent<CinemachinePositionComposer>();     
 
-        camConfiner.SlowingDistance = nivelData.slowingDistance;
         camConfiner.Damping = nivelData.damping;
+        camConfiner.SlowingDistance = nivelData.slowingDistance;
 
         // cambiar screen position composer
         camera.Lens.OrthographicSize = nivelData.camaraZoom;
@@ -97,7 +95,20 @@ public static class DevTools
 
         camConfiner.BoundingShape2D = confiner.GetComponentInChildren<Collider2D>();
         camConfiner.InvalidateBoundingShapeCache();
+        
+        camera.Follow = character.transform;
 
+        yield return null;
+    }
+
+
+    public static IEnumerator SetupCharacter(GameObject character, Level_Data_Base nivelData, System.Action<GameObject> setCharacter)
+    {
+        if (character != null) yield break;
+            
+        GameObject newCharacter = Object.Instantiate(Resources.Load<GameObject>("Prefabs/Character"),nivelData.spawnPoint,Quaternion.identity);
+        newCharacter.GetComponent<Player_Respawn>().nivelData = nivelData;
+        setCharacter?.Invoke(newCharacter);
         yield return null;
     }
     
