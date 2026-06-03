@@ -14,9 +14,6 @@ public class Level_Data_Base : ScriptableObject
     public float damping;
     public float slowingDistance;
 
-    [Header("Confiner")]
-    public GameObject confiner;
-
     [Header("Spawn")]
     public Vector3 spawnPoint;
 }

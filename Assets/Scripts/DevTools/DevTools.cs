@@ -1,9 +1,7 @@
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Unity.Cinemachine;
 using System.Collections;
-using Unity.VisualScripting;
 
 public static class DevTools
 {
@@ -95,9 +93,9 @@ public static class DevTools
         camPosCom.Composition.ScreenPosition = nivelData.screenPositionComposer;
         
         // Cambiar confiner
-        GameObject confinerInst = Object.Instantiate(nivelData.confiner);
+        GameObject confiner = GameObject.FindGameObjectWithTag("Confiner");
 
-        camConfiner.BoundingShape2D = confinerInst.GetComponentInChildren<Collider2D>();
+        camConfiner.BoundingShape2D = confiner.GetComponentInChildren<Collider2D>();
         camConfiner.InvalidateBoundingShapeCache();
 
         yield return null;

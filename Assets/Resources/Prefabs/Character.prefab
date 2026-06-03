@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3745029796539125118}
   - component: {fileID: 1518395190169985094}
+  - component: {fileID: 3793149352762793182}
   m_Layer: 0
   m_Name: Death_Trigger
   m_TagString: Untagged
@@ -69,6 +70,19 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 1.67}
   m_Size: {x: 0.7, y: 1.7}
   m_Direction: 0
+--- !u!114 &3793149352762793182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2379710639001425360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0738c92545e23f9469e9f2638a83c7c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player_Respawn_Trigger
+  playerRespawn: {fileID: 7078307095271022054}
 --- !u!1 &3851179027187527990
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,3 +306,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb4b74192cc78ba4eaf5693795d5457b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  duracion: 0.15
+  amplitud: 0.08
+  frecuencia: 45
+  blinkFreq: 25
+  tiempoDeEspera: 1
+  animator: {fileID: 1804999276393202060}
+  move: {fileID: 9071938090449222851, guid: e75c53da0f7f49f4aae3d0a6e4b3cca4, type: 3}
+  characterTransform: {fileID: 6248925369724994488}
+  spriteRenderer: {fileID: 1923287043528573702}
+  DeathTrigger: {fileID: 1518395190169985094}

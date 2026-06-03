@@ -3,12 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Confiner
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - DeathZone
   - Water
   - UI
   - 
@@ -44,14 +45,14 @@ TagManager:
   - name: Ground
     uniqueID: 1139074307
     locked: 0
-  - name: Walk_Behind
-    uniqueID: 3216850729
+  - name: Walk_In_Front
+    uniqueID: 526084475
     locked: 0
   - name: Player
     uniqueID: 1999776235
     locked: 0
-  - name: Walk_In_Front
-    uniqueID: 526084475
+  - name: Walk_Behind
+    uniqueID: 3216850729
     locked: 0
   m_RenderingLayers:
   - Default

@@ -9,6 +9,10 @@ using UnityEngine.InputSystem;
 
 public class Lobby_Initiator : MonoBehaviour
 {
+    [Header("La parte editable está en su Scriptable Object")]
+    
+    [Space]
+    [Header("No Editable")]
     public Image fade;
     private GameObject character;
     public AnimationCurve fadeCurve;

@@ -84,7 +84,7 @@ public class Input_Schema_Manager : MonoBehaviour
         if(esDrift(context)) return;
         if( currentSchema != GetSchema(context))
         {
-            Debug.Log("Esquema de control cambiado a: " + GetSchema(context));
+            //Debug.Log("Esquema de control cambiado a: " + GetSchema(context));
             currentSchema = GetSchema(context);
             ChangedSchema?.Invoke(currentSchema);
         }
@@ -113,7 +113,7 @@ public class Input_Schema_Manager : MonoBehaviour
             // Cambiar el esquema a "Keyboard" si no lo está ya
             if(currentSchema != "Keyboard")
             {
-                Debug.Log("Esquema de control cambiado a: Keyboard");
+                //Debug.Log("Esquema de control cambiado a: Keyboard");
                 currentSchema = "Keyboard";
                 ChangedSchema?.Invoke(currentSchema);
             }
@@ -123,7 +123,7 @@ public class Input_Schema_Manager : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             EventSystem.current.SetSelectedGameObject(null);
             
-            Debug.Log("Modo cursor activado");
+            //Debug.Log("Modo cursor activado");
         }
         else
         {
@@ -156,7 +156,7 @@ public class Input_Schema_Manager : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
 
 
-            Debug.Log("Modo cursor desactivado");
+            //Debug.Log("Modo cursor desactivado");
         }
     }
 
