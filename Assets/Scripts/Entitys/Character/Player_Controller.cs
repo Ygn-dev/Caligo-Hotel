@@ -3,7 +3,12 @@ using UnityEngine.InputSystem;
 
 public class Player_Controller : MonoBehaviour
 {
+    [Header("Editable")]
     public float speed = 5f;
+
+    [Space]
+
+    [Header("No Editable")]
     public InputActionReference move;
     [HideInInspector] public Vector2 moveInputVector;
     

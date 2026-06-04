@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 5446591379806569782}
   - component: {fileID: 303699484658207876}
   - component: {fileID: 7078307095271022054}
+  - component: {fileID: 113335022753730307}
   m_Layer: 0
   m_Name: Character
   m_TagString: Player
@@ -310,9 +311,22 @@ MonoBehaviour:
   amplitud: 0.08
   frecuencia: 45
   blinkFreq: 25
-  tiempoDeEspera: 1
   animator: {fileID: 1804999276393202060}
   move: {fileID: 9071938090449222851, guid: e75c53da0f7f49f4aae3d0a6e4b3cca4, type: 3}
   characterTransform: {fileID: 6248925369724994488}
   spriteRenderer: {fileID: 1923287043528573702}
   DeathTrigger: {fileID: 1518395190169985094}
+  nivelData: {fileID: 0}
+--- !u!114 &113335022753730307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3851179027187527990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0acccc0339737b4dadf587ebaa5bfae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player_Interact
+  Interact: {fileID: -5659583082084787350, guid: e75c53da0f7f49f4aae3d0a6e4b3cca4, type: 3}

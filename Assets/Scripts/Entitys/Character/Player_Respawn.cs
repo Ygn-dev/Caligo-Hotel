@@ -6,7 +6,6 @@ using UnityEngine.InputSystem;
 
 public class Player_Respawn : MonoBehaviour
 {
-    
     [Header("Editable")]
     public float duracion = 0.15f;
     public float amplitud = 0.08f;
@@ -14,18 +13,18 @@ public class Player_Respawn : MonoBehaviour
     public float blinkFreq = 25f;
 
     [Space]
+
     [Header("No Editable")]
     public Animator animator;
     public InputActionReference move;
     public event Action RespawnEvent;
+    public event Action ReiniciarNivelEvent;
     public Transform characterTransform;
     public SpriteRenderer spriteRenderer;
     public CapsuleCollider2D DeathTrigger;
     [HideInInspector] public Level_Data_Base nivelData;
 
     
-
-
     private void OnEnable()
     {
         RespawnEvent += OnRespawn;
@@ -52,6 +51,8 @@ public class Player_Respawn : MonoBehaviour
 
     private IEnumerator PostRespawn()
     {
+        ReiniciarNivelEvent?.Invoke();
+
         Vector3 spawnPoint;
 
         if(nivelData == null) spawnPoint = Vector3.zero;
