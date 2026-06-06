@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 2379710639001425360}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.03, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -67,8 +67,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 1.67}
-  m_Size: {x: 0.7, y: 1.7}
+  m_Offset: {x: 0, y: 1.65}
+  m_Size: {x: 0.75, y: 2.25}
   m_Direction: 0
 --- !u!114 &3793149352762793182
 MonoBehaviour:
@@ -116,7 +116,7 @@ Transform:
   m_GameObject: {fileID: 3851179027187527990}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.03, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -265,8 +265,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.69}
-  m_Size: {x: 1.15, y: 1.35}
+  m_Offset: {x: 0.03, y: 0.65}
+  m_Size: {x: 2, y: 2}
   m_Direction: 0
 --- !u!114 &5446591379806569782
 MonoBehaviour:
@@ -280,7 +280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ea049d75e1be6f4e87a945fe3096f75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player_Controller
-  speed: 4.5
+  speed: 6
   move: {fileID: 9071938090449222851, guid: e75c53da0f7f49f4aae3d0a6e4b3cca4, type: 3}
   moveInputVector: {x: 0, y: 0}
 --- !u!114 &303699484658207876

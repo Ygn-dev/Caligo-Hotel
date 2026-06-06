@@ -54,6 +54,9 @@ TagManager:
   - name: Walk_Behind
     uniqueID: 3216850729
     locked: 0
+  - name: Top_Layer
+    uniqueID: 2000297461
+    locked: 0
   m_RenderingLayers:
   - Default
   m_MigratedRenderPipelines: []
