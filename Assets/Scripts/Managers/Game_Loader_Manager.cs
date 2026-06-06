@@ -9,8 +9,13 @@ public class Game_Loader_Manager : MonoBehaviour
     //SINGLETON
     public static Game_Loader_Manager Instance { get; private set; }
 
+    [Header("Editable")]
     public AnimationCurve curvaFade;
     public float duracionFade;
+
+    [Space]
+
+    [Header("No Editable")]
     public Canvas canvas;
     public Image fadeImage;
     
@@ -28,9 +33,16 @@ public class Game_Loader_Manager : MonoBehaviour
         StartCoroutine(LoadSceneAsync("Lobby"));
     }
 
+    // CARGAR ESCENA
+    public void LoadScene(string sceneName)
+    {
+        StartCoroutine(LoadSceneAsync(sceneName));
+    }
+
     private IEnumerator LoadSceneAsync(string sceneName)
     {
         canvas.gameObject.SetActive(true);
+        fadeImage.color = new Color(fadeImage.color.r, fadeImage.color.g, fadeImage.color.b, 0f);
         yield return StartCoroutine(FadeIn(duracionFade));
         isLoadingScreenActive = true;
 

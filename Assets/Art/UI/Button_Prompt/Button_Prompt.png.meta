@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 657f07a12a961ff4a9015e698a6ebdd5
+guid: ef09aa4540de7e54986268033aee001e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3994682802055368237
-    second: Palanca_Izq_02_0
+      213: -6071673662991868999
+    second: globo base2_0001_0
+  - first:
+      213: -310017012163326805
+    second: globo base2_0001_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +40,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +78,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,23 +116,45 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Palanca_Izq_02_0
+      name: globo base2_0001_0
       rect:
         serializedVersion: 2
-        x: 50
-        y: 60
-        width: 290
-        height: 310
-      alignment: 9
-      pivot: {x: 0.5, y: 0.02}
+        x: 15
+        y: 9
+        width: 169
+        height: 177
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d2e4fdef7d6ff6730800000000000000
-      internalID: 3994682802055368237
+      spriteID: 9bb564df8f41dbba0800000000000000
+      internalID: -6071673662991868999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: globo base2_0001_1
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 7
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bac4da38b2992bbf0800000000000000
+      internalID: -310017012163326805
       vertices: []
       indices: 
       edges: []
@@ -138,7 +163,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: c23585db8512b60418322fbe9c2c9949
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -146,11 +171,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":400.0,"y":400.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      Palanca_Izq_02_0: 3994682802055368237
+      globo base2_0001_0: -6071673662991868999
+      globo base2_0001_1: -310017012163326805
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
