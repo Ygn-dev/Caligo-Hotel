@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ecced4d9e4fc4b4a9412bb0dba09a3c, type: 3}
+  m_Name: ZC_Nivel_3_Data
+  m_EditorClassIdentifier: Assembly-CSharp::Level_Data_Base
+  nivelName: Zona Camaras Nivel 3
+  camaraZoom: 8.5
+  screenPositionComposer: {x: 0, y: 0}
+  esDeadZone: 0
+  deadZoneWidthHeight: {x: 0, y: 0}
+  damping: 0.5
+  slowingDistance: 5
+  spawnPoint: {x: 0, y: 0, z: 0}
