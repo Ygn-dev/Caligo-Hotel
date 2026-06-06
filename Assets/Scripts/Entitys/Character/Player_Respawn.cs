@@ -17,8 +17,8 @@ public class Player_Respawn : MonoBehaviour
     [Header("No Editable")]
     public Animator animator;
     public InputActionReference move;
+    public event Action DeathEvent;
     public event Action RespawnEvent;
-    public event Action ReiniciarNivelEvent;
     public Transform characterTransform;
     public SpriteRenderer spriteRenderer;
     public CapsuleCollider2D DeathTrigger;
@@ -27,12 +27,12 @@ public class Player_Respawn : MonoBehaviour
     
     private void OnEnable()
     {
-        RespawnEvent += OnRespawn;
+        DeathEvent += OnRespawn;
     }
 
     public void RequestRespawn()
     {
-        RespawnEvent?.Invoke();
+        DeathEvent?.Invoke();
     }
 
     // Logica Respawn
@@ -51,7 +51,7 @@ public class Player_Respawn : MonoBehaviour
 
     private IEnumerator PostRespawn()
     {
-        ReiniciarNivelEvent?.Invoke();
+        RespawnEvent?.Invoke();
 
         Vector3 spawnPoint;
 

@@ -7,7 +7,8 @@ using UnityEditor;
 
 public enum ModoCamara
 {
-    Idle
+    Idle,
+    Paneo
 }
 
 public enum TipoAccionPalanca
@@ -23,44 +24,50 @@ public enum AccionPalanca
     Apagar,
 }
 
-
 public class Camara_Behavior : MonoBehaviour
 {
-    //No Editable
+    // No Editable
     public GameObject lente;
 
-
-    //Editable
+    // Editable
     public ModoCamara modoCamara;
+
     public bool tienePalanca;
     [HideInInspector] public TipoAccionPalanca tipoAccionPalanca;
     [HideInInspector] public AccionPalanca accionPalanca;
 
-    //MODO GIRAR
+    // MODO PANEO
+    [HideInInspector] public float tiempoEsperaPaneo;
+    [HideInInspector] public float gradosRotacionPaneo;
+    [HideInInspector] public float duracionRotacionPaneo;
+    [HideInInspector] public AnimationCurve curvaRotacionPaneo;
+
+    // MODO GIRAR POR PALANCA
     [HideInInspector] public float gradosDeGiro;
     [HideInInspector] public float duracionGiro;
     [HideInInspector] public AnimationCurve curvaGiro;
-    
-    //Variables privadas
+
+    // Variables privadas
     private Player_Respawn playerRespawn;
-    
-    // Valores iniciales
     private Quaternion rotacionInicialLente;
     private Coroutine corrutinaGiro;
-    
-    //MODO GIRAR
+    private Coroutine corrutinaPaneo;
     private bool estaGirando;
+    private bool estaPaneando;
+    private bool giroPendiente;
+    private float gradosGiroPendiente;
 
 
-    //Funciones
     private void Awake()
     {
         if (lente == null) return;
         rotacionInicialLente = lente.transform.localRotation;
     }
+
     private void OnEnable()
     {
         StartCoroutine(WaitForPlayer());
+        IniciarModoCamara();
     }
 
     private IEnumerator WaitForPlayer()
@@ -74,31 +81,150 @@ public class Camara_Behavior : MonoBehaviour
         }
 
         playerRespawn = player.GetComponent<Player_Respawn>();
-        playerRespawn.ReiniciarNivelEvent += OnPlayerRespawn;
+
+        if (playerRespawn != null)
+        {
+            playerRespawn.DeathEvent += OnPlayerDeath;
+            playerRespawn.RespawnEvent += OnPlayerRespawn;
+        }
     }
 
     private void OnDisable()
     {
         if (playerRespawn != null)
+        {
+            playerRespawn.DeathEvent -= OnPlayerDeath;
             playerRespawn.RespawnEvent -= OnPlayerRespawn;
+        }
+    }
+
+    private void IniciarModoCamara()
+    {
+        switch (modoCamara)
+        {
+            case ModoCamara.Idle:
+                break;
+
+            case ModoCamara.Paneo:
+                IniciarPaneo();
+                break;
+        }
+    }
+
+    private void IniciarPaneo()
+    {
+        if (estaPaneando) return;
+        corrutinaPaneo = StartCoroutine(PaneoCamara());
+    }
+
+    private IEnumerator PaneoCamara()
+    {
+        estaPaneando = true;
+
+        while (true)
+        {
+            // IDA
+            Quaternion rotacionInicial = lente.transform.localRotation;
+            Quaternion rotacionFinal = rotacionInicial * Quaternion.Euler(0f, 0f, gradosRotacionPaneo);
+            yield return RotarLente(rotacionInicial, rotacionFinal, duracionRotacionPaneo, curvaRotacionPaneo);
+            yield return EjecutarGiroPendienteSiExiste();
+            
+            // TIEMPO DE ESPERA
+            if (tiempoEsperaPaneo > 0f) yield return EsperarPaneo(tiempoEsperaPaneo);
+            yield return EjecutarGiroPendienteSiExiste();
+            
+            // VUELTA
+            rotacionInicial = lente.transform.localRotation;
+            rotacionFinal = rotacionInicial * Quaternion.Euler(0f, 0f, -gradosRotacionPaneo);
+            yield return RotarLente(rotacionInicial, rotacionFinal, duracionRotacionPaneo, curvaRotacionPaneo);
+            yield return EjecutarGiroPendienteSiExiste();
+
+            // TIEMPO DE ESPERA
+            if (tiempoEsperaPaneo > 0f) yield return EsperarPaneo(tiempoEsperaPaneo);
+            yield return EjecutarGiroPendienteSiExiste();
+        }
+    }
+
+    private IEnumerator EjecutarGiroPendienteSiExiste()
+    {
+        if (!giroPendiente) yield break;
+        if (estaGirando) yield break;
+        if (lente == null) yield break;
+
+        float grados = gradosGiroPendiente;
+
+        giroPendiente = false;
+        gradosGiroPendiente = 0f;
+
+        estaGirando = true;
+
+        Quaternion rotacionInicial = lente.transform.localRotation;
+        Quaternion rotacionFinal = rotacionInicial * Quaternion.Euler(0f, 0f, grados);
+
+        yield return RotarLente(
+            rotacionInicial,
+            rotacionFinal,
+            duracionGiro,
+            curvaGiro
+        );
+
+        estaGirando = false;
+    }
+
+    private IEnumerator EsperarPaneo(float duracion)
+    {
+        float tiempo = 0f;
+
+        while (tiempo < duracion)
+        {
+            // Si durante la espera se activa la palanca,
+            // cortamos la espera para ejecutar el giro pendiente.
+            if (giroPendiente) yield break;
+            tiempo += Time.deltaTime;
+            yield return null;
+        }
+    }
+
+
+    private void OnPlayerDeath()
+    {
+        DetenerModoYAcciones();
     }
 
     private void OnPlayerRespawn()
     {
-        if (estaGirando)
-        {  
+        if (lente != null)
+            lente.transform.localRotation = rotacionInicialLente;
+
+        IniciarModoCamara();
+    }
+
+    private void DetenerModoYAcciones()
+    {
+        if (corrutinaPaneo != null)
+        {
+            StopCoroutine(corrutinaPaneo);
+            corrutinaPaneo = null;
+        }
+
+        estaPaneando = false;
+
+        if (corrutinaGiro != null)
+        {
             StopCoroutine(corrutinaGiro);
             corrutinaGiro = null;
         }
 
-        estaGirando = false; 
-        lente.transform.localRotation = rotacionInicialLente;
+        estaGirando = false;
+
+        giroPendiente = false;
+        gradosGiroPendiente = 0f;
     }
 
     public void EjecutarAccion()
     {
         if (!tienePalanca) return;
-            
+
         switch (tipoAccionPalanca)
         {
             case TipoAccionPalanca.Simple:
@@ -106,11 +232,11 @@ public class Camara_Behavior : MonoBehaviour
                 break;
 
             case TipoAccionPalanca.Toggle:
-                //EjecutarModoToggle();
+                // EjecutarModoToggle();
                 break;
 
             case TipoAccionPalanca.UnaVez:
-                //EjecutarModoUnaVez();
+                // EjecutarModoUnaVez();
                 break;
         }
     }
@@ -124,17 +250,29 @@ public class Camara_Behavior : MonoBehaviour
                 break;
 
             case AccionPalanca.Apagar:
-                //Apagar();
+                // Apagar();
                 break;
         }
     }
 
     private void IniciarGiro(float grados)
     {
+        if (lente == null) return;
+
+        // Si está paneando, no giramos inmediatamente.
+        // Guardamos el giro para ejecutarlo cuando termine el tramo actual del paneo.
+        if (estaPaneando)
+        {
+            giroPendiente = true;
+            gradosGiroPendiente += grados;
+            return;
+        }
+
         if (estaGirando) return;
+
         corrutinaGiro = StartCoroutine(GirarCamara(grados));
     }
-    
+
     private IEnumerator GirarCamara(float grados)
     {
         estaGirando = true;
@@ -142,14 +280,43 @@ public class Camara_Behavior : MonoBehaviour
         Quaternion rotacionInicial = lente.transform.localRotation;
         Quaternion rotacionFinal = rotacionInicial * Quaternion.Euler(0f, 0f, grados);
 
+        yield return RotarLente(
+            rotacionInicial,
+            rotacionFinal,
+            duracionGiro,
+            curvaGiro
+        );
+
+        estaGirando = false;
+        corrutinaGiro = null;
+    }
+
+    private IEnumerator RotarLente(
+        Quaternion rotacionInicial,
+        Quaternion rotacionFinal,
+        float duracion,
+        AnimationCurve curva
+    )
+    {
+        if (lente == null) yield break;
+
+        if (duracion <= 0f)
+        {
+            lente.transform.localRotation = rotacionFinal;
+            yield break;
+        }
+
         float tiempo = 0f;
 
-        while (tiempo < duracionGiro)
+        while (tiempo < duracion)
         {
             tiempo += Time.deltaTime;
 
-            float progreso = tiempo / duracionGiro;
-            float progresoConCurva = curvaGiro.Evaluate(progreso);
+            float progreso = Mathf.Clamp01(tiempo / duracion);
+
+            float progresoConCurva = curva != null
+                ? curva.Evaluate(progreso)
+                : progreso;
 
             lente.transform.localRotation = Quaternion.Lerp(
                 rotacionInicial,
@@ -161,8 +328,6 @@ public class Camara_Behavior : MonoBehaviour
         }
 
         lente.transform.localRotation = rotacionFinal;
-        estaGirando = false;
-        yield return null;
     }
 }
 
@@ -181,6 +346,11 @@ public class Camara_Behavior_Editor : Editor
         SerializedProperty tipoAccionPalanca = serializedObject.FindProperty("tipoAccionPalanca");
         SerializedProperty accionPalanca = serializedObject.FindProperty("accionPalanca");
 
+        SerializedProperty gradosRotacionPaneo = serializedObject.FindProperty("gradosRotacionPaneo");
+        SerializedProperty duracionRotacionPaneo = serializedObject.FindProperty("duracionRotacionPaneo");
+        SerializedProperty curvaRotacionPaneo = serializedObject.FindProperty("curvaRotacionPaneo");
+        SerializedProperty tiempoEsperaPaneo = serializedObject.FindProperty("tiempoEsperaPaneo");
+
         SerializedProperty gradosDeGiro = serializedObject.FindProperty("gradosDeGiro");
         SerializedProperty duracionGiro = serializedObject.FindProperty("duracionGiro");
         SerializedProperty curvaGiro = serializedObject.FindProperty("curvaGiro");
@@ -198,6 +368,41 @@ public class Camara_Behavior_Editor : Editor
             new GUIContent("Modo cámara")
         );
 
+        if ((ModoCamara)modoCamara.enumValueIndex == ModoCamara.Paneo)
+        {
+            EditorGUILayout.Space();
+
+            EditorGUILayout.LabelField("Configuración de paneo", EditorStyles.boldLabel);
+
+            EditorGUI.indentLevel++;
+
+            EditorGUILayout.BeginVertical("box");
+
+            EditorGUILayout.PropertyField(
+                gradosRotacionPaneo,
+                new GUIContent("Grados de rotación")
+            );
+
+            EditorGUILayout.PropertyField(
+                duracionRotacionPaneo,
+                new GUIContent("Duración de rotación")
+            );
+
+            EditorGUILayout.PropertyField(
+                curvaRotacionPaneo,
+                new GUIContent("Curva de rotación")
+            );
+
+            EditorGUILayout.PropertyField(
+                tiempoEsperaPaneo,
+                new GUIContent("Tiempo de espera")
+            );
+
+            EditorGUILayout.EndVertical();
+
+            EditorGUI.indentLevel--;
+        }
+
         EditorGUILayout.Space();
 
         EditorGUILayout.LabelField("Configuración de palanca", EditorStyles.boldLabel);
@@ -212,8 +417,6 @@ public class Camara_Behavior_Editor : Editor
             EditorGUI.indentLevel++;
 
             EditorGUILayout.BeginVertical("box");
-
-            EditorGUI.indentLevel++;
 
             EditorGUILayout.PropertyField(
                 tipoAccionPalanca,
@@ -246,8 +449,6 @@ public class Camara_Behavior_Editor : Editor
 
                 EditorGUI.indentLevel--;
             }
-
-            EditorGUI.indentLevel--;
 
             EditorGUILayout.EndVertical();
 
