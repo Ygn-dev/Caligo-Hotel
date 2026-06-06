@@ -459,7 +459,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1275818568}
+  m_Father: {fileID: 389823975}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &215924495
 SpriteRenderer:
@@ -506,8 +506,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 1999776235
-  m_SortingLayer: 3
+  m_SortingLayerID: 526084475
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -493802058677507074, guid: 2ecdf4325479fb04b8a37b688994675f, type: 3}
@@ -597,6 +597,39 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &389823974
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 389823975}
+  m_Layer: 0
+  m_Name: Camera2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &389823975
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 389823974}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 9, y: -1.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 215924494}
+  - {fileID: 1275818568}
+  m_Father: {fileID: 1671371597}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &424989587
 GameObject:
   m_ObjectHideFlags: 0
@@ -628,7 +661,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1180203710}
+  m_Father: {fileID: 1260936318}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &424989589
 SpriteRenderer:
@@ -675,8 +708,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 1999776235
-  m_SortingLayer: 3
+  m_SortingLayerID: 526084475
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -493802058677507074, guid: 2ecdf4325479fb04b8a37b688994675f, type: 3}
@@ -1754,7 +1787,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -5}
+  m_Offset: {x: 0, y: -1}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1764,7 +1797,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 30, y: 20}
+  m_Size: {x: 32, y: 26}
   m_EdgeRadius: 0
 --- !u!4 &1083456795
 Transform:
@@ -1825,7 +1858,7 @@ GameObject:
   - component: {fileID: 1180203711}
   - component: {fileID: 1180203712}
   m_Layer: 0
-  m_Name: Camara
+  m_Name: Cabezal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1899,14 +1932,13 @@ Transform:
   m_GameObject: {fileID: 1180203708}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 424989588}
   - {fileID: 676536878}
   - {fileID: 1282876266}
-  m_Father: {fileID: 1671371597}
+  m_Father: {fileID: 1260936318}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!210 &1180203711
 SortingGroup:
@@ -2361,6 +2393,39 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1260936317
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1260936318}
+  m_Layer: 0
+  m_Name: Camera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1260936318
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260936317}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1, y: 0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1180203710}
+  - {fileID: 424989588}
+  m_Father: {fileID: 1671371597}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1275818567
 GameObject:
   m_ObjectHideFlags: 0
@@ -2374,7 +2439,7 @@ GameObject:
   - component: {fileID: 1275818570}
   - component: {fileID: 1275818569}
   m_Layer: 0
-  m_Name: Camara (1)
+  m_Name: Cabezal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2389,14 +2454,13 @@ Transform:
   m_GameObject: {fileID: 1275818567}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9, y: -1.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 215924494}
   - {fileID: 1642838493}
   - {fileID: 1333326226}
-  m_Father: {fileID: 1671371597}
+  m_Father: {fileID: 389823975}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1275818569
 MonoBehaviour:
@@ -6654,8 +6718,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1180203710}
-  - {fileID: 1275818568}
+  - {fileID: 1260936318}
+  - {fileID: 389823975}
   - {fileID: 215583129}
   - {fileID: 617161279}
   - {fileID: 425391819}
@@ -8543,8 +8607,8 @@ SceneRoots:
   - {fileID: 98112700}
   - {fileID: 1152577924}
   - {fileID: 1083456795}
-  - {fileID: 2143279178}
   - {fileID: 1638768687}
   - {fileID: 1859567182}
   - {fileID: 562114456}
   - {fileID: 298954319}
+  - {fileID: 2143279178}
