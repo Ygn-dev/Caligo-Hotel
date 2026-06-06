@@ -106,7 +106,7 @@ public static class DevTools
     {
         if (character != null) yield break;
             
-        GameObject newCharacter = Object.Instantiate(Resources.Load<GameObject>("Prefabs/Character"),nivelData.spawnPoint,Quaternion.identity);
+        GameObject newCharacter = Object.Instantiate(Resources.Load<GameObject>("Prefabs/Entitys/Character"),nivelData.spawnPoint,Quaternion.identity);
         newCharacter.GetComponent<Player_Respawn>().nivelData = nivelData;
         setCharacter?.Invoke(newCharacter);
         yield return null;
