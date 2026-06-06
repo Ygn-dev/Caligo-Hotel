@@ -257,10 +257,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game_Loader_Manager
   curvaFade:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 3
+      inWeight: 0
+      outWeight: 0.333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 0.5
+      inSlope: 1.9999939
+      outSlope: 1.9999943
+      tangentMode: 0
+      weightedMode: 3
+      inWeight: 0.33333403
+      outWeight: 0.33333397
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 3
+      inWeight: 0.33333397
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  duracionFade: 2.5
+  canvas: {fileID: 4064699177347184686}
+  fadeImage: {fileID: 478907694899751311}
 --- !u!114 &4989836440508157183
 MonoBehaviour:
   m_ObjectHideFlags: 0

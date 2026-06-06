@@ -22,27 +22,59 @@ public class Dynamc_Icon : MonoBehaviour
     public SpriteRenderer spriteRenderer;
 
     private bool imageMode;
+    private bool initialized;
 
-
-    void Awake() {
-        if(image != null)
+    void Awake()
+    {
+        if (image != null)
+        {
             imageMode = true;
-        else if(spriteRenderer != null)
+            initialized = true;
+        }
+        else if (spriteRenderer != null)
+        {
             imageMode = false;
+            initialized = true;
+        }
         else
         {
             Debug.LogError("No se ha asignado ni Image ni SpriteRenderer en el inspector.");
-            return;
+            enabled = false;
         }
-
-        Input_Schema_Manager.ChangedSchema += UpdateIcon;
-        UpdateIcon(Input_Schema_Manager.Instance.currentSchema);
     }
 
+    private void OnEnable()
+    {
+        if (!initialized) return;
+
+        // Evita suscribirse dos veces por accidente
+        Input_Schema_Manager.ChangedSchema -= UpdateIcon;
+        Input_Schema_Manager.ChangedSchema += UpdateIcon;
+
+        if (Input_Schema_Manager.Instance != null)
+        {
+            UpdateIcon(Input_Schema_Manager.Instance.currentSchema);
+        }
+    }
+
+    private void OnDisable()
+    {
+        Input_Schema_Manager.ChangedSchema -= UpdateIcon;
+    }
+
+    private void OnDestroy()
+    {
+        Input_Schema_Manager.ChangedSchema -= UpdateIcon;
+    }
 
     private void UpdateIcon(string newSchema)
     {
-        //Debug.Log($"Actualizando icono para el esquema: {newSchema}");
+        if (actionReference == null || actionReference.action == null)
+        {
+            Debug.LogWarning("No se ha asignado un InputActionReference.");
+            return;
+        }
+
         var action = actionReference.action;
 
         for (int i = 0; i < action.bindings.Count; i++)
@@ -50,47 +82,64 @@ public class Dynamc_Icon : MonoBehaviour
             var binding = action.bindings[i];
 
             string path = binding.effectivePath;
-            string grupos = binding.groups; // Aquí están los control schemes
+            string grupos = binding.groups;
 
-            // Caso especial: composite (ej: Move con WASD/Flechas)
+            // Caso especial: composite, por ejemplo Move con WASD
             if (binding.isComposite)
             {
                 string resultado = "Sprites_Icons_UI/" + newSchema + "/" + action.name;
                 Sprite nuevoSprite = Resources.Load<Sprite>(resultado);
+
                 if (nuevoSprite == null)
                 {
                     Debug.LogWarning($"No se pudo cargar el composite: {resultado}");
                     continue;
                 }
-                if(imageMode)
-                    image.sprite = nuevoSprite;
-                else
-                    spriteRenderer.sprite = nuevoSprite;
+
+                SetSprite(nuevoSprite);
                 return;
             }
 
             // Caso normal
-            if (grupos.Contains(newSchema))
+            if (!string.IsNullOrEmpty(grupos) && grupos.Contains(newSchema))
             {
-                string resultado = "Sprites_Icons_UI/" + newSchema + "/" + path.Split('/')[1];// "SpritesIconsUI/Keyboard/enter"
+                if (string.IsNullOrEmpty(path) || !path.Contains("/"))
+                {
+                    Debug.LogWarning($"Binding path inválido: {path}");
+                    continue;
+                }
+
+                string buttonName = path.Split('/')[1];
+                string resultado = "Sprites_Icons_UI/" + newSchema + "/" + buttonName;
+
                 Sprite nuevoSprite = Resources.Load<Sprite>(resultado);
+
                 if (nuevoSprite == null)
                 {
                     Debug.LogWarning($"No se pudo cargar la imagen desde el path: {resultado}");
                     continue;
                 }
-                else
-                {
-                    if(imageMode)
-                        image.sprite = nuevoSprite;
-                    else
-                        spriteRenderer.sprite = nuevoSprite;
-                    return; 
-                }
+
+                SetSprite(nuevoSprite);
+                return;
             }
         }
 
         Debug.LogWarning($"No se encontró una imagen para el esquema: {newSchema}");
+    }
+
+    private void SetSprite(Sprite nuevoSprite)
+    {
+        if (imageMode)
+        {
+            if (image != null)
+                image.sprite = nuevoSprite;
+        }
+        else
+        {
+            if (spriteRenderer != null)
+                spriteRenderer.sprite = nuevoSprite;
+        }
     }
 }
 

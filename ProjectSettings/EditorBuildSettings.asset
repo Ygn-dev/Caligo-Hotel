@@ -14,5 +14,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Lobby/Lobby.unity
     guid: da69d144ea3dff54ba7ee57d30a75b48
+  - enabled: 1
+    path: Assets/Scenes/ZC_Nivel_1/ZC_Nivel_1.unity
+    guid: 2b7657e51c7e27f458370f43ee97af54
+  - enabled: 1
+    path: Assets/Scenes/ZC_Nivel_2/ZC_Nivel_2.unity
+    guid: b2c3a7cd01789e94abba3dbcde9eb9ea
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
