@@ -312,7 +312,7 @@ MonoBehaviour:
   frecuencia: 45
   blinkFreq: 25
   animator: {fileID: 1804999276393202060}
-  move: {fileID: 9071938090449222851, guid: e75c53da0f7f49f4aae3d0a6e4b3cca4, type: 3}
+  inputActions: {fileID: -944628639613478452, guid: e75c53da0f7f49f4aae3d0a6e4b3cca4, type: 3}
   characterTransform: {fileID: 6248925369724994488}
   spriteRenderer: {fileID: 1923287043528573702}
   DeathTrigger: {fileID: 1518395190169985094}

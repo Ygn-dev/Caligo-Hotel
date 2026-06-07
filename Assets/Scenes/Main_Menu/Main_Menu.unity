@@ -768,6 +768,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Dynamc_Icon_Image
   actionReference: {fileID: 606295273958856084, guid: e75c53da0f7f49f4aae3d0a6e4b3cca4, type: 3}
+  tipoDeObjeto: 0
+  image: {fileID: 260943986}
+  spriteRenderer: {fileID: 0}
 --- !u!114 &260943986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1673,6 +1676,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Dynamc_Icon_Image
   actionReference: {fileID: 606295273958856084, guid: e75c53da0f7f49f4aae3d0a6e4b3cca4, type: 3}
+  tipoDeObjeto: 0
+  image: {fileID: 568695791}
+  spriteRenderer: {fileID: 0}
 --- !u!1 &578883299
 GameObject:
   m_ObjectHideFlags: 0
@@ -5086,6 +5092,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Dynamc_Icon_Image
   actionReference: {fileID: -677293414017617857, guid: e75c53da0f7f49f4aae3d0a6e4b3cca4, type: 3}
+  tipoDeObjeto: 0
+  image: {fileID: 1604651418}
+  spriteRenderer: {fileID: 0}
 --- !u!114 &1604651418
 MonoBehaviour:
   m_ObjectHideFlags: 0

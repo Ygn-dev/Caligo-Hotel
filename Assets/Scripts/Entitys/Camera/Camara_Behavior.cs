@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.Rendering.Universal;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -22,12 +23,15 @@ public enum AccionPalanca
 {
     Girar,
     Apagar,
+    Encender
 }
 
 public class Camara_Behavior : MonoBehaviour
 {
     // No Editable
     public GameObject lente;
+    public Light2D luzCamara;
+    public Collider2D colliderCamara;
 
     // Editable
     public ModoCamara modoCamara;
@@ -40,32 +44,63 @@ public class Camara_Behavior : MonoBehaviour
     [HideInInspector] public float tiempoEsperaPaneo;
     [HideInInspector] public float gradosRotacionPaneo;
     [HideInInspector] public float duracionRotacionPaneo;
-    [HideInInspector] public AnimationCurve curvaRotacionPaneo;
+    [HideInInspector] public AnimationCurve curvaRotacionPaneo = AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
 
     // MODO GIRAR POR PALANCA
     [HideInInspector] public float gradosDeGiro;
     [HideInInspector] public float duracionGiro;
-    [HideInInspector] public AnimationCurve curvaGiro;
+    [HideInInspector] public AnimationCurve curvaGiro = AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
+
+    // MODO ENCENDER / APAGAR
+    [HideInInspector] public float duracionParpadeo = 0.5f;
+    [HideInInspector] public float frecuenciaParpadeo = 10f;
 
     // Variables privadas
     private Player_Respawn playerRespawn;
+
     private Quaternion rotacionInicialLente;
+
     private Coroutine corrutinaGiro;
     private Coroutine corrutinaPaneo;
+    private Coroutine corrutinaParpadeo;
+
     private bool estaGirando;
     private bool estaPaneando;
-    private bool giroPendiente;
-    private float gradosGiroPendiente;
 
+    private bool giroPendiente;
+    private bool giroPendienteEsAbsoluto;
+    private float gradosGiroPendiente;
+    private Quaternion rotacionFinalGiroPendiente;
+
+    private bool toggleSiguienteEncender;
+    private bool toggleSiguienteGirar;
+
+    private bool estadoInicialLuz;
+    private bool estadoInicialCollider;
 
     private void Awake()
     {
-        if (lente == null) return;
-        rotacionInicialLente = lente.transform.localRotation;
+        if (lente != null)
+        {
+            rotacionInicialLente = lente.transform.localRotation;
+        }
+
+        if (luzCamara != null)
+        {
+            estadoInicialLuz = luzCamara.enabled;
+        }
+
+        if (colliderCamara != null)
+        {
+            estadoInicialCollider = colliderCamara.enabled;
+        }
+
+        InicializarToggles();
     }
 
     private void OnEnable()
     {
+        InicializarToggles();
         StartCoroutine(WaitForPlayer());
         IniciarModoCamara();
     }
@@ -96,6 +131,8 @@ public class Camara_Behavior : MonoBehaviour
             playerRespawn.DeathEvent -= OnPlayerDeath;
             playerRespawn.RespawnEvent -= OnPlayerRespawn;
         }
+
+        DetenerModoYAcciones();
     }
 
     private void IniciarModoCamara()
@@ -113,7 +150,9 @@ public class Camara_Behavior : MonoBehaviour
 
     private void IniciarPaneo()
     {
+        if (lente == null) return;
         if (estaPaneando) return;
+
         corrutinaPaneo = StartCoroutine(PaneoCamara());
     }
 
@@ -126,21 +165,31 @@ public class Camara_Behavior : MonoBehaviour
             // IDA
             Quaternion rotacionInicial = lente.transform.localRotation;
             Quaternion rotacionFinal = rotacionInicial * Quaternion.Euler(0f, 0f, gradosRotacionPaneo);
-            yield return RotarLente(rotacionInicial, rotacionFinal, duracionRotacionPaneo, curvaRotacionPaneo);
-            yield return EjecutarGiroPendienteSiExiste();
-            
-            // TIEMPO DE ESPERA
-            if (tiempoEsperaPaneo > 0f) yield return EsperarPaneo(tiempoEsperaPaneo);
-            yield return EjecutarGiroPendienteSiExiste();
-            
-            // VUELTA
-            rotacionInicial = lente.transform.localRotation;
-            rotacionFinal = rotacionInicial * Quaternion.Euler(0f, 0f, -gradosRotacionPaneo);
+
             yield return RotarLente(rotacionInicial, rotacionFinal, duracionRotacionPaneo, curvaRotacionPaneo);
             yield return EjecutarGiroPendienteSiExiste();
 
             // TIEMPO DE ESPERA
-            if (tiempoEsperaPaneo > 0f) yield return EsperarPaneo(tiempoEsperaPaneo);
+            if (tiempoEsperaPaneo > 0f)
+            {
+                yield return EsperarPaneo(tiempoEsperaPaneo);
+            }
+
+            yield return EjecutarGiroPendienteSiExiste();
+
+            // VUELTA
+            rotacionInicial = lente.transform.localRotation;
+            rotacionFinal = rotacionInicial * Quaternion.Euler(0f, 0f, -gradosRotacionPaneo);
+
+            yield return RotarLente(rotacionInicial, rotacionFinal, duracionRotacionPaneo, curvaRotacionPaneo);
+            yield return EjecutarGiroPendienteSiExiste();
+
+            // TIEMPO DE ESPERA
+            if (tiempoEsperaPaneo > 0f)
+            {
+                yield return EsperarPaneo(tiempoEsperaPaneo);
+            }
+
             yield return EjecutarGiroPendienteSiExiste();
         }
     }
@@ -151,15 +200,21 @@ public class Camara_Behavior : MonoBehaviour
         if (estaGirando) yield break;
         if (lente == null) yield break;
 
+        bool usarRotacionFinalAbsoluta = giroPendienteEsAbsoluto;
         float grados = gradosGiroPendiente;
+        Quaternion rotacionFinalAbsoluta = rotacionFinalGiroPendiente;
 
         giroPendiente = false;
+        giroPendienteEsAbsoluto = false;
         gradosGiroPendiente = 0f;
 
         estaGirando = true;
 
         Quaternion rotacionInicial = lente.transform.localRotation;
-        Quaternion rotacionFinal = rotacionInicial * Quaternion.Euler(0f, 0f, grados);
+
+        Quaternion rotacionFinal = usarRotacionFinalAbsoluta
+            ? rotacionFinalAbsoluta
+            : rotacionInicial * Quaternion.Euler(0f, 0f, grados);
 
         yield return RotarLente(
             rotacionInicial,
@@ -177,14 +232,12 @@ public class Camara_Behavior : MonoBehaviour
 
         while (tiempo < duracion)
         {
-            // Si durante la espera se activa la palanca,
-            // cortamos la espera para ejecutar el giro pendiente.
             if (giroPendiente) yield break;
+
             tiempo += Time.deltaTime;
             yield return null;
         }
     }
-
 
     private void OnPlayerDeath()
     {
@@ -193,9 +246,24 @@ public class Camara_Behavior : MonoBehaviour
 
     private void OnPlayerRespawn()
     {
-        if (lente != null)
-            lente.transform.localRotation = rotacionInicialLente;
+        DetenerModoYAcciones();
 
+        if (lente != null)
+        {
+            lente.transform.localRotation = rotacionInicialLente;
+        }
+
+        if (luzCamara != null)
+        {
+            luzCamara.enabled = estadoInicialLuz;
+        }
+
+        if (colliderCamara != null)
+        {
+            colliderCamara.enabled = estadoInicialCollider;
+        }
+
+        InicializarToggles();
         IniciarModoCamara();
     }
 
@@ -217,7 +285,14 @@ public class Camara_Behavior : MonoBehaviour
 
         estaGirando = false;
 
+        if (corrutinaParpadeo != null)
+        {
+            StopCoroutine(corrutinaParpadeo);
+            corrutinaParpadeo = null;
+        }
+
         giroPendiente = false;
+        giroPendienteEsAbsoluto = false;
         gradosGiroPendiente = 0f;
     }
 
@@ -232,7 +307,7 @@ public class Camara_Behavior : MonoBehaviour
                 break;
 
             case TipoAccionPalanca.Toggle:
-                // EjecutarModoToggle();
+                EjecutarModoToggle();
                 break;
 
             case TipoAccionPalanca.UnaVez:
@@ -249,9 +324,130 @@ public class Camara_Behavior : MonoBehaviour
                 IniciarGiro(gradosDeGiro);
                 break;
 
-            case AccionPalanca.Apagar:
-                // Apagar();
+            case AccionPalanca.Encender:
+                IniciarCambioEncendido(true);
                 break;
+
+            case AccionPalanca.Apagar:
+                IniciarCambioEncendido(false);
+                break;
+        }
+    }
+
+    private void EjecutarModoToggle()
+    {
+        switch (accionPalanca)
+        {
+            case AccionPalanca.Girar:
+                EjecutarToggleGirar();
+                break;
+
+            case AccionPalanca.Encender:
+            case AccionPalanca.Apagar:
+                IniciarCambioEncendido(toggleSiguienteEncender);
+                toggleSiguienteEncender = !toggleSiguienteEncender;
+                break;
+        }
+    }
+
+    private void InicializarToggles()
+    {
+        InicializarToggleEncendidoApagado();
+
+        // En Toggle Girar, la primera activación siempre gira hacia los grados configurados.
+        toggleSiguienteGirar = true;
+    }
+
+    private void InicializarToggleEncendidoApagado()
+    {
+        switch (accionPalanca)
+        {
+            case AccionPalanca.Apagar:
+                // Si la acción base es Apagar, la primera activación apaga.
+                toggleSiguienteEncender = false;
+                break;
+
+            case AccionPalanca.Encender:
+                // Si la acción base es Encender, la primera activación enciende.
+                toggleSiguienteEncender = true;
+                break;
+        }
+    }
+
+    private void EjecutarToggleGirar()
+    {
+        if (lente == null) return;
+
+        Quaternion rotacionFinal = toggleSiguienteGirar
+            ? rotacionInicialLente * Quaternion.Euler(0f, 0f, gradosDeGiro)
+            : rotacionInicialLente;
+
+        bool giroAceptado = IniciarGiroHacia(rotacionFinal);
+
+        if (giroAceptado)
+        {
+            toggleSiguienteGirar = !toggleSiguienteGirar;
+        }
+    }
+
+    private void IniciarCambioEncendido(bool encender)
+    {
+        if (corrutinaParpadeo != null)
+        {
+            StopCoroutine(corrutinaParpadeo);
+            corrutinaParpadeo = null;
+        }
+
+        corrutinaParpadeo = StartCoroutine(ParpadearCamara(encender));
+    }
+
+    private IEnumerator ParpadearCamara(bool estadoFinalEncendido)
+    {
+        if (luzCamara == null)
+        {
+            AplicarEstadoCamara(estadoFinalEncendido);
+            corrutinaParpadeo = null;
+            yield break;
+        }
+
+        if (duracionParpadeo <= 0f || frecuenciaParpadeo <= 0f)
+        {
+            AplicarEstadoCamara(estadoFinalEncendido);
+            corrutinaParpadeo = null;
+            yield break;
+        }
+
+        float tiempo = 0f;
+        float intervalo = 1f / frecuenciaParpadeo;
+        float siguienteCambio = 0f;
+
+        while (tiempo < duracionParpadeo)
+        {
+            if (tiempo >= siguienteCambio)
+            {
+                luzCamara.enabled = !luzCamara.enabled;
+                siguienteCambio += intervalo;
+            }
+
+            tiempo += Time.deltaTime;
+            yield return null;
+        }
+
+        AplicarEstadoCamara(estadoFinalEncendido);
+
+        corrutinaParpadeo = null;
+    }
+
+    private void AplicarEstadoCamara(bool encendida)
+    {
+        if (luzCamara != null)
+        {
+            luzCamara.enabled = encendida;
+        }
+
+        if (colliderCamara != null)
+        {
+            colliderCamara.enabled = encendida;
         }
     }
 
@@ -259,11 +455,10 @@ public class Camara_Behavior : MonoBehaviour
     {
         if (lente == null) return;
 
-        // Si está paneando, no giramos inmediatamente.
-        // Guardamos el giro para ejecutarlo cuando termine el tramo actual del paneo.
         if (estaPaneando)
         {
             giroPendiente = true;
+            giroPendienteEsAbsoluto = false;
             gradosGiroPendiente += grados;
             return;
         }
@@ -273,12 +468,48 @@ public class Camara_Behavior : MonoBehaviour
         corrutinaGiro = StartCoroutine(GirarCamara(grados));
     }
 
+    private bool IniciarGiroHacia(Quaternion rotacionFinal)
+    {
+        if (lente == null) return false;
+
+        if (estaPaneando)
+        {
+            giroPendiente = true;
+            giroPendienteEsAbsoluto = true;
+            rotacionFinalGiroPendiente = rotacionFinal;
+            gradosGiroPendiente = 0f;
+            return true;
+        }
+
+        if (estaGirando) return false;
+
+        corrutinaGiro = StartCoroutine(GirarCamaraHacia(rotacionFinal));
+        return true;
+    }
+
     private IEnumerator GirarCamara(float grados)
     {
         estaGirando = true;
 
         Quaternion rotacionInicial = lente.transform.localRotation;
         Quaternion rotacionFinal = rotacionInicial * Quaternion.Euler(0f, 0f, grados);
+
+        yield return RotarLente(
+            rotacionInicial,
+            rotacionFinal,
+            duracionGiro,
+            curvaGiro
+        );
+
+        estaGirando = false;
+        corrutinaGiro = null;
+    }
+
+    private IEnumerator GirarCamaraHacia(Quaternion rotacionFinal)
+    {
+        estaGirando = true;
+
+        Quaternion rotacionInicial = lente.transform.localRotation;
 
         yield return RotarLente(
             rotacionInicial,
@@ -331,7 +562,6 @@ public class Camara_Behavior : MonoBehaviour
     }
 }
 
-
 #if UNITY_EDITOR
 [CustomEditor(typeof(Camara_Behavior))]
 public class Camara_Behavior_Editor : Editor
@@ -355,7 +585,12 @@ public class Camara_Behavior_Editor : Editor
         SerializedProperty duracionGiro = serializedObject.FindProperty("duracionGiro");
         SerializedProperty curvaGiro = serializedObject.FindProperty("curvaGiro");
 
+        SerializedProperty duracionParpadeo = serializedObject.FindProperty("duracionParpadeo");
+        SerializedProperty frecuenciaParpadeo = serializedObject.FindProperty("frecuenciaParpadeo");
+
         SerializedProperty lente = serializedObject.FindProperty("lente");
+        SerializedProperty luzCamara = serializedObject.FindProperty("luzCamara");
+        SerializedProperty colliderCamara = serializedObject.FindProperty("colliderCamara");
 
         EditorGUILayout.LabelField("Editable", EditorStyles.boldLabel);
 
@@ -428,7 +663,10 @@ public class Camara_Behavior_Editor : Editor
                 new GUIContent("Acción")
             );
 
-            if ((AccionPalanca)accionPalanca.enumValueIndex == AccionPalanca.Girar)
+            AccionPalanca accionSeleccionada = (AccionPalanca)accionPalanca.enumValueIndex;
+            TipoAccionPalanca tipoSeleccionado = (TipoAccionPalanca)tipoAccionPalanca.enumValueIndex;
+
+            if (accionSeleccionada == AccionPalanca.Girar)
             {
                 EditorGUI.indentLevel++;
 
@@ -446,6 +684,57 @@ public class Camara_Behavior_Editor : Editor
                     curvaGiro,
                     new GUIContent("Curva de giro")
                 );
+
+                if (tipoSeleccionado == TipoAccionPalanca.Toggle)
+                {
+                    EditorGUILayout.HelpBox(
+                        "En Toggle, la primera activación girará la cámara los grados configurados. La siguiente activación volverá a la rotación inicial, como un paneo manual.",
+                        MessageType.Info
+                    );
+                }
+
+                EditorGUI.indentLevel--;
+            }
+
+            if (
+                accionSeleccionada == AccionPalanca.Encender ||
+                accionSeleccionada == AccionPalanca.Apagar
+            )
+            {
+                EditorGUI.indentLevel++;
+
+                EditorGUILayout.Space();
+
+                EditorGUILayout.LabelField(
+                    "Configuración de parpadeo",
+                    EditorStyles.boldLabel
+                );
+
+                EditorGUILayout.PropertyField(
+                    duracionParpadeo,
+                    new GUIContent("Duración de parpadeo")
+                );
+
+                EditorGUILayout.PropertyField(
+                    frecuenciaParpadeo,
+                    new GUIContent("Frecuencia de parpadeo")
+                );
+
+                if (tipoSeleccionado == TipoAccionPalanca.Toggle)
+                {
+                    string primeraAccion = accionSeleccionada == AccionPalanca.Apagar
+                        ? "Apagar"
+                        : "Encender";
+
+                    string segundaAccion = accionSeleccionada == AccionPalanca.Apagar
+                        ? "Encender"
+                        : "Apagar";
+
+                    EditorGUILayout.HelpBox(
+                        "En Toggle, la primera activación será: " + primeraAccion + ". La siguiente será: " + segundaAccion + ". Luego seguirá alternando.",
+                        MessageType.Info
+                    );
+                }
 
                 EditorGUI.indentLevel--;
             }
@@ -466,6 +755,16 @@ public class Camara_Behavior_Editor : Editor
         EditorGUILayout.PropertyField(
             lente,
             new GUIContent("Lente")
+        );
+
+        EditorGUILayout.PropertyField(
+            luzCamara,
+            new GUIContent("Luz cámara")
+        );
+
+        EditorGUILayout.PropertyField(
+            colliderCamara,
+            new GUIContent("Collider cámara")
         );
 
         EditorGUI.indentLevel--;

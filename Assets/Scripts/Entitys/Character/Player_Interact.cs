@@ -3,16 +3,21 @@ using UnityEngine.InputSystem;
 
 public class Player_Interact : MonoBehaviour
 {
-    //[Header("Editable")]
     [Space]
     [Header("No Editable")]
     public InputActionReference Interact;
 
     private IInteractuable interactuableActual;
+    private Collider2D otherCol;
 
     private void OnEnable()
     {
         Interact.action.performed += OnInteract;
+    }
+
+    private void OnDisable()
+    {
+        Interact.action.performed -= OnInteract;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -20,17 +25,16 @@ public class Player_Interact : MonoBehaviour
         if (other.TryGetComponent(out IInteractuable interactuable))
         {
             interactuableActual = interactuable;
+            otherCol = other;
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.TryGetComponent(out IInteractuable interactuable))
+        if (other == otherCol)
         {
-            if (interactuable == interactuableActual)
-            {
-                interactuableActual = null;
-            }
+            interactuableActual = null;
+            otherCol = null;
         }
     }
 
@@ -41,5 +45,4 @@ public class Player_Interact : MonoBehaviour
             interactuableActual.Interactuar();
         }
     }
-
 }
