@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 4184591145051478385}
   - component: {fileID: 8025574823933603097}
   - component: {fileID: 6730406801550912991}
+  - component: {fileID: 2418569754988494071}
   - component: {fileID: 4852065355308587885}
   m_Layer: 0
   m_Name: Palanca
@@ -271,6 +272,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Palanca_Animations
   interactHandler: {fileID: 4852065355308587885}
   animator: {fileID: 4184591145051478385}
+--- !u!114 &2418569754988494071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5800005395896759427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0491f5ba56c93ec4991dabf2242f3ce9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Dynamc_Icon
+  actionReference: {fileID: 0}
+  tipoDeObjeto: 1
+  image: {fileID: 0}
+  spriteRenderer: {fileID: 3371636261790240288}
 --- !u!114 &4852065355308587885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -350,7 +367,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8533707944868987278, guid: b4f2d85a8b6935d4d8c4081716ec583c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -363,5 +381,10 @@ Transform:
 --- !u!95 &3328916765284345493 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 415300006834502896, guid: b4f2d85a8b6935d4d8c4081716ec583c, type: 3}
+  m_PrefabInstance: {fileID: 3166524282231315045}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &3371636261790240288 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 377093310589604933, guid: b4f2d85a8b6935d4d8c4081716ec583c, type: 3}
   m_PrefabInstance: {fileID: 3166524282231315045}
   m_PrefabAsset: {fileID: 0}

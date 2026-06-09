@@ -164,32 +164,16 @@ public class Camara_Behavior : MonoBehaviour
         {
             // IDA
             Quaternion rotacionInicial = lente.transform.localRotation;
-            Quaternion rotacionFinal = rotacionInicial * Quaternion.Euler(0f, 0f, gradosRotacionPaneo);
-
-            yield return RotarLente(rotacionInicial, rotacionFinal, duracionRotacionPaneo, curvaRotacionPaneo);
-            yield return EjecutarGiroPendienteSiExiste();
-
-            // TIEMPO DE ESPERA
-            if (tiempoEsperaPaneo > 0f)
-            {
-                yield return EsperarPaneo(tiempoEsperaPaneo);
-            }
-
-            yield return EjecutarGiroPendienteSiExiste();
-
+            yield return RotarLente(rotacionInicial, gradosRotacionPaneo, duracionRotacionPaneo, curvaRotacionPaneo);        
+            if (tiempoEsperaPaneo > 0f) yield return EsperarPaneo(tiempoEsperaPaneo);
+            
             // VUELTA
             rotacionInicial = lente.transform.localRotation;
-            rotacionFinal = rotacionInicial * Quaternion.Euler(0f, 0f, -gradosRotacionPaneo);
-
-            yield return RotarLente(rotacionInicial, rotacionFinal, duracionRotacionPaneo, curvaRotacionPaneo);
+            yield return RotarLente(rotacionInicial, -gradosRotacionPaneo, duracionRotacionPaneo, curvaRotacionPaneo);
             yield return EjecutarGiroPendienteSiExiste();
 
             // TIEMPO DE ESPERA
-            if (tiempoEsperaPaneo > 0f)
-            {
-                yield return EsperarPaneo(tiempoEsperaPaneo);
-            }
-
+            if (tiempoEsperaPaneo > 0f) yield return EsperarPaneo(tiempoEsperaPaneo);
             yield return EjecutarGiroPendienteSiExiste();
         }
     }
@@ -216,12 +200,11 @@ public class Camara_Behavior : MonoBehaviour
             ? rotacionFinalAbsoluta
             : rotacionInicial * Quaternion.Euler(0f, 0f, grados);
 
-        yield return RotarLente(
-            rotacionInicial,
-            rotacionFinal,
-            duracionGiro,
-            curvaGiro
-        );
+        float gradosCalculados = usarRotacionFinalAbsoluta 
+            ? (rotacionFinalAbsoluta.eulerAngles.z - lente.transform.localRotation.eulerAngles.z) 
+            : grados;
+        yield return RotarLente(lente.transform.localRotation, gradosCalculados, duracionGiro, curvaGiro);
+
 
         estaGirando = false;
     }
@@ -494,12 +477,7 @@ public class Camara_Behavior : MonoBehaviour
         Quaternion rotacionInicial = lente.transform.localRotation;
         Quaternion rotacionFinal = rotacionInicial * Quaternion.Euler(0f, 0f, grados);
 
-        yield return RotarLente(
-            rotacionInicial,
-            rotacionFinal,
-            duracionGiro,
-            curvaGiro
-        );
+        yield return RotarLente(rotacionInicial, grados, duracionGiro, curvaGiro);
 
         estaGirando = false;
         corrutinaGiro = null;
@@ -510,56 +488,45 @@ public class Camara_Behavior : MonoBehaviour
         estaGirando = true;
 
         Quaternion rotacionInicial = lente.transform.localRotation;
-
-        yield return RotarLente(
-            rotacionInicial,
-            rotacionFinal,
-            duracionGiro,
-            curvaGiro
-        );
+        float deltaZ = rotacionFinal.eulerAngles.z - rotacionInicial.eulerAngles.z;
+        yield return RotarLente(rotacionInicial, deltaZ, duracionGiro, curvaGiro);
 
         estaGirando = false;
         corrutinaGiro = null;
     }
 
-    private IEnumerator RotarLente(
-        Quaternion rotacionInicial,
-        Quaternion rotacionFinal,
-        float duracion,
-        AnimationCurve curva
-    )
+private IEnumerator RotarLente(
+    Quaternion rotacionInicial,
+    float gradosARotar,
+    float duracion,
+    AnimationCurve curva
+)
+{
+    if (lente == null) yield break;
+
+    if (duracion <= 0f)
     {
-        if (lente == null) yield break;
-
-        if (duracion <= 0f)
-        {
-            lente.transform.localRotation = rotacionFinal;
-            yield break;
-        }
-
-        float tiempo = 0f;
-
-        while (tiempo < duracion)
-        {
-            tiempo += Time.deltaTime;
-
-            float progreso = Mathf.Clamp01(tiempo / duracion);
-
-            float progresoConCurva = curva != null
-                ? curva.Evaluate(progreso)
-                : progreso;
-
-            lente.transform.localRotation = Quaternion.Lerp(
-                rotacionInicial,
-                rotacionFinal,
-                progresoConCurva
-            );
-
-            yield return null;
-        }
-
-        lente.transform.localRotation = rotacionFinal;
+        lente.transform.localRotation = rotacionInicial * Quaternion.Euler(0f, 0f, gradosARotar);
+        yield break;
     }
+
+    float anguloInicial = rotacionInicial.eulerAngles.z;
+    float tiempo = 0f;
+
+    while (tiempo < duracion)
+    {
+        tiempo += Time.deltaTime;
+
+        float progreso = Mathf.Clamp01(tiempo / duracion);
+        float progresoConCurva = curva != null ? curva.Evaluate(progreso) : progreso;
+
+        lente.transform.localRotation = Quaternion.Euler(0f, 0f, anguloInicial + gradosARotar * progresoConCurva);
+
+        yield return null;
+    }
+
+    lente.transform.localRotation = rotacionInicial * Quaternion.Euler(0f, 0f, gradosARotar);
+}
 }
 
 #if UNITY_EDITOR

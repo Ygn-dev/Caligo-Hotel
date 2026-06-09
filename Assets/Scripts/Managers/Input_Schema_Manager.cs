@@ -95,12 +95,25 @@ public class Input_Schema_Manager : MonoBehaviour
     private string GetSchema(InputAction.CallbackContext context)
     {
         var control = context.control;
-        var Schema = context.action.GetBindingForControl(control).Value;
-        string schemaString = Schema.ToString();
+        var binding = context.action.GetBindingForControl(control);
+
+        if (!binding.HasValue)
+            return "Unknown";
+
+        string schemaString = binding.Value.ToString();
+
         int startIndex = schemaString.IndexOf("[;");
+
+        if (startIndex == -1)
+            return schemaString; // o "Unknown"
+
         startIndex += 2;
+
         int endIndex = schemaString.IndexOf("]", startIndex);
-        return (endIndex != -1) ? schemaString.Substring(startIndex, endIndex - startIndex) : schemaString.Substring(startIndex);
+
+        return (endIndex != -1) 
+            ? schemaString.Substring(startIndex, endIndex - startIndex) 
+            : schemaString.Substring(startIndex);
     }
 
     private void SetMouseMode(bool esModoMouse)
