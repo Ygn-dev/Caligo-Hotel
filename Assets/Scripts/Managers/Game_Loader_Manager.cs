@@ -41,6 +41,8 @@ public class Game_Loader_Manager : MonoBehaviour
 
     private IEnumerator LoadSceneAsync(string sceneName)
     {
+        Time.timeScale = 0f;
+
         canvas.gameObject.SetActive(true);
         fadeImage.color = new Color(fadeImage.color.r, fadeImage.color.g, fadeImage.color.b, 0f);
         yield return StartCoroutine(FadeIn(duracionFade));
@@ -48,6 +50,8 @@ public class Game_Loader_Manager : MonoBehaviour
 
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
         while (!asyncLoad.isDone)yield return null;
+
+        Time.timeScale = 1f;
 
         yield return new WaitForSeconds(1f);
         yield return null;

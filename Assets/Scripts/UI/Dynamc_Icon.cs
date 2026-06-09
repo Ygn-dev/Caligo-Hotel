@@ -111,7 +111,7 @@ public class Dynamc_Icon : MonoBehaviour
 
                 string buttonName = path.Split('/')[1];
                 string resultado = "Sprites_Icons_UI/" + newSchema + "/" + buttonName;
-
+                
                 Sprite nuevoSprite = Resources.Load<Sprite>(resultado);
 
                 if (nuevoSprite == null)
@@ -124,8 +124,7 @@ public class Dynamc_Icon : MonoBehaviour
                 return;
             }
         }
-
-        Debug.LogWarning($"No se encontró una imagen para el esquema: {newSchema}");
+        Debug.LogWarning($"Asegúrate de que la ruta 'Sprites_Icons_UI/{newSchema}/' contenga las imágenes correspondientes a las acciones.");
     }
 
     private void SetSprite(Sprite nuevoSprite)
