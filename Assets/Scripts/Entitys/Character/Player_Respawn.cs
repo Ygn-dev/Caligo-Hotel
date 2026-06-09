@@ -16,23 +16,30 @@ public class Player_Respawn : MonoBehaviour
 
     [Header("No Editable")]
     public Animator animator;
-    public InputActionReference move;
+    public InputActionAsset inputActions;
+    public event Action DeathEvent;
     public event Action RespawnEvent;
-    public event Action ReiniciarNivelEvent;
     public Transform characterTransform;
     public SpriteRenderer spriteRenderer;
     public CapsuleCollider2D DeathTrigger;
     [HideInInspector] public Level_Data_Base nivelData;
-
     
+    private InputActionMap gameplayInputs;
+
+
+    void Awake()
+    {
+        gameplayInputs = inputActions.FindActionMap("Gameplay");
+    }
+
     private void OnEnable()
     {
-        RespawnEvent += OnRespawn;
+        DeathEvent += OnRespawn;
     }
 
     public void RequestRespawn()
     {
-        RespawnEvent?.Invoke();
+        DeathEvent?.Invoke();
     }
 
     // Logica Respawn
@@ -43,7 +50,7 @@ public class Player_Respawn : MonoBehaviour
 
     private IEnumerator SecuenciaPreRespawn()
     {
-        yield return StartCoroutine(DesactivarMovimiento());
+        yield return StartCoroutine(DesactivarInput());
         yield return StartCoroutine(Vibrar());
         yield return StartCoroutine(TriggerAnimation());
         //Sigue en PostRespawn()
@@ -51,7 +58,7 @@ public class Player_Respawn : MonoBehaviour
 
     private IEnumerator PostRespawn()
     {
-        ReiniciarNivelEvent?.Invoke();
+        RespawnEvent?.Invoke();
 
         Vector3 spawnPoint;
 
@@ -62,9 +69,9 @@ public class Player_Respawn : MonoBehaviour
         yield return null;
     }
 
-    private IEnumerator ActivarMovimiento()
+    private IEnumerator ActivarInput()
     {
-        move.action.Enable();
+        gameplayInputs.Enable();
         DeathTrigger.enabled = true;
         animator.SetFloat("moveY",-1);
         yield return null;
@@ -76,9 +83,9 @@ public class Player_Respawn : MonoBehaviour
         yield return null;
     }
 
-    private IEnumerator DesactivarMovimiento()
+    private IEnumerator DesactivarInput()
     {
-        move.action.Disable();
+        gameplayInputs.Disable();
         DeathTrigger.enabled = false;
         yield return null;
     }

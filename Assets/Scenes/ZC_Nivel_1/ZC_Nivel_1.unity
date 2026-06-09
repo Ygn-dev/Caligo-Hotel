@@ -471,6 +471,7 @@ GameObject:
   - component: {fileID: 425391820}
   - component: {fileID: 425391821}
   - component: {fileID: 425391822}
+  - component: {fileID: 425391824}
   - component: {fileID: 425391823}
   m_Layer: 0
   m_Name: Puerta Salida
@@ -621,8 +622,8 @@ MonoBehaviour:
   onInteract:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 98112699}
-        m_TargetAssemblyTypeName: ZC_Nivel_1_Initiator, Assembly-CSharp
+      - m_Target: {fileID: 425391824}
+        m_TargetAssemblyTypeName: Level_Trasition_Helper, Assembly-CSharp
         m_MethodName: LoadScene
         m_Mode: 5
         m_Arguments:
@@ -633,6 +634,18 @@ MonoBehaviour:
           m_StringArgument: ZC_Nivel_2
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &425391824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425391818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fed55dc5956250d458bffcf988c62323, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Level_Trasition_Helper
 --- !u!1 &479305551
 GameObject:
   m_ObjectHideFlags: 0
