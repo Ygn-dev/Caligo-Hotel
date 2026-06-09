@@ -209,6 +209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2893d74525ce7124ba57e1660b0c2723, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Palanca_Animations
+  interactHandler: {fileID: 0}
   animator: {fileID: 7697855}
 --- !u!114 &7697854
 MonoBehaviour:
@@ -595,6 +596,22 @@ PrefabInstance:
     - target: {fileID: 1299385056776271894, guid: c3f865ca684f38446908ec911187ac35, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2528941735493652956, guid: c3f865ca684f38446908ec911187ac35, type: 3}
+      propertyPath: modoCamara
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2528941735493652956, guid: c3f865ca684f38446908ec911187ac35, type: 3}
+      propertyPath: tiempoEsperaPaneo
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2528941735493652956, guid: c3f865ca684f38446908ec911187ac35, type: 3}
+      propertyPath: gradosRotacionPaneo
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2528941735493652956, guid: c3f865ca684f38446908ec911187ac35, type: 3}
+      propertyPath: duracionRotacionPaneo
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2571089685607983695, guid: c3f865ca684f38446908ec911187ac35, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2292,6 +2309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2893d74525ce7124ba57e1660b0c2723, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Palanca_Animations
+  interactHandler: {fileID: 0}
   animator: {fileID: 553477040}
 --- !u!114 &553477039
 MonoBehaviour:
