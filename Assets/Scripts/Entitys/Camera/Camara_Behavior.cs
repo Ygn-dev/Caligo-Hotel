@@ -31,7 +31,7 @@ public class Camara_Behavior : MonoBehaviour
     // No Editable
     public GameObject lente;
     public Light2D luzCamara;
-    public Collider2D colliderCamara;
+    public Collider2D triggerDeathZone;
 
     // Editable
     public ModoCamara modoCamara;
@@ -90,9 +90,9 @@ public class Camara_Behavior : MonoBehaviour
             estadoInicialLuz = luzCamara.enabled;
         }
 
-        if (colliderCamara != null)
+        if (triggerDeathZone != null)
         {
-            estadoInicialCollider = colliderCamara.enabled;
+            estadoInicialCollider = triggerDeathZone.enabled;
         }
 
         InicializarToggles();
@@ -258,9 +258,9 @@ public class Camara_Behavior : MonoBehaviour
             luzCamara.enabled = estadoInicialLuz;
         }
 
-        if (colliderCamara != null)
+        if (triggerDeathZone != null)
         {
-            colliderCamara.enabled = estadoInicialCollider;
+            triggerDeathZone.enabled = estadoInicialCollider;
         }
 
         InicializarToggles();
@@ -445,9 +445,9 @@ public class Camara_Behavior : MonoBehaviour
             luzCamara.enabled = encendida;
         }
 
-        if (colliderCamara != null)
+        if (triggerDeathZone != null)
         {
-            colliderCamara.enabled = encendida;
+            triggerDeathZone.enabled = encendida;
         }
     }
 
@@ -590,7 +590,7 @@ public class Camara_Behavior_Editor : Editor
 
         SerializedProperty lente = serializedObject.FindProperty("lente");
         SerializedProperty luzCamara = serializedObject.FindProperty("luzCamara");
-        SerializedProperty colliderCamara = serializedObject.FindProperty("colliderCamara");
+        SerializedProperty triggerDeathZone = serializedObject.FindProperty("triggerDeathZone");
 
         EditorGUILayout.LabelField("Editable", EditorStyles.boldLabel);
 
@@ -763,8 +763,8 @@ public class Camara_Behavior_Editor : Editor
         );
 
         EditorGUILayout.PropertyField(
-            colliderCamara,
-            new GUIContent("Collider cámara")
+            triggerDeathZone,
+            new GUIContent("Trigger del DeathZone")
         );
 
         EditorGUI.indentLevel--;

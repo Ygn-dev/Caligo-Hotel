@@ -40,9 +40,4 @@ public class ZC_Nivel_1_Initiator : MonoBehaviour
         inputActions.FindActionMap("Gameplay").Enable();
         yield return null;
     }
-
-    public void LoadScene(string sceneName)
-    {
-        Game_Loader_Manager.Instance.LoadScene(sceneName);
-    }
 }
