@@ -2869,7 +2869,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 676118987}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &672055475
 BoxCollider2D:
@@ -3413,6 +3413,8 @@ Transform:
   - {fileID: 684897360}
   - {fileID: 1403666149}
   - {fileID: 2071231456}
+  - {fileID: 1711412971}
+  - {fileID: 672055473}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &684897359
@@ -3593,6 +3595,18 @@ PrefabInstance:
     - target: {fileID: 4964177042344177805, guid: d8279bca878e277499b262bba50b15a7, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5206866723507155957, guid: d8279bca878e277499b262bba50b15a7, type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5206866723507155957, guid: d8279bca878e277499b262bba50b15a7, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1999776235
+      objectReference: {fileID: 0}
+    - target: {fileID: 5206866723507155957, guid: d8279bca878e277499b262bba50b15a7, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 5800005395896759427, guid: d8279bca878e277499b262bba50b15a7, type: 3}
       propertyPath: m_Name
@@ -3857,8 +3871,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2528941735493652956, guid: c3f865ca684f38446908ec911187ac35, type: 3}
+      propertyPath: accionPalanca
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2528941735493652956, guid: c3f865ca684f38446908ec911187ac35, type: 3}
       propertyPath: tiempoEsperaPaneo
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2528941735493652956, guid: c3f865ca684f38446908ec911187ac35, type: 3}
+      propertyPath: tipoAccionPalanca
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2528941735493652956, guid: c3f865ca684f38446908ec911187ac35, type: 3}
       propertyPath: gradosRotacionPaneo
@@ -3867,6 +3889,14 @@ PrefabInstance:
     - target: {fileID: 2528941735493652956, guid: c3f865ca684f38446908ec911187ac35, type: 3}
       propertyPath: duracionRotacionPaneo
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2528941735493652956, guid: c3f865ca684f38446908ec911187ac35, type: 3}
+      propertyPath: giroConstanteHaciaDerecha
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2528941735493652956, guid: c3f865ca684f38446908ec911187ac35, type: 3}
+      propertyPath: duracionVueltaGiroConstante
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2571089685607983695, guid: c3f865ca684f38446908ec911187ac35, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5490,6 +5520,14 @@ PrefabInstance:
     - target: {fileID: 4964177042344177805, guid: d8279bca878e277499b262bba50b15a7, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5206866723507155957, guid: d8279bca878e277499b262bba50b15a7, type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5206866723507155957, guid: d8279bca878e277499b262bba50b15a7, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1999776235
       objectReference: {fileID: 0}
     - target: {fileID: 5800005395896759427, guid: d8279bca878e277499b262bba50b15a7, type: 3}
       propertyPath: m_Name
@@ -8248,7 +8286,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 676118987}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1711412972
 BoxCollider2D:
@@ -10496,8 +10534,6 @@ SceneRoots:
   - {fileID: 1924858892}
   - {fileID: 1989860516}
   - {fileID: 2022886288}
-  - {fileID: 1711412971}
-  - {fileID: 672055473}
   - {fileID: 1097253574}
   - {fileID: 676118987}
   - {fileID: 1793389039}
