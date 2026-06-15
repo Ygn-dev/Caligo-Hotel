@@ -49,31 +49,39 @@ public class Dialogue_Manager : MonoBehaviour
         StartCoroutine(IniciarGuion(csvFile, zoomCamara, camPosX, camPosY));
     }
 
-    public void StartDialogue(string csvFileName, float zoomCamara)
-    {
-        TextAsset csvFile = Resources.Load<TextAsset>("Dialogues/" + csvFileName);
-        GameObject character = GameObject.FindGameObjectWithTag("Player");
-        cinemachineCamera = FindAnyObjectByType<CinemachineCamera>();
-        float alto = cinemachineCamera.Lens.OrthographicSize*2;
-        float ancho = alto * 16/9;
-
-        StartCoroutine(IniciarGuion(csvFile, zoomCamara, character.transform.position.x + ancho/4, character.transform.position.y+2));
-    }
-
     public IEnumerator StartDialogueCoroutine(TextAsset csvFile, float zoomCamara, float camPosX, float camPosY)
     {
         yield return StartCoroutine(IniciarGuion(csvFile, zoomCamara, camPosX, camPosY));
+    }
+
+    public void StartDialogue(string csvFileName, float zoomCamara)
+    {
+        StartCoroutine(StartDialogueCoroutine(csvFileName, zoomCamara));
     }
 
     public IEnumerator StartDialogueCoroutine(string csvFileName, float zoomCamara)
     {
         TextAsset csvFile = Resources.Load<TextAsset>("Dialogues/" + csvFileName);
         GameObject character = GameObject.FindGameObjectWithTag("Player");
+        cinemachineCamera = FindAnyObjectByType<CinemachineCamera>();
+        SpriteRenderer spriteRenderer = character.GetComponentInChildren<SpriteRenderer>();
 
-        float alto = zoomCamara*2;
-        float ancho = alto * 16/9;
+        Vector3 puntoPersonaje = spriteRenderer.bounds.center;
 
-        yield return StartCoroutine(IniciarGuion(csvFile, zoomCamara, character.transform.position.x + ancho/4, character.transform.position.y+2));
+        float altoMundo = zoomCamara * 2f;
+        float anchoMundo = altoMundo * (16f / 9f);
+
+        Vector2 posicionEnPantalla = new Vector2(-480f, 0f);
+        Vector2 resolucionReferencia = new Vector2(1920f, 1080f);
+
+        float offsetMundoX = posicionEnPantalla.x / resolucionReferencia.x * anchoMundo;
+        float offsetMundoY = posicionEnPantalla.y / resolucionReferencia.y * altoMundo;
+
+        float camPosX = puntoPersonaje.x - offsetMundoX;
+        float camPosY = puntoPersonaje.y - offsetMundoY;
+
+        yield return StartCoroutine(IniciarGuion(csvFile, zoomCamara, camPosX, camPosY));
+    
     }
 
 
@@ -83,19 +91,21 @@ public class Dialogue_Manager : MonoBehaviour
         cinemachineCamera = FindAnyObjectByType<CinemachineCamera>();
         canvas = FindAnyObjectByType<Canvas>();
 
-        float startZoom = cinemachineCamera.Lens.OrthographicSize;
-        Vector3 startPos = cinemachineCamera.transform.position;
-        GameObject personaje = cinemachineCamera.Follow.gameObject;
-
         //Instanciar prefabs necesarios para el dialogo
         InstanceBlackBackground = Instantiate(prefabBlackBackground, canvas.transform);
         InstanceDialogueBox = Instantiate(prefabDialogueBox, canvas.transform);
         
-        //Deterner accionesy hacer zoom a la camara
+        //Deterner acciones
         inputActions.FindActionMap("Gameplay").Disable();
         inputActions.FindActionMap("UI").Enable();
+
+        //Desactivar confiner
+        CinemachineConfiner2D camConfiner = cinemachineCamera.GetComponent<CinemachineConfiner2D>();
+        camConfiner.enabled = false;
+
+        //Zoom a la camara
         cinemachineCamera.Follow = null;
-        yield return StartCoroutine(DevTools.AnimarCamara(cinemachineCamera, zoomCamara, camPosX, camPosY, duracionZoomCamara, curvaZoom, InstanceBlackBackground, 0, curvaBlackBackground));
+        yield return StartCoroutine(DevTools.AnimarCamaraYBackground(cinemachineCamera, zoomCamara, camPosX, camPosY, duracionZoomCamara, curvaZoom, InstanceBlackBackground, curvaBlackBackground));
         
         //Iniciar guion
         arrLines = csvFile.text.Split(new char[] { '\n' });
@@ -103,7 +113,7 @@ public class Dialogue_Manager : MonoBehaviour
         listaCajas = new List<GameObject>();
 
         //Avanzar a la primera linea del dialogo
-        yield return AvanzarGuion();
+        //yield return AvanzarGuion();
 
         yield return null;
     }
