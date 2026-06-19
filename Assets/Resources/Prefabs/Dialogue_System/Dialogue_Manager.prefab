@@ -44,10 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b399dad56ba3cc4c83b5b4d87ac84b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue_Manager
-  duracionZoomCamara: 0.8
-  duracionDesaparicion: 0.4
-  duracionImageCharacter: 0.2
-  velocidadEscritura: 25
+  pruebaPrefab: {fileID: 1879835910370503446, guid: 0ec719a2da83b2b499b3b46bb217938f, type: 3}
   curvaZoom:
     serializedVersion: 2
     m_Curve:
@@ -81,6 +78,12 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  duracionZoomCamara: 0.8
+  velocidadEscritura: 25
+  duracionDesaparicion: 0.4
+  inputActions: {fileID: -944628639613478452, guid: e75c53da0f7f49f4aae3d0a6e4b3cca4, type: 3}
+  prefabDialogueScroll: {fileID: 4634716866516083672, guid: d22ef6fb2f2dd2c4ba4a2241a9301892, type: 3}
+  prefabBlackBackground: {fileID: 302262870722617376, guid: d7f8cf2916daa9443bbcb74d90152882, type: 3}
   curvaBlackBackground:
     serializedVersion: 2
     m_Curve:
@@ -114,65 +117,3 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  curvaDesaparicion:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 2.000003
-      tangentMode: 0
-      weightedMode: 3
-      inWeight: 0
-      outWeight: 0.333333
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 3
-      inWeight: 0.33333302
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  curvaDesaparicionCharacter:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 3
-      inWeight: 0
-      outWeight: 0.333334
-    - serializedVersion: 3
-      time: 0.5
-      value: 0.5
-      inSlope: 1.9999939
-      outSlope: 1.9999943
-      tangentMode: 0
-      weightedMode: 3
-      inWeight: 0.33333403
-      outWeight: 0.33333397
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 3
-      inWeight: 0.33333397
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  prefab_TextBox: {fileID: 5966322808341208592, guid: 9450853086fc1324b8f71c9ddadab77a, type: 3}
-  prefab_TextBox2: {fileID: 0}
-  prefabDialogueBox: {fileID: 5332450613199040672, guid: bb5764ab3cdf4614a8e3410a42904e74, type: 3}
-  prefabBlackBackground: {fileID: 302262870722617376, guid: d7f8cf2916daa9443bbcb74d90152882, type: 3}
-  inputActions: {fileID: -944628639613478452, guid: e75c53da0f7f49f4aae3d0a6e4b3cca4, type: 3}

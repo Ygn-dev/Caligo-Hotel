@@ -27,8 +27,9 @@ public static class DevTools
         yield return null;
     }
 
-    public static IEnumerator AnimarCamaraYBackground(CinemachineCamera camera, float zoomCamara, float camPosX, float camPosY, float duracionZoom, AnimationCurve curvaZoom,
-                                            GameObject InstanceBlackBackground, AnimationCurve curvaBlackBackground)
+    public static IEnumerator AnimarCamaraYBackground( CinemachineCamera camera, float zoomCamara, float camPosX, float camPosY,
+                                                        float duracionZoom, AnimationCurve curvaZoom, GameObject InstanceBlackBackground, 
+                                                        AnimationCurve curvaBlackBackground)
     {
         //debe haber un previo cinemachineCamera.Follow = null;
         float prevZoom = camera.Lens.OrthographicSize;

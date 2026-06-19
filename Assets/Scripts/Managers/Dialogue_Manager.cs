@@ -12,29 +12,42 @@ public class Dialogue_Manager : MonoBehaviour
     //SINGLETON
     public static Dialogue_Manager Instance { get; private set; }
 
-    public float duracionZoomCamara;
-    public float duracionDesaparicion;
-    public float duracionImageCharacter;
-    public float velocidadEscritura;
+    public GameObject pruebaPrefab;
     public AnimationCurve curvaZoom;
+    public float duracionZoomCamara;
+    public float velocidadEscritura;
+    public float duracionDesaparicion;
+    public InputActionAsset inputActions;
+    public GameObject prefabDialogueScroll;
+    public GameObject prefabBlackBackground;
     public AnimationCurve curvaBlackBackground;
+    /*
+    
+    public float duracionImageCharacter; 
+
     public AnimationCurve curvaDesaparicion;
     public AnimationCurve curvaDesaparicionCharacter;
     public GameObject prefab_TextBox;
     public GameObject prefab_TextBox2;
-    public GameObject prefabDialogueBox;
-    public GameObject prefabBlackBackground;
-    public InputActionAsset inputActions;
+    
+    
     
 
 
-    private Canvas canvas;
+    
     private CinemachineCamera cinemachineCamera;
+    private CinemachineBrain cinemachineBrain;
     private GameObject InstanceBlackBackground;
-    private GameObject InstanceDialogueBox;
-    private string[] arrLines;
-    private int indexLine;
+    private GameObject InstanceDialogueScroll;
+    
     private List<GameObject> listaCajas;
+
+    */
+    private int indexLine;
+    private Canvas canvas;
+    private TextAsset csvFile;
+    private string[] arregloLines;
+    private GameObject instanceDialogueScroll;
     
 
     private void Awake()
@@ -44,16 +57,21 @@ public class Dialogue_Manager : MonoBehaviour
     }
 
     //METODOS DE INICIO DE DIALOGO
-    public void StartDialogue(TextAsset csvFile, float zoomCamara, float camPosX, float camPosY)
+
+    // LLAMADA CON POSICION DE CAMARA, PARA CASOS ESPECIALES
+    public void StartDialogue(string csvFileName, float zoomCamara, float camPosX, float camPosY)
     {
-        StartCoroutine(IniciarGuion(csvFile, zoomCamara, camPosX, camPosY));
+        StartCoroutine(StartDialogueCoroutine(csvFileName, zoomCamara, camPosX, camPosY));
+    }
+    
+    public IEnumerator StartDialogueCoroutine(string csvFileName, float zoomCamara, float camPosX, float camPosY)
+    {
+        // Cargar CSV
+        csvFile = Resources.Load<TextAsset>("Dialogues/" + csvFileName);
+        yield return StartCoroutine(IniciarDialogo(csvFile, zoomCamara, camPosX, camPosY));
     }
 
-    public IEnumerator StartDialogueCoroutine(TextAsset csvFile, float zoomCamara, float camPosX, float camPosY)
-    {
-        yield return StartCoroutine(IniciarGuion(csvFile, zoomCamara, camPosX, camPosY));
-    }
-
+    // LLAMADA SIN POSICION DE CAMARA, LA MAS COMUN
     public void StartDialogue(string csvFileName, float zoomCamara)
     {
         StartCoroutine(StartDialogueCoroutine(csvFileName, zoomCamara));
@@ -61,85 +79,115 @@ public class Dialogue_Manager : MonoBehaviour
 
     public IEnumerator StartDialogueCoroutine(string csvFileName, float zoomCamara)
     {
-        TextAsset csvFile = Resources.Load<TextAsset>("Dialogues/" + csvFileName);
+        // Cuando no se tiene posicion de camara, se calcula segun el personaje
+
+        // Cargar CSV
+        csvFile = Resources.Load<TextAsset>("Dialogues/" + csvFileName);
+
+        // Determinar posicion de camara segun personaje
         GameObject character = GameObject.FindGameObjectWithTag("Player");
-        cinemachineCamera = FindAnyObjectByType<CinemachineCamera>();
         SpriteRenderer spriteRenderer = character.GetComponentInChildren<SpriteRenderer>();
-
         Vector3 puntoPersonaje = spriteRenderer.bounds.center;
-
         float altoMundo = zoomCamara * 2f;
         float anchoMundo = altoMundo * (16f / 9f);
-
         Vector2 posicionEnPantalla = new Vector2(-480f, 0f);
         Vector2 resolucionReferencia = new Vector2(1920f, 1080f);
-
         float offsetMundoX = posicionEnPantalla.x / resolucionReferencia.x * anchoMundo;
         float offsetMundoY = posicionEnPantalla.y / resolucionReferencia.y * altoMundo;
-
         float camPosX = puntoPersonaje.x - offsetMundoX;
         float camPosY = puntoPersonaje.y - offsetMundoY;
-
-        yield return StartCoroutine(IniciarGuion(csvFile, zoomCamara, camPosX, camPosY));
-    
+       
+        yield return StartCoroutine(IniciarDialogo(csvFile, zoomCamara, camPosX, camPosY));
+        
     }
 
 
     // INICIO DE DIALOGO
-    private IEnumerator IniciarGuion(TextAsset csvFile, float zoomCamara, float camPosX, float camPosY)
+    private IEnumerator IniciarDialogo(TextAsset csvFile, float zoomCamara, float camPosX, float camPosY)
     {
-        cinemachineCamera = FindAnyObjectByType<CinemachineCamera>();
+        // Referencias
         canvas = FindAnyObjectByType<Canvas>();
-
-        //Instanciar prefabs necesarios para el dialogo
-        InstanceBlackBackground = Instantiate(prefabBlackBackground, canvas.transform);
-        InstanceDialogueBox = Instantiate(prefabDialogueBox, canvas.transform);
+        CinemachineBrain cinemachineBrain = FindAnyObjectByType<CinemachineBrain>();
+        CinemachineCamera cinemachineCamera = FindAnyObjectByType<CinemachineCamera>();
+        CinemachineConfiner2D cinemachineConfiner = cinemachineCamera.GetComponent<CinemachineConfiner2D>();
+        Transform cameraTransform = cinemachineBrain.transform;
         
-        //Deterner acciones
+        // Instanciar prefabs necesarios para el dialogo
+        GameObject instanceBlackBackground = Instantiate(prefabBlackBackground, canvas.transform);
+        instanceDialogueScroll = Instantiate(prefabDialogueScroll, canvas.transform);
+
+        // Deterner acciones
         inputActions.FindActionMap("Gameplay").Disable();
         inputActions.FindActionMap("UI").Enable();
 
-        //Desactivar confiner
-        CinemachineConfiner2D camConfiner = cinemachineCamera.GetComponent<CinemachineConfiner2D>();
-        camConfiner.enabled = false;
-
-        //Zoom a la camara
+        // Desvincular camara del personaje
         cinemachineCamera.Follow = null;
-        yield return StartCoroutine(DevTools.AnimarCamaraYBackground(cinemachineCamera, zoomCamara, camPosX, camPosY, duracionZoomCamara, curvaZoom, InstanceBlackBackground, curvaBlackBackground));
+
+        // Desactivar el update momentateanamente
+        cinemachineBrain.UpdateMethod = CinemachineBrain.UpdateMethods.ManualUpdate;
+
+        // Desactivar confiner
+        cinemachineConfiner.enabled = false;
+
+        // No borrar esta linea rompe todo xd
+        cinemachineCamera.transform.position = cameraTransform.position;
+
+        // Reactivar update para que tome la nueva posicion
+        cinemachineBrain.UpdateMethod = CinemachineBrain.UpdateMethods.SmartUpdate;
         
-        //Iniciar guion
-        arrLines = csvFile.text.Split(new char[] { '\n' });
-        indexLine = 0; //la primera linea del csv es el encabezado
-        listaCajas = new List<GameObject>();
+        // Zoom a la camara y background negro al mismo tiempo
+        yield return StartCoroutine(DevTools.AnimarCamaraYBackground(cinemachineCamera, zoomCamara, camPosX, camPosY, duracionZoomCamara, 
+                                                                        curvaZoom, instanceBlackBackground, curvaBlackBackground));
+        
+        // Iniciar guion
+        arregloLines = csvFile.text.Split(new char[] { '\n' });
+        indexLine = 0;
 
         //Avanzar a la primera linea del dialogo
-        //yield return AvanzarGuion();
-
-        yield return null;
+        yield return AvanzarGuion();
     }
 
-
+    
     public IEnumerator AvanzarGuion()
     {
         indexLine++;
-        
+  
         //Fin del dialogo
-        if (indexLine >= arrLines.Length)
-        {
-            
-            yield break;
-        }
+        if (indexLine >= arregloLines.Length) yield break;
 
         //variables
-        string[] arrPartes = arrLines[indexLine].Split(';'); 
-        string texto = arrPartes[1];
-        string personaje = arrPartes[2];
+        string[] arregloPartes = arregloLines[indexLine].Split(';'); 
+        string texto = arregloPartes[1];
+        string personaje = arregloPartes[2];
 
-        GameObject instTextBox = null;
+
+        //calcular padding
+        if(indexLine == 1)
+        {
+            int alturaPrefab = (int)pruebaPrefab.GetComponent<RectTransform>().rect.height;
+            prueba_anadir prueba = instanceDialogueScroll.GetComponent<prueba_anadir>();
+            prueba.SetPadding(alturaPrefab);
+            prueba.Instanciar(pruebaPrefab);
+
+        }
+        else
+        {
+            int alturaPrefab = (int)pruebaPrefab.GetComponent<RectTransform>().rect.height;
+            prueba_anadir prueba = instanceDialogueScroll.GetComponent<prueba_anadir>();
+            prueba.Instanciar2(pruebaPrefab);
+        }
+
+        
+        //prueba_anadir prueba = instanceDialogueScroll.GetComponent<prueba_anadir>();
+        //prueba.Instanciar(pruebaPrefab);
+
+
+
+        /*
 
         //elegir prefab segun personaje
-        if(personaje.Trim() == "character") instTextBox = Instantiate(prefab_TextBox, InstanceDialogueBox.transform);
-        if(personaje.Trim() == "recepcionista") instTextBox = Instantiate(prefab_TextBox2, InstanceDialogueBox.transform);
+        //if(personaje.Trim() == "character") instTextBox = Instantiate(prefab_TextBox, InstanceDialogueBox.transform);
+        //if(personaje.Trim() == "recepcionista") instTextBox = Instantiate(prefab_TextBox2, InstanceDialogueBox.transform);
 
         //obtener componentes
         TMP_Text tmpText = instTextBox.GetComponentInChildren<TMP_Text>();
@@ -159,13 +207,22 @@ public class Dialogue_Manager : MonoBehaviour
            
         //Animar caja de texto
         yield return StartCoroutine(AnimarTexto(tmpText, pedazoPapel, characterImage, texto, duracionImageCharacter, curvaDesaparicionCharacter));
-        //Añadir cajas a la lista
-        listaCajas.Add(instTextBox);
+        //Añadir cajas a la lista*/
+    }
+
+    void Update()
+    {
+        if (Keyboard.current != null &&
+            Keyboard.current.qKey.wasPressedThisFrame)
+        {
+            Debug.Log("Se presionó Q");
+            StartCoroutine(AvanzarGuion());
+        }
     }
 
 
 
-
+    /*
     
     // HELPERS
     private IEnumerator AnimarTexto(TMP_Text tmpText, Image pedazoPapel, Image characterImage, string texto, float duracion, AnimationCurve curvaDesaparicionCharacter)
@@ -199,5 +256,5 @@ public class Dialogue_Manager : MonoBehaviour
         tmpText.text = texto;
 
         yield return null;
-    }
+    }*/
 }
