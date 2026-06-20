@@ -22,6 +22,9 @@ public class Level_Initiator_Plantilla : MonoBehaviour
         inputActions.Disable();
         nivelData = (Level_Data_Base)levelData;
         if(cinemachineCamera == null) cinemachineCamera = FindAnyObjectByType<CinemachineCamera>();
+
+        // si el nivel usa dialogos, setup del Dialogue Manager
+        DevTools.SetupDialogueManager();
     }
 
     void Start()
@@ -34,7 +37,7 @@ public class Level_Initiator_Plantilla : MonoBehaviour
         //Spawn personaje y camara
         StartCoroutine(DevTools.SetupCharacter(character, nivelData, newCharacter => { character = newCharacter; }));
         StartCoroutine(DevTools.SetupCamara(cinemachineCamera, levelData, character));
-        
+       
         //Completar Fade de Carga
         yield return StartCoroutine(Game_Loader_Manager.Instance.CompleteLoadScene());
 
