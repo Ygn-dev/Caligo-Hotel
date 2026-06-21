@@ -20,6 +20,6 @@ public class preuba_dialogos : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Dialogue_Manager.Instance.StartDialogue("hotel_intro", zoom);
+        Dialogue_Manager.Instance.StartDialogue("dialogo_recepcionista", zoom);
     }
 }

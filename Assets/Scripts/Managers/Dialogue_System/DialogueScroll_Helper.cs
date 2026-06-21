@@ -3,11 +3,12 @@ using UnityEngine.UI;
 
 public class DialogueScroll_Helper : MonoBehaviour
 {
-    public GameObject content;   
-    public ScrollRect scrollRect;
-
-    public Image scrollImageBackground;
     public Image scrollImage;
+    public GameObject content;   
+    public GameObject leyenda;
+    public ScrollRect scrollRect;
+    public Image scrollImageBackground;
+    
 
     public void MostrarScroll()
     {

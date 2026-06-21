@@ -7,10 +7,15 @@ public class Caja_Personaje_Helper : MonoBehaviour, ICaja_De_Texto_Helper
     public RectTransform rectPrefab;
     public RectTransform rectTexto;
     public CanvasGroup canvasGroup;
+    public TMP_Text textoTMP;
+
+    public TMP_Text GetTextoComponent()
+    {
+        return textoTMP;
+    }
 
     public void SetTexto(string texto)
     {
-        TMP_Text textoTMP = GetComponentInChildren<TMP_Text>();
         textoTMP.text = texto;
     }
 

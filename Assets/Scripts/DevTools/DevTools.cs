@@ -6,6 +6,30 @@ using System.Collections;
 public static class DevTools
 {
     //ANIMACIONES
+    public static IEnumerator AnimarCanvasGroup(CanvasGroup canvasGroup, float targetAlpha, float duration, AnimationCurve curve)
+    {
+        float startAlpha = canvasGroup.alpha;
+        float time = 0f;
+
+        while (time < duration)
+        {
+            float t = Mathf.Clamp01(time / duration);
+            float curveValue = curve.Evaluate(t);
+
+            float alpha = Mathf.LerpUnclamped(startAlpha, targetAlpha, curveValue);
+            canvasGroup.alpha = alpha;
+
+            time += Time.unscaledDeltaTime;
+            yield return null;
+        }
+
+        canvasGroup.alpha = targetAlpha;
+        yield return null;
+    }
+
+
+
+
     public static IEnumerator AnimarImage(Image image, float targetAlpha, float duration, AnimationCurve curve)
     {
         float startAlpha = image.color.a;

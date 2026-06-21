@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Unity.Cinemachine;
@@ -5,13 +6,12 @@ using System.Collections;
 using UnityEngine.InputSystem;
 
 
+
 public class Dialogue_Manager : MonoBehaviour
 {
     //SINGLETON
     public static Dialogue_Manager Instance { get; private set; }
 
-    public GameObject prefabMonologo;
-    public GameObject prefabPersonaje;
     public AnimationCurve curvaZoom;
     public float duracionZoomCamara;
     public float velocidadEscritura;
@@ -24,6 +24,8 @@ public class Dialogue_Manager : MonoBehaviour
     public AnimationCurve curvaAparicionCaja;
     public AnimationCurve curvaMovimientoScroll;
     public float duracionMovimientoScroll;
+    public AnimationCurve curvaAparicionLeyenda;
+    public float duracionAparicionLeyenda;
 
     
     private Canvas canvas;
@@ -33,6 +35,7 @@ public class Dialogue_Manager : MonoBehaviour
     private Vector3 camPosIni;
     private TextAsset jsonFile;
     private GameObject content;
+    private TMP_Text currentText;
     private ScrollRect scrollRect;
     private GameObject instCajaDeDialogo;
     private Dialogue_Struct dialogueData;
@@ -42,6 +45,7 @@ public class Dialogue_Manager : MonoBehaviour
     private DialogueScroll_Helper scrollHelper;
     private GameObject instanceBlackBackground;
     private CinemachineCamera cinemachineCamera;
+    
     
     
 
@@ -153,7 +157,7 @@ public class Dialogue_Manager : MonoBehaviour
     
     private IEnumerator AvanzarGuion()
     {
-        //Manejo de nodos
+        // Manejo de nodos
         if(nextNodeId == -1)
         {
             yield return StartCoroutine(TerminarGuion());
@@ -164,23 +168,23 @@ public class Dialogue_Manager : MonoBehaviour
         nextNodeId = dialogueData.nodes[currentNodeId].nextNodeId;
 
         
-        //Settear prefab e instanciar
+        // Settear prefab e instanciar
         yield return StartCoroutine(SetupPrefab());
         
 
         if(currentNodeId == 0)
         {
-            //TO DO
-            // MOSTRAR SIMULTANEO LA LEYENDA
+            // Si es el primer nodo, ajustar el padding para que quede en la parte inferior
             RectTransform rectPrefab = instCajaDeDialogo.GetComponent<RectTransform>();
             int alturaPrefab = Mathf.RoundToInt(rectPrefab.rect.height);
             layoutGroup.padding.top = 750-alturaPrefab;
         }
         else
         {
+            // En todos los demas nodos, mover el scroll hacia abajo para mostrar el nuevo dialogo
             yield return StartCoroutine(MoverScroll());
 
-
+            // Ajustar el padding si ya se alcanza el limite y ahora se necesita mostrar el scroll
             float alturaReal = content.GetComponent<RectTransform>().rect.height - layoutGroup.padding.top;
             if(alturaReal > 750)
             {
@@ -189,8 +193,41 @@ public class Dialogue_Manager : MonoBehaviour
             }
             
         }
+
+        // Luego de instanciar el prefab, mostrar la caja de texto y escribir el dialogo
         yield return instCajaDeDialogo.GetComponent<ICaja_De_Texto_Helper>().MostrarCaja(duracionAparicionCaja, curvaAparicionCaja);
+        yield return LeerGuion();
+
+
+        // Si es el primer nodo, mostrar la leyenda al mismo tiempo que el dialogo
+        if(currentNodeId == 0)
+        {
+            CanvasGroup canvasGroup = instanceDialogueScroll.GetComponent<DialogueScroll_Helper>().leyenda.GetComponent<CanvasGroup>();
+            yield return new WaitForSeconds(1.5f);
+            StartCoroutine(DevTools.AnimarCanvasGroup(canvasGroup, 1, duracionAparicionLeyenda, curvaAparicionLeyenda));
+        }
         
+    }
+
+    private IEnumerator LeerGuion()
+    {
+        TMP_Text text = instCajaDeDialogo.GetComponent<ICaja_De_Texto_Helper>().GetTextoComponent();
+        TMP_TextInfo textInfo = text.textInfo;
+
+        int currentVisibleCharacterIndex = 0;
+        float delay = (1/velocidadEscritura);
+
+        while(currentVisibleCharacterIndex < textInfo.characterCount)
+        {
+            currentVisibleCharacterIndex++;
+            text.maxVisibleCharacters = currentVisibleCharacterIndex;
+            yield return new WaitForSeconds(delay);
+           
+        }
+        /*
+        yield return new WaitForSeconds(delay);
+        text.maxVisibleCharacters = textInfo.characterCount;*/
+        yield return null;
     }
 
     private IEnumerator SetupPrefab()
@@ -202,27 +239,14 @@ public class Dialogue_Manager : MonoBehaviour
         //TO DO
         //CALCULAR SPACIADO
 
-        switch (personaje)
-        {
-            case "monologo":
-                //TO DO
-                //IF EL ANTERIOR TAMBIEN FUE MONOLOGO, MODIFICAR PREFAB
-                instCajaDeDialogo = Instantiate(prefabMonologo,content.transform);
-                break;
-            case "character":
-                instCajaDeDialogo = Instantiate(prefabPersonaje,content.transform);
-                break;
-                /*
-            case:
-                "recepcionista":
-                instCajaDeDialogo = Instantiate(prefabRecepcionista,content.transform);
-                */
-            default:
-                Debug.LogError("Personaje desconocido: " + personaje);
-                break;
-        }
+        // Cargar prefab segun personaje
+        string prefabPath = "Prefabs/Dialogue_System/Caja_" + personaje + "_Prefab";
+        instCajaDeDialogo = Instantiate(Resources.Load<GameObject>(prefabPath), content.transform);
 
+        // Setear texto
         ICaja_De_Texto_Helper cajaHelper = instCajaDeDialogo.GetComponent<ICaja_De_Texto_Helper>();
+        currentText = cajaHelper.GetTextoComponent();
+        currentText.maxVisibleCharacters = 0;
         cajaHelper.SetTexto(texto);
         cajaHelper.ActualizarLayouts();
         yield return null;
@@ -280,39 +304,12 @@ public class Dialogue_Manager : MonoBehaviour
         yield return null;
     }
 
-    /*
-    private IEnumerator prueba2()
-    {
-        float tiempoAnimacion = 2f;
-        float tiempoTranscurrido = 0f;
-
-        float posicionInicial = scrollRect.verticalNormalizedPosition;
-        float posicionFinal = 0f;
-
-        while (tiempoTranscurrido < tiempoAnimacion)
-        {
-            float t = tiempoTranscurrido / tiempoAnimacion;
-
-            scrollRect.verticalNormalizedPosition = Mathf.Lerp(posicionInicial, posicionFinal, t);
-            LayoutRebuilder.ForceRebuildLayoutImmediate(layoutGroup.GetComponent<RectTransform>());
-
-            tiempoTranscurrido += Time.deltaTime;
-            yield return null;
-        }
-
-        scrollRect.verticalNormalizedPosition = 0f;
-        LayoutRebuilder.ForceRebuildLayoutImmediate(layoutGroup.GetComponent<RectTransform>());
-        yield return null;
-    }
-
-    */
-
     void Update()
     {
         if (Keyboard.current != null &&
             Keyboard.current.qKey.wasPressedThisFrame)
         {
-            StartCoroutine(AvanzarGuion());
+                StartCoroutine(AvanzarGuion());
         }
     }
 }

@@ -10,10 +10,10 @@ public class Caja_Monologo_Helper : MonoBehaviour, ICaja_De_Texto_Helper
     public RectTransform rectCaja;
     public RectTransform rectTexto;
     public CanvasGroup canvasGroup;
+    public TMP_Text textoTMP;
 
     public void SetTexto(string texto)
     {
-        TMP_Text textoTMP = GetComponentInChildren<TMP_Text>();
         textoTMP.text = texto;
     }
 
@@ -36,5 +36,10 @@ public class Caja_Monologo_Helper : MonoBehaviour, ICaja_De_Texto_Helper
             yield return null;
         }
         canvasGroup.alpha = 1;
+    }
+
+    public TMP_Text GetTextoComponent()
+    {
+        return textoTMP;
     }
 }
