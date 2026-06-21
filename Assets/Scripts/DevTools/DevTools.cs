@@ -29,7 +29,7 @@ public static class DevTools
 
     public static IEnumerator AnimarCamaraYBackground( CinemachineCamera camera, float zoomCamara, float camPosX, float camPosY,
                                                         float duracionZoom, AnimationCurve curvaZoom, GameObject InstanceBlackBackground, 
-                                                        AnimationCurve curvaBlackBackground)
+                                                        AnimationCurve curvaBlackBackground, float posBackX, float posBackY)
     {
         //debe haber un previo cinemachineCamera.Follow = null;
         float prevZoom = camera.Lens.OrthographicSize;
@@ -46,7 +46,7 @@ public static class DevTools
 
             camera.Lens.OrthographicSize = Mathf.LerpUnclamped(prevZoom, zoomCamara, curveZoom);
             camera.transform.position = Vector3.LerpUnclamped(prevPosCam, new Vector3(camPosX, camPosY, prevPosCam.z), curveZoom);
-            InstanceBlackBackground.transform.localPosition = Vector3.LerpUnclamped(prevPosBlack, new Vector3(260, 0, 0), curveBlack);
+            InstanceBlackBackground.transform.localPosition = Vector3.LerpUnclamped(prevPosBlack, new Vector3(posBackX, posBackY, prevPosBlack.z), curveBlack);
 
             //if (interact.action.triggered) break; //interrumpir animacion
 
@@ -56,7 +56,7 @@ public static class DevTools
 
         camera.Lens.OrthographicSize = zoomCamara;
         camera.transform.position = new Vector3(camPosX, camPosY, prevPosCam.z);
-        InstanceBlackBackground.transform.localPosition = new Vector3(260, 0, 0);
+        InstanceBlackBackground.transform.localPosition = new Vector3(posBackX, posBackY, prevPosBlack.z);
 
         yield return null;
     }
