@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using Unity.Cinemachine;
@@ -50,6 +51,32 @@ public static class DevTools
         image.color = new Color(image.color.r, image.color.g, image.color.b, targetAlpha);
         yield return null;
     }
+
+    
+    public static IEnumerator AnimarImageConInterrupcion(Image image, float targetAlpha, float duration, AnimationCurve curve, Func<bool> cancelar = null)
+    {
+        float startAlpha = image.color.a;
+        float time = 0f;
+
+        while (time < duration)
+        {
+            if (cancelar != null && cancelar())
+                yield break;
+
+            float t = Mathf.Clamp01(time / duration);
+            float curveValue = curve.Evaluate(t);
+
+            float alpha = Mathf.LerpUnclamped(startAlpha, targetAlpha, curveValue);
+            image.color = new Color(image.color.r, image.color.g, image.color.b, alpha);
+
+            time += Time.unscaledDeltaTime;
+            yield return null;
+        }
+
+        image.color = new Color(image.color.r, image.color.g, image.color.b, targetAlpha);
+        yield return null;
+    }
+
 
     public static IEnumerator AnimarCamaraYBackground( CinemachineCamera camera, float zoomCamara, float camPosX, float camPosY,
                                                         float duracionZoom, AnimationCurve curvaZoom, GameObject InstanceBlackBackground, 
@@ -131,7 +158,7 @@ public static class DevTools
     {
         if (character != null) yield break;
             
-        GameObject newCharacter = Object.Instantiate(Resources.Load<GameObject>("Prefabs/Entitys/Character"),nivelData.spawnPoint,Quaternion.identity);
+        GameObject newCharacter = GameObject.Instantiate(Resources.Load<GameObject>("Prefabs/Entitys/Character"),nivelData.spawnPoint,Quaternion.identity);
         newCharacter.GetComponent<Player_Respawn>().nivelData = nivelData;
         setCharacter?.Invoke(newCharacter);
         yield return null;
@@ -140,12 +167,12 @@ public static class DevTools
     public static void SetupCinematicManager()
     {
         GameObject cinematicManagerPrefab = Resources.Load<GameObject>("Prefabs/Cinematic_System/Cinematic_Manager");
-        Object.Instantiate(cinematicManagerPrefab);
+        GameObject.Instantiate(cinematicManagerPrefab);
     }
 
     public static void SetupDialogueManager()
     {
         GameObject dialogueManagerPrefab = Resources.Load<GameObject>("Prefabs/Dialogue_System/Dialogue_Manager");
-        Object.Instantiate(dialogueManagerPrefab);
+        GameObject.Instantiate(dialogueManagerPrefab);
     }
 }
