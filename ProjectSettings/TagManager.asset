@@ -48,11 +48,20 @@ TagManager:
   - name: Walk_In_Front
     uniqueID: 526084475
     locked: 0
+  - name: Walk_In_Front_Deco
+    uniqueID: 3063549511
+    locked: 0
   - name: Player
     uniqueID: 1999776235
     locked: 0
   - name: Walk_Behind
     uniqueID: 3216850729
+    locked: 0
+  - name: Walk_Behind_Deco
+    uniqueID: 3981361491
+    locked: 0
+  - name: Walk_Behind_Deco2
+    uniqueID: 404195509
     locked: 0
   - name: Top_Layer
     uniqueID: 2000297461
