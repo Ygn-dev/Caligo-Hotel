@@ -1,0 +1,24 @@
+{
+	"dialogueId": "hotel_intro",
+	"startNode": 0,
+	"nodes": [
+		{
+			"nodeId": 0,
+			"personaje": "Monologo",
+			"text": "La cabeza me da vueltas...",
+			"nextNodeId": 1
+		},
+		{
+			"nodeId": 1,
+			"personaje": "Personaje",
+			"text": "Ay... ¿En qué momento...?",
+			"nextNodeId": 2
+		},
+		{
+			"nodeId": 2,
+			"personaje": "Monologo",
+			"text": "Debo haberme quedado dormido...",
+			"nextNodeId": -1
+		}
+	]
+}

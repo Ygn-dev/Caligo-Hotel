@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c7db49412f2fa3e4eb284d328a607e07
+guid: 7f2834a2b74c7a04999314f9d133b593
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5401685211067621452
-    second: "se\xF1or-caligo_0"
+      213: 4333152036205366446
+    second: image (2) 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "se\xF1or-caligo_0"
+      name: image (2) 1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1060
-        height: 1432
+        width: 92
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4bf55dd7beb5905b0800000000000000
-      internalID: -5401685211067621452
+      spriteID: eac08c3a1d2722c30800000000000000
+      internalID: 4333152036205366446
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "se\xF1or-caligo_0": -5401685211067621452
+      image (2) 1_0: 4333152036205366446
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
