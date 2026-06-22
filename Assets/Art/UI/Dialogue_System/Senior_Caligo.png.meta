@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c37709f16bd174040989fc607a223b5b
+guid: c7db49412f2fa3e4eb284d328a607e07
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -97282484243850880
-    second: 2png_0
+      213: -5401685211067621452
+    second: "se\xF1or-caligo_0"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 2png_0
+      name: "se\xF1or-caligo_0"
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 1920
-        height: 1080
+        y: 163
+        width: 1060
+        height: 1269
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 08917c3981266aef0800000000000000
-      internalID: -97282484243850880
+      spriteID: 4bf55dd7beb5905b0800000000000000
+      internalID: -5401685211067621452
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 3b8bf6e5ca0aaa1408202766cc0a068b
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      2png_0: -97282484243850880
+      "se\xF1or-caligo_0": -5401685211067621452
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

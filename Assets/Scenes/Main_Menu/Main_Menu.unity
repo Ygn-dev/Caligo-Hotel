@@ -3213,17 +3213,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 907d31377158ad644a12202edf19311a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Main_Menu_Initiator
-  menuBox: {fileID: 578883299}
   logo: {fileID: 1500260019}
+  keyBox: {fileID: 1861840137}
+  logoInicial: {fileID: 380573226}
+  menuBox: {fileID: 578883299}
   boxTape: {fileID: 1094481432}
   textBox: {fileID: 948198774}
-  keyBox: {fileID: 1861840137}
   textMenu: {fileID: 678838738}
-  LogoInicial: {fileID: 380573226}
-  duracionAparicion: 1.5
   duracionEspera: 1
-  duracionDesaparicion: 1
-  curvaAparicion:
+  boxAnimator: {fileID: 272369978}
+  duracionAparicionLogo: 1.5
+  duracionDesaparicionLogo: 1
+  curvaAparicionLogo:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
@@ -3257,7 +3258,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   inputActionAsset: {fileID: -944628639613478452, guid: e75c53da0f7f49f4aae3d0a6e4b3cca4, type: 3}
-  boxAnimator: {fileID: 272369978}
 --- !u!1 &1014773869
 GameObject:
   m_ObjectHideFlags: 0
