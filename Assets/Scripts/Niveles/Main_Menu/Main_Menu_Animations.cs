@@ -45,6 +45,7 @@ public class Main_Menu_Animations : MonoBehaviour
                 textAnimator.gameObject.SetActive(false);
 
                 //Continuar animacion
+                Music_Manager.Instance.PlayMusic(MusicType.PORTADA);
                 boxTape.gameObject.SetActive(true);
                 mainMenu.SetActive(true);
                 boxTape.SetTrigger("Desaparicion");
@@ -81,6 +82,10 @@ public class Main_Menu_Animations : MonoBehaviour
         textAnimator.gameObject.SetActive(false);
         boxTape.gameObject.SetActive(false);
         llavesAnimator.gameObject.SetActive(false);
+
+
+        //Musica
+        Music_Manager.Instance.PlayMusic(MusicType.PORTADA);
 
              
         //Activar el menú directamente 

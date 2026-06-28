@@ -343,7 +343,7 @@
             ],
             "bindings": [
                 {
-                    "name": "2D Vector",
+                    "name": "2D Vector D-Pad",
                     "id": "688a3287-d9d6-4787-a257-bec23b6b9990",
                     "path": "2DVector",
                     "interactions": "",
@@ -398,7 +398,7 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "2D Vector",
+                    "name": "2D Vector LStick",
                     "id": "fa9110a4-7940-42b9-8c6b-f83a6b3b0ac4",
                     "path": "2DVector",
                     "interactions": "",
@@ -453,7 +453,7 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "2D Vector",
+                    "name": "2D Vector WASD",
                     "id": "6eafa559-6e7f-4dca-9c88-b1f23b23a363",
                     "path": "2DVector",
                     "interactions": "",
@@ -500,6 +500,61 @@
                     "name": "right",
                     "id": "4b0fc463-9faf-4104-921d-65c1a1c90de3",
                     "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "2D Vector ARROWS",
+                    "id": "ac4d4a14-5b38-427a-8b4f-84b2bb3780ba",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "bc21c9d5-f5b9-41d5-a7dd-d33bccc868d8",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "bbb54123-1c41-4fa9-bfc5-04b11c6c3db2",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "badf2ffd-059f-495d-8b51-5b6bdaf08e4f",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "00dee2c1-166b-4508-a0f9-01c42f402790",
+                    "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard",

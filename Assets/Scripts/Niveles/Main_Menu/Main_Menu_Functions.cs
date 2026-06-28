@@ -11,4 +11,10 @@ public class Main_Menu_Functions : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void ReproducirSonido(string tipoSonido)
+    {
+        SoundType soundType = (SoundType)System.Enum.Parse(typeof(SoundType), tipoSonido);
+        SoundFX_Manager.Instance.PlaySound(soundType);
+    }
 }

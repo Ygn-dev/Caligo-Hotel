@@ -1,8 +1,17 @@
 using System;
 using UnityEngine;
 
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 public enum SoundType
 {
+    CLICK_JUGAR,
+    SELLECIONADO,
+    SELLECIONADO2,
+    SELLECIONADO3
+    /*
     FOOTSTEP,
     ARRUGADO,
     REVIVE,
@@ -15,7 +24,7 @@ public enum SoundType
     CLICK_JUGAR,
     GETTING_HIT,
     NEXT_DIALOGUE,
-    ENTE_MOVIENDO
+    ENTE_MOVIENDO*/
 }
 
 [Serializable]
@@ -30,14 +39,15 @@ public struct SoundList
 
 public class SoundFX_Manager : MonoBehaviour
 {
-    public static SoundFX_Manager instance;
-    public AudioSource audioSourcePrefab;
+    public static SoundFX_Manager Instance;
     [SerializeField] public SoundList[] soundList;
+
+    private string prefabPath = "Prefabs/Audio/SoundFX_Prefab";
 
     //singleton pattern
     private void Awake()
     {
-        if (instance == null) instance = this;
+        if (Instance == null) Instance = this;
     }
 
     public void PlaySound(SoundType soundType, float volume = 1f)
@@ -45,13 +55,14 @@ public class SoundFX_Manager : MonoBehaviour
         //select random clip from the array
         AudioClip[] clips = soundList[(int)soundType].sounds;
         AudioClip randomClip = clips[UnityEngine.Random.Range(0, clips.Length)];
-
         //spawn in  gameObject
-        AudioSource audioSource = Instantiate(audioSourcePrefab, Vector3.zero, Quaternion.identity);
+        AudioSource audioSource = Instantiate(Resources.Load<AudioSource>(prefabPath), transform);
         //assign the audioClip
         audioSource.clip = randomClip;
         //assign volume
         audioSource.volume = volume;
+        //Enable
+        audioSource.enabled = true;
         //play sound
         audioSource.Play();
         //get length of the clip
@@ -59,7 +70,7 @@ public class SoundFX_Manager : MonoBehaviour
         //destroy the audioSource after the clip has finished playing
         Destroy(audioSource.gameObject, clipLength);
     }
-
+    /*
     public void PlayRandomPitch(SoundType soundType, float volume = 1f, float minPitch = 0.8f, float maxPitch = 1.2f)
     {
         //select random clip from the array
@@ -67,7 +78,7 @@ public class SoundFX_Manager : MonoBehaviour
         AudioClip randomClip = clips[UnityEngine.Random.Range(0, clips.Length)];
 
         //spawn in  gameObject
-        AudioSource audioSource = Instantiate(audioSourcePrefab, Vector3.zero, Quaternion.identity);
+        AudioSource audioSource = Instantiate(Resources.Load<AudioSource>(prefabPath), Vector3.zero, Quaternion.identity);
         //assign the audioClip
         audioSource.clip = randomClip;
         //assign random pitch
@@ -89,7 +100,7 @@ public class SoundFX_Manager : MonoBehaviour
         AudioClip randomClip = clips[UnityEngine.Random.Range(0, clips.Length)];
 
         //spawn in  gameObject
-        AudioSource audioSource = Instantiate(audioSourcePrefab, Vector3.zero, Quaternion.identity);
+        AudioSource audioSource = Instantiate(Resources.Load<AudioSource>(prefabPath), Vector3.zero, Quaternion.identity);
         //assign the audioClip
         audioSource.clip = randomClip;
         //return the audioSource
@@ -103,21 +114,26 @@ public class SoundFX_Manager : MonoBehaviour
         AudioClip randomClip = clips[UnityEngine.Random.Range(0, clips.Length)];
 
         //spawn in  gameObject
-        AudioSource audioSource = Instantiate(audioSourcePrefab, Vector3.zero, Quaternion.identity);
+        AudioSource audioSource = Instantiate(Resources.Load<AudioSource>(prefabPath), Vector3.zero, Quaternion.identity);
         //assign the audioClip
         audioSource.clip = randomClip;
         //assign random pitch
         audioSource.pitch = UnityEngine.Random.Range(minPitch, maxPitch);
         //return the audioSource
         return audioSource;
-    }
+    }*/
 
 #if UNITY_EDITOR
-    private void OnEnable()
+    private void OnValidate()
     {
         string[] names = Enum.GetNames(typeof(SoundType));
+
         Array.Resize(ref soundList, names.Length);
-        for (int i = 0; i < soundList.Length; i++) soundList[i].name = names[i];
+
+        for (int i = 0; i < soundList.Length; i++)
+            soundList[i].name = names[i];
+
+        EditorUtility.SetDirty(this);
     }
 #endif
 }

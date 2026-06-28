@@ -4,9 +4,6 @@ using Unity.Cinemachine;
 using System.Collections;
 using UnityEngine.InputSystem;
 
-
-
-
 public class Lobby_Initiator : MonoBehaviour
 {
     [Header("La parte editable está en su Scriptable Object")]
@@ -41,17 +38,14 @@ public class Lobby_Initiator : MonoBehaviour
     {
         
         // Completar Fade de Carga
-        yield return StartCoroutine(Game_Loader_Manager.Instance.CompleteLoadScene());
-        //yield return StartCoroutine(FadeBlanco());
+        if(Game_Loader_Manager.Instance != null) yield return StartCoroutine(Game_Loader_Manager.Instance.CompleteLoadScene());
+        yield return StartCoroutine(FadeBlanco());
 
         //Settear Personaje y Camara mientras se reproduce la cinemática
-    
         StartCoroutine(SpawnCharacter());
         StartCoroutine(SetupCamara());
-        //StartCoroutine(EsperarYquitarFade(3f));
-        //yield return StartCoroutine(CinematicaInicial());
-        
-
+        StartCoroutine(EsperarYquitarFade(3f));
+        yield return StartCoroutine(CinematicaInicial());
         
 
         //Levantarse del sillon
@@ -63,7 +57,7 @@ public class Lobby_Initiator : MonoBehaviour
         
         //Dialogo de introduccion
         yield return new WaitForSeconds(1f);
-        yield return Dialogue_Manager.Instance.StartDialogueCoroutine("Lobby_Introduccion", 6f);
+        yield return Dialogue_Manager.Instance.StartDialogueCoroutine("hotel_intro", 6f);
         
         //Habilitar Input
         inputActions.FindActionMap("Gameplay").Enable();
@@ -84,7 +78,7 @@ public class Lobby_Initiator : MonoBehaviour
 
     private IEnumerator SpawnCharacter()
     {
-        character = Instantiate(characterPrefab,new Vector3(7.36f, 1.65f, 0f), Quaternion.identity);
+        character = Instantiate(characterPrefab,new Vector3(4.18f, -5.22f, 0f), Quaternion.identity);
         character.GetComponent<Animator>().SetTrigger("Sit");
         character.GetComponent<Player_Controller>().Turn(Vector2.left);
         character.GetComponent<Animator>().SetFloat("moveX", -1);
