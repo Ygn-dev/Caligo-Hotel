@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class Game_Init_Manager : MonoBehaviour
 {
-    /*
     private static bool initialized = false;
 
     //Se ejecuta antes de que se cargue cualquier escena
@@ -23,5 +22,5 @@ public class Game_Init_Manager : MonoBehaviour
         }
 
         initialized = true;
-    }*/
+    }
 }

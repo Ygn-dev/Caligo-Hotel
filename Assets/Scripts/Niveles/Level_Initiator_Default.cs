@@ -39,7 +39,7 @@ public class Level_Initiator_Plantilla : MonoBehaviour
         StartCoroutine(DevTools.SetupCamara(cinemachineCamera, levelData, character));
        
         //Completar Fade de Carga
-        yield return StartCoroutine(Game_Loader_Manager.Instance.CompleteLoadScene());
+        if(Game_Loader_Manager.Instance != null) yield return StartCoroutine(Game_Loader_Manager.Instance.CompleteLoadScene());
 
         //Habilitar Input
         inputActions.FindActionMap("Gameplay").Enable();

@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Level_Data_Base
   nivelName: Lobby
   camaraZoom: 9
-  screenPositionComposer: {x: -0.4, y: 0.3}
-  esDeadZone: 0
-  deadZoneWidthHeight: {x: 2, y: 0.2}
+  screenPositionComposer: {x: 0.1, y: 0}
+  esDeadZone: 1
+  deadZoneWidthHeight: {x: 1.23, y: 0.2}
   damping: 0.5
   slowingDistance: 5
   spawnPoint: {x: 5, y: -3, z: 0}

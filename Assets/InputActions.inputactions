@@ -291,7 +291,46 @@
             ]
         },
         {
-            "name": "UI",
+            "name": "Dialogue",
+            "id": "1d42ca0e-c4e2-41da-99e5-4e2a9ee3f307",
+            "actions": [
+                {
+                    "name": "Accept",
+                    "type": "Button",
+                    "id": "3a323b44-4ae9-4565-986b-31f199336a94",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "7baabcdc-537d-4e4f-a011-8aeba2e29bd1",
+                    "path": "<DualShockGamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Accept",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "48573b3e-fea5-4c3e-860f-17dda5cb10fb",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard",
+                    "action": "Accept",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Pause",
             "id": "2cfaeac1-1fb9-4bd9-a64c-5a6c2557757d",
             "actions": [
                 {

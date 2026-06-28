@@ -115,41 +115,43 @@ public static class DevTools
     //SETUPS
     public static IEnumerator SetupCamara(CinemachineCamera camera, ScriptableObject levelDataSO, GameObject character)
     {
-        camera.Follow = null;
-
         // Obtener componentes necesarios
         Level_Data_Base nivelData = (Level_Data_Base)levelDataSO;
-
         CinemachineConfiner2D camConfiner = camera.GetComponent<CinemachineConfiner2D>();
         CinemachinePositionComposer camPosCom =  camera.GetComponent<CinemachinePositionComposer>();     
+
+        camera.Follow = character.transform;
 
         camConfiner.Damping = nivelData.damping;
         camConfiner.SlowingDistance = nivelData.slowingDistance;
 
         // cambiar screen position composer
         camera.Lens.OrthographicSize = nivelData.camaraZoom;
+        camPosCom.Composition.ScreenPosition = Vector2.zero;
+        camPosCom.Damping = Vector3.zero;
+        camConfiner.Damping = 0f;
+        yield return new WaitForEndOfFrame();
 
-        if (nivelData.esDeadZone)
+        camPosCom.Composition.ScreenPosition = nivelData.screenPositionComposer;
+        camPosCom.Damping = Vector3.one;
+        camConfiner.Damping = 0.5f;
+
+        if(nivelData.esDeadZone)
         {
             camPosCom.Composition.DeadZone.Enabled = true;
             camPosCom.Composition.DeadZone.Size = nivelData.deadZoneWidthHeight;
+
         }
         else
         {
             camPosCom.Composition.DeadZone.Enabled = false;
         }
-
-        // cambiar screen position composer 
-        camPosCom.Composition.ScreenPosition = nivelData.screenPositionComposer;
         
         // Cambiar confiner
         GameObject confiner = GameObject.FindGameObjectWithTag("Confiner");
 
         camConfiner.BoundingShape2D = confiner.GetComponentInChildren<Collider2D>();
         camConfiner.InvalidateBoundingShapeCache();
-        
-        camera.Follow = character.transform;
-
         yield return null;
     }
 

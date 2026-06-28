@@ -35,8 +35,10 @@ public class Dialogue_Manager : MonoBehaviour
     private Vector3 camPosIni;
     private TextAsset jsonFile;
     private GameObject content;
+    private bool seActivoScroll;
     private TMP_Text currentText;
     private ScrollRect scrollRect;
+    private InputAction acceptAction;
     private GameObject instCajaDeDialogo;
     private Dialogue_Struct dialogueData;
     private CinemachineConfiner2D confiner;
@@ -53,6 +55,7 @@ public class Dialogue_Manager : MonoBehaviour
     {
         // Implementación del patrón Singleton
         if (Instance == null) Instance = this;
+        acceptAction = inputActions.FindActionMap("Dialogue").FindAction("Accept");
     }
 
     //METODOS DE INICIO DE DIALOGO
@@ -67,6 +70,7 @@ public class Dialogue_Manager : MonoBehaviour
     {
         yield return StartCoroutine(IniciarDialogo(jsonFileName, zoomCamara, camPosX, camPosY));
     }
+
 
     // LLAMADA SIN POSICION DE CAMARA, LA MAS COMUN
     public void StartDialogue(string jsonFileName, float zoomCamara)
@@ -123,9 +127,14 @@ public class Dialogue_Manager : MonoBehaviour
         layoutGroup = content.GetComponent<VerticalLayoutGroup>();
         scrollRect = scrollHelper.scrollRect;
 
-        // Deterner acciones
+        // Deterner todas las acciones
         inputActions.FindActionMap("Gameplay").Disable();
-        inputActions.FindActionMap("UI").Enable();
+        inputActions.FindActionMap("Pause").Disable();
+
+        //activar el mapa de dialogo
+        inputActions.FindActionMap("Dialogue").Enable();
+        //desactivar todas las acciones de dialogo
+        acceptAction.Enable();
 
 
         // Desvincular camara del personaje
@@ -149,11 +158,11 @@ public class Dialogue_Manager : MonoBehaviour
         instanceDialogueScroll.transform.SetParent(instanceBlackBackground.transform, true);
 
         // Iniciar guion
+        seActivoScroll = false;
         nextNodeId = dialogueData.startNode;
         scrollHelper.OcultarScroll();
         yield return AvanzarGuion();
     }
-
     
     private IEnumerator AvanzarGuion()
     {
@@ -182,31 +191,38 @@ public class Dialogue_Manager : MonoBehaviour
         else
         {
             // En todos los demas nodos, mover el scroll hacia abajo para mostrar el nuevo dialogo
+            scrollHelper.OcultarScroll();
             yield return StartCoroutine(MoverScroll());
+            acceptAction.Disable();
 
-            // Ajustar el padding si ya se alcanza el limite y ahora se necesita mostrar el scroll
-            float alturaReal = content.GetComponent<RectTransform>().rect.height - layoutGroup.padding.top;
-            if(alturaReal > 750)
+            if(!seActivoScroll)
             {
-                yield return StartCoroutine(QuitarPadding());
-                scrollHelper.MostrarScroll();
+                // Ajustar el padding si ya se alcanza el limite y ahora se necesita mostrar el scroll
+                float alturaReal = content.GetComponent<RectTransform>().rect.height - layoutGroup.padding.top;
+                if(alturaReal > 750)
+                {
+                    StartCoroutine(QuitarPadding());
+                    seActivoScroll = true;
+                }
             }
-            
         }
 
         // Luego de instanciar el prefab, mostrar la caja de texto y escribir el dialogo
         yield return instCajaDeDialogo.GetComponent<ICaja_De_Texto_Helper>().MostrarCaja(duracionAparicionCaja, curvaAparicionCaja);
+        
+        acceptAction.Enable();
         yield return LeerGuion();
 
+        acceptAction.performed += AvanzarAccion;
+        if(seActivoScroll) scrollHelper.MostrarScroll();
 
-        // Si es el primer nodo, mostrar la leyenda al mismo tiempo que el dialogo
+        // Si es el primer nodo, mostrar la leyenda despues de un tiempo
         if(currentNodeId == 0)
         {
             CanvasGroup canvasGroup = instanceDialogueScroll.GetComponent<DialogueScroll_Helper>().leyenda.GetComponent<CanvasGroup>();
             yield return new WaitForSeconds(1.5f);
             StartCoroutine(DevTools.AnimarCanvasGroup(canvasGroup, 1, duracionAparicionLeyenda, curvaAparicionLeyenda));
-        }
-        
+        }  
     }
 
     private IEnumerator LeerGuion()
@@ -217,17 +233,32 @@ public class Dialogue_Manager : MonoBehaviour
         int currentVisibleCharacterIndex = 0;
         float delay = (1/velocidadEscritura);
 
-        while(currentVisibleCharacterIndex < textInfo.characterCount)
+        while (currentVisibleCharacterIndex < textInfo.characterCount)
         {
+            // Si se presiona aceptar, mostrar todo el texto inmediatamente
+            if (acceptAction.triggered)
+            {
+                text.maxVisibleCharacters = textInfo.characterCount;
+                yield break;
+            }
+
             currentVisibleCharacterIndex++;
             text.maxVisibleCharacters = currentVisibleCharacterIndex;
-            yield return new WaitForSeconds(delay);
-           
+
+            // Esperar el delay, pero revisando el input cada frame
+            float timer = 0f;
+            while (timer < delay)
+            {
+                if (acceptAction.triggered)
+                {
+                    text.maxVisibleCharacters = textInfo.characterCount;
+                    yield break;
+                }
+
+                timer += Time.deltaTime;
+                yield return null;
+            }
         }
-        /*
-        yield return new WaitForSeconds(delay);
-        text.maxVisibleCharacters = textInfo.characterCount;*/
-        yield return null;
     }
 
     private IEnumerator SetupPrefab()
@@ -254,6 +285,7 @@ public class Dialogue_Manager : MonoBehaviour
 
     private IEnumerator QuitarPadding()
     {
+        //scrollHelper.SetIsAnimPading(true);
         while (layoutGroup.padding.top > 0)
         {
             layoutGroup.padding.top --; 
@@ -261,6 +293,8 @@ public class Dialogue_Manager : MonoBehaviour
             LayoutRebuilder.ForceRebuildLayoutImmediate(layoutGroup.GetComponent<RectTransform>());
             yield return null;
         }
+        //scrollHelper.SetIsAnimPading(false);
+        yield return null;
     }
 
     private IEnumerator TerminarGuion()
@@ -279,7 +313,8 @@ public class Dialogue_Manager : MonoBehaviour
 
         // Reanudar acciones
         inputActions.FindActionMap("Gameplay").Enable();
-        inputActions.FindActionMap("UI").Disable();
+        inputActions.FindActionMap("Pause").Enable();
+        inputActions.FindActionMap("Dialogue").Disable();
 
         yield return null;
     }
@@ -292,6 +327,14 @@ public class Dialogue_Manager : MonoBehaviour
 
         while (tiempo < duracionMovimientoScroll)
         {
+            // Skip
+            if (acceptAction.triggered)
+            {
+                scrollRect.verticalNormalizedPosition = posicionFinal;
+                LayoutRebuilder.ForceRebuildLayoutImmediate(layoutGroup.GetComponent<RectTransform>());
+                yield break;
+            }
+
             float t = tiempo / duracionMovimientoScroll;
             scrollRect.verticalNormalizedPosition = Mathf.Lerp(posicionInicial, posicionFinal, curvaMovimientoScroll.Evaluate(t));
             LayoutRebuilder.ForceRebuildLayoutImmediate(layoutGroup.GetComponent<RectTransform>());
@@ -304,12 +347,9 @@ public class Dialogue_Manager : MonoBehaviour
         yield return null;
     }
 
-    void Update()
+    private void AvanzarAccion(InputAction.CallbackContext context)
     {
-        if (Keyboard.current != null &&
-            Keyboard.current.qKey.wasPressedThisFrame)
-        {
-                StartCoroutine(AvanzarGuion());
-        }
+        acceptAction.performed -= AvanzarAccion;
+        StartCoroutine(AvanzarGuion());
     }
 }
