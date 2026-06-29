@@ -1,0 +1,18 @@
+{
+	"dialogueId": "hotel_intro2",
+	"startNode": 0,
+	"nodes": [
+		{
+			"nodeId": 0,
+			"personaje": "Personaje",
+			"text": "¿En qué momento...?",
+			"nextNodeId": 1
+		},
+		{
+			"nodeId": 1,
+			"personaje": "Personaje",
+			"text": "¿Cómo es que...?",
+			"nextNodeId": -1
+		}
+	]
+}

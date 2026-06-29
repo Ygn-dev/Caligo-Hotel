@@ -18,13 +18,15 @@ public static class DevTools
             float curveValue = curve.Evaluate(t);
 
             float alpha = Mathf.LerpUnclamped(startAlpha, targetAlpha, curveValue);
-            canvasGroup.alpha = alpha;
+            if(canvasGroup != null)
+                canvasGroup.alpha = alpha;
 
             time += Time.unscaledDeltaTime;
             yield return null;
         }
 
-        canvasGroup.alpha = targetAlpha;
+        if(canvasGroup != null)
+            canvasGroup.alpha = targetAlpha;
         yield return null;
     }
 

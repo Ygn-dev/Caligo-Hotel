@@ -48,8 +48,6 @@ public class Dialogue_Manager : MonoBehaviour
     private GameObject instanceBlackBackground;
     private CinemachineCamera cinemachineCamera;
     
-    
-    
 
     private void Awake()
     {
@@ -299,22 +297,24 @@ public class Dialogue_Manager : MonoBehaviour
 
     private IEnumerator TerminarGuion()
     {
+        // Reanudar acciones
+        inputActions.FindActionMap("Dialogue").Disable();
+
         // Ocultar el dialogue system 
         yield return StartCoroutine(DevTools.AnimarCamaraYBackground(cinemachineCamera, zoomCamIni, camPosIni.x, camPosIni.y, 
                                                                         duracionZoomCamara, curvaZoom, instanceBlackBackground, 
                                                                         curvaBlackBackground, 1660, 0));
         // Eliminarlo
         Destroy(instanceBlackBackground);
+        instanceBlackBackground = null;
         
         // Desactivar confiner
         confiner.enabled = enabled;
         // vincular camara al personaje
         cinemachineCamera.Follow = GameObject.FindGameObjectWithTag("Player").transform;;
 
-        // Reanudar acciones
         inputActions.FindActionMap("Gameplay").Enable();
         inputActions.FindActionMap("Pause").Enable();
-        inputActions.FindActionMap("Dialogue").Disable();
 
         yield return null;
     }

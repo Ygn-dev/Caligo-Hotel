@@ -36,7 +36,6 @@ public class Lobby_Initiator : MonoBehaviour
 
     private IEnumerator InitializeLobby()
     {
-        
         // Completar Fade de Carga
         yield return StartCoroutine(Game_Loader_Manager.Instance.CompleteLoadScene());
         //yield return StartCoroutine(FadeBlanco());
@@ -97,6 +96,11 @@ public class Lobby_Initiator : MonoBehaviour
     {
         yield return new WaitForSeconds(duration);
         fade.gameObject.SetActive(false);
+    }
+
+    public void Prueba()
+    {
+        Debug.Log("Prueba");
     }
 }
 
