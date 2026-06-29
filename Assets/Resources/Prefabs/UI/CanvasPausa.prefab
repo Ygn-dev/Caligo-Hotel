@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6380643423817545001}
   - component: {fileID: 7261569312207161233}
   - component: {fileID: 5661557175708839466}
+  - component: {fileID: 4361472466640290073}
   m_Layer: 5
   m_Name: CanvasPausa
   m_TagString: Untagged
@@ -119,9 +120,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef3740ecee72e2441a8c0cfb151d9748, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuPausaSystem
-  InputActions: {fileID: 0}
+  InputActions: {fileID: -944628639613478452, guid: e75c53da0f7f49f4aae3d0a6e4b3cca4, type: 3}
   MenuPausa: {fileID: 3371675044183021798}
-  duracionAparicion: 0
+  duracionAparicion: 0.3
   curvaAparicion:
     serializedVersion: 2
     m_Curve:
@@ -220,7 +221,19 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  volumeProfile: {fileID: 0}
+  volumeProfile: {fileID: 11400000, guid: 3f9215ea0144899419cfbc0957140d3f, type: 2}
+--- !u!114 &4361472466640290073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1386145844037768630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fed55dc5956250d458bffcf988c62323, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Level_Trasition_Helper
 --- !u!1 &1425954747060926523
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,7 +355,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 5661557175708839466}
         m_TargetAssemblyTypeName: MenuPausaSystem, Assembly-CSharp
         m_MethodName: ReanudarJuego
         m_Mode: 1
@@ -382,18 +395,18 @@ RectTransform:
   m_GameObject: {fileID: 1528336221787888441}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4966002897320178669}
   - {fileID: 8949693295745837827}
   m_Father: {fileID: 5953121340861131760}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -846.53796, y: -442.0406}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 82.825806, y: 54.05139}
   m_SizeDelta: {x: 123.4588, y: 137.8565}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 0}
 --- !u!222 &929068593192839680
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -727,8 +740,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Recepci\xF3n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: aa9da96a4b5b6e94baec2bf778751366, type: 2}
+  m_sharedMaterial: {fileID: 5187790134501616820, guid: aa9da96a4b5b6e94baec2bf778751366, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -747,7 +760,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
+  m_TextStyleHashCode: 97690656
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -982,10 +995,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 5953121340861131760}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1920, y: 1080}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2284515313166306731
 CanvasRenderer:
@@ -1015,7 +1028,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1843402079245874112, guid: 0187002565e081b479ed269fc1dc03ce, type: 3}
+  m_Sprite: {fileID: -1440068975, guid: cddd8664fb76be248b82d1d51227e397, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1134,7 +1147,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.6764, y: 9.0798}
+  m_AnchoredPosition: {x: -0.67639923, y: 9.0798}
   m_SizeDelta: {x: 71.4647, y: 66.943}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7325626169051993960
@@ -1417,16 +1430,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MenuPausaSystem, Assembly-CSharp
-        m_MethodName: MenuPrincipal
-        m_Mode: 1
+      - m_Target: {fileID: 4361472466640290073}
+        m_TargetAssemblyTypeName: Level_Trasition_Helper, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Main_Menu
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &6351896533213985213
@@ -1496,8 +1509,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Reanudar
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: aa9da96a4b5b6e94baec2bf778751366, type: 2}
+  m_sharedMaterial: {fileID: 5187790134501616820, guid: aa9da96a4b5b6e94baec2bf778751366, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1516,7 +1529,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
+  m_TextStyleHashCode: 97690656
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2

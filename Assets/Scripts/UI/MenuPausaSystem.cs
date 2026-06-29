@@ -27,7 +27,15 @@ public class MenuPausaSystem : MonoBehaviour
 
     void Start()
     {
-
+        if (SceneManager.GetActiveScene().name == "Main_Menu")
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+        else
+        {
+            DontDestroyOnLoad(this.gameObject);
+        }
         //Bindear Input Actions
         ActionMapUI = InputActions.FindActionMap("Pause");
         ActionMapGameplay = InputActions.FindActionMap("Gameplay");
@@ -38,9 +46,20 @@ public class MenuPausaSystem : MonoBehaviour
         pausaAction.performed += OnPause;
         DespauseAction.performed += OnResume;
 
-        if (volumeProfile.TryGet(out DepthOfField depthOfField))
+        if (volumeProfile != null)
         {
-            dof = depthOfField;
+            if (volumeProfile.TryGet(out DepthOfField depthOfField))
+            {
+                dof = depthOfField;
+            }
+            else
+            {
+                Debug.LogWarning("Depth of Field no está presente en el Volume Profile asignado.");
+            }
+        }
+        else
+        {
+            Debug.LogWarning("VolumeProfile no está asignado en el Inspector. Se desactivará el efecto de desenfoque.");
         }
     }
 
@@ -87,7 +106,7 @@ public class MenuPausaSystem : MonoBehaviour
         Time.timeScale = 0;
         ActionMapGameplay.Disable();
         MenuPausa.transform.SetAsLastSibling();
-        yield return StartCoroutine(Animar(new Vector3(0, 34, 0), 140, 225, 0, duracionAparicion));
+        yield return StartCoroutine(Animar(new Vector3(0f, 0f, 0f), 140f, 225f, 0f, duracionAparicion));
         ActionMapUI.Enable();
         yield return null;
     }
@@ -95,7 +114,7 @@ public class MenuPausaSystem : MonoBehaviour
     private IEnumerator Reanudar()
     {
         ActionMapUI.Disable();
-        yield return StartCoroutine(Animar(new Vector3(0, 964, 0), 10, 0, 1, duracionAparicion));
+        yield return StartCoroutine(Animar(new Vector3(0f, 1500f, 0f), 10f, 0f, 1f, duracionAparicion));
         ActionMapGameplay.Enable();
         Time.timeScale = 1;
         yield return null;
@@ -103,7 +122,14 @@ public class MenuPausaSystem : MonoBehaviour
 
     public void MenuPrincipal()
     {
-        SceneManager.LoadScene("MainMenu");
+        Time.timeScale = 1f;
+        StartCoroutine(IrAlMenuPrincipal());
+    }
+    private IEnumerator IrAlMenuPrincipal()
+    {
+        yield return StartCoroutine(Animar(new Vector3(0f, 1500f, 0f), 10f, 0f, 1f, duracionAparicion));
+        SceneManager.LoadScene("Main_Menu");
+        Destroy(this.gameObject);
     }
 
     private IEnumerator Animar(Vector3 posicionFinal, float valorFinalDof, float valorFinalAlpha, float valorFinalCampana, float duracion)
