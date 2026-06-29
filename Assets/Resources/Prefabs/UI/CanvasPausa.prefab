@@ -12,8 +12,7 @@ GameObject:
   - component: {fileID: 9059650475138014975}
   - component: {fileID: 6380643423817545001}
   - component: {fileID: 7261569312207161233}
-  - component: {fileID: 6451298490997522728}
-  - component: {fileID: 6471099560705581732}
+  - component: {fileID: 5661557175708839466}
   m_Layer: 5
   m_Name: CanvasPausa
   m_TagString: Untagged
@@ -61,7 +60,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_UseReflectionProbes: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
@@ -108,7 +107,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &6451298490997522728
+--- !u!114 &5661557175708839466
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -117,12 +116,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1386145844037768630}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9d9a4a66d9ce1f47a52381ab0347742, type: 3}
+  m_Script: {fileID: 11500000, guid: ef3740ecee72e2441a8c0cfb151d9748, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MenuSystem
-  InputActions: {fileID: -944628639613478452, guid: 6a50ec5d36a6ef740b21a9456be132de, type: 3}
+  m_EditorClassIdentifier: Assembly-CSharp::MenuPausaSystem
+  InputActions: {fileID: 0}
   MenuPausa: {fileID: 3371675044183021798}
-  duracionAparicion: 0.3
+  duracionAparicion: 0
   curvaAparicion:
     serializedVersion: 2
     m_Curve:
@@ -130,19 +129,19 @@ MonoBehaviour:
       time: 0
       value: 0
       inSlope: 0
-      outSlope: 3.000003
+      outSlope: 0
       tangentMode: 0
-      weightedMode: 3
+      weightedMode: 0
       inWeight: 0
-      outWeight: 0.333333
+      outWeight: 0
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: 2
+      outSlope: 2
       tangentMode: 0
-      weightedMode: 3
-      inWeight: 0.33333302
+      weightedMode: 0
+      inWeight: 0
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -151,40 +150,22 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: -0.016667128
-      value: 0.000010903459
+      time: 0
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-      weightedMode: 3
+      weightedMode: 0
       inWeight: 0
-      outWeight: 0.1711574
+      outWeight: 0
     - serializedVersion: 3
-      time: 0.13683788
-      value: 0.66139257
-      inSlope: 0.6087795
-      outSlope: 0.6087795
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
       tangentMode: 0
-      weightedMode: 3
-      inWeight: 0.9116936
-      outWeight: 0.3650008
-    - serializedVersion: 3
-      time: 0.5533223
-      value: 0.9068839
-      inSlope: 0.4375737
-      outSlope: 0.4375737
-      tangentMode: 0
-      weightedMode: 3
-      inWeight: 0.3134383
-      outWeight: 0.32397124
-    - serializedVersion: 3
-      time: 0.9999961
-      value: 1.0076126
-      inSlope: 0.031243537
-      outSlope: 0.031243537
-      tangentMode: 0
-      weightedMode: 3
-      inWeight: 0.36286715
+      weightedMode: 0
+      inWeight: 0
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -193,45 +174,27 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: -0.021014288
-      value: 0.050400138
-      inSlope: 1.7101514
-      outSlope: 1.7101514
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
-      weightedMode: 3
-      inWeight: 0.45712653
-      outWeight: 0.3050816
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     - serializedVersion: 3
-      time: 0.1385352
-      value: 0.11405492
-      inSlope: 0.058246106
-      outSlope: 0.058246106
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
       tangentMode: 0
-      weightedMode: 3
-      inWeight: 0.34588197
-      outWeight: 0.41934267
-    - serializedVersion: 3
-      time: 0.69434685
-      value: 0.27857184
-      inSlope: 0.58162475
-      outSlope: 0.58162475
-      tangentMode: 0
-      weightedMode: 3
-      inWeight: 0.16906916
-      outWeight: 0.67058814
-    - serializedVersion: 3
-      time: 0.9999961
-      value: 1.0076126
-      inSlope: 0.031243537
-      outSlope: 0.031243537
-      tangentMode: 0
-      weightedMode: 3
-      inWeight: 0.34848556
+      weightedMode: 0
+      inWeight: 0
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  blackScreen: {fileID: 4289235904443517325}
+  blackScreen: {fileID: 4139157363049035114}
   campana: {fileID: 8736277455813357570}
   curvaBlackScreen:
     serializedVersion: 2
@@ -239,71 +202,25 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 0
-      outSlope: 3.9858234
-      tangentMode: 0
-      weightedMode: 3
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
       inWeight: 0
-      outWeight: 0.269099
+      outWeight: 0
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 0.013942328
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 3
-      inWeight: 0.434789
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  volumeProfile: {fileID: 11400000, guid: 45ac91d063e453349b2c45f876a3abc6, type: 2}
---- !u!114 &6471099560705581732
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1386145844037768630}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87b04dbd05e433049b7896fc15e3c363, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PantallaCarga
-  curva:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0.013942428
-      tangentMode: 0
-      weightedMode: 3
-      inWeight: 0
-      outWeight: 0.434788
-    - serializedVersion: 3
-      time: 0.5
-      value: 0.5
-      inSlope: 3.9858418
-      outSlope: 3.985834
-      tangentMode: 0
-      weightedMode: 3
-      inWeight: 0.26909798
-      outWeight: 0.26909804
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0.013942499
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 3
-      inWeight: 0.434788
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  fadeImage: {fileID: 8514932995875870076}
+  volumeProfile: {fileID: 0}
 --- !u!1 &1425954747060926523
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,7 +342,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6451298490997522728}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MenuPausaSystem, Assembly-CSharp
         m_MethodName: ReanudarJuego
         m_Mode: 1
@@ -505,7 +422,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -6375934493624572231, guid: b3b569b322666c146a94f307b04958fb, type: 3}
+  m_Sprite: {fileID: -6375934493624572231, guid: e03a5e4dee016d8418c22021b92a7e40, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -596,7 +513,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 896143749056936871, guid: 5188b3770f67422499d8110721e2bd63, type: 3}
+  m_Sprite: {fileID: 896143749056936871, guid: 61c69a34e4d1f5f48bf9e68c03251bb9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -673,8 +590,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Registro
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 43f751b60e97f3249a6b9cc93cd2c493, type: 2}
-  m_sharedMaterial: {fileID: 5187790134501616820, guid: 43f751b60e97f3249a6b9cc93cd2c493, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -810,8 +727,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Recepci\xF3n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 43f751b60e97f3249a6b9cc93cd2c493, type: 2}
-  m_sharedMaterial: {fileID: 5187790134501616820, guid: 43f751b60e97f3249a6b9cc93cd2c493, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -917,7 +834,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000091552734, y: 964}
+  m_AnchoredPosition: {x: 0.000091552734, y: 1077.4545}
   m_SizeDelta: {x: 1934.606, y: 903.34}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7815777448380751469
@@ -1248,7 +1165,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -277872452184639756, guid: a95415eba679a4146bbd6c709db11bc3, type: 3}
+  m_Sprite: {fileID: -277872452184639756, guid: 25fc455c6897ce840b3cf44229a3e040, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1500,7 +1417,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6451298490997522728}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MenuPausaSystem, Assembly-CSharp
         m_MethodName: MenuPrincipal
         m_Mode: 1
@@ -1579,8 +1496,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Reanudar
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 43f751b60e97f3249a6b9cc93cd2c493, type: 2}
-  m_sharedMaterial: {fileID: 5187790134501616820, guid: 43f751b60e97f3249a6b9cc93cd2c493, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1716,8 +1633,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Mantenimiento
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 43f751b60e97f3249a6b9cc93cd2c493, type: 2}
-  m_sharedMaterial: {fileID: 5187790134501616820, guid: 43f751b60e97f3249a6b9cc93cd2c493, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1895,8 +1812,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.6764, y: -50.3}
-  m_SizeDelta: {x: 32.533, y: 57.7548}
+  m_AnchoredPosition: {x: -4.529911, y: -46.97564}
+  m_SizeDelta: {x: 55.224, y: 43.791}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5626076557018071069
 CanvasRenderer:
@@ -1926,7 +1843,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 2666819650237288124, guid: 1db7bfab9c6fc3e43afaef60e4680fab, type: 3}
+  m_Sprite: {fileID: 7352090559623854147, guid: a78328920df18b043bc16f9cccf4b2fe, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

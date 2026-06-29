@@ -29,7 +29,7 @@ public class MenuPausaSystem : MonoBehaviour
     {
 
         //Bindear Input Actions
-        ActionMapUI = InputActions.FindActionMap("UI");
+        ActionMapUI = InputActions.FindActionMap("Pause");
         ActionMapGameplay = InputActions.FindActionMap("Gameplay");
         //Asignar eventos
         InputAction pausaAction = ActionMapGameplay.FindAction("Pause");
