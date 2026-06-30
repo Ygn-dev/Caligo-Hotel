@@ -9,8 +9,8 @@ public enum SoundType
 {
     CLICK_JUGAR,
     SELLECIONADO,
-    SELLECIONADO2,
-    SELLECIONADO3
+    PUERTA_BLOQUEADA,
+    ABRIR_PUERTA
     /*
     FOOTSTEP,
     ARRUGADO,
@@ -18,10 +18,10 @@ public enum SoundType
     ABRIR_DIALOGO,
     TIMBRE,
     ELEGIR_LLAVE,
-    ABRIR_PUERTA,
+
     COGER_LLAVE,
-    PUERTA_BLOQQUEADA,
-    CLICK_JUGAR,
+
+
     GETTING_HIT,
     NEXT_DIALOGUE,
     ENTE_MOVIENDO*/

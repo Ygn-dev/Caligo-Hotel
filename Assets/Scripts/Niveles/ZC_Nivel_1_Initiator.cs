@@ -20,6 +20,8 @@ public class ZC_Nivel_1_Initiator : MonoBehaviour
         inputActions.Disable();
         nivelData = (Level_Data_Base)levelData;
         if(cinemachineCamera == null) cinemachineCamera = FindAnyObjectByType<CinemachineCamera>();
+        // Este nivel usara sistema de dialogos, asi que se asegura de que el Dialogue Manager exista en la escena
+        if (Dialogue_Manager.Instance == null) DevTools.SetupDialogueManager();
     }
 
     void Start()
@@ -35,6 +37,9 @@ public class ZC_Nivel_1_Initiator : MonoBehaviour
         
         //Completar Fade de Carga
         yield return StartCoroutine(Game_Loader_Manager.Instance.CompleteLoadScene());
+
+        //Musica
+        Music_Manager.Instance.PlayMusic(MusicType.ZONA_CAMARAS);
 
         //Habilitar Input
         inputActions.FindActionMap("Gameplay").Enable();

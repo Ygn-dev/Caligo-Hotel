@@ -38,6 +38,9 @@ public class ZC_Nivel_2_Initiator : MonoBehaviour
         //Completar Fade de Carga
         yield return StartCoroutine(Game_Loader_Manager.Instance.CompleteLoadScene());
 
+        //Musica
+        Music_Manager.Instance.PlayMusic(MusicType.ZONA_CAMARAS);
+
         //Habilitar Input
         inputActions.FindActionMap("Gameplay").Enable();
         yield return null;

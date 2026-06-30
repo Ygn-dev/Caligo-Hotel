@@ -44,8 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b399dad56ba3cc4c83b5b4d87ac84b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue_Manager
-  prefabMonologo: {fileID: 3373344251339773383, guid: 68c2e8bea28838848995733f0a23a134, type: 3}
-  prefabPersonaje: {fileID: 7658347907512001061, guid: 82c009a95ef1df74782004a5f6cb9d09, type: 3}
   curvaZoom:
     serializedVersion: 2
     m_Curve:
@@ -220,3 +218,4 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   duracionAparicionLeyenda: 2
+  velocidadScroll: 0.6

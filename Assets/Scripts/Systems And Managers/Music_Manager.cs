@@ -7,7 +7,8 @@ using UnityEditor;
 
 public enum MusicType
 {
-    PORTADA
+    PORTADA,
+    ZONA_CAMARAS
 }
 
 [Serializable]

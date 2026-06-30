@@ -26,9 +26,10 @@ public class Dialogue_Manager : MonoBehaviour
     public float duracionMovimientoScroll;
     public AnimationCurve curvaAparicionLeyenda;
     public float duracionAparicionLeyenda;
+    public float velocidadScroll;
 
     
-    private Canvas canvas;
+    private Canvas canvas;  
     private int nextNodeId;
     private float zoomCamIni;
     private int currentNodeId;
@@ -39,6 +40,7 @@ public class Dialogue_Manager : MonoBehaviour
     private TMP_Text currentText;
     private ScrollRect scrollRect;
     private InputAction acceptAction;
+    private bool isDialogueScrollAviable;
     private GameObject instCajaDeDialogo;
     private Dialogue_Struct dialogueData;
     private CinemachineConfiner2D confiner;
@@ -47,6 +49,13 @@ public class Dialogue_Manager : MonoBehaviour
     private DialogueScroll_Helper scrollHelper;
     private GameObject instanceBlackBackground;
     private CinemachineCamera cinemachineCamera;
+
+
+    private bool subirScroll;
+    private bool bajarScroll;
+    private InputAction upAction;
+    private InputAction downAction;
+    
     
 
     private void Awake()
@@ -54,6 +63,8 @@ public class Dialogue_Manager : MonoBehaviour
         // Implementación del patrón Singleton
         if (Instance == null) Instance = this;
         acceptAction = inputActions.FindActionMap("Dialogue").FindAction("Accept");
+        upAction = inputActions.FindActionMap("Dialogue").FindAction("Up");
+        downAction = inputActions.FindActionMap("Dialogue").FindAction("Down");
     }
 
     //METODOS DE INICIO DE DIALOGO
@@ -157,6 +168,7 @@ public class Dialogue_Manager : MonoBehaviour
 
         // Iniciar guion
         seActivoScroll = false;
+        isDialogueScrollAviable = false;
         nextNodeId = dialogueData.startNode;
         scrollHelper.OcultarScroll();
         yield return AvanzarGuion();
@@ -189,9 +201,18 @@ public class Dialogue_Manager : MonoBehaviour
         else
         {
             // En todos los demas nodos, mover el scroll hacia abajo para mostrar el nuevo dialogo
-            scrollHelper.OcultarScroll();
+            upAction.started -= SubirScroll;
+            upAction.canceled -= SubirScroll;
+
+            downAction.started -= BajarScroll;
+            downAction.canceled -= BajarScroll;
+            
+            // Si el scroll no esta arriba, bajarlo primero
+            BajarScrollTodo();
+            scrollHelper.OcultarScroll();          
             yield return StartCoroutine(MoverScroll());
             acceptAction.Disable();
+            yield return null;
 
             if(!seActivoScroll)
             {
@@ -201,18 +222,25 @@ public class Dialogue_Manager : MonoBehaviour
                 {
                     StartCoroutine(QuitarPadding());
                     seActivoScroll = true;
+                    isDialogueScrollAviable = true;
                 }
             }
         }
 
         // Luego de instanciar el prefab, mostrar la caja de texto y escribir el dialogo
-        yield return instCajaDeDialogo.GetComponent<ICaja_De_Texto_Helper>().MostrarCaja(duracionAparicionCaja, curvaAparicionCaja);
+        yield return instCajaDeDialogo.GetComponent<ICaja_De_Texto_Helper>().MostrarCaja(duracionAparicionCaja, curvaAparicionCaja, acceptAction);
         
         acceptAction.Enable();
         yield return LeerGuion();
 
         acceptAction.performed += AvanzarAccion;
         if(seActivoScroll) scrollHelper.MostrarScroll();
+        upAction.started += SubirScroll;
+        upAction.canceled += SubirScroll;
+
+        downAction.started += BajarScroll;
+        downAction.canceled += BajarScroll;
+
 
         // Si es el primer nodo, mostrar la leyenda despues de un tiempo
         if(currentNodeId == 0)
@@ -221,6 +249,33 @@ public class Dialogue_Manager : MonoBehaviour
             yield return new WaitForSeconds(1.5f);
             StartCoroutine(DevTools.AnimarCanvasGroup(canvasGroup, 1, duracionAparicionLeyenda, curvaAparicionLeyenda));
         }  
+    }
+
+
+    private IEnumerator BajarScrollTodo()
+    {
+        while (scrollRect.verticalNormalizedPosition > 0f)
+        {
+            scrollRect.verticalNormalizedPosition = Mathf.Max(
+                0f,
+                scrollRect.verticalNormalizedPosition - velocidadScroll * Time.deltaTime);
+
+            LayoutRebuilder.ForceRebuildLayoutImmediate(layoutGroup.GetComponent<RectTransform>());
+
+            yield return null;
+        }
+
+        scrollRect.verticalNormalizedPosition = 0f;
+        LayoutRebuilder.ForceRebuildLayoutImmediate(layoutGroup.GetComponent<RectTransform>());
+    }
+    private void SubirScroll(InputAction.CallbackContext context)
+    {
+        subirScroll = context.ReadValueAsButton();
+    }
+
+    private void BajarScroll(InputAction.CallbackContext context)
+    {
+        bajarScroll = context.ReadValueAsButton();
     }
 
     private IEnumerator LeerGuion()
@@ -351,5 +406,18 @@ public class Dialogue_Manager : MonoBehaviour
     {
         acceptAction.performed -= AvanzarAccion;
         StartCoroutine(AvanzarGuion());
+    }
+    
+    private void Update()
+    {
+        if (subirScroll)
+        {
+            scrollRect.verticalNormalizedPosition = Mathf.Clamp01(scrollRect.verticalNormalizedPosition + velocidadScroll * Time.deltaTime);
+        }
+
+        if (bajarScroll)
+        {
+            scrollRect.verticalNormalizedPosition = Mathf.Clamp01(scrollRect.verticalNormalizedPosition - velocidadScroll * Time.deltaTime);
+        }
     }
 }
