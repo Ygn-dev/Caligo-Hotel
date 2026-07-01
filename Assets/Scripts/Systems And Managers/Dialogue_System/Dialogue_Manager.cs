@@ -40,7 +40,6 @@ public class Dialogue_Manager : MonoBehaviour
     private TMP_Text currentText;
     private ScrollRect scrollRect;
     private InputAction acceptAction;
-    private bool isDialogueScrollAviable;
     private GameObject instCajaDeDialogo;
     private Dialogue_Struct dialogueData;
     private CinemachineConfiner2D confiner;
@@ -168,7 +167,6 @@ public class Dialogue_Manager : MonoBehaviour
 
         // Iniciar guion
         seActivoScroll = false;
-        isDialogueScrollAviable = false;
         nextNodeId = dialogueData.startNode;
         scrollHelper.OcultarScroll();
         yield return AvanzarGuion();
@@ -222,7 +220,6 @@ public class Dialogue_Manager : MonoBehaviour
                 {
                     StartCoroutine(QuitarPadding());
                     seActivoScroll = true;
-                    isDialogueScrollAviable = true;
                 }
             }
         }

@@ -10,7 +10,8 @@ public enum SoundType
     CLICK_JUGAR,
     SELLECIONADO,
     PUERTA_BLOQUEADA,
-    ABRIR_PUERTA
+    ABRIR_PUERTA,
+    FOOTSTEP
     /*
     FOOTSTEP,
     ARRUGADO,
@@ -70,6 +71,22 @@ public class SoundFX_Manager : MonoBehaviour
         //destroy the audioSource after the clip has finished playing
         Destroy(audioSource.gameObject, clipLength);
     }
+
+    public AudioSource GetRandomClip(SoundType soundType)
+    {
+        //select random clip from the array
+        AudioClip[] clips = soundList[(int)soundType].sounds;
+        AudioClip randomClip = clips[UnityEngine.Random.Range(0, clips.Length)];
+
+        //spawn in  gameObject
+        AudioSource audioSource = Instantiate(Resources.Load<AudioSource>(prefabPath), transform);
+        //assign the audioClip
+        audioSource.clip = randomClip;
+        //return the audioSource
+        return audioSource;
+    }
+
+
     /*
     public void PlayRandomPitch(SoundType soundType, float volume = 1f, float minPitch = 0.8f, float maxPitch = 1.2f)
     {
@@ -91,20 +108,6 @@ public class SoundFX_Manager : MonoBehaviour
         float clipLength = randomClip.length / audioSource.pitch;
         //destroy the audioSource after the clip has finished playing
         Destroy(audioSource.gameObject, clipLength);
-    }
-
-    public AudioSource GetRandomClip(SoundType soundType)
-    {
-        //select random clip from the array
-        AudioClip[] clips = soundList[(int)soundType].sounds;
-        AudioClip randomClip = clips[UnityEngine.Random.Range(0, clips.Length)];
-
-        //spawn in  gameObject
-        AudioSource audioSource = Instantiate(Resources.Load<AudioSource>(prefabPath), Vector3.zero, Quaternion.identity);
-        //assign the audioClip
-        audioSource.clip = randomClip;
-        //return the audioSource
-        return audioSource;
     }
 
     public AudioSource GetRandomClipWithPitch(SoundType soundType, float minPitch = 0.8f, float maxPitch = 1.2f)
