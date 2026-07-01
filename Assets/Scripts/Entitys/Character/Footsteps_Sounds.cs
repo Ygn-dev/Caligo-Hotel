@@ -16,7 +16,7 @@ public class Footsteps_Sounds : MonoBehaviour
 
             audioSource = SoundFX_Manager.Instance.GetRandomClip(SoundType.FOOTSTEP);
             audioSource.volume = 0.7f;
-            audioSource.pitch = 0.6f;
+            audioSource.pitch = 0.9f;
             audioSource.loop = true;
             audioSource.enabled = true;
             audioSource.Play();

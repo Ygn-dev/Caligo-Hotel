@@ -22,7 +22,7 @@ public class Level_Initiator_Plantilla : MonoBehaviour
         inputActions.Disable();
         nivelData = (Level_Data_Base)levelData;
         if(cinemachineCamera == null) cinemachineCamera = FindAnyObjectByType<CinemachineCamera>();
-
+        if(character == null) character = GameObject.FindGameObjectWithTag("Player");
         // si el nivel usa dialogos, setup del Dialogue Manager
         DevTools.SetupDialogueManager();
     }

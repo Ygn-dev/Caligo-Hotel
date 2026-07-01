@@ -27,18 +27,25 @@ public class Dialogue_Manager : MonoBehaviour
     public AnimationCurve curvaAparicionLeyenda;
     public float duracionAparicionLeyenda;
     public float velocidadScroll;
+    public float duracionAparicionScroll;
+    public AnimationCurve curvaAparicionScroll;
 
     
     private Canvas canvas;  
     private int nextNodeId;
     private float zoomCamIni;
-    private int currentNodeId;
+    private bool subirScroll;
+    private bool bajarScroll;
     private Vector3 camPosIni;
-    private TextAsset jsonFile;
+    private int currentNodeId;
+    private TextAsset jsonFile; 
     private GameObject content;
     private bool seActivoScroll;
     private TMP_Text currentText;
+    private InputAction upAction;
     private ScrollRect scrollRect;
+    private InputAction downAction;
+    private bool isQuitandoPadding;
     private InputAction acceptAction;
     private GameObject instCajaDeDialogo;
     private Dialogue_Struct dialogueData;
@@ -47,15 +54,8 @@ public class Dialogue_Manager : MonoBehaviour
     private GameObject instanceDialogueScroll;
     private DialogueScroll_Helper scrollHelper;
     private GameObject instanceBlackBackground;
-    private CinemachineCamera cinemachineCamera;
+    private CinemachineCamera cinemachineCamera;  
 
-
-    private bool subirScroll;
-    private bool bajarScroll;
-    private InputAction upAction;
-    private InputAction downAction;
-    
-    
 
     private void Awake()
     {
@@ -167,11 +167,12 @@ public class Dialogue_Manager : MonoBehaviour
 
         // Iniciar guion
         seActivoScroll = false;
+        isQuitandoPadding = false;
         nextNodeId = dialogueData.startNode;
-        scrollHelper.OcultarScroll();
-        yield return AvanzarGuion();
+        yield return StartCoroutine(scrollHelper.OcultarScrollBar(duracionAparicionScroll, curvaAparicionScroll));
+        yield return StartCoroutine(AvanzarGuion());
     }
-    
+
     private IEnumerator AvanzarGuion()
     {
         // Manejo de nodos
@@ -180,61 +181,59 @@ public class Dialogue_Manager : MonoBehaviour
             yield return StartCoroutine(TerminarGuion());
             yield break;
         }
-
         currentNodeId = nextNodeId;
         nextNodeId = dialogueData.nodes[currentNodeId].nextNodeId;
 
+        // Desactivar acciones de dialogo para que no se pueda avanzar mientras se escribe el texto
+        upAction.started -= SubirScroll;
+        upAction.canceled -= SubirScroll;
+        downAction.started -= BajarScroll;
+        downAction.canceled -= BajarScroll;
+
+        // Ocultar ScrollBar
+        yield return StartCoroutine(scrollHelper.OcultarScrollBar(duracionAparicionScroll, curvaAparicionScroll));
+
+        // Si el scroll no esta arriba, bajarlo primero
+        yield return StartCoroutine(BajarScrollTodo());
         
         // Settear prefab e instanciar
         yield return StartCoroutine(SetupPrefab());
-        
 
-        if(currentNodeId == 0)
+        if(currentNodeId == 0) // Si es el primer nodo, ajustar el padding para que quede en la parte inferior
         {
-            // Si es el primer nodo, ajustar el padding para que quede en la parte inferior
             RectTransform rectPrefab = instCajaDeDialogo.GetComponent<RectTransform>();
             int alturaPrefab = Mathf.RoundToInt(rectPrefab.rect.height);
             layoutGroup.padding.top = 750-alturaPrefab;
         }
-        else
-        {
-            // En todos los demas nodos, mover el scroll hacia abajo para mostrar el nuevo dialogo
-            upAction.started -= SubirScroll;
-            upAction.canceled -= SubirScroll;
-
-            downAction.started -= BajarScroll;
-            downAction.canceled -= BajarScroll;
-            
-            // Si el scroll no esta arriba, bajarlo primero
-            BajarScrollTodo();
-            scrollHelper.OcultarScroll();          
+        else // En todos los demas nodos, mover el scroll hacia abajo para mostrar el nuevo dialogo
+        { 
+            // Mover el scroll      
             yield return StartCoroutine(MoverScroll());
-            acceptAction.Disable();
             yield return null;
 
+            // Ajustar el padding si ya se alcanza el limite y ahora se necesita mostrar el scroll
             if(!seActivoScroll)
             {
-                // Ajustar el padding si ya se alcanza el limite y ahora se necesita mostrar el scroll
                 float alturaReal = content.GetComponent<RectTransform>().rect.height - layoutGroup.padding.top;
-                if(alturaReal > 750)
-                {
-                    StartCoroutine(QuitarPadding());
-                    seActivoScroll = true;
-                }
+                if(alturaReal > 750) StartCoroutine(QuitarPadding());
             }
         }
 
         // Luego de instanciar el prefab, mostrar la caja de texto y escribir el dialogo
-        yield return instCajaDeDialogo.GetComponent<ICaja_De_Texto_Helper>().MostrarCaja(duracionAparicionCaja, curvaAparicionCaja, acceptAction);
+        yield return StartCoroutine(instCajaDeDialogo.GetComponent<ICaja_De_Texto_Helper>().MostrarCaja(duracionAparicionCaja, curvaAparicionCaja, acceptAction));
+        yield return null;
         
-        acceptAction.Enable();
-        yield return LeerGuion();
+        // Leer el guion, mostrando el texto poco a poco
+        yield return StartCoroutine(LeerGuion());
+        yield return null;
 
+        // Si el scroll ya es lo suficientemente largo, mostrar el scrollbar
+        if(seActivoScroll) scrollHelper.MostrarScroll(duracionAparicionScroll, curvaAparicionScroll);
+
+        // Recien ahora se puede avanzar al siguiente nodo o subir/bajar el scroll
         acceptAction.performed += AvanzarAccion;
-        if(seActivoScroll) scrollHelper.MostrarScroll();
         upAction.started += SubirScroll;
         upAction.canceled += SubirScroll;
-
         downAction.started += BajarScroll;
         downAction.canceled += BajarScroll;
 
@@ -245,34 +244,54 @@ public class Dialogue_Manager : MonoBehaviour
             CanvasGroup canvasGroup = instanceDialogueScroll.GetComponent<DialogueScroll_Helper>().leyenda.GetComponent<CanvasGroup>();
             yield return new WaitForSeconds(1.5f);
             StartCoroutine(DevTools.AnimarCanvasGroup(canvasGroup, 1, duracionAparicionLeyenda, curvaAparicionLeyenda));
-        }  
+        }
+
+        yield return null;  
     }
 
-
-    private IEnumerator BajarScrollTodo()
+    private void AvanzarAccion(InputAction.CallbackContext context)
     {
-        while (scrollRect.verticalNormalizedPosition > 0f)
+        acceptAction.performed -= AvanzarAccion;
+        StartCoroutine(AvanzarGuion());
+    }
+
+    private IEnumerator MoverScroll()
+    {
+        // Si se esta quitando el padding, esperar a que termine antes de mover el scroll
+        if (isQuitandoPadding)
         {
-            scrollRect.verticalNormalizedPosition = Mathf.Max(
-                0f,
-                scrollRect.verticalNormalizedPosition - velocidadScroll * Time.deltaTime);
+            while(isQuitandoPadding)
+            {
+                yield return null;
+            }
+            yield return null;
+        }
 
+
+        float tiempo = 0;
+        float posicionInicial = scrollRect.verticalNormalizedPosition;
+        float posicionFinal = 0f;
+
+        while (tiempo < duracionMovimientoScroll)
+        {
+            // Skip
+            if (acceptAction.triggered)
+            {
+                scrollRect.verticalNormalizedPosition = posicionFinal;
+                LayoutRebuilder.ForceRebuildLayoutImmediate(layoutGroup.GetComponent<RectTransform>());
+                yield break;
+            }
+
+            float t = tiempo / duracionMovimientoScroll;
+            scrollRect.verticalNormalizedPosition = Mathf.Lerp(posicionInicial, posicionFinal, curvaMovimientoScroll.Evaluate(t));
             LayoutRebuilder.ForceRebuildLayoutImmediate(layoutGroup.GetComponent<RectTransform>());
-
+            tiempo += Time.deltaTime;
             yield return null;
         }
 
         scrollRect.verticalNormalizedPosition = 0f;
         LayoutRebuilder.ForceRebuildLayoutImmediate(layoutGroup.GetComponent<RectTransform>());
-    }
-    private void SubirScroll(InputAction.CallbackContext context)
-    {
-        subirScroll = context.ReadValueAsButton();
-    }
-
-    private void BajarScroll(InputAction.CallbackContext context)
-    {
-        bajarScroll = context.ReadValueAsButton();
+        yield return null;
     }
 
     private IEnumerator LeerGuion()
@@ -335,7 +354,7 @@ public class Dialogue_Manager : MonoBehaviour
 
     private IEnumerator QuitarPadding()
     {
-        //scrollHelper.SetIsAnimPading(true);
+        isQuitandoPadding = true;
         while (layoutGroup.padding.top > 0)
         {
             layoutGroup.padding.top --; 
@@ -343,7 +362,10 @@ public class Dialogue_Manager : MonoBehaviour
             LayoutRebuilder.ForceRebuildLayoutImmediate(layoutGroup.GetComponent<RectTransform>());
             yield return null;
         }
-        //scrollHelper.SetIsAnimPading(false);
+
+        isQuitandoPadding = false;
+        seActivoScroll = true;
+        scrollHelper.MostrarScroll(duracionAparicionScroll, curvaAparicionScroll);
         yield return null;
     }
 
@@ -371,48 +393,40 @@ public class Dialogue_Manager : MonoBehaviour
         yield return null;
     }
 
-    private IEnumerator MoverScroll()
+    private IEnumerator BajarScrollTodo()
     {
-        float tiempo = 0;
-        float posicionInicial = scrollRect.verticalNormalizedPosition;
-        float posicionFinal = 0f;
+        if(!seActivoScroll) yield break;
+        if(scrollRect.verticalNormalizedPosition < 0.01f) yield break;
 
-        while (tiempo < duracionMovimientoScroll)
+        while (scrollRect.verticalNormalizedPosition > 0f)
         {
-            // Skip
-            if (acceptAction.triggered)
-            {
-                scrollRect.verticalNormalizedPosition = posicionFinal;
-                LayoutRebuilder.ForceRebuildLayoutImmediate(layoutGroup.GetComponent<RectTransform>());
-                yield break;
-            }
-
-            float t = tiempo / duracionMovimientoScroll;
-            scrollRect.verticalNormalizedPosition = Mathf.Lerp(posicionInicial, posicionFinal, curvaMovimientoScroll.Evaluate(t));
+            scrollRect.verticalNormalizedPosition = Mathf.Max(0f, scrollRect.verticalNormalizedPosition - velocidadScroll * Time.deltaTime);
             LayoutRebuilder.ForceRebuildLayoutImmediate(layoutGroup.GetComponent<RectTransform>());
-            tiempo += Time.deltaTime;
             yield return null;
         }
 
         scrollRect.verticalNormalizedPosition = 0f;
         LayoutRebuilder.ForceRebuildLayoutImmediate(layoutGroup.GetComponent<RectTransform>());
-        yield return null;
     }
 
-    private void AvanzarAccion(InputAction.CallbackContext context)
+    private void SubirScroll(InputAction.CallbackContext context)
     {
-        acceptAction.performed -= AvanzarAccion;
-        StartCoroutine(AvanzarGuion());
+        subirScroll = context.ReadValueAsButton();
+    }
+
+    private void BajarScroll(InputAction.CallbackContext context)
+    {
+        bajarScroll = context.ReadValueAsButton();
     }
     
     private void Update()
     {
-        if (subirScroll)
+        if (subirScroll && seActivoScroll)
         {
             scrollRect.verticalNormalizedPosition = Mathf.Clamp01(scrollRect.verticalNormalizedPosition + velocidadScroll * Time.deltaTime);
         }
 
-        if (bajarScroll)
+        if (bajarScroll && seActivoScroll)
         {
             scrollRect.verticalNormalizedPosition = Mathf.Clamp01(scrollRect.verticalNormalizedPosition - velocidadScroll * Time.deltaTime);
         }
