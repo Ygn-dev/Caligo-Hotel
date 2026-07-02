@@ -4607,15 +4607,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4852065355308587885, guid: d8279bca878e277499b262bba50b15a7, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4852065355308587885, guid: d8279bca878e277499b262bba50b15a7, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4852065355308587885, guid: d8279bca878e277499b262bba50b15a7, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1054253421}
     - target: {fileID: 4852065355308587885, guid: d8279bca878e277499b262bba50b15a7, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 701764802}
+    - target: {fileID: 4852065355308587885, guid: d8279bca878e277499b262bba50b15a7, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: EjecutarAccion
+      objectReference: {fileID: 0}
+    - target: {fileID: 4852065355308587885, guid: d8279bca878e277499b262bba50b15a7, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlaySound
+      objectReference: {fileID: 0}
+    - target: {fileID: 4852065355308587885, guid: d8279bca878e277499b262bba50b15a7, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: SoundFX_Helper, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4852065355308587885, guid: d8279bca878e277499b262bba50b15a7, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: PALANCA
       objectReference: {fileID: 0}
     - target: {fileID: 4964177042344177805, guid: d8279bca878e277499b262bba50b15a7, type: 3}
       propertyPath: m_LocalScale.x
@@ -4738,6 +4758,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b15be65998b0a684f853442602ee4a64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Interact_Handler
+--- !u!114 &701764802 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 552510945623591277, guid: d8279bca878e277499b262bba50b15a7, type: 3}
+  m_PrefabInstance: {fileID: 701764799}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d75e4c9945019546be94080e4352b7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SoundFX_Helper
 --- !u!1 &722811588
 GameObject:
   m_ObjectHideFlags: 0
@@ -6843,15 +6874,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4852065355308587885, guid: d8279bca878e277499b262bba50b15a7, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4852065355308587885, guid: d8279bca878e277499b262bba50b15a7, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4852065355308587885, guid: d8279bca878e277499b262bba50b15a7, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 763398662}
     - target: {fileID: 4852065355308587885, guid: d8279bca878e277499b262bba50b15a7, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1202586265}
+    - target: {fileID: 4852065355308587885, guid: d8279bca878e277499b262bba50b15a7, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: EjecutarAccion
+      objectReference: {fileID: 0}
+    - target: {fileID: 4852065355308587885, guid: d8279bca878e277499b262bba50b15a7, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlaySound
+      objectReference: {fileID: 0}
+    - target: {fileID: 4852065355308587885, guid: d8279bca878e277499b262bba50b15a7, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: SoundFX_Helper, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4852065355308587885, guid: d8279bca878e277499b262bba50b15a7, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: PALANCA
       objectReference: {fileID: 0}
     - target: {fileID: 4964177042344177805, guid: d8279bca878e277499b262bba50b15a7, type: 3}
       propertyPath: m_LocalScale.x
@@ -6970,6 +7021,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b15be65998b0a684f853442602ee4a64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Interact_Handler
+--- !u!114 &1202586265 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 552510945623591277, guid: d8279bca878e277499b262bba50b15a7, type: 3}
+  m_PrefabInstance: {fileID: 1202586262}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d75e4c9945019546be94080e4352b7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SoundFX_Helper
 --- !u!1 &1328510976
 GameObject:
   m_ObjectHideFlags: 0
