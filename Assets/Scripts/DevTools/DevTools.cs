@@ -158,12 +158,12 @@ public static class DevTools
     }
 
 
-    public static IEnumerator SetupCharacter(GameObject character, Level_Data_Base nivelData, System.Action<GameObject> setCharacter)
+    public static IEnumerator SetupCharacter(GameObject character, Vector2 spawnPoint, System.Action<GameObject> setCharacter)
     {
         if (character != null) yield break;
             
-        GameObject newCharacter = GameObject.Instantiate(Resources.Load<GameObject>("Prefabs/Entitys/Character"),nivelData.spawnPoint,Quaternion.identity);
-        newCharacter.GetComponent<Player_Respawn>().nivelData = nivelData;
+        GameObject newCharacter = GameObject.Instantiate(Resources.Load<GameObject>("Prefabs/Entitys/Character"), spawnPoint, Quaternion.identity);
+        newCharacter.GetComponent<Player_Respawn>().spawnPoint = spawnPoint;
         setCharacter?.Invoke(newCharacter);
         yield return null;
     }

@@ -20,3 +20,5 @@ MonoBehaviour:
   damping: 0.5
   slowingDistance: 5
   spawnPoint: {x: -10.9, y: -13.74, z: 0}
+  spawnPoints:
+  - {x: -10.9, y: -13.74}

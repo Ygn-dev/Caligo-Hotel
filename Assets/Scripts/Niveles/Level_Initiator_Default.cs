@@ -35,7 +35,7 @@ public class Level_Initiator_Plantilla : MonoBehaviour
     private IEnumerator Initialize()
     {
         //Spawn personaje y camara
-        StartCoroutine(DevTools.SetupCharacter(character, nivelData, newCharacter => { character = newCharacter; }));
+        StartCoroutine(DevTools.SetupCharacter(character, nivelData.spawnPoints[0], newCharacter => { character = newCharacter; }));
         StartCoroutine(DevTools.SetupCamara(cinemachineCamera, levelData, character));
        
         //Completar Fade de Carga

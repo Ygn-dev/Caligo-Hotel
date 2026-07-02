@@ -31,8 +31,11 @@ public class ZC_Nivel_1_Initiator : MonoBehaviour
 
     private IEnumerator Initialize()
     {
+        Save_Manager.Instance.data.currentLevel = "ZC_Nivel_1";
+        Save_Manager.Instance.SaveData();
+
         //Spawn personaje y camara
-        StartCoroutine(DevTools.SetupCharacter(character, nivelData, newCharacter => { character = newCharacter; }));
+        StartCoroutine(DevTools.SetupCharacter(character, nivelData.spawnPoints[0], newCharacter => { character = newCharacter; }));
         StartCoroutine(DevTools.SetupCamara(cinemachineCamera, levelData, character));
         
         //Completar Fade de Carga

@@ -34,8 +34,29 @@ public class ZC_Nivel_2_Initiator : MonoBehaviour
 
     private IEnumerator Initialize()
     {
+        Vector2 spawnPoint;
+        
+        switch(Save_Manager.Instance.data.currentLevel)
+        {
+            case "ZC_Nivel_1":
+                spawnPoint = nivelData.spawnPoints[0];
+                break;
+
+            case "ZC_Nivel_3":
+                spawnPoint = nivelData.spawnPoints[1];
+                break;
+        
+            default:
+                Debug.LogWarning("Current level not recognized.");
+                spawnPoint = nivelData.spawnPoints[0];
+                break;
+        }
+
+        Save_Manager.Instance.data.currentLevel = "ZC_Nivel_2";
+        Save_Manager.Instance.SaveData();
+
         //Spawn personaje y camara
-        StartCoroutine(DevTools.SetupCharacter(character, nivelData, newCharacter => { character = newCharacter; }));
+        StartCoroutine(DevTools.SetupCharacter(character, spawnPoint, newCharacter => { character = newCharacter; }));
         StartCoroutine(DevTools.SetupCamara(cinemachineCamera, levelData, character));
         
         //Completar Fade de Carga

@@ -44,11 +44,12 @@ public class Music_Manager : MonoBehaviour
         int index = UnityEngine.Random.Range(0, clips.Length);
         AudioClip randomClip = clips[index];
 
-
         if(musicType == currentMusicType && currentMusicIndex == index && currentMusicSource != null && currentMusicSource.isPlaying)
         {
             return;
         }
+        currentMusicType = musicType;
+        currentMusicIndex = index;
         
 
         //spawn in  gameObject
