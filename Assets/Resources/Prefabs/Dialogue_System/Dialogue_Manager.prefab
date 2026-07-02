@@ -77,9 +77,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  duracionZoomCamara: 0.8
-  velocidadEscritura: 9
-  duracionDesaparicion: 0.4
+  duracionZoomCamara: 0.75
+  velocidadEscritura: 30
+  duracionDesaparicion: 0.25
   inputActions: {fileID: -944628639613478452, guid: e75c53da0f7f49f4aae3d0a6e4b3cca4, type: 3}
   prefabDialogueScroll: {fileID: 4634716866516083672, guid: d22ef6fb2f2dd2c4ba4a2241a9301892, type: 3}
   prefabBlackBackground: {fileID: 302262870722617376, guid: d7f8cf2916daa9443bbcb74d90152882, type: 3}
@@ -183,7 +183,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  duracionMovimientoScroll: 2
+  duracionMovimientoScroll: 0.5
   curvaAparicionLeyenda:
     serializedVersion: 2
     m_Curve:
@@ -217,9 +217,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  duracionAparicionLeyenda: 2
-  velocidadScroll: 0.6
-  duracionAparicionScroll: 0.2
+  duracionAparicionLeyenda: 1
+  velocidadScroll: 0.5
+  duracionAparicionScroll: 0.25
   curvaAparicionScroll:
     serializedVersion: 2
     m_Curve:

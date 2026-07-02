@@ -5,13 +5,13 @@
 		{
 			"nodeId": 0,
 			"personaje": "Personaje",
-			"text": "¿En qué momento...?",
+			"text": "¿Quién es...?",
 			"nextNodeId": 1
 		},
 		{
 			"nodeId": 1,
-			"personaje": "Personaje",
-			"text": "¿Cómo es que...?",
+			"personaje": "Monologo",
+			"text": "Qué hombre más peculiar.",
 			"nextNodeId": -1
 		}
 	]

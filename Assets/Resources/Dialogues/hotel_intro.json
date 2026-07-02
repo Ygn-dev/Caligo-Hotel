@@ -4,20 +4,20 @@
 	"nodes": [
 		{
 			"nodeId": 0,
-			"personaje": "Monologo",
-			"text": "La cabeza me da vueltas...",
+			"personaje": "Personaje",
+			"text": "Ay... ¿En qué momento...?",
 			"nextNodeId": 1
 		},
 		{
 			"nodeId": 1,
-			"personaje": "Personaje",
-			"text": "Ay... ¿En qué momento...?",
+			"personaje": "Monologo",
+			"text": "La cabeza me da vueltas...",
 			"nextNodeId": 2
 		},
 		{
 			"nodeId": 2,
 			"personaje": "Monologo",
-			"text": "Debo haberme quedado dormido...",
+			"text": "Debo haberme quedado dormido.",
 			"nextNodeId": -1
 		}
 	]
