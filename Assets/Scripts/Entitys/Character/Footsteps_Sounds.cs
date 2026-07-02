@@ -12,8 +12,11 @@ public class Footsteps_Sounds : MonoBehaviour
         // Detecta cambio de estado: quieto -> movimiento
         if (previousMoveInput == Vector2.zero && currentMoveInput != Vector2.zero)
         {
+            if(audioSource != null)
+            {
+                Destroy(audioSource.gameObject);
+            }
             // Reproduce el sonido de pasos
-
             audioSource = SoundFX_Manager.Instance.GetRandomClip(SoundType.FOOTSTEP);
             audioSource.volume = 0.7f;
             audioSource.pitch = 0.9f;

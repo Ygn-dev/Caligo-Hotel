@@ -5118,7 +5118,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 776360316}
-  - component: {fileID: 776360315}
+  - component: {fileID: 776360317}
   m_Layer: 0
   m_Name: Level_Initiator
   m_TagString: Untagged
@@ -5126,22 +5126,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &776360315
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 776360314}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d930d790b4631f4ca8330cf95f2e6ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ZC_Nivel_2_Initiator
-  inputActions: {fileID: -944628639613478452, guid: e75c53da0f7f49f4aae3d0a6e4b3cca4, type: 3}
-  levelData: {fileID: 11400000, guid: ffceb2ee1700c70459147d3fef4ab2c3, type: 2}
-  puerta: {fileID: 0}
-  puertaBloqueada: {fileID: 0}
 --- !u!4 &776360316
 Transform:
   m_ObjectHideFlags: 0
@@ -5157,6 +5141,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &776360317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 776360314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d550147c46fe8d4b8344e6abba01301, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ZC_Nivel_5_Initiator
+  inputActions: {fileID: -944628639613478452, guid: e75c53da0f7f49f4aae3d0a6e4b3cca4, type: 3}
+  levelData: {fileID: 11400000, guid: ffceb2ee1700c70459147d3fef4ab2c3, type: 2}
 --- !u!1 &827060247
 GameObject:
   m_ObjectHideFlags: 0
