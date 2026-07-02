@@ -116,7 +116,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  duracionAparicionCaja: 1
+  duracionAparicionCaja: 0.5
   curvaAparicionCaja:
     serializedVersion: 2
     m_Curve:

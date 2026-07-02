@@ -26,6 +26,10 @@ public class Music_Manager : MonoBehaviour
 
     private string prefabPath = "Prefabs/Audio/Music_Prefab";
 
+    private AudioSource currentMusicSource;
+    private MusicType currentMusicType;
+    private int currentMusicIndex;
+
     //singleton pattern
     private void Awake()
     {
@@ -37,22 +41,26 @@ public class Music_Manager : MonoBehaviour
     {
         //select clip from the array
         AudioClip[] clips = musicList[(int)musicType].sounds;
-        AudioClip randomClip = clips[UnityEngine.Random.Range(0, clips.Length)];
+        int index = UnityEngine.Random.Range(0, clips.Length);
+        AudioClip randomClip = clips[index];
+
+
+        if(musicType == currentMusicType && currentMusicIndex == index && currentMusicSource != null && currentMusicSource.isPlaying)
+        {
+            return;
+        }
+        
 
         //spawn in  gameObject
-        AudioSource audioSource = Instantiate(Resources.Load<AudioSource>(prefabPath), Vector3.zero, Quaternion.identity);
+        currentMusicSource = Instantiate(Resources.Load<AudioSource>(prefabPath), transform);
         //assign the audioClip
-        audioSource.clip = randomClip;
+        currentMusicSource.clip = randomClip;
         //assign volume
-        audioSource.volume = volume;
+        currentMusicSource.volume = volume;
         //enable
-        audioSource.enabled = true;
+        currentMusicSource.enabled = true;
         //play sound
-        audioSource.Play();
-        //get length of the clip
-        float clipLength = randomClip.length;
-        //destroy the audioSource after the clip has finished playing
-        Destroy(audioSource.gameObject, clipLength);
+        currentMusicSource.Play();
     }
 
     

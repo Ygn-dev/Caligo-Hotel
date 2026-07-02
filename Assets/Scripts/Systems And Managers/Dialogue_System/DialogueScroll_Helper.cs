@@ -1,12 +1,14 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using TMPro;
 
 public class DialogueScroll_Helper : MonoBehaviour
 {
     public CanvasGroup scrollCanvasGroup;
     public GameObject content;   
     public GameObject leyenda;
+    public TMP_Text leyendaText;
     public ScrollRect scrollRect;
     public Image scrollImageBackground;
 
@@ -42,6 +44,13 @@ public class DialogueScroll_Helper : MonoBehaviour
         float elapsedTime = 0f;
         float startAlpha = canvasGroup.alpha;
 
+        float subtime = 0;
+        while(subtime < 0.5f)
+        {
+            subtime += Time.deltaTime;
+            yield return null;
+        }
+
         while (elapsedTime < duration)
         {
             elapsedTime += Time.deltaTime;
@@ -55,6 +64,4 @@ public class DialogueScroll_Helper : MonoBehaviour
         isAnimating = false;
         yield return null;
     }
-
-
 }

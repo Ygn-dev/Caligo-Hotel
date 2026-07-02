@@ -8,8 +8,15 @@ public class Caja_Personaje_Helper : MonoBehaviour, ICaja_De_Texto_Helper
 {
     public RectTransform rectPrefab;
     public RectTransform rectTexto;
-    public CanvasGroup canvasGroup;
+    public Image characterImage;
     public TMP_Text textoTMP;
+
+    private Animator animator;
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     public TMP_Text GetTextoComponent()
     {
@@ -29,17 +36,24 @@ public class Caja_Personaje_Helper : MonoBehaviour, ICaja_De_Texto_Helper
 
     public IEnumerator MostrarCaja(float duracion, AnimationCurve curva, InputAction acceptAction)
     {
+        animator.SetTrigger("Mostrar");
+
         float tiempo = 0;
         while (tiempo < duracion)
         {
-            if(acceptAction.triggered) break;
+            if(acceptAction.triggered)
+            {
+                characterImage.color = new Color(1, 1, 1, 1);
+                animator.Play("Text_Box_Open",0,1f);
+                break;
+            }
 
             float valor = curva.Evaluate(tiempo / duracion);
-            canvasGroup.alpha = valor;
+            characterImage.color = new Color(1, 1, 1, valor);
             tiempo += Time.deltaTime;
             yield return null;
         }
-        canvasGroup.alpha = 1;
+        //canvasGroup.alpha = 1;
     }
 
 }

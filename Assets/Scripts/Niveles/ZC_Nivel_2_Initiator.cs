@@ -11,7 +11,8 @@ public class ZC_Nivel_2_Initiator : MonoBehaviour
     [Header("No Editable")]
     public InputActionAsset inputActions;
     public ScriptableObject levelData;
-
+    public GameObject puerta;
+    public GameObject puertaBloqueada;
 
     private GameObject character;
     private Level_Data_Base nivelData;
@@ -22,6 +23,8 @@ public class ZC_Nivel_2_Initiator : MonoBehaviour
         inputActions.Disable();
         nivelData = (Level_Data_Base)levelData;
         if(cinemachineCamera == null) cinemachineCamera = FindAnyObjectByType<CinemachineCamera>();
+        //este nivel usara el sistema de dialogos asi que se debe llamar
+        if(Dialogue_Manager.Instance == null) DevTools.SetupDialogueManager();
     }
 
     void Start()
@@ -43,6 +46,11 @@ public class ZC_Nivel_2_Initiator : MonoBehaviour
 
         //Habilitar Input
         inputActions.FindActionMap("Gameplay").Enable();
+
+        if(Save_Manager.Instance.data.tieneLlaveN2 == true) {
+            puerta.SetActive(true);
+            puertaBloqueada.SetActive(false);
+        }
         yield return null;
     }
 }

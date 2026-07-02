@@ -741,6 +741,7 @@ MonoBehaviour:
   scrollCanvasGroup: {fileID: 8390835908911364569}
   content: {fileID: 5428932235114964857}
   leyenda: {fileID: 6008344428680064249}
+  leyendaText: {fileID: 4249146283250775285}
   scrollRect: {fileID: 5619370776562741307}
   scrollImageBackground: {fileID: 2225140800799115824}
 --- !u!1 &5393405115807740256
@@ -777,7 +778,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 114.8, y: -0.0000029802}
+  m_AnchoredPosition: {x: 167.7, y: -0.0000029802}
   m_SizeDelta: {x: 140.6042, y: 30.3093}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3901148835480266791
@@ -842,7 +843,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -1149,7 +1150,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0

@@ -14,6 +14,7 @@ public class Level_Data_Base : ScriptableObject
     public float damping;
     public float slowingDistance;
 
-    [Header("Character Spawn")]
+    [Header("Character Spawns")]
     public Vector3 spawnPoint;
+    public Vector2[] spawnPoints;
 }

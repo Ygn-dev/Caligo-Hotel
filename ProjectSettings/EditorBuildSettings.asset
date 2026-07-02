@@ -23,5 +23,14 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ZC_Nivel_3/ZC_Nivel_3.unity
     guid: f9b819cbff4bce142b1ee50acd9e2af4
+  - enabled: 1
+    path: Assets/Scenes/ZC_Nivel_4/ZC_Nivel_4.unity
+    guid: 9477fd80d7662e14d8dfadd0c14925ab
+  - enabled: 1
+    path: Assets/Scenes/ZC_Nivel_5/ZC_Nivel_5.unity
+    guid: 03dd996de912efc4fa8386eb1130de78
+  - enabled: 1
+    path: Assets/Scenes/ZC_Nivel_6/ZC_Nivel_6.unity
+    guid: 122c11fddf5ab1b4a982cd7e1d522b90
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

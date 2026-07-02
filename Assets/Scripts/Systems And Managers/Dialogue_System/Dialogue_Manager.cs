@@ -169,7 +169,6 @@ public class Dialogue_Manager : MonoBehaviour
         seActivoScroll = false;
         isQuitandoPadding = false;
         nextNodeId = dialogueData.startNode;
-        yield return StartCoroutine(scrollHelper.OcultarScrollBar(duracionAparicionScroll, curvaAparicionScroll));
         yield return StartCoroutine(AvanzarGuion());
     }
 
@@ -184,6 +183,17 @@ public class Dialogue_Manager : MonoBehaviour
         currentNodeId = nextNodeId;
         nextNodeId = dialogueData.nodes[currentNodeId].nextNodeId;
 
+        // Letra de desplazar
+        if(nextNodeId == -1)
+        {
+            instanceDialogueScroll.GetComponent<DialogueScroll_Helper>().leyendaText.text = "Fin";
+        }
+        else
+        {
+            instanceDialogueScroll.GetComponent<DialogueScroll_Helper>().leyendaText.text = "Siguiente";
+        }
+        
+
         // Desactivar acciones de dialogo para que no se pueda avanzar mientras se escribe el texto
         upAction.started -= SubirScroll;
         upAction.canceled -= SubirScroll;
@@ -191,7 +201,7 @@ public class Dialogue_Manager : MonoBehaviour
         downAction.canceled -= BajarScroll;
 
         // Ocultar ScrollBar
-        yield return StartCoroutine(scrollHelper.OcultarScrollBar(duracionAparicionScroll, curvaAparicionScroll));
+        if(seActivoScroll) yield return StartCoroutine(scrollHelper.OcultarScrollBar(duracionAparicionScroll, curvaAparicionScroll));
 
         // Si el scroll no esta arriba, bajarlo primero
         yield return StartCoroutine(BajarScrollTodo());
@@ -396,6 +406,14 @@ public class Dialogue_Manager : MonoBehaviour
     private IEnumerator BajarScrollTodo()
     {
         if(!seActivoScroll) yield break;
+        if(isQuitandoPadding)
+        {
+            while(isQuitandoPadding)
+            {
+                yield return null;
+            }
+            yield return null;
+        }
         if(scrollRect.verticalNormalizedPosition < 0.01f) yield break;
 
         while (scrollRect.verticalNormalizedPosition > 0f)
