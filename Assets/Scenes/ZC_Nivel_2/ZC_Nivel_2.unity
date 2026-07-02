@@ -162,20 +162,20 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 2499bda890a6c0c498f0e30e04671973, type: 2}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: a29fafbbcb3b3b64a9ab5eb3798a808f, type: 3}
+  m_Resource: {fileID: 8300000, guid: ab5243dabbf35584e9193fcf6ce09abe, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 1
-  MinDistance: 12.31
-  MaxDistance: 22
+  DopplerLevel: 0
+  MinDistance: 13.3
+  MaxDistance: 22.32
   Pan2D: 0
-  rolloffMode: 1
+  rolloffMode: 2
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -183,23 +183,23 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
+      time: 0.5958781
       value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     - serializedVersion: 3
-      time: 1
+      time: 0.94296265
       value: 0
-      inSlope: 0
-      outSlope: 0
+      inSlope: 0.36288598
+      outSlope: 0.36288598
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 1
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -447,15 +447,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4852065355308587885, guid: d8279bca878e277499b262bba50b15a7, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4852065355308587885, guid: d8279bca878e277499b262bba50b15a7, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4852065355308587885, guid: d8279bca878e277499b262bba50b15a7, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 604742329}
     - target: {fileID: 4852065355308587885, guid: d8279bca878e277499b262bba50b15a7, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1681568219}
+    - target: {fileID: 4852065355308587885, guid: d8279bca878e277499b262bba50b15a7, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: EjecutarAccion
+      objectReference: {fileID: 0}
+    - target: {fileID: 4852065355308587885, guid: d8279bca878e277499b262bba50b15a7, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlaySound
+      objectReference: {fileID: 0}
+    - target: {fileID: 4852065355308587885, guid: d8279bca878e277499b262bba50b15a7, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: SoundFX_Helper, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4852065355308587885, guid: d8279bca878e277499b262bba50b15a7, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: PALANCA
       objectReference: {fileID: 0}
     - target: {fileID: 4964177042344177805, guid: d8279bca878e277499b262bba50b15a7, type: 3}
       propertyPath: m_LocalScale.x
@@ -5462,6 +5482,30 @@ MonoBehaviour:
           m_StringArgument: ZC_Nivel_3
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 776360317}
+        m_TargetAssemblyTypeName: ZC_Nivel_2_Initiator, Assembly-CSharp
+        m_MethodName: ApagarTelefono
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: ZC_Nivel_3
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 760964392}
+        m_TargetAssemblyTypeName: SoundFX_Helper, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: ATENDER_TELEFONO
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &760964391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5654,6 +5698,7 @@ MonoBehaviour:
   levelData: {fileID: 11400000, guid: a885e1ab0f4c75d48b1c861faad7dd6c, type: 2}
   puerta: {fileID: 953309241}
   puertaBloqueada: {fileID: 1355858339}
+  telefono: {fileID: 10268712}
 --- !u!1 &877773243
 GameObject:
   m_ObjectHideFlags: 0
@@ -10654,6 +10699,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1681568219 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 552510945623591277, guid: d8279bca878e277499b262bba50b15a7, type: 3}
+  m_PrefabInstance: {fileID: 161789537}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d75e4c9945019546be94080e4352b7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SoundFX_Helper
 --- !u!1 &1711412970
 GameObject:
   m_ObjectHideFlags: 0

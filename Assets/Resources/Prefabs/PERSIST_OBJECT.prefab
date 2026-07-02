@@ -321,6 +321,27 @@ MonoBehaviour:
     sounds:
     - {fileID: 8300000, guid: 6ac8ba2d323c2c04daa5d96f27b840bc, type: 3}
     - {fileID: 8300000, guid: c368f64a554e4464d87dfb902488c931, type: 3}
+  - name: MUERTE
+    sounds:
+    - {fileID: 8300000, guid: 457a59f94752e9a4887d52c4b3acc284, type: 3}
+  - name: VISTO
+    sounds:
+    - {fileID: 8300000, guid: 1aee8f19661ec3a458d082c70eee166d, type: 3}
+  - name: REVIVE
+    sounds:
+    - {fileID: 8300000, guid: 5b668ef13b3e20b45a6b2af839c508c1, type: 3}
+  - name: PALANCA
+    sounds:
+    - {fileID: 8300000, guid: 9c04abc34fab6ad46912e79da69b6e65, type: 3}
+  - name: ATENDER_TELEFONO
+    sounds:
+    - {fileID: 8300000, guid: 6edfc69aa7282d642be4196a30123a95, type: 3}
+  - name: APARECE_CAJA
+    sounds:
+    - {fileID: 8300000, guid: e091df10cdb94594fbf0e73e8bdafe60, type: 3}
+  - name: ABRIR_CAJA
+    sounds:
+    - {fileID: 8300000, guid: 97f61d91fb78a574a8b229e482c48041, type: 3}
 --- !u!114 &3514447415939130377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,6 +361,9 @@ MonoBehaviour:
   - name: ZONA_CAMARAS
     sounds:
     - {fileID: 8300000, guid: dd8b78b786c25a24f8ff157691598d75, type: 3}
+  - name: PREPORTADA
+    sounds:
+    - {fileID: 8300000, guid: 246ee59124cfebc41a147098fc4fd1a9, type: 3}
 --- !u!114 &7266634729618659494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -354,3 +378,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Save_Manager
   data:
     tieneLlaveN2: 0
+    currentLevel: 
+    telefonoSonando: 1

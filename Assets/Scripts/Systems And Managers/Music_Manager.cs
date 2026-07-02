@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using System.Collections;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -8,7 +9,8 @@ using UnityEditor;
 public enum MusicType
 {
     PORTADA,
-    ZONA_CAMARAS
+    ZONA_CAMARAS,
+    PREPORTADA
 }
 
 [Serializable]
@@ -50,18 +52,65 @@ public class Music_Manager : MonoBehaviour
         }
         currentMusicType = musicType;
         currentMusicIndex = index;
-        
+
 
         //spawn in  gameObject
-        currentMusicSource = Instantiate(Resources.Load<AudioSource>(prefabPath), transform);
+        AudioSource newMusicSource = Instantiate(Resources.Load<AudioSource>(prefabPath), transform);
         //assign the audioClip
-        currentMusicSource.clip = randomClip;
+        newMusicSource.clip = randomClip;
         //assign volume
-        currentMusicSource.volume = volume;
+        newMusicSource.volume = volume;
         //enable
-        currentMusicSource.enabled = true;
+        newMusicSource.enabled = true;
+
+        //transicion de musica
+        if(currentMusicSource != null)
+        {
+            newMusicSource.volume = 0f;
+            StartCoroutine(FadeOutAndStop(currentMusicSource, 1f));
+            StartCoroutine(FadeInAndPlay(newMusicSource, volume, 1f));
+        }
+
         //play sound
-        currentMusicSource.Play();
+        newMusicSource.Play();
+        currentMusicSource = newMusicSource;
+    }
+
+    public void StopMusic(float fadeDuration = 1f)
+    {
+        if (currentMusicSource != null)
+        {
+            StartCoroutine(FadeOutAndStop(currentMusicSource, fadeDuration));
+            currentMusicSource = null;
+        }
+    }
+
+    private IEnumerator FadeOutAndStop(AudioSource audioSource, float duration = 1f)
+    {
+        float startVolume = audioSource.volume;
+
+        for (float t = 0; t < duration; t += Time.deltaTime)
+        {
+            audioSource.volume = Mathf.Lerp(startVolume, 0, t / duration);
+            yield return null;
+        }
+
+        audioSource.Stop();
+        Destroy(audioSource.gameObject);
+    }
+
+    private IEnumerator FadeInAndPlay(AudioSource audioSource, float targetVolume, float duration = 1f)
+    {
+        audioSource.volume = 0;
+        audioSource.Play();
+
+        for (float t = 0; t < duration; t += Time.deltaTime)
+        {
+            audioSource.volume = Mathf.Lerp(0, targetVolume, t / duration);
+            yield return null;
+        }
+
+        audioSource.volume = targetVolume;
     }
 
     

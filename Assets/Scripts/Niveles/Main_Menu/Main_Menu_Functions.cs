@@ -14,6 +14,7 @@ public class Main_Menu_Functions : MonoBehaviour
         if(isSelected) return;
         isSelected = true;
         SoundFX_Manager.Instance.PlaySound(SoundType.CLICK_JUGAR);
+        Save_Manager.Instance.ResetSaveData();
         Game_Loader_Manager.Instance.NewGame();
     }
 

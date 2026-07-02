@@ -96,9 +96,11 @@ public class Main_Menu_Initiator : MonoBehaviour
 
     private IEnumerator MostrarCaja()
     {
+        Music_Manager.Instance.PlayMusic(MusicType.PREPORTADA);
         mainMenuMap.FindAction("Accept").Enable();
 
         boxAnimator.SetTrigger("Aparecer");
+        StartCoroutine(EsperarYSonido(0.5f));
         yield return null;
 
         while (true)
@@ -118,6 +120,12 @@ public class Main_Menu_Initiator : MonoBehaviour
             yield return null;
         }
         yield return null;
+    }
+
+    public IEnumerator EsperarYSonido(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        SoundFX_Manager.Instance.PlaySound(SoundType.APARECE_CAJA);
     }
 }
 

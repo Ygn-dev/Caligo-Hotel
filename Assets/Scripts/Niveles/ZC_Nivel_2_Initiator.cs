@@ -13,6 +13,7 @@ public class ZC_Nivel_2_Initiator : MonoBehaviour
     public ScriptableObject levelData;
     public GameObject puerta;
     public GameObject puertaBloqueada;
+    public AudioSource telefono;
 
     private GameObject character;
     private Level_Data_Base nivelData;
@@ -55,6 +56,14 @@ public class ZC_Nivel_2_Initiator : MonoBehaviour
         Save_Manager.Instance.data.currentLevel = "ZC_Nivel_2";
         Save_Manager.Instance.SaveData();
 
+        if(Save_Manager.Instance.data.telefonoSonando == true) {
+            telefono.Play();
+        }
+        else
+        {
+            telefono.Stop();
+        }
+
         //Spawn personaje y camara
         StartCoroutine(DevTools.SetupCharacter(character, spawnPoint, newCharacter => { character = newCharacter; }));
         StartCoroutine(DevTools.SetupCamara(cinemachineCamera, levelData, character));
@@ -73,5 +82,12 @@ public class ZC_Nivel_2_Initiator : MonoBehaviour
             puertaBloqueada.SetActive(false);
         }
         yield return null;
+    }
+
+    public void ApagarTelefono()
+    {
+        telefono.Stop();
+        Save_Manager.Instance.data.telefonoSonando = false;
+        Save_Manager.Instance.SaveData();
     }
 }

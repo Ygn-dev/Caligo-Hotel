@@ -43,12 +43,13 @@ public class Player_Respawn : MonoBehaviour
     // Logica Respawn
     private void OnRespawn()
     {
+        SoundFX_Manager.Instance.PlaySound(SoundType.VISTO);
         StartCoroutine(SecuenciaPreRespawn());
     }
 
     private IEnumerator SecuenciaPreRespawn()
     {
-        yield return StartCoroutine(DesactivarInput());
+        yield return StartCoroutine(DesactivarInput()); 
         yield return StartCoroutine(Vibrar());
         yield return StartCoroutine(TriggerAnimation());
         //Sigue en PostRespawn()
