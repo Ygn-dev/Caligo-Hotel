@@ -11,19 +11,20 @@ public enum SoundType
     SELLECIONADO,
     PUERTA_BLOQUEADA,
     ABRIR_PUERTA,
-    FOOTSTEP
-    /*
     FOOTSTEP,
-    ARRUGADO,
+    MUERTE,
+    VISTO,
     REVIVE,
+    PALANCA,
+    ATENDER_TELEFONO,
+    APARECE_CAJA,
+    ABRIR_CAJA
+    /*
+    ARRUGADO,
     ABRIR_DIALOGO,
     TIMBRE,
     ELEGIR_LLAVE,
-
     COGER_LLAVE,
-
-
-    GETTING_HIT,
     NEXT_DIALOGUE,
     ENTE_MOVIENDO*/
 }

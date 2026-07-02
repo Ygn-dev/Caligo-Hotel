@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 8025574823933603097}
   - component: {fileID: 6730406801550912991}
   - component: {fileID: 2418569754988494071}
+  - component: {fileID: 552510945623591277}
   - component: {fileID: 4852065355308587885}
   m_Layer: 0
   m_Name: Palanca
@@ -164,7 +165,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1999776235
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -7282862186651694932, guid: df3204946f3442e45aed776d095fb6a7, type: 3}
@@ -288,6 +289,18 @@ MonoBehaviour:
   tipoDeObjeto: 1
   image: {fileID: 0}
   spriteRenderer: {fileID: 3371636261790240288}
+--- !u!114 &552510945623591277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5800005395896759427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d75e4c9945019546be94080e4352b7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SoundFX_Helper
 --- !u!114 &4852065355308587885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -313,6 +326,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 552510945623591277}
+        m_TargetAssemblyTypeName: SoundFX_Helper, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: PALANCA
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1001 &3166524282231315045
