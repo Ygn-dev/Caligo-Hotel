@@ -362,6 +362,10 @@ MonoBehaviour:
     - {fileID: 8300000, guid: d084fdc58a274f0478f5db03a6573383, type: 3}
     - {fileID: 8300000, guid: 2a7c8de6c0c17ef43991ca72a3ca1a31, type: 3}
     - {fileID: 8300000, guid: 7bf52dee668898b4aa963a628af284a1, type: 3}
+  - name: PAUSE
+    sounds:
+    - {fileID: 8300000, guid: 97dda3d4e67ba714aadb83d743265c4d, type: 3}
+    - {fileID: 8300000, guid: e513a3a76e9e7264a8e05ae0b7064038, type: 3}
 --- !u!114 &3514447415939130377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -400,3 +404,4 @@ MonoBehaviour:
     tieneLlaveN2: 0
     currentLevel: 
     telefonoSonando: 1
+    habloConRecepcionista: 0

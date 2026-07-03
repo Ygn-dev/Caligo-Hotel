@@ -129,7 +129,7 @@ public class MenuPausaSystem : MonoBehaviour
 
     private IEnumerator Pausa()
     {
-        //SoundFX_Manager.Instance.PlayRandomPitch(SoundType.TIMBRE, 0.2f);
+        SoundFX_Manager.Instance.PlaySound(SoundType.PAUSE);
         Time.timeScale = 0;
         ActionMapGameplay.Disable();
         MenuPausa.transform.SetAsLastSibling();

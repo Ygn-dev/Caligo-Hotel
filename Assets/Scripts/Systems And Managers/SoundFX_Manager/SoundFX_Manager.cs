@@ -24,13 +24,13 @@ public enum SoundType
     ABRIR_DIALOGO,
     ABRIR_CAJA_DIALOGO,
     PASAR_HOJA,
-    TYPEWRITER
-    /*
-    ARRUGADO,
+    TYPEWRITER,
+    PAUSE
+
+/*
     TIMBRE,
     ELEGIR_LLAVE,
     COGER_LLAVE,
-    NEXT_DIALOGUE,
     ENTE_MOVIENDO*/
 }
 
