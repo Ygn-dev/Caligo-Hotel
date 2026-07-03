@@ -5,7 +5,7 @@
 		{
 			"nodeId": 0,
 			"personaje": "Personaje",
-			"text": "¿Aló! ¿Nos conocemos?",
+			"text": "¿Aló? ¿Nos conocemos?",
 			"nextNodeId": 1
 		},
 		{
@@ -17,7 +17,7 @@
 		{
 			"nodeId": 2,
 			"personaje": "Personaje",
-			"text": "Eres TÚ otra vez.",
+			"text": "Eres tú otra vez.",
 			"nextNodeId": 3
 		},
 		{
@@ -29,13 +29,13 @@
 		{
 			"nodeId": 4,
 			"personaje": "Personaje",
-			"text": "NO.\nPRIMERO dime CUÁNDO hice una reservación yo.",
+			"text": "No, no. ESPERA.\nPRIMERO dime CUÁNDO hice una reservación yo.",
 			"nextNodeId": 5
 		},
 		{
 			"nodeId": 5,
 			"personaje": "Personaje",
-			"text": "ANTES,\n¿qué demonios son las cámaras, y POR QUÉ-",
+			"text": "Pero ANTES,\n¿qué demonios son las cámaras, y POR QUÉ-",
 			"nextNodeId": 6
 		},
 		{
