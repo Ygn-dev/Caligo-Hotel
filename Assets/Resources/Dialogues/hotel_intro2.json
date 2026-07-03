@@ -4,14 +4,14 @@
 	"nodes": [
 		{
 			"nodeId": 0,
-			"personaje": "Personaje",
-			"text": "¿Quién es...?",
+			"personaje": "Monologo",
+			"text": "Un hombre delgado me observa expectante.",
 			"nextNodeId": 1
 		},
 		{
 			"nodeId": 1,
 			"personaje": "Monologo",
-			"text": "Qué hombre más peculiar.",
+			"text": "Debe ser quien trabaja aquí.",
 			"nextNodeId": -1
 		}
 	]
