@@ -63,7 +63,20 @@ public class MenuPausaSystem : MonoBehaviour
             Debug.LogWarning("VolumeProfile no está asignado en el Inspector. Se desactivará el efecto de desenfoque.");
         }
     }
-
+    public static GameObject InicializarSistemas(GameObject prefabSistemas)
+    {
+        MenuPausaSystem sistemaExistente = FindAnyObjectByType<MenuPausaSystem>();
+        if (sistemaExistente == null)
+        {
+            GameObject nuevoObjeto = Instantiate(prefabSistemas);
+            Debug.Log("Sistemas de juego y Pausa construidos correctamente.");
+            return nuevoObjeto;
+        }
+        else
+        {
+            return sistemaExistente.gameObject;
+        }
+    }
     //Destructores:
     void OnDisable()
     {
