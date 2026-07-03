@@ -4,80 +4,85 @@
 	"nodes": [
 		{
 			"nodeId": 0,
-			"personaje": "Personaje",
-			"text": "Disculpe...\n ¿Dónde...?",
+			"personaje": "Monologo",
+			"text": "Su torcida sonrisa no me entusiasma.",
 			"nextNodeId": 1
-		},
-		{
+		},{
 			"nodeId": 1,
-			"personaje": "Recepcionista",
-			"text": "¡Caballero!\nGracias por esperar.",
+			"personaje": "Personaje",
+			"text": "Disculpe...",
 			"nextNodeId": 2
 		},
 		{
 			"nodeId": 2,
 			"personaje": "Recepcionista",
-			"text": "La suite está lista.\nSus pertenencias le esperan.",
+			"text": "¡Caballero!\nGracias por su paciencia.",
 			"nextNodeId": 3
 		},
 		{
 			"nodeId": 3,
-			"personaje": "Monologo",
-			"text": "¿Mis pertenencias?\nDefinitivamente me quedé dormido.",
+			"personaje": "Recepcionista",
+			"text": "La suite está lista.\nSus pertenencias le esperan.",
 			"nextNodeId": 4
 		},
 		{
 			"nodeId": 4,
-			"personaje": "Recepcionista",
-			"text": "Aquí está su LLAVE.",
+			"personaje": "Monologo",
+			"text": "¿Mis pertenencias?\nDefinitivamente me quedé dormido.",
 			"nextNodeId": 5
 		},
 		{
 			"nodeId": 5,
-			"personaje": "Personaje",
-			"text": "Espere.",
+			"personaje": "Recepcionista",
+			"text": "Aquí está su LLAVE.",
 			"nextNodeId": 6
 		},
 		{
 			"nodeId": 6,
-			"personaje": "Recepcionista",
-			"text": "¿Algo más, señor?.\nEncantado de ayudarle.",
+			"personaje": "Personaje",
+			"text": "Espere.",
 			"nextNodeId": 7
 		},
 		{
 			"nodeId": 7,
-			"personaje": "Monologo",
-			"text": "No sabría qué empezar a preguntar.",
+			"personaje": "Recepcionista",
+			"text": "¿Algo más, señor?.\nEncantado de ayudarle.",
 			"nextNodeId": 8
 		},
 		{
 			"nodeId": 8,
-			"personaje": "Personaje",
-			"text": "Hmm. No por el momento.",
+			"personaje": "Monologo",
+			"text": "No sé que preguntar primero. Recuperaré mis cosas antes.",
 			"nextNodeId": 9
 		},
 		{
 			"nodeId": 9,
-			"personaje": "Monologo",
-			"text": "Recibí la LLAVE DE LA SUITE.",
+			"personaje": "Personaje",
+			"text": "No por el momento.",
 			"nextNodeId": 10
 		},
 		{
-			"nodeId": 11,
-			"personaje": "Recepcionista",
-			"text": "Su cuarto se halla subiendo la escalera.\n¡Disfrute su estadía!",
-			"nextNodeId": 12
+			"nodeId": 10,
+			"personaje": "Monologo",
+			"text": "Recibí la LLAVE DE LA SUITE.",
+			"nextNodeId": 11
 		},
 		{
 			"nodeId": 12,
-			"personaje": "Personaje",
-			"text": "Gracias.",
+			"personaje": "Recepcionista",
+			"text": "Su cuarto se halla subiendo la escalera.\n¡Disfrute su estadía!",
 			"nextNodeId": 13
 		},
 		{
 			"nodeId": 13,
+			"personaje": "Personaje",
+			"text": "Gracias.",
+			"nextNodeId": 14
+		},
+		{
+			"nodeId": 14,
 			"personaje": "Monologo",
-			"text": "Conseguiré mis cosas primero\ny haré preguntas después.",
+			"text": "Iré por mis cosas primero\ny haré preguntas después.",
 			"nextNodeId": -1
 		}
 	]

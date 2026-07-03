@@ -1,0 +1,18 @@
+{
+	"dialogueId": "nivel1_biombos",
+	"startNode": 0,
+	"nodes": [
+		{
+			"nodeId": 0,
+			"personaje": "Personaje",
+			"text": "¿Cámaras?",
+			"nextNodeId": 1
+		},
+		{
+			"nodeId": 1,
+			"personaje": "Monologo",
+			"text": "¿Qué clase de habitación es esta?.",
+			"nextNodeId": -1
+		}
+	]
+}

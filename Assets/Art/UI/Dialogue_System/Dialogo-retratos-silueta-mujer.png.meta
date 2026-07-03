@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2b9860e4c44282a4194e56c445752a9c
+guid: c7c0d682525dd4246ba148f9e845371e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2982013001650311868
-    second: Dialogue box left 3_0
+      213: 7083408430980882834
+    second: Dialogo-retratos-silueta-mujer_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Dialogue box left 3_0
+      name: Dialogo-retratos-silueta-mujer_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1500
-        height: 440
+        width: 368
+        height: 437
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cb296fe860d326920800000000000000
-      internalID: 2982013001650311868
+      spriteID: 2916f9f30725d4260800000000000000
+      internalID: 7083408430980882834
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: c63e7fd44b218c44f83d5fd6efaef55e
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Dialogue box left 3_0: 2982013001650311868
+      Dialogo-retratos-silueta-mujer_0: 7083408430980882834
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,0 +1,120 @@
+{
+	"dialogueId": "dialogo_telefono1",
+	"startNode": 0,
+	"nodes": [
+		{
+			"nodeId": 0,
+			"personaje": "Monologo",
+			"text": "No me dijo el número de recepción.",
+			"nextNodeId": 1
+		},
+		{
+			"nodeId": 1,
+			"personaje": "SiluetaMujer",
+			"text": "Hola…",
+			"nextNodeId": 2
+		},
+		{
+			"nodeId": 2,
+			"personaje": "Personaje",
+			"text": "¿Hola? ¿Usted trabaja aquí?",
+			"nextNodeId": 3
+		},
+		{
+			"nodeId": 3,
+			"personaje": "Monologo",
+			"text": "No puedo escucharle bien.\n Hay interferencia en la señal.",
+			"nextNodeId": 4
+		},
+		{
+			"nodeId": 4,
+			"personaje": "SiluetaMujer",
+			"text": "… ¿Qué sucede?",
+			"nextNodeId": 5
+		},
+		{
+			"nodeId": 5,
+			"personaje": "Personaje",
+			"text": "Señorita, comuníqueme con su -",
+			"nextNodeId": 6
+		},
+		{
+			"nodeId": 6,
+			"personaje": "Monologo",
+			"text": "Un momento.\nSu voz. Se siente familiar.",
+			"nextNodeId": 7
+		},
+		{
+			"nodeId": 7,
+			"personaje": "SiluetaMujer",
+			"text": "Lo sé.\nPero se va a sentir diferente después.",
+			"nextNodeId": 8
+		},
+		{
+			"nodeId": 8,
+			"personaje": "Personaje",
+			"text": "¿Qué significa eso?\n¿Me conoce?",
+			"nextNodeId": 9
+		},
+		{
+			"nodeId": 9,
+			"personaje": "SiluetaMujer",
+			"text": "Ya no. Lo lamento.",
+			"nextNodeId": 10
+		},
+		{
+			"nodeId": 10,
+			"personaje": "Personaje",
+			"text": "Estoy... confundido...",
+			"nextNodeId": 11
+		},
+		{
+			"nodeId": 11,
+			"personaje": "SiluetaMujer",
+			"text": "Espero que todo salga bien para ti.\nDe verdad lo deseo.",
+			"nextNodeId": 12
+		},
+		{
+			"nodeId": 12,
+			"personaje": "Personaje",
+			"text": "¿De qué estás hablando?\n¡¿Me estás escuchando?!",
+			"nextNodeId": 13
+		},
+		{
+			"nodeId": 13,
+			"personaje": "Monologo",
+			"text": "Creo que no.",
+			"nextNodeId": 14
+		},
+		{
+			"nodeId": 14,
+			"personaje": "SiluetaMujer",
+			"text": "Cuídate mucho.\nPero, por favor...",
+			"nextNodeId": 15
+		},
+		{
+			"nodeId": 15,
+			"personaje": "SiluetaMujer",
+			"text": "... No vuelvas a llamar.",
+			"nextNodeId": 16
+		},
+		{
+			"nodeId": 16,
+			"personaje": "Personaje",
+			"text": "¿Qué? ¡No! ¡Espera!",
+			"nextNodeId": 17
+		},
+		{
+			"nodeId": 17,
+			"personaje": "Monologo",
+			"text": "Maldición. Cortó la llamada.",
+			"nextNodeId": 18
+		},
+		{
+			"nodeId": 18,
+			"personaje": "Monologo",
+			"text": "¿Quién eres?",
+			"nextNodeId": -1
+		}
+	]
+}

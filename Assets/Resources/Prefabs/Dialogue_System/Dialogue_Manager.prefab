@@ -183,7 +183,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  duracionMovimientoScroll: 2
+  duracionMovimientoScroll: 0.5
   curvaAparicionLeyenda:
     serializedVersion: 2
     m_Curve:
@@ -217,9 +217,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  duracionAparicionLeyenda: 2
-  velocidadScroll: 0.6
-  duracionAparicionScroll: 0.2
+  duracionAparicionLeyenda: 1
+  velocidadScroll: 0.5
+  duracionAparicionScroll: 0.25
   curvaAparicionScroll:
     serializedVersion: 2
     m_Curve:

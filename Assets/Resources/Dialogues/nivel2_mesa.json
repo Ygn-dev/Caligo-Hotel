@@ -1,17 +1,17 @@
 {
-	"dialogueId": "hotel_intro2",
+	"dialogueId": "nivel2_mesa",
 	"startNode": 0,
 	"nodes": [
 		{
 			"nodeId": 0,
 			"personaje": "Monologo",
-			"text": "Un hombre delgado me observa expectante.",
+			"text": "Esto es absurdo.",
 			"nextNodeId": 1
 		},
 		{
 			"nodeId": 1,
 			"personaje": "Monologo",
-			"text": "Debe ser quien trabaja aquí.",
+		"text": "Bueno. Solo puedo salir avanzando.",
 			"nextNodeId": -1
 		}
 	]
