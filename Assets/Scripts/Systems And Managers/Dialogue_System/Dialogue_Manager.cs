@@ -29,6 +29,7 @@ public class Dialogue_Manager : MonoBehaviour
     public float velocidadScroll;
     public float duracionAparicionScroll;
     public AnimationCurve curvaAparicionScroll;
+    public float duracionDesaparicionScroll;
 
     
     private Canvas canvas;  
@@ -45,7 +46,6 @@ public class Dialogue_Manager : MonoBehaviour
     private InputAction upAction;
     private ScrollRect scrollRect;
     private InputAction downAction;
-    private bool isQuitandoPadding;
     private InputAction acceptAction;
     private GameObject instCajaDeDialogo;
     private Dialogue_Struct dialogueData;
@@ -168,7 +168,6 @@ public class Dialogue_Manager : MonoBehaviour
 
         // Iniciar guion
         seActivoScroll = false;
-        isQuitandoPadding = false;
         nextNodeId = dialogueData.startNode;
         yield return StartCoroutine(AvanzarGuion());
     }
@@ -191,7 +190,7 @@ public class Dialogue_Manager : MonoBehaviour
         downAction.canceled -= BajarScroll;
 
         // Ocultar ScrollBar
-        if(seActivoScroll) StartCoroutine(scrollHelper.OcultarScrollBar(duracionAparicionScroll, curvaAparicionScroll));
+        if(seActivoScroll) scrollHelper.OcultarScrollBar(duracionAparicionScroll, curvaAparicionScroll);
 
         // Si el scroll no esta arriba, bajarlo primero
         yield return StartCoroutine(BajarScrollTodo());
@@ -215,7 +214,14 @@ public class Dialogue_Manager : MonoBehaviour
             if(!seActivoScroll)
             {
                 float alturaReal = content.GetComponent<RectTransform>().rect.height - layoutGroup.padding.top;
-                if(alturaReal > 750) StartCoroutine(QuitarPadding());
+                if(alturaReal > 750) 
+                {
+                    layoutGroup.padding.top = 0;
+                    Canvas.ForceUpdateCanvases();
+                    LayoutRebuilder.ForceRebuildLayoutImmediate(layoutGroup.GetComponent<RectTransform>());
+                    scrollRect.verticalNormalizedPosition = 0f;
+                    seActivoScroll = true;
+                }
             }
         }
 
@@ -232,7 +238,7 @@ public class Dialogue_Manager : MonoBehaviour
         else instanceDialogueScroll.GetComponent<DialogueScroll_Helper>().leyendaText.text = "Siguiente";
 
         // Si el scroll ya es lo suficientemente largo, mostrar el scrollbar
-        if(seActivoScroll) scrollHelper.MostrarScroll(duracionAparicionScroll, curvaAparicionScroll);
+        if(seActivoScroll) scrollHelper.MostrarScrollBar(duracionAparicionScroll, curvaAparicionScroll, duracionDesaparicionScroll);
 
         // Recien ahora se puede avanzar al siguiente nodo o subir/bajar el scroll
         acceptAction.performed += AvanzarAccion;
@@ -261,17 +267,6 @@ public class Dialogue_Manager : MonoBehaviour
 
     private IEnumerator MoverScroll()
     {
-        // Si se esta quitando el padding, esperar a que termine antes de mover el scroll
-        if (isQuitandoPadding)
-        {
-            while(isQuitandoPadding)
-            {
-                yield return null;
-            }
-            yield return null;
-        }
-
-
         float tiempo = 0;
         float posicionInicial = scrollRect.verticalNormalizedPosition;
         float posicionFinal = 0f;
@@ -356,23 +351,6 @@ public class Dialogue_Manager : MonoBehaviour
         yield return null;
     }
 
-    private IEnumerator QuitarPadding()
-    {
-        isQuitandoPadding = true;
-        while (layoutGroup.padding.top > 0)
-        {
-            layoutGroup.padding.top --; 
-            scrollRect.verticalNormalizedPosition = 0f; // Mantener el scroll en la parte inferior durante la animación
-            LayoutRebuilder.ForceRebuildLayoutImmediate(layoutGroup.GetComponent<RectTransform>());
-            yield return null;
-        }
-
-        isQuitandoPadding = false;
-        seActivoScroll = true;
-        scrollHelper.MostrarScroll(duracionAparicionScroll, curvaAparicionScroll);
-        yield return null;
-    }
-
     private IEnumerator TerminarGuion()
     {
         // Reanudar acciones
@@ -401,15 +379,9 @@ public class Dialogue_Manager : MonoBehaviour
     private IEnumerator BajarScrollTodo()
     {
         if(!seActivoScroll) yield break;
-        if(isQuitandoPadding)
-        {
-            while(isQuitandoPadding)
-            {
-                yield return null;
-            }
-            yield return null;
-        }
         if(scrollRect.verticalNormalizedPosition < 0.01f) yield break;
+
+        Debug.Log("Bajando scroll");
 
         while (scrollRect.verticalNormalizedPosition > 0f)
         {

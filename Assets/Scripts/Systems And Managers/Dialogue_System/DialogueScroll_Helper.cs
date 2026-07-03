@@ -12,56 +12,71 @@ public class DialogueScroll_Helper : MonoBehaviour
     public ScrollRect scrollRect;
     public Image scrollImageBackground;
 
-    private bool isAnimating = false;
-    private Coroutine currentCoroutine;
+    private Scrollbar scrollbarRef;
+    private Coroutine mostrarCoroutine;
+    private Coroutine ocultarCoroutine;
+
     
 
-    public void MostrarScroll(float duration, AnimationCurve curve)
+    public void MostrarScrollBar(float duration, AnimationCurve curve, float delay)
     {
-        if(isAnimating) {
-            // Si ya hay una animación en curso, detenerla antes de iniciar una nueva
-            StopCoroutine(currentCoroutine);
-            isAnimating = false;
-        }
-        currentCoroutine = StartCoroutine(AnimateScroll(1f, scrollCanvasGroup, duration, curve));
+        // Reinicia el tiempo de espera
+        if (mostrarCoroutine != null) StopCoroutine(mostrarCoroutine);          
+        mostrarCoroutine = StartCoroutine(Mostrar(duration, curve, delay));
     }
 
-    public IEnumerator OcultarScrollBar(float duration, AnimationCurve curve)
+    public void OcultarScrollBar(float duration, AnimationCurve curve)
     {
-        if(isAnimating) {
-            // Si ya hay una animación en curso, detenerla antes de iniciar una nueva
-            StopCoroutine(currentCoroutine);
-            isAnimating = false;
-        }
-        currentCoroutine = StartCoroutine(AnimateScroll(0f, scrollCanvasGroup, duration, curve));
-        yield return currentCoroutine;
-    }
-
-
-    private IEnumerator AnimateScroll(float targetAlpha, CanvasGroup canvasGroup, float duration, AnimationCurve curve)
-    {
-        isAnimating = true;
-        float elapsedTime = 0f;
-        float startAlpha = canvasGroup.alpha;
-
-        float subtime = 0;
-        while(subtime < 0.5f)
+        // Cancela cualquier mostrar pendiente
+        if (mostrarCoroutine != null)
         {
-            subtime += Time.deltaTime;
+            StopCoroutine(mostrarCoroutine);
+            mostrarCoroutine = null;
+        }
+
+        // Reinicia la animación de ocultar
+        if (ocultarCoroutine != null) StopCoroutine(ocultarCoroutine);
+        ocultarCoroutine = StartCoroutine(Ocultar(duration, curve));
+    }
+
+    private IEnumerator Mostrar(float duration, AnimationCurve curve, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        scrollRect.verticalScrollbar = scrollbarRef;
+
+        float elapsed = 0f;
+        float startAlpha = scrollCanvasGroup.alpha;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            float t = Mathf.Clamp01(elapsed / duration);
+            scrollCanvasGroup.alpha = Mathf.Lerp(startAlpha,1f,curve.Evaluate(t));
             yield return null;
         }
 
-        while (elapsedTime < duration)
+        scrollCanvasGroup.alpha = 1f;
+        mostrarCoroutine = null;
+    }
+
+    private IEnumerator Ocultar(float duration, AnimationCurve curve)
+    {
+        scrollbarRef = scrollRect.verticalScrollbar;
+        scrollRect.verticalScrollbar = null;
+
+        float elapsed = 0f;
+        float startAlpha = scrollCanvasGroup.alpha;
+
+        while (elapsed < duration)
         {
-            elapsedTime += Time.deltaTime;
-            float t = Mathf.Clamp01(elapsedTime / duration);
-            float curveValue = curve.Evaluate(t);
-            canvasGroup.alpha = Mathf.Lerp(startAlpha, targetAlpha, curveValue);
+            elapsed += Time.deltaTime;
+            float t = Mathf.Clamp01(elapsed / duration);
+            scrollCanvasGroup.alpha = Mathf.Lerp(startAlpha,0f,curve.Evaluate(t));
             yield return null;
         }
 
-        canvasGroup.alpha = targetAlpha;
-        isAnimating = false;
-        yield return null;
+        scrollCanvasGroup.alpha = 0f;
+        ocultarCoroutine = null;
     }
 }
