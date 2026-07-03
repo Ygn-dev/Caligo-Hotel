@@ -78,7 +78,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   duracionZoomCamara: 0.8
-  velocidadEscritura: 9
+  velocidadEscritura: 20
   duracionDesaparicion: 0.4
   inputActions: {fileID: -944628639613478452, guid: e75c53da0f7f49f4aae3d0a6e4b3cca4, type: 3}
   prefabDialogueScroll: {fileID: 4634716866516083672, guid: d22ef6fb2f2dd2c4ba4a2241a9301892, type: 3}
@@ -253,3 +253,4 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  duracionDesaparicionScroll: 0.5

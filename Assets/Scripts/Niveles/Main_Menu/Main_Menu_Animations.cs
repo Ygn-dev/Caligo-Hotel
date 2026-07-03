@@ -4,6 +4,9 @@ using System.Collections;
 
 public class Main_Menu_Animations : MonoBehaviour
 {
+    [Header("Referencias")]
+    [Space(10)]
+
     public Animator boxAnimator;
     public Animator textAnimator;
     public Animator llavesAnimator;
@@ -36,7 +39,9 @@ public class Main_Menu_Animations : MonoBehaviour
                 accept.performed += ContinuarCaja;
                 break;
             case 1:
+                SoundFX_Manager.Instance.PlaySound(SoundType.ABRIR_CAJA_DIALOGO);
                 llavesAnimator.SetTrigger("Aparicion");
+                StartCoroutine(EsperarYPlay());
                 break;
             case 2:
                 //Desactivar los objetos iniciales
@@ -63,11 +68,16 @@ public class Main_Menu_Animations : MonoBehaviour
         }
     }
 
+    private IEnumerator EsperarYPlay()
+    {
+        yield return new WaitForSeconds(4.5f);
+        SoundFX_Manager.Instance.PlaySound(SoundType.SELLECIONADO);
+    }
+
     private void ContinuarCaja(InputAction.CallbackContext context)
     {
         accept.performed -= ContinuarCaja;
         accept.performed += SaltarAnimacion;
-        SoundFX_Manager.Instance.PlaySound(SoundType.ABRIR_CAJA);
         textAnimator.SetTrigger("Desaparicion");
         boxAnimator.SetTrigger("Mover");
     }

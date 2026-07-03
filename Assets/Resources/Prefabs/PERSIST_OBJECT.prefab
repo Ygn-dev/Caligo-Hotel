@@ -346,10 +346,22 @@ MonoBehaviour:
     - {fileID: 8300000, guid: e091df10cdb94594fbf0e73e8bdafe60, type: 3}
   - name: ABRIR_CAJA
     sounds:
-    - {fileID: 8300000, guid: 97f61d91fb78a574a8b229e482c48041, type: 3}
+    - {fileID: 8300000, guid: c0375a71153b3244287bee64f307a4a0, type: 3}
   - name: ABRIR_DIALOGO
     sounds:
     - {fileID: 8300000, guid: d4c5f5dab14189943846e0ffbbea39ad, type: 3}
+  - name: ABRIR_CAJA_DIALOGO
+    sounds:
+    - {fileID: 8300000, guid: 600c2f25d5d90f74e8c0cfe7fcd0a76b, type: 3}
+  - name: PASAR_HOJA
+    sounds:
+    - {fileID: 8300000, guid: 886937e5d6d756b4e8cadf3b9f912967, type: 3}
+  - name: TYPEWRITER
+    sounds:
+    - {fileID: 8300000, guid: 36dd36410a72af14cb37193ff5fb4597, type: 3}
+    - {fileID: 8300000, guid: d084fdc58a274f0478f5db03a6573383, type: 3}
+    - {fileID: 8300000, guid: 2a7c8de6c0c17ef43991ca72a3ca1a31, type: 3}
+    - {fileID: 8300000, guid: 7bf52dee668898b4aa963a628af284a1, type: 3}
 --- !u!114 &3514447415939130377
 MonoBehaviour:
   m_ObjectHideFlags: 0

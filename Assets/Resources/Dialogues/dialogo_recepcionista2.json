@@ -1,0 +1,24 @@
+{
+	"dialogueId": "dialogo_recepcionista",
+	"startNode": 0,
+	"nodes": [
+		{
+			"nodeId": 0,
+			"personaje": "Personaje",
+			"text": "asd...",
+			"nextNodeId": 1
+		},
+		{
+			"nodeId": 1,
+			"personaje": "Recepcionista",
+			"text": "¡asd!\nGracias sad esperar.",
+			"nextNodeId": 2
+		},
+		{
+			"nodeId": 2,
+			"personaje": "Recepcionista",
+			"text": "La sad está lista.\nSus sad le esperan.",
+			"nextNodeId": -1
+		}
+	]
+}

@@ -45,8 +45,6 @@ public class Lobby_Initiator : MonoBehaviour
         //Settear Personaje y Camara mientras se reproduce la cinemática
         StartCoroutine(SpawnCharacter());
         StartCoroutine(SetupCamara());
-        StartCoroutine(EsperarYquitarFade(3f));
-        Music_Manager.Instance.StopMusic();
         yield return StartCoroutine(CinematicaInicial());
         
         //Levantarse del sillon
@@ -73,6 +71,7 @@ public class Lobby_Initiator : MonoBehaviour
 
     private IEnumerator CinematicaInicial()
     {
+        StartCoroutine(EsperarYquitarFade(3f));
         yield return Cinematic_Manager.Instance.PlayCinematic("Lobby_Cinematic");
         yield return null;
     }

@@ -158,7 +158,7 @@ public class Dialogue_Manager : MonoBehaviour
 
         
         // Zoom a la camara y background negro al mismo tiempo
-        SoundFX_Manager.Instance.PlaySound(SoundType.ABRIR_CAJA);
+        SoundFX_Manager.Instance.PlaySound(SoundType.ABRIR_CAJA_DIALOGO);
         yield return StartCoroutine(DevTools.AnimarCamaraYBackground(cinemachineCamera, zoomCamara, camPosX , camPosY, 
                                                                         duracionZoomCamara, curvaZoom, 
                                                                         instanceBlackBackground, curvaBlackBackground, 260, 0));
@@ -207,6 +207,7 @@ public class Dialogue_Manager : MonoBehaviour
         else // En todos los demas nodos, mover el scroll hacia abajo para mostrar el nuevo dialogo
         { 
             // Mover el scroll      
+            SoundFX_Manager.Instance.PlaySound(SoundType.PASAR_HOJA);
             yield return StartCoroutine(MoverScroll());
             yield return null;
 
@@ -313,6 +314,19 @@ public class Dialogue_Manager : MonoBehaviour
             currentVisibleCharacterIndex++;
             text.maxVisibleCharacters = currentVisibleCharacterIndex;
 
+
+            int resto = 3;
+            if(velocidadEscritura > 15f) {
+                resto = 3;
+            }else{
+                resto = Random.value < 0.75f ? 2 : 3;
+            }
+
+            if (currentVisibleCharacterIndex % resto == 0)
+            {
+                SoundFX_Manager.Instance.PlaySound(SoundType.TYPEWRITER);
+            }
+
             // Esperar el delay, pero revisando el input cada frame
             float timer = 0f;
             while (timer < delay)
@@ -356,7 +370,7 @@ public class Dialogue_Manager : MonoBehaviour
         // Reanudar acciones
         inputActions.FindActionMap("Dialogue").Disable();
 
-        SoundFX_Manager.Instance.PlaySound(SoundType.ABRIR_CAJA);
+        SoundFX_Manager.Instance.PlaySound(SoundType.ABRIR_CAJA_DIALOGO);
         // Ocultar el dialogue system 
         yield return StartCoroutine(DevTools.AnimarCamaraYBackground(cinemachineCamera, zoomCamIni, camPosIni.x, camPosIni.y, 
                                                                         duracionZoomCamara, curvaZoom, instanceBlackBackground, 

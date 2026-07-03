@@ -16,7 +16,10 @@ public class DialogueScroll_Helper : MonoBehaviour
     private Coroutine mostrarCoroutine;
     private Coroutine ocultarCoroutine;
 
-    
+    private void Awake()
+    {
+        scrollbarRef = scrollRect.verticalScrollbar;
+    }
 
     public void MostrarScrollBar(float duration, AnimationCurve curve, float delay)
     {
@@ -62,7 +65,6 @@ public class DialogueScroll_Helper : MonoBehaviour
 
     private IEnumerator Ocultar(float duration, AnimationCurve curve)
     {
-        scrollbarRef = scrollRect.verticalScrollbar;
         scrollRect.verticalScrollbar = null;
 
         float elapsed = 0f;
