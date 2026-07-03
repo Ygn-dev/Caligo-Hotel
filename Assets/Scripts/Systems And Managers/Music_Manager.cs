@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using System.Collections;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -7,7 +8,9 @@ using UnityEditor;
 
 public enum MusicType
 {
-    PORTADA
+    PORTADA,
+    ZONA_CAMARAS,
+    PREPORTADA
 }
 
 [Serializable]
@@ -25,6 +28,10 @@ public class Music_Manager : MonoBehaviour
 
     private string prefabPath = "Prefabs/Audio/Music_Prefab";
 
+    private AudioSource currentMusicSource;
+    private MusicType currentMusicType;
+    private int currentMusicIndex;
+
     //singleton pattern
     private void Awake()
     {
@@ -36,22 +43,74 @@ public class Music_Manager : MonoBehaviour
     {
         //select clip from the array
         AudioClip[] clips = musicList[(int)musicType].sounds;
-        AudioClip randomClip = clips[UnityEngine.Random.Range(0, clips.Length)];
+        int index = UnityEngine.Random.Range(0, clips.Length);
+        AudioClip randomClip = clips[index];
+
+        if(musicType == currentMusicType && currentMusicIndex == index && currentMusicSource != null && currentMusicSource.isPlaying)
+        {
+            return;
+        }
+        currentMusicType = musicType;
+        currentMusicIndex = index;
+
 
         //spawn in  gameObject
-        AudioSource audioSource = Instantiate(Resources.Load<AudioSource>(prefabPath), Vector3.zero, Quaternion.identity);
+        AudioSource newMusicSource = Instantiate(Resources.Load<AudioSource>(prefabPath), transform);
         //assign the audioClip
-        audioSource.clip = randomClip;
+        newMusicSource.clip = randomClip;
         //assign volume
-        audioSource.volume = volume;
+        newMusicSource.volume = volume;
         //enable
-        audioSource.enabled = true;
+        newMusicSource.enabled = true;
+
+        //transicion de musica
+        if(currentMusicSource != null)
+        {
+            newMusicSource.volume = 0f;
+            StartCoroutine(FadeOutAndStop(currentMusicSource, 1f));
+            StartCoroutine(FadeInAndPlay(newMusicSource, volume, 1f));
+        }
+
         //play sound
+        newMusicSource.Play();
+        currentMusicSource = newMusicSource;
+    }
+
+    public void StopMusic(float fadeDuration = 1f)
+    {
+        if (currentMusicSource != null)
+        {
+            StartCoroutine(FadeOutAndStop(currentMusicSource, fadeDuration));
+            currentMusicSource = null;
+        }
+    }
+
+    private IEnumerator FadeOutAndStop(AudioSource audioSource, float duration = 1f)
+    {
+        float startVolume = audioSource.volume;
+
+        for (float t = 0; t < duration; t += Time.deltaTime)
+        {
+            audioSource.volume = Mathf.Lerp(startVolume, 0, t / duration);
+            yield return null;
+        }
+
+        audioSource.Stop();
+        Destroy(audioSource.gameObject);
+    }
+
+    private IEnumerator FadeInAndPlay(AudioSource audioSource, float targetVolume, float duration = 1f)
+    {
+        audioSource.volume = 0;
         audioSource.Play();
-        //get length of the clip
-        float clipLength = randomClip.length;
-        //destroy the audioSource after the clip has finished playing
-        Destroy(audioSource.gameObject, clipLength);
+
+        for (float t = 0; t < duration; t += Time.deltaTime)
+        {
+            audioSource.volume = Mathf.Lerp(0, targetVolume, t / duration);
+            yield return null;
+        }
+
+        audioSource.volume = targetVolume;
     }
 
     

@@ -22,11 +22,9 @@ public class Player_Respawn : MonoBehaviour
     public Transform characterTransform;
     public SpriteRenderer spriteRenderer;
     public CapsuleCollider2D DeathTrigger;
-    [HideInInspector] public Level_Data_Base nivelData;
+    [HideInInspector] public Vector3 spawnPoint;
     
     private InputActionMap gameplayInputs;
-
-
     void Awake()
     {
         gameplayInputs = inputActions.FindActionMap("Gameplay");
@@ -45,12 +43,13 @@ public class Player_Respawn : MonoBehaviour
     // Logica Respawn
     private void OnRespawn()
     {
+        SoundFX_Manager.Instance.PlaySound(SoundType.VISTO);
         StartCoroutine(SecuenciaPreRespawn());
     }
 
     private IEnumerator SecuenciaPreRespawn()
     {
-        yield return StartCoroutine(DesactivarInput());
+        yield return StartCoroutine(DesactivarInput()); 
         yield return StartCoroutine(Vibrar());
         yield return StartCoroutine(TriggerAnimation());
         //Sigue en PostRespawn()
@@ -59,12 +58,7 @@ public class Player_Respawn : MonoBehaviour
     private IEnumerator PostRespawn()
     {
         RespawnEvent?.Invoke();
-
-        Vector3 spawnPoint;
-
-        if(nivelData == null) spawnPoint = Vector3.zero;
-        else spawnPoint = nivelData.spawnPoint;
-        
+        if(spawnPoint == null) spawnPoint = Vector3.zero;       
         characterTransform.localPosition = spawnPoint;
         yield return null;
     }

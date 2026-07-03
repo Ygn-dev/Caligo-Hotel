@@ -67,6 +67,7 @@ public class Main_Menu_Animations : MonoBehaviour
     {
         accept.performed -= ContinuarCaja;
         accept.performed += SaltarAnimacion;
+        SoundFX_Manager.Instance.PlaySound(SoundType.ABRIR_CAJA);
         textAnimator.SetTrigger("Desaparicion");
         boxAnimator.SetTrigger("Mover");
     }

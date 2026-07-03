@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-
+using UnityEngine.InputSystem;
 
 public class Caja_Monologo_Helper : MonoBehaviour, ICaja_De_Texto_Helper
 {
@@ -24,14 +24,15 @@ public class Caja_Monologo_Helper : MonoBehaviour, ICaja_De_Texto_Helper
         LayoutRebuilder.ForceRebuildLayoutImmediate(rectPrefab);
     }
 
-    public IEnumerator MostrarCaja(float duracion, AnimationCurve curva)
+    public IEnumerator MostrarCaja(float duracion, AnimationCurve curva, InputAction acceptAction)
     {
         float tiempo = 0;
         while (tiempo < duracion)
         {
+            if(acceptAction.triggered) break;
+
             float valor = curva.Evaluate(tiempo / duracion);
             canvasGroup.alpha = valor;
-            
             tiempo += Time.deltaTime;
             yield return null;
         }

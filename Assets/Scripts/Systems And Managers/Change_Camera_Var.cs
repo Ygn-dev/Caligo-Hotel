@@ -8,11 +8,11 @@ public class Change_Camera_Var : MonoBehaviour
     public float NewPosCompY;
     public float duration;
     public AnimationCurve curve;
-    public CinemachineCamera camera;
+    public CinemachineCamera cinemachineCamera;
 
     private IEnumerator TriggerCameraChange()
     {
-        CinemachinePositionComposer camPosCom =  camera.GetComponent<CinemachinePositionComposer>();
+        CinemachinePositionComposer camPosCom =  cinemachineCamera.GetComponent<CinemachinePositionComposer>();
         Vector2 initialPos = camPosCom.Composition.ScreenPosition;
         Vector2 newPosComp = new Vector2(NewPosCompX != 0 ? NewPosCompX : initialPos.x, NewPosCompY != 0 ? NewPosCompY : initialPos.y);
 

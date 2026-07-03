@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2127829059826260042}
   - component: {fileID: 9004067391879619448}
   - component: {fileID: 8864558468715289367}
+  - component: {fileID: 8390835908911364569}
   m_Layer: 5
   m_Name: Scrollbar_Vertical
   m_TagString: Untagged
@@ -126,6 +127,18 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!225 &8390835908911364569
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 558252534905554844}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1421214063290578604
 GameObject:
   m_ObjectHideFlags: 0
@@ -725,9 +738,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edea6fe563a31914aa42ca7ba9d34e8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueScroll_Helper
-  scrollImage: {fileID: 9004067391879619448}
+  scrollCanvasGroup: {fileID: 8390835908911364569}
   content: {fileID: 5428932235114964857}
   leyenda: {fileID: 6008344428680064249}
+  leyendaText: {fileID: 4249146283250775285}
   scrollRect: {fileID: 5619370776562741307}
   scrollImageBackground: {fileID: 2225140800799115824}
 --- !u!1 &5393405115807740256
@@ -764,7 +778,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 114.8, y: -0.0000029802}
+  m_AnchoredPosition: {x: 167.7, y: -0.0000029802}
   m_SizeDelta: {x: 140.6042, y: 30.3093}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3901148835480266791
@@ -829,7 +843,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -1136,7 +1150,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0

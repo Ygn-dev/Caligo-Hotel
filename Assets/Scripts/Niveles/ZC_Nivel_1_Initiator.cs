@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class ZC_Nivel_1_Initiator : MonoBehaviour
 {
     [Header("La parte editable está en su Scriptable Object")]
-
+    
     [Space]
     [Header("No Editable")]
     public InputActionAsset inputActions;
@@ -19,7 +19,9 @@ public class ZC_Nivel_1_Initiator : MonoBehaviour
     {
         inputActions.Disable();
         nivelData = (Level_Data_Base)levelData;
-        if (cinemachineCamera == null) cinemachineCamera = FindAnyObjectByType<CinemachineCamera>();
+        if(cinemachineCamera == null) cinemachineCamera = FindAnyObjectByType<CinemachineCamera>();
+        // Este nivel usara sistema de dialogos, asi que se asegura de que el Dialogue Manager exista en la escena
+        if (Dialogue_Manager.Instance == null) DevTools.SetupDialogueManager();
     }
 
     void Start()
@@ -29,12 +31,31 @@ public class ZC_Nivel_1_Initiator : MonoBehaviour
 
     private IEnumerator Initialize()
     {
-        //Spawn personaje y camara
-        StartCoroutine(DevTools.SetupCharacter(character, nivelData, newCharacter => { character = newCharacter; }));
-        StartCoroutine(DevTools.SetupCamara(cinemachineCamera, levelData, character));
+        Vector2 spawnPoint;
+        
+        switch(Save_Manager.Instance.data.currentLevel)
+        {
+            case "ZC_Nivel_2":
+                spawnPoint = nivelData.spawnPoints[1];
+                break;  
+            default:
+                spawnPoint = nivelData.spawnPoints[0];
+                break;
+        }
+        
+        
+        Save_Manager.Instance.data.currentLevel = "ZC_Nivel_1";
+        Save_Manager.Instance.SaveData();
 
+        //Spawn personaje y camara
+        StartCoroutine(DevTools.SetupCharacter(character, spawnPoint, newCharacter => { character = newCharacter; }));
+        StartCoroutine(DevTools.SetupCamara(cinemachineCamera, levelData, character));
+        
         //Completar Fade de Carga
         yield return StartCoroutine(Game_Loader_Manager.Instance.CompleteLoadScene());
+
+        //Musica
+        Music_Manager.Instance.PlayMusic(MusicType.ZONA_CAMARAS);
 
         //Habilitar Input
         inputActions.FindActionMap("Gameplay").Enable();

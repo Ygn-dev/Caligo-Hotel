@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: 303699484658207876}
   - component: {fileID: 7078307095271022054}
   - component: {fileID: 113335022753730307}
+  - component: {fileID: 2536667408952096547}
   m_Layer: 0
   m_Name: Character
   m_TagString: Player
@@ -191,7 +192,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1999776235
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 8892079339071525981, guid: 93ecd416caf2c8a4ca959dde50bea764, type: 3}
@@ -265,8 +266,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.7}
-  m_Size: {x: 1.8, y: 1.8}
+  m_Offset: {x: 0.061556697, y: 0.90064645}
+  m_Size: {x: 1.3338735, y: 1.5330267}
   m_Direction: 0
 --- !u!114 &5446591379806569782
 MonoBehaviour:
@@ -330,3 +331,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player_Interact
   Interact: {fileID: -5659583082084787350, guid: e75c53da0f7f49f4aae3d0a6e4b3cca4, type: 3}
+--- !u!114 &2536667408952096547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3851179027187527990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09c09bf448883594f89e53cc9e02015d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Footsteps_Sounds
