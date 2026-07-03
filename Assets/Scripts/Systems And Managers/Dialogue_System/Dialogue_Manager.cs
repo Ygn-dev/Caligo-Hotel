@@ -40,7 +40,7 @@ public class Dialogue_Manager : MonoBehaviour
     public float duracionAparicionLeyenda;
     public float duracionAparicionScrollBar;
     public AnimationCurve curvaAparicionRetrato;
-    public float duracionDesaparicionScrollBar;
+    public float retardoAparicionScrollBar;
     public AnimationCurve curvaAparicionScroll;
     public AnimationCurve curvaMovimientoScroll;
     public AnimationCurve curvaAparicionLeyenda;
@@ -273,7 +273,7 @@ public class Dialogue_Manager : MonoBehaviour
         else instanceDialogueScroll.GetComponent<DialogueScroll_Helper>().leyendaText.text = "Siguiente";
 
         // Si el scroll ya es lo suficientemente largo, mostrar el scrollbar
-        if(seActivoScroll) scrollHelper.MostrarScrollBar(duracionAparicionScrollBar, curvaAparicionScroll, duracionDesaparicionScrollBar);
+        if(seActivoScroll) scrollHelper.MostrarScrollBar(duracionAparicionScrollBar, curvaAparicionScroll, retardoAparicionScrollBar);
 
         // Recien ahora se puede avanzar al siguiente nodo o subir/bajar el scroll
         acceptAction.performed += AvanzarAccion;
@@ -485,7 +485,7 @@ public class Dialogue_Manager_Editor : Editor
     SerializedProperty duracionMovimientoScroll;
     SerializedProperty duracionAparicionScrollBar;
     SerializedProperty curvaAparicionRetrato;
-    SerializedProperty duracionDesaparicionScrollBar;
+    SerializedProperty retardoAparicionScrollBar;
     SerializedProperty curvaAparicionScroll;
     SerializedProperty curvaMovimientoScroll;
     SerializedProperty curvaAparicionLeyenda;
@@ -527,7 +527,7 @@ public class Dialogue_Manager_Editor : Editor
 
         duracionAparicionScrollBar = serializedObject.FindProperty("duracionAparicionScrollBar");
         curvaAparicionRetrato = serializedObject.FindProperty("curvaAparicionRetrato");
-        duracionDesaparicionScrollBar = serializedObject.FindProperty("duracionDesaparicionScrollBar");
+        retardoAparicionScrollBar = serializedObject.FindProperty("retardoAparicionScrollBar");
         curvaAparicionScroll = serializedObject.FindProperty("curvaAparicionScroll");
         curvaMovimientoScroll = serializedObject.FindProperty("curvaMovimientoScroll");
         curvaAparicionLeyenda = serializedObject.FindProperty("curvaAparicionLeyenda");
@@ -594,7 +594,7 @@ public class Dialogue_Manager_Editor : Editor
             EditorGUILayout.Space();
 
             EditorGUILayout.PropertyField(duracionAparicionScrollBar);
-            EditorGUILayout.PropertyField(duracionDesaparicionScrollBar);
+            EditorGUILayout.PropertyField(retardoAparicionScrollBar);
             EditorGUILayout.PropertyField(curvaAparicionScroll);
 
             EditorGUILayout.Space();
