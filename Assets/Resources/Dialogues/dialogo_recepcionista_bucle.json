@@ -1,5 +1,5 @@
 {
-	"dialogueId": "dialogo_recepcionista",
+	"dialogueId": "dialogo_recepcionista_bucle",
 	"startNode": 0,
 	"nodes": [
 		{
