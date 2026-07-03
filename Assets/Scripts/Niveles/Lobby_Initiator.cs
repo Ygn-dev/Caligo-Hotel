@@ -36,7 +36,8 @@ public class Lobby_Initiator : MonoBehaviour
 
     private IEnumerator InitializeLobby()
     {
-        
+        Save_Manager.Instance.data.currentLevel = "Lobby";
+        Save_Manager.Instance.SaveData();
 
         // Completar Fade de Carga
         yield return StartCoroutine(FadeBlanco());
