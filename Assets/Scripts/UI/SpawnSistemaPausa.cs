@@ -4,11 +4,11 @@ public class SpawnSistemaPausa : MonoBehaviour
 {
     public GameObject sistemaPausaPrefab;
     public float tiempoAparicion = 3.0f;
-    private bool isActive = false;
+    //private bool isActive = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        isActive = true;
+        //isActive = true;
         StartCoroutine(AparecerSistemaPausa());
         MenuPausaSystem.InicializarSistemas(sistemaPausaPrefab);
     }

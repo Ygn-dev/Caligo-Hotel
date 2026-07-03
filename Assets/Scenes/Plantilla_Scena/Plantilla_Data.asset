@@ -19,4 +19,5 @@ MonoBehaviour:
   deadZoneWidthHeight: {x: 0, y: 0}
   damping: 0.5
   slowingDistance: 5
-  spawnPoint: {x: 0, y: 0, z: 0}
+  spawnPoints:
+  - {x: -5, y: 0}

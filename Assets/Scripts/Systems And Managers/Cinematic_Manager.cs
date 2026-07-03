@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.Video;
 using System.Collections;
@@ -10,8 +9,8 @@ public class Cinematic_Manager : MonoBehaviour
 
     public GameObject rendererPrefab;
     public VideoPlayer videoPlayer;
-
-    private Canvas canvas;
+    public Canvas canvas;
+    
     private GameObject rendererInstance;
     private bool videoFinished = false;
 
@@ -23,7 +22,8 @@ public class Cinematic_Manager : MonoBehaviour
 
     void Start()
     {
-        canvas = FindAnyObjectByType<Canvas>();
+        //buscar por tag el canvas
+        canvas = GameObject.FindGameObjectWithTag("Canvas").GetComponent<Canvas>();
     }
 
     public IEnumerator PlayCinematic(string cinematicName)
@@ -42,6 +42,7 @@ public class Cinematic_Manager : MonoBehaviour
 
         // Renderer
         rendererInstance = Instantiate(rendererPrefab, canvas.transform);
+        rendererInstance.transform.SetAsFirstSibling();
 
         // Conectar renderer al VideoPlayer
         videoPlayer.targetMaterialRenderer = rendererInstance.GetComponent<Renderer>();

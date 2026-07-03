@@ -28,6 +28,7 @@ public class Player_Controller : MonoBehaviour
     private Vector2 Vector4Direcciones()
     {
         Vector2 direccion = move.action.ReadValue<Vector2>();
+
         if (Mathf.Abs(direccion.x) > Mathf.Abs(direccion.y))
             direccion = new Vector2(Mathf.Sign(direccion.x), 0);
         else if (Mathf.Abs(direccion.y) > 0)

@@ -36,21 +36,20 @@ public class Lobby_Initiator : MonoBehaviour
 
     private IEnumerator InitializeLobby()
     {
-        
+        Save_Manager.Instance.data.currentLevel = "Lobby";
+        Save_Manager.Instance.SaveData();
 
         // Completar Fade de Carga
-        yield return StartCoroutine(FadeBlanco());
-        yield return StartCoroutine(Game_Loader_Manager.Instance.CompleteLoadScene());
+        //yield return StartCoroutine(FadeBlanco());
+        //yield return StartCoroutine(Game_Loader_Manager.Instance.CompleteLoadScene());
                 
         //Settear Personaje y Camara mientras se reproduce la cinemática
         StartCoroutine(SpawnCharacter());
         StartCoroutine(SetupCamara());
-        StartCoroutine(EsperarYquitarFade(3f));
-        Music_Manager.Instance.StopMusic();
-        yield return StartCoroutine(CinematicaInicial());
+        //yield return StartCoroutine(CinematicaInicial());
         
         //Levantarse del sillon
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
 
         //Animacion de levantarse
         character.GetComponent<Animator>().SetTrigger("WakeUp");
@@ -73,6 +72,7 @@ public class Lobby_Initiator : MonoBehaviour
 
     private IEnumerator CinematicaInicial()
     {
+        StartCoroutine(EsperarYquitarFade(0.5f));
         yield return Cinematic_Manager.Instance.PlayCinematic("Lobby_Cinematic");
         yield return null;
     }
