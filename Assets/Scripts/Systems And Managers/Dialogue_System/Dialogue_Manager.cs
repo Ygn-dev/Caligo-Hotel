@@ -5,56 +5,90 @@ using Unity.Cinemachine;
 using System.Collections;
 using UnityEngine.InputSystem;
 
-
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class Dialogue_Manager : MonoBehaviour
 {
-    //SINGLETON
+    //==================================================
+    // SINGLETON
+    //==================================================
     public static Dialogue_Manager Instance { get; private set; }
 
-    public AnimationCurve curvaZoom;
+
+    //==================================================
+    // CÁMARA
+    //==================================================
     public float duracionZoomCamara;
+    public AnimationCurve curvaZoomCamara;
+    public AnimationCurve curvaBlackBackground;
+
+
+    private float zoomCamIni;
+    private Vector3 camPosIni;
+    private CinemachineConfiner2D confiner;
+    private GameObject instanceBlackBackground;
+    private CinemachineCamera cinemachineCamera;
+
+
+    //==================================================
+    // CAJA DE DIÁLOGOS
+    //==================================================
+    public float duracionAparicionRetrato;
+    public float duracionMovimientoScroll;
+    public float duracionAparicionLeyenda;
+    public float duracionAparicionScrollBar;
+    public AnimationCurve curvaAparicionRetrato;
+    public float duracionDesaparicionScrollBar;
+    public AnimationCurve curvaAparicionScroll;
+    public AnimationCurve curvaMovimientoScroll;
+    public AnimationCurve curvaAparicionLeyenda;
+    public float velocidadMovimientoAutoScroll;
+    public float velocidadMovimientoManualScroll;
+    public float velocidadMovimientoAutoRegresarAbajo;
+    
+    
+
+    private TMP_Text currentText;
+    private GameObject instCajaDeDialogo;
+    private bool scrollSubiendo;
+    private bool scrollBajando;
+    private GameObject content;
+    private bool seActivoScroll;
+    private ScrollRect scrollRect;
+    private VerticalLayoutGroup layoutGroup;
+    private DialogueScroll_Helper scrollHelper;
+    private GameObject instanceDialogueScroll;
+    
+
+    //==================================================
+    // DIÁLOGO
+    //==================================================
     public float velocidadEscritura;
-    public float duracionDesaparicion;
+
+
+    private int nextNodeId;
+    private int currentNodeId;
+    private TextAsset jsonFile;
+    private Dialogue_Struct dialogueData;    
+
+
+    //==================================================
+    // INPUT
+    //==================================================
+    private InputAction upAction;
+    private InputAction downAction;
+    private InputAction acceptAction;
+
+
+    //==================================================
+    // REFERENCIAS
+    //==================================================
+    private Canvas canvas;
     public InputActionAsset inputActions;
     public GameObject prefabDialogueScroll;
     public GameObject prefabBlackBackground;
-    public AnimationCurve curvaBlackBackground;
-    public float duracionAparicionCaja;
-    public AnimationCurve curvaAparicionCaja;
-    public AnimationCurve curvaMovimientoScroll;
-    public float duracionMovimientoScroll;
-    public AnimationCurve curvaAparicionLeyenda;
-    public float duracionAparicionLeyenda;
-    public float velocidadScroll;
-    public float duracionAparicionScroll;
-    public AnimationCurve curvaAparicionScroll;
-    public float duracionDesaparicionScroll;
-
-    
-    private Canvas canvas;  
-    private int nextNodeId;
-    private float zoomCamIni;
-    private bool subirScroll;
-    private bool bajarScroll;
-    private Vector3 camPosIni;
-    private int currentNodeId;
-    private TextAsset jsonFile; 
-    private GameObject content;
-    private bool seActivoScroll;
-    private TMP_Text currentText;
-    private InputAction upAction;
-    private ScrollRect scrollRect;
-    private InputAction downAction;
-    private InputAction acceptAction;
-    private GameObject instCajaDeDialogo;
-    private Dialogue_Struct dialogueData;
-    private CinemachineConfiner2D confiner;
-    private VerticalLayoutGroup layoutGroup;
-    private GameObject instanceDialogueScroll;
-    private DialogueScroll_Helper scrollHelper;
-    private GameObject instanceBlackBackground;
-    private CinemachineCamera cinemachineCamera;  
 
 
     private void Awake()
@@ -160,7 +194,7 @@ public class Dialogue_Manager : MonoBehaviour
         // Zoom a la camara y background negro al mismo tiempo
         SoundFX_Manager.Instance.PlaySound(SoundType.ABRIR_CAJA_DIALOGO);
         yield return StartCoroutine(DevTools.AnimarCamaraYBackground(cinemachineCamera, zoomCamara, camPosX , camPosY, 
-                                                                        duracionZoomCamara, curvaZoom, 
+                                                                        duracionZoomCamara, curvaZoomCamara, 
                                                                         instanceBlackBackground, curvaBlackBackground, 260, 0));
         
         // Asignarlo como hijo
@@ -190,7 +224,7 @@ public class Dialogue_Manager : MonoBehaviour
         downAction.canceled -= BajarScroll;
 
         // Ocultar ScrollBar
-        if(seActivoScroll) scrollHelper.OcultarScrollBar(duracionAparicionScroll, curvaAparicionScroll);
+        if(seActivoScroll) scrollHelper.OcultarScrollBar(duracionAparicionScrollBar, curvaAparicionScroll);
 
         // Si el scroll no esta arriba, bajarlo primero
         yield return StartCoroutine(BajarScrollTodo());
@@ -227,7 +261,7 @@ public class Dialogue_Manager : MonoBehaviour
         }
 
         // Luego de instanciar el prefab, mostrar la caja de texto y escribir el dialogo
-        yield return StartCoroutine(instCajaDeDialogo.GetComponent<ICaja_De_Texto_Helper>().MostrarCaja(duracionAparicionCaja, curvaAparicionCaja, acceptAction));
+        yield return StartCoroutine(instCajaDeDialogo.GetComponent<ICaja_De_Texto_Helper>().MostrarCaja(duracionAparicionRetrato, curvaAparicionRetrato, acceptAction));
         yield return null;
         
         // Leer el guion, mostrando el texto poco a poco
@@ -239,7 +273,7 @@ public class Dialogue_Manager : MonoBehaviour
         else instanceDialogueScroll.GetComponent<DialogueScroll_Helper>().leyendaText.text = "Siguiente";
 
         // Si el scroll ya es lo suficientemente largo, mostrar el scrollbar
-        if(seActivoScroll) scrollHelper.MostrarScrollBar(duracionAparicionScroll, curvaAparicionScroll, duracionDesaparicionScroll);
+        if(seActivoScroll) scrollHelper.MostrarScrollBar(duracionAparicionScrollBar, curvaAparicionScroll, duracionDesaparicionScrollBar);
 
         // Recien ahora se puede avanzar al siguiente nodo o subir/bajar el scroll
         acceptAction.performed += AvanzarAccion;
@@ -373,7 +407,7 @@ public class Dialogue_Manager : MonoBehaviour
         SoundFX_Manager.Instance.PlaySound(SoundType.ABRIR_CAJA_DIALOGO);
         // Ocultar el dialogue system 
         yield return StartCoroutine(DevTools.AnimarCamaraYBackground(cinemachineCamera, zoomCamIni, camPosIni.x, camPosIni.y, 
-                                                                        duracionZoomCamara, curvaZoom, instanceBlackBackground, 
+                                                                        duracionZoomCamara, curvaZoomCamara, instanceBlackBackground, 
                                                                         curvaBlackBackground, 1660, 0));
         // Eliminarlo
         Destroy(instanceBlackBackground);
@@ -399,7 +433,7 @@ public class Dialogue_Manager : MonoBehaviour
 
         while (scrollRect.verticalNormalizedPosition > 0f)
         {
-            scrollRect.verticalNormalizedPosition = Mathf.Max(0f, scrollRect.verticalNormalizedPosition - velocidadScroll * Time.deltaTime);
+            scrollRect.verticalNormalizedPosition = Mathf.Max(0f, scrollRect.verticalNormalizedPosition - velocidadMovimientoAutoScroll * Time.deltaTime);
             LayoutRebuilder.ForceRebuildLayoutImmediate(layoutGroup.GetComponent<RectTransform>());
             yield return null;
         }
@@ -410,24 +444,208 @@ public class Dialogue_Manager : MonoBehaviour
 
     private void SubirScroll(InputAction.CallbackContext context)
     {
-        subirScroll = context.ReadValueAsButton();
+        scrollSubiendo = context.ReadValueAsButton();
     }
 
     private void BajarScroll(InputAction.CallbackContext context)
     {
-        bajarScroll = context.ReadValueAsButton();
+        scrollBajando = context.ReadValueAsButton();
     }
     
     private void Update()
     {
-        if (subirScroll && seActivoScroll)
+        if (scrollSubiendo && seActivoScroll)
         {
-            scrollRect.verticalNormalizedPosition = Mathf.Clamp01(scrollRect.verticalNormalizedPosition + velocidadScroll * Time.deltaTime);
+            scrollRect.verticalNormalizedPosition = Mathf.Clamp01(scrollRect.verticalNormalizedPosition + velocidadMovimientoManualScroll * Time.deltaTime);
         }
 
-        if (bajarScroll && seActivoScroll)
+        if (scrollBajando && seActivoScroll)
         {
-            scrollRect.verticalNormalizedPosition = Mathf.Clamp01(scrollRect.verticalNormalizedPosition - velocidadScroll * Time.deltaTime);
+            scrollRect.verticalNormalizedPosition = Mathf.Clamp01(scrollRect.verticalNormalizedPosition - velocidadMovimientoManualScroll * Time.deltaTime);
         }
     }
 }
+
+#if UNITY_EDITOR
+[CustomEditor(typeof(Dialogue_Manager))] // Cambia TuScript por el nombre de tu clase
+public class Dialogue_Manager_Editor : Editor
+{
+    //==================================================
+    // CÁMARA
+    //==================================================
+    SerializedProperty duracionZoomCamara;
+    SerializedProperty curvaZoomCamara;
+    SerializedProperty curvaBlackBackground;
+
+    //==================================================
+    // CAJA DE DIÁLOGOS
+    //==================================================
+    SerializedProperty duracionAparicionRetrato;
+    SerializedProperty duracionAparicionLeyenda;
+    SerializedProperty duracionMovimientoScroll;
+    SerializedProperty duracionAparicionScrollBar;
+    SerializedProperty curvaAparicionRetrato;
+    SerializedProperty duracionDesaparicionScrollBar;
+    SerializedProperty curvaAparicionScroll;
+    SerializedProperty curvaMovimientoScroll;
+    SerializedProperty curvaAparicionLeyenda;
+    SerializedProperty velocidadMovimientoManualScroll;
+    SerializedProperty velocidadMovimientoAutoScroll;
+    SerializedProperty velocidadMovimientoAutoRegresarAbajo;
+
+    //==================================================
+    // DIÁLOGO
+    //==================================================
+    SerializedProperty velocidadEscritura;
+
+    //==================================================
+    // REFERENCIAS
+    //==================================================
+    SerializedProperty inputActions;
+    SerializedProperty prefabDialogueScroll;
+    SerializedProperty prefabBlackBackground;
+
+    bool mostrarCamara = true;
+    bool mostrarCaja = true;
+    bool mostrarDialogo = true;
+    bool mostrarReferencias = true;
+
+    void OnEnable()
+    {
+        // Cámara
+        duracionZoomCamara = serializedObject.FindProperty("duracionZoomCamara");
+        curvaZoomCamara = serializedObject.FindProperty("curvaZoomCamara");
+        curvaBlackBackground = serializedObject.FindProperty("curvaBlackBackground");
+
+        // Caja de diálogo
+        duracionAparicionRetrato = serializedObject.FindProperty("duracionAparicionRetrato");
+        duracionAparicionLeyenda = serializedObject.FindProperty("duracionAparicionLeyenda");
+        duracionMovimientoScroll = serializedObject.FindProperty("duracionMovimientoScroll");
+        velocidadMovimientoManualScroll = serializedObject.FindProperty("velocidadMovimientoManualScroll");
+        velocidadMovimientoAutoScroll = serializedObject.FindProperty("velocidadMovimientoAutoScroll");
+        velocidadMovimientoAutoRegresarAbajo = serializedObject.FindProperty("velocidadMovimientoAutoRegresarAbajo");
+
+        duracionAparicionScrollBar = serializedObject.FindProperty("duracionAparicionScrollBar");
+        curvaAparicionRetrato = serializedObject.FindProperty("curvaAparicionRetrato");
+        duracionDesaparicionScrollBar = serializedObject.FindProperty("duracionDesaparicionScrollBar");
+        curvaAparicionScroll = serializedObject.FindProperty("curvaAparicionScroll");
+        curvaMovimientoScroll = serializedObject.FindProperty("curvaMovimientoScroll");
+        curvaAparicionLeyenda = serializedObject.FindProperty("curvaAparicionLeyenda");
+
+        // Diálogo
+        velocidadEscritura = serializedObject.FindProperty("velocidadEscritura");
+
+        // Referencias
+        inputActions = serializedObject.FindProperty("inputActions");
+        prefabDialogueScroll = serializedObject.FindProperty("prefabDialogueScroll");
+        prefabBlackBackground = serializedObject.FindProperty("prefabBlackBackground");
+    }
+
+    public override void OnInspectorGUI()
+    {
+        serializedObject.Update();
+
+        //==================================================
+        // CÁMARA
+        //==================================================
+        mostrarCamara = EditorGUILayout.BeginFoldoutHeaderGroup(mostrarCamara, "Cámara");
+        if (mostrarCamara)
+        {
+            EditorGUILayout.BeginVertical("box");
+            EditorGUI.indentLevel++;
+
+            EditorGUILayout.PropertyField(duracionZoomCamara);
+            EditorGUILayout.PropertyField(curvaZoomCamara);
+
+            EditorGUILayout.Space();
+
+            EditorGUILayout.PropertyField(curvaBlackBackground);
+
+            EditorGUI.indentLevel--;
+            EditorGUILayout.EndVertical();
+        }
+        EditorGUILayout.EndFoldoutHeaderGroup();
+
+        EditorGUILayout.Space();
+
+        //==================================================
+        // CAJA DE DIÁLOGOS
+        //==================================================
+        mostrarCaja = EditorGUILayout.BeginFoldoutHeaderGroup(mostrarCaja, "Caja de Diálogos");
+        if (mostrarCaja)
+        {
+            EditorGUILayout.BeginVertical("box");
+            EditorGUI.indentLevel++;
+
+            EditorGUILayout.PropertyField(duracionAparicionRetrato);
+            EditorGUILayout.PropertyField(curvaAparicionRetrato);
+
+            EditorGUILayout.Space();
+
+            EditorGUILayout.PropertyField(velocidadMovimientoManualScroll);
+            EditorGUILayout.PropertyField(velocidadMovimientoAutoScroll);
+            EditorGUILayout.PropertyField(velocidadMovimientoAutoRegresarAbajo);
+
+            EditorGUILayout.Space();
+
+            EditorGUILayout.PropertyField(duracionMovimientoScroll);
+            EditorGUILayout.PropertyField(curvaMovimientoScroll);
+
+            EditorGUILayout.Space();
+
+            EditorGUILayout.PropertyField(duracionAparicionScrollBar);
+            EditorGUILayout.PropertyField(duracionDesaparicionScrollBar);
+            EditorGUILayout.PropertyField(curvaAparicionScroll);
+
+            EditorGUILayout.Space();
+
+            EditorGUILayout.PropertyField(duracionAparicionLeyenda);
+            EditorGUILayout.PropertyField(curvaAparicionLeyenda);
+
+            EditorGUI.indentLevel--;
+            EditorGUILayout.EndVertical();
+        }
+        EditorGUILayout.EndFoldoutHeaderGroup();
+
+        EditorGUILayout.Space();
+
+        //==================================================
+        // DIÁLOGO
+        //==================================================
+        mostrarDialogo = EditorGUILayout.BeginFoldoutHeaderGroup(mostrarDialogo, "Diálogo");
+        if (mostrarDialogo)
+        {
+            EditorGUILayout.BeginVertical("box");
+            EditorGUI.indentLevel++;
+
+            EditorGUILayout.PropertyField(velocidadEscritura);
+
+            EditorGUI.indentLevel--;
+            EditorGUILayout.EndVertical();
+        }
+        EditorGUILayout.EndFoldoutHeaderGroup();
+
+        EditorGUILayout.Space();
+
+        //==================================================
+        // REFERENCIAS
+        //==================================================
+        mostrarReferencias = EditorGUILayout.BeginFoldoutHeaderGroup(mostrarReferencias, "Referencias");
+        if (mostrarReferencias)
+        {
+            EditorGUILayout.BeginVertical("box");
+            EditorGUI.indentLevel++;
+
+            EditorGUILayout.PropertyField(inputActions);
+            EditorGUILayout.PropertyField(prefabDialogueScroll);
+            EditorGUILayout.PropertyField(prefabBlackBackground);
+
+            EditorGUI.indentLevel--;
+            EditorGUILayout.EndVertical();
+        }
+        EditorGUILayout.EndFoldoutHeaderGroup();
+
+        serializedObject.ApplyModifiedProperties();
+    }
+}
+#endif

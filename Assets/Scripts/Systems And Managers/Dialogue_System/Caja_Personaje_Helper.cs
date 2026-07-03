@@ -37,8 +37,6 @@ public class Caja_Personaje_Helper : MonoBehaviour, ICaja_De_Texto_Helper
     public IEnumerator MostrarCaja(float duracion, AnimationCurve curva, InputAction acceptAction)
     {
         SoundFX_Manager.Instance.PlaySound(SoundType.ABRIR_DIALOGO);
-        animator.SetTrigger("Mostrar");
-
         float tiempo = 0;
         while (tiempo < duracion)
         {
@@ -54,6 +52,9 @@ public class Caja_Personaje_Helper : MonoBehaviour, ICaja_De_Texto_Helper
             tiempo += Time.deltaTime;
             yield return null;
         }
+        characterImage.color = new Color(1, 1, 1, 1);
+        yield return null;
+        animator.SetTrigger("Mostrar");
     }
 
 }
