@@ -1,23 +1,23 @@
 {
-	"dialogueId": "hotel_intro",
+	"dialogueId": "primera_muerte",
 	"startNode": 0,
 	"nodes": [
 		{
 			"nodeId": 0,
-			"personaje": "Personaje",
-			"text": "Ay... ¿En qué momento-?",
+			"personaje": "Monologo",
+			"text": "Creo que casi me tropiezo.",
 			"nextNodeId": 1
 		},
 		{
 			"nodeId": 1,
 			"personaje": "Monologo",
-			"text": "La cabeza me da vueltas...",
+		"text": "Sigo algo mareado y estas luces empeoran todo.",
 			"nextNodeId": 2
 		},
 		{
 			"nodeId": 2,
 			"personaje": "Monologo",
-			"text": "Debo haberme quedado dormido.",
+		"text": "Será mejor guardar distancia.",
 			"nextNodeId": -1
 		}
 	]

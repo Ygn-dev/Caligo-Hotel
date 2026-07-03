@@ -11,7 +11,7 @@
 		{
 			"nodeId": 1,
 			"personaje": "Monologo",
-			"text": "¿Qué clase de habitación es esta?.",
+			"text": "¿Qué clase de habitación es esta?",
 			"nextNodeId": -1
 		}
 	]

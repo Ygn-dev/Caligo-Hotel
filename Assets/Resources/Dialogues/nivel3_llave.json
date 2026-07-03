@@ -5,7 +5,7 @@
 		{
 			"nodeId": 0,
 			"personaje": "Personaje",
-			"text": "Al fin. Cómo me hacen perder el tiempo.",
+			"text": "AL FIN.\nCómo me hacen perder el tiempo.",
 			"nextNodeId": 1
 		},
 		{
@@ -16,6 +16,12 @@
 		},
 		{
 			"nodeId": 2,
+			"personaje": "Personaje",
+			"text": "Qué raro.",
+			"nextNodeId": 3
+		},
+		{
+			"nodeId": 3,
 			"personaje": "Monologo",
 			"text": "Guardé la LLAVE DE LA GALERÍA",
 			"nextNodeId": -1
