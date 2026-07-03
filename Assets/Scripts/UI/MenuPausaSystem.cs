@@ -23,7 +23,8 @@ public class MenuPausaSystem : MonoBehaviour
     private InputActionMap ActionMapUI;
     private InputActionMap ActionMapGameplay;
     private DepthOfField dof;
-
+    private bool haySubPantallaActiva = false;
+    private GameObject subPantallaActual;
 
     void Start()
     {
@@ -92,9 +93,22 @@ public class MenuPausaSystem : MonoBehaviour
 
     void OnResume(InputAction.CallbackContext context)
     {
-        StartCoroutine(Reanudar());
+        if (haySubPantallaActiva)
+        {
+            if (subPantallaActual != null)
+            {
+                subPantallaActual.GetComponent<UIAnimatePanel>().Ocultar();
+            }
+            haySubPantallaActiva = false;
+            subPantallaActual = null;
+        }
+        else StartCoroutine(Reanudar());
     }
-
+    public void RegistrarSubPantallaAbierta(GameObject panel)
+    {
+        haySubPantallaActiva = true;
+        subPantallaActual = panel;
+    }
     public void ReanudarJuego()
     {
         StartCoroutine(Reanudar());
