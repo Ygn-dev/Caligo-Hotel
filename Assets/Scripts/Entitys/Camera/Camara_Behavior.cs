@@ -34,8 +34,6 @@ public class Camara_Behavior : MonoBehaviour
 {
     // No Editable
     public GameObject lente;
-    public Light2D luzCamara;
-    public Collider2D triggerDeathZone;
 
     // Editable
     public ModoCamara modoCamara;
@@ -68,6 +66,9 @@ public class Camara_Behavior : MonoBehaviour
     [HideInInspector] public float duracionEncendidoTemporal = 2f;
 
     // Variables privadas
+    private Light2D luzCamara;
+    private Collider2D triggerDeathZone;
+
     private Player_Respawn playerRespawn;
 
     private Quaternion rotacionInicialLente;
@@ -99,22 +100,22 @@ public class Camara_Behavior : MonoBehaviour
 
     private void Awake()
     {
+        luzCamara = GetComponentInChildren<Light2D>();
+        triggerDeathZone = luzCamara.GetComponentInChildren<Collider2D>();
+
         if (lente != null)
         {
             rotacionInicialLente = lente.transform.localRotation;
-        }
-
-        if (luzCamara != null)
-        {
             estadoInicialLuz = luzCamara.enabled;
-        }
-
-        if (triggerDeathZone != null)
-        {
             estadoInicialCollider = triggerDeathZone.enabled;
+            InicializarEstadosAcciones();
+        }
+        else
+        {
+            Debug.LogWarning("No se ha asignado la lente de la cámara en " + gameObject.name + ". La cámara no funcionará correctamente.");
         }
 
-        InicializarEstadosAcciones();
+        
     }
 
     private void OnEnable()
@@ -800,8 +801,6 @@ public class Camara_Behavior_Editor : Editor
         SerializedProperty duracionEncendidoTemporal = serializedObject.FindProperty("duracionEncendidoTemporal");
 
         SerializedProperty lente = serializedObject.FindProperty("lente");
-        SerializedProperty luzCamara = serializedObject.FindProperty("luzCamara");
-        SerializedProperty triggerDeathZone = serializedObject.FindProperty("triggerDeathZone");
 
         EditorGUILayout.LabelField("Editable", EditorStyles.boldLabel);
 
@@ -1071,16 +1070,6 @@ public class Camara_Behavior_Editor : Editor
         EditorGUILayout.PropertyField(
             lente,
             new GUIContent("Lente")
-        );
-
-        EditorGUILayout.PropertyField(
-            luzCamara,
-            new GUIContent("Luz cámara")
-        );
-
-        EditorGUILayout.PropertyField(
-            triggerDeathZone,
-            new GUIContent("Trigger del DeathZone")
         );
 
         EditorGUI.indentLevel--;

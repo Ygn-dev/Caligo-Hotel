@@ -36,7 +36,7 @@
             ],
             "bindings": [
                 {
-                    "name": "2D Vector",
+                    "name": "2D Vector Dpad",
                     "id": "85f81b9f-5f76-4ec5-a43d-6d594c28a8c0",
                     "path": "2DVector",
                     "interactions": "",
@@ -91,11 +91,11 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "2D Vector",
+                    "name": "2D Vector LeftStick",
                     "id": "33185d6b-1693-4d2d-ad0e-78a4a57ac178",
                     "path": "2DVector",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "StickDeadzone",
                     "groups": "",
                     "action": "Move",
                     "isComposite": true,
@@ -146,7 +146,7 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "2D Vector",
+                    "name": "2D Vector WASD",
                     "id": "06b2ee53-1e7c-46b9-8160-31fce7f980f2",
                     "path": "2DVector",
                     "interactions": "",
@@ -201,7 +201,7 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "2D Vector",
+                    "name": "2D Vector Arrows",
                     "id": "91a655af-4e79-4490-944a-92a57bf167e4",
                     "path": "2DVector",
                     "interactions": "",
@@ -262,6 +262,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2e04943f-d777-47ce-9014-1e8182fbaa8c",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
                     "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -435,6 +446,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard",
+                    "action": "Despause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "83f1783b-2c03-4f49-a942-c2ac170e36be",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
                     "action": "Despause",
                     "isComposite": false,
                     "isPartOfComposite": false

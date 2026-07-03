@@ -700,12 +700,12 @@ GameObject:
   - component: {fileID: 124250536}
   - component: {fileID: 124250535}
   m_Layer: 0
-  m_Name: Extas
+  m_Name: Extras
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &124250534
 RectTransform:
   m_ObjectHideFlags: 0

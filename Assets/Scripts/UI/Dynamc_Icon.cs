@@ -87,7 +87,8 @@ public class Dynamc_Icon : MonoBehaviour
             // Caso especial: composite, por ejemplo Move con WASD
             if (binding.isComposite)
             {
-                string resultado = "Sprites_Icons_UI/" + newSchema + "/" + action.name;
+                string actionMap = action.actionMap.name;
+                string resultado = "Sprites_Icons_UI/" + newSchema + "/" + actionMap + "/" + action.name;
                 Sprite nuevoSprite = Resources.Load<Sprite>(resultado);
 
                 if (nuevoSprite == null)
@@ -109,8 +110,9 @@ public class Dynamc_Icon : MonoBehaviour
                     continue;
                 }
 
+                string actionMap = action.actionMap.name;
                 string buttonName = path.Split('/')[1];
-                string resultado = "Sprites_Icons_UI/" + newSchema + "/" + buttonName;
+                string resultado = "Sprites_Icons_UI/" + newSchema + "/" + actionMap + "/" + action.name;
                 
                 Sprite nuevoSprite = Resources.Load<Sprite>(resultado);
 
