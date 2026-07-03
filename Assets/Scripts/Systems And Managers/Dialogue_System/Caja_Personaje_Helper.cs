@@ -36,6 +36,7 @@ public class Caja_Personaje_Helper : MonoBehaviour, ICaja_De_Texto_Helper
 
     public IEnumerator MostrarCaja(float duracion, AnimationCurve curva, InputAction acceptAction)
     {
+        SoundFX_Manager.Instance.PlaySound(SoundType.ABRIR_DIALOGO);
         animator.SetTrigger("Mostrar");
 
         float tiempo = 0;
@@ -53,7 +54,6 @@ public class Caja_Personaje_Helper : MonoBehaviour, ICaja_De_Texto_Helper
             tiempo += Time.deltaTime;
             yield return null;
         }
-        //canvasGroup.alpha = 1;
     }
 
 }

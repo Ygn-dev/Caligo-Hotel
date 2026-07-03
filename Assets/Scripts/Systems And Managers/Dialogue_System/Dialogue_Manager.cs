@@ -139,9 +139,9 @@ public class Dialogue_Manager : MonoBehaviour
         inputActions.FindActionMap("Gameplay").Disable();
         inputActions.FindActionMap("Pause").Disable();
 
-        //activar el mapa de dialogo
+        // Activar el mapa de dialogo
         inputActions.FindActionMap("Dialogue").Enable();
-        //desactivar todas las acciones de dialogo
+        // Desactivar todas las acciones de dialogo
         acceptAction.Enable();
 
 
@@ -158,6 +158,7 @@ public class Dialogue_Manager : MonoBehaviour
 
         
         // Zoom a la camara y background negro al mismo tiempo
+        SoundFX_Manager.Instance.PlaySound(SoundType.ABRIR_CAJA);
         yield return StartCoroutine(DevTools.AnimarCamaraYBackground(cinemachineCamera, zoomCamara, camPosX , camPosY, 
                                                                         duracionZoomCamara, curvaZoom, 
                                                                         instanceBlackBackground, curvaBlackBackground, 260, 0));
@@ -183,17 +184,6 @@ public class Dialogue_Manager : MonoBehaviour
         currentNodeId = nextNodeId;
         nextNodeId = dialogueData.nodes[currentNodeId].nextNodeId;
 
-        // Letra de desplazar
-        if(nextNodeId == -1)
-        {
-            instanceDialogueScroll.GetComponent<DialogueScroll_Helper>().leyendaText.text = "Fin";
-        }
-        else
-        {
-            instanceDialogueScroll.GetComponent<DialogueScroll_Helper>().leyendaText.text = "Siguiente";
-        }
-        
-
         // Desactivar acciones de dialogo para que no se pueda avanzar mientras se escribe el texto
         upAction.started -= SubirScroll;
         upAction.canceled -= SubirScroll;
@@ -201,7 +191,7 @@ public class Dialogue_Manager : MonoBehaviour
         downAction.canceled -= BajarScroll;
 
         // Ocultar ScrollBar
-        if(seActivoScroll) yield return StartCoroutine(scrollHelper.OcultarScrollBar(duracionAparicionScroll, curvaAparicionScroll));
+        if(seActivoScroll) StartCoroutine(scrollHelper.OcultarScrollBar(duracionAparicionScroll, curvaAparicionScroll));
 
         // Si el scroll no esta arriba, bajarlo primero
         yield return StartCoroutine(BajarScrollTodo());
@@ -236,6 +226,10 @@ public class Dialogue_Manager : MonoBehaviour
         // Leer el guion, mostrando el texto poco a poco
         yield return StartCoroutine(LeerGuion());
         yield return null;
+
+        // Letra de desplazar
+        if(nextNodeId == -1) instanceDialogueScroll.GetComponent<DialogueScroll_Helper>().leyendaText.text = "Fin";
+        else instanceDialogueScroll.GetComponent<DialogueScroll_Helper>().leyendaText.text = "Siguiente";
 
         // Si el scroll ya es lo suficientemente largo, mostrar el scrollbar
         if(seActivoScroll) scrollHelper.MostrarScroll(duracionAparicionScroll, curvaAparicionScroll);
@@ -384,6 +378,7 @@ public class Dialogue_Manager : MonoBehaviour
         // Reanudar acciones
         inputActions.FindActionMap("Dialogue").Disable();
 
+        SoundFX_Manager.Instance.PlaySound(SoundType.ABRIR_CAJA);
         // Ocultar el dialogue system 
         yield return StartCoroutine(DevTools.AnimarCamaraYBackground(cinemachineCamera, zoomCamIni, camPosIni.x, camPosIni.y, 
                                                                         duracionZoomCamara, curvaZoom, instanceBlackBackground, 

@@ -317,10 +317,15 @@ MonoBehaviour:
   - name: ABRIR_PUERTA
     sounds:
     - {fileID: 8300000, guid: 70b7a6f91c907494ea42ae225e49b786, type: 3}
-  - name: FOOTSTEP
+  - name: FOOTSTEP_LEFT
+    sounds:
+    - {fileID: 8300000, guid: c368f64a554e4464d87dfb902488c931, type: 3}
+  - name: FOOTSTEP_RIGHT
     sounds:
     - {fileID: 8300000, guid: 6ac8ba2d323c2c04daa5d96f27b840bc, type: 3}
-    - {fileID: 8300000, guid: c368f64a554e4464d87dfb902488c931, type: 3}
+  - name: FOOTSTEP_VERTICAL
+    sounds:
+    - {fileID: 8300000, guid: 38af7046a609dc1488e435c253c9cb81, type: 3}
   - name: MUERTE
     sounds:
     - {fileID: 8300000, guid: 457a59f94752e9a4887d52c4b3acc284, type: 3}
@@ -342,6 +347,9 @@ MonoBehaviour:
   - name: ABRIR_CAJA
     sounds:
     - {fileID: 8300000, guid: 97f61d91fb78a574a8b229e482c48041, type: 3}
+  - name: ABRIR_DIALOGO
+    sounds:
+    - {fileID: 8300000, guid: d4c5f5dab14189943846e0ffbbea39ad, type: 3}
 --- !u!114 &3514447415939130377
 MonoBehaviour:
   m_ObjectHideFlags: 0
