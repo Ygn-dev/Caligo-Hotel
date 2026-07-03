@@ -1,0 +1,18 @@
+{
+	"dialogueId": "nivel2_mesa",
+	"startNode": 0,
+	"nodes": [
+		{
+			"nodeId": 0,
+			"personaje": "Monologo",
+			"text": "Esto es absurdo.",
+			"nextNodeId": 1
+		},
+		{
+			"nodeId": 1,
+			"personaje": "Monologo",
+		"text": "Bueno. Solo puedo salir avanzando.",
+			"nextNodeId": -1
+		}
+	]
+}

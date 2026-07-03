@@ -1,0 +1,24 @@
+{
+	"dialogueId": "nivel3_llave",
+	"startNode": 0,
+	"nodes": [
+		{
+			"nodeId": 0,
+			"personaje": "Personaje",
+			"text": "Al fin. Cómo me hacen perder el tiempo.",
+			"nextNodeId": 1
+		},
+		{
+			"nodeId": 1,
+			"personaje": "Monologo",
+			"text": "Juraría reconocer el diseño pero se ve tan gastada.",
+			"nextNodeId": 2
+		},
+		{
+			"nodeId": 2,
+			"personaje": "Monologo",
+			"text": "Guardé la LLAVE DE LA GALERÍA",
+			"nextNodeId": -1
+		}
+	]
+}

@@ -77,7 +77,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  duracionZoomCamara: 0.75
+  duracionZoomCamara: 0.8
   velocidadEscritura: 30
   duracionDesaparicion: 0.25
   inputActions: {fileID: -944628639613478452, guid: e75c53da0f7f49f4aae3d0a6e4b3cca4, type: 3}

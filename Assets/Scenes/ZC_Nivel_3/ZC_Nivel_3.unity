@@ -11991,7 +11991,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f9868a3b576a37418f23f7df180de9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue_Trigger_Helper
-  dialogueID: dialogo_recepcionista
+  dialogueID: nivel3_llave
   zoomCamara: 8
 --- !u!114 &1981002738
 MonoBehaviour:

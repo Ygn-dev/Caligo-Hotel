@@ -1,0 +1,72 @@
+{
+	"dialogueId": "nivel4_telefono",
+	"startNode": 0,
+	"nodes": [
+		{
+			"nodeId": 0,
+			"personaje": "Personaje",
+			"text": "¿Aló! ¿Nos conocemos?",
+			"nextNodeId": 1
+		},
+		{
+			"nodeId": 1,
+			"personaje": "Recepcionista",
+			"text": "¡Caballero! Por supuesto.",
+			"nextNodeId": 2
+		},
+		{
+			"nodeId": 2,
+			"personaje": "Personaje",
+			"text": "Eres TÚ otra vez.",
+			"nextNodeId": 3
+		},
+		{
+			"nodeId": 3,
+			"personaje": "Personaje",
+			"text": "Hablé con una mujer.\n¿Se hospeda aquí también?",
+			"nextNodeId": 4
+		},
+		{
+			"nodeId": 4,
+			"personaje": "Personaje",
+			"text": "NO.\nPRIMERO dime CUÁNDO hice una reservación yo.",
+			"nextNodeId": 5
+		},
+		{
+			"nodeId": 5,
+			"personaje": "Personaje",
+			"text": "ANTES,\n¿qué demonios son las cámaras, y POR QUÉ-",
+			"nextNodeId": 6
+		},
+		{
+			"nodeId": 6,
+			"personaje": "Recepcionista",
+			"text": "Caballero,\nestaré contento de resolver toda duda si se acerca a la RECEPCIÓN.",
+			"nextNodeId": 7
+		},
+		{
+			"nodeId": 7,
+			"personaje": "Recepcionista",
+			"text": "Pero antes,\nno olvide sus PERTENENCIAS en la galería.",
+			"nextNodeId": 8
+		},
+		{
+			"nodeId": 8,
+			"personaje": "Personaje",
+			"text": "NO-",
+			"nextNodeId": 9
+		},
+		{
+			"nodeId": 9,
+			"personaje": "Monologo",
+			"text": "No cortes.",
+			"nextNodeId": 10
+		},
+		{
+			"nodeId": 10,
+			"personaje": "Monologo",
+			"text": "¿Qué está pasando?",
+			"nextNodeId": -1
+		}
+	]
+}
