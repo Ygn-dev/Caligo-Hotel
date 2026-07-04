@@ -53,8 +53,27 @@ public class Caja_Personaje_Helper : MonoBehaviour, ICaja_De_Texto_Helper
             yield return null;
         }
         characterImage.color = new Color(1, 1, 1, 1);
-        yield return null;
         animator.SetTrigger("Mostrar");
+        yield return null;
+
+        // Obtener la duración de la animación
+        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+        float animationDuration = (stateInfo.length+0.2f)/10f/stateInfo.speed;
+        
+        // Esperar a que la animación termine
+        float elapsedTime = 0f;
+        while (elapsedTime < animationDuration)
+        {
+            if(acceptAction.triggered)
+            {
+                animator.Play("Text_Box_Open",0,1f);
+                break;
+            }
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        Debug.Log("Animación de mostrar caja completada.");
+        yield return null;
     }
 
 }

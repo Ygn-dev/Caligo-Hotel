@@ -51,14 +51,16 @@ public class ZC_Nivel_1_Initiator : MonoBehaviour
         StartCoroutine(DevTools.SetupCharacter(character, spawnPoint, newCharacter => { character = newCharacter; }));
         StartCoroutine(DevTools.SetupCamara(cinemachineCamera, levelData, character));
         
-        //Completar Fade de Carga
-        yield return StartCoroutine(Game_Loader_Manager.Instance.CompleteLoadScene());
+        //Habilitar Input
+        inputActions.FindActionMap("Gameplay").Enable();
 
         //Musica
         Music_Manager.Instance.PlayMusic(MusicType.ZONA_CAMARAS);
 
-        //Habilitar Input
-        inputActions.FindActionMap("Gameplay").Enable();
+        //Completar Fade de Carga
+        yield return StartCoroutine(Game_Loader_Manager.Instance.CompleteLoadScene());
+       
+        
         yield return null;
     }
 }

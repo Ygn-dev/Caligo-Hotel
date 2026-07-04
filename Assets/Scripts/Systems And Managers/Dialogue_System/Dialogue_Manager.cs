@@ -268,6 +268,19 @@ public class Dialogue_Manager : MonoBehaviour
         yield return StartCoroutine(LeerGuion());
         yield return null;
 
+        if(dialogueData.dialogueId == "dialogo_recepcionista" || dialogueData.dialogueId == "nivel3_llave") 
+        {
+            if(currentNodeId == 3 || currentNodeId == 10) 
+            {
+                SoundFX_Manager.Instance.PlaySound(SoundType.COGER_LLAVE);
+            }
+            if(dialogueData.dialogueId == "nivel3_llave" && currentNodeId == 3) 
+            {
+                Save_Manager.Instance.data.tieneLlaveN2 = true;
+                Save_Manager.Instance.SaveData();
+            }
+        }
+
         // Letra de desplazar
         if(nextNodeId == -1) instanceDialogueScroll.GetComponent<DialogueScroll_Helper>().leyendaText.text = "Fin";
         else instanceDialogueScroll.GetComponent<DialogueScroll_Helper>().leyendaText.text = "Siguiente";

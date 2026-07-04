@@ -289,9 +289,10 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  duracionFade: 2.5
+  duracionFade: 1.5
   canvas: {fileID: 4064699177347184686}
   fadeImage: {fileID: 478907694899751311}
+  inputActions: {fileID: -944628639613478452, guid: e75c53da0f7f49f4aae3d0a6e4b3cca4, type: 3}
 --- !u!114 &4989836440508157183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,6 +312,7 @@ MonoBehaviour:
   - name: SELLECIONADO
     sounds:
     - {fileID: 8300000, guid: 5f5fb231884e1a34b9832f15c3265f69, type: 3}
+    - {fileID: 8300000, guid: 4bca1f59e00c9b447aec038a7bd70fb1, type: 3}
   - name: PUERTA_BLOQUEADA
     sounds:
     - {fileID: 8300000, guid: 42902034cc4fc684f8f1d1f278e716eb, type: 3}
@@ -366,6 +368,12 @@ MonoBehaviour:
     sounds:
     - {fileID: 8300000, guid: 97dda3d4e67ba714aadb83d743265c4d, type: 3}
     - {fileID: 8300000, guid: e513a3a76e9e7264a8e05ae0b7064038, type: 3}
+  - name: COGER_LLAVE
+    sounds:
+    - {fileID: 8300000, guid: 5f5fb231884e1a34b9832f15c3265f69, type: 3}
+  - name: USAR_LLAVE
+    sounds:
+    - {fileID: 8300000, guid: 4bca1f59e00c9b447aec038a7bd70fb1, type: 3}
 --- !u!114 &3514447415939130377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -378,6 +386,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d5a3804b92343b41afb4dd7a5e7814f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Music_Manager
+  MusicMixer: {fileID: 24100000, guid: 938f62b226177084bb66c7d70ffc18b9, type: 2}
+  Master: {fileID: 24300002, guid: f01094687bbcc1c4eb6eb0fdf7493940, type: 2}
   musicList:
   - name: PORTADA
     sounds:
@@ -403,5 +413,6 @@ MonoBehaviour:
   data:
     tieneLlaveN2: 0
     currentLevel: 
-    telefonoSonando: 1
     habloConRecepcionista: 0
+    contadorMuertes: 0
+    habloPorTelefonoZC2: 0

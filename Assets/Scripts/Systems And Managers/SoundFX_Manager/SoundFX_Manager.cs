@@ -25,7 +25,9 @@ public enum SoundType
     ABRIR_CAJA_DIALOGO,
     PASAR_HOJA,
     TYPEWRITER,
-    PAUSE
+    PAUSE,
+    COGER_LLAVE,
+    USAR_LLAVE
 
 /*
     TIMBRE,

@@ -97,11 +97,16 @@ public class Camara_Behavior : MonoBehaviour
 
     private bool estadoInicialLuz;
     private bool estadoInicialCollider;
+    private bool giroConstanteInicial;
+    private float gradosRotacionPaneoInicial;
 
     private void Awake()
     {
         luzCamara = GetComponentInChildren<Light2D>();
         triggerDeathZone = luzCamara.GetComponentInChildren<Collider2D>();
+
+        giroConstanteInicial = giroConstanteHaciaDerecha;
+        gradosRotacionPaneoInicial = gradosRotacionPaneo;
 
         if (lente != null)
         {
@@ -337,6 +342,8 @@ public class Camara_Behavior : MonoBehaviour
         }
 
         InicializarEstadosAcciones();
+        giroConstanteHaciaDerecha = giroConstanteInicial;
+        gradosRotacionPaneo = gradosRotacionPaneoInicial;
         IniciarModoCamara();
     }
 

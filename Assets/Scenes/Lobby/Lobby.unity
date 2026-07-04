@@ -335,6 +335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fed55dc5956250d458bffcf988c62323, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level_Trasition_Helper
+  isLevelTransition: 0
 --- !u!114 &70656572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7303,6 +7304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fed55dc5956250d458bffcf988c62323, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level_Trasition_Helper
+  isLevelTransition: 0
 --- !u!114 &624224904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15041,7 +15043,6 @@ GameObject:
   - component: {fileID: 1005846545}
   - component: {fileID: 1005846544}
   - component: {fileID: 1005846549}
-  - component: {fileID: 1005846548}
   - component: {fileID: 1005846543}
   m_Layer: 0
   m_Name: Recepcionista
@@ -15082,8 +15083,8 @@ MonoBehaviour:
   onInteract:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1005846548}
-        m_TargetAssemblyTypeName: Dialogue_Trigger_Helper, Assembly-CSharp
+      - m_Target: {fileID: 1005846549}
+        m_TargetAssemblyTypeName: Recepcionista_Helper, Assembly-CSharp
         m_MethodName: TriggerDialogue
         m_Mode: 1
         m_Arguments:
@@ -15234,20 +15235,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &1005846548
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1005846541}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f9868a3b576a37418f23f7df180de9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Dialogue_Trigger_Helper
-  dialogueID: dialogo_recepcionista
-  zoomCamara: 6
 --- !u!114 &1005846549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15261,7 +15248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Recepcionista_Helper
   dialogueID1: dialogo_recepcionista
-  dialogueID2: dialogo_recepcionista2
+  dialogueID2: dialogo_recepcionista_bucle
   zoomCamara: 6
 --- !u!1 &1016839825
 GameObject:
@@ -15690,6 +15677,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fed55dc5956250d458bffcf988c62323, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level_Trasition_Helper
+  isLevelTransition: 0
 --- !u!114 &1094315112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18988,6 +18976,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fed55dc5956250d458bffcf988c62323, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level_Trasition_Helper
+  isLevelTransition: 0
 --- !u!114 &1683923507
 MonoBehaviour:
   m_ObjectHideFlags: 0
