@@ -6,4 +6,9 @@ public class Save_Data
     public bool habloConRecepcionista = false;
     public int contadorMuertes = 0;
     public bool habloPorTelefonoZC2 = false;
+    public bool habloPorTelefonoZC4 = false;
+    public bool cuadro1 = false;
+    public bool cuadro2 = false;
+    public bool cuadro3 = false;
+    public bool puedeAbrirPuertaZC4 = false;
 }

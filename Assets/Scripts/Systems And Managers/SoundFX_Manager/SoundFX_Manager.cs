@@ -27,13 +27,8 @@ public enum SoundType
     TYPEWRITER,
     PAUSE,
     COGER_LLAVE,
-    USAR_LLAVE
-
-/*
-    TIMBRE,
-    ELEGIR_LLAVE,
-    COGER_LLAVE,
-    ENTE_MOVIENDO*/
+    USAR_LLAVE,
+    COGER_CUADRO
 }
 
 [Serializable]
