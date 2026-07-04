@@ -335,6 +335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fed55dc5956250d458bffcf988c62323, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level_Trasition_Helper
+  isLevelTransition: 0
 --- !u!114 &70656572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -777,7 +778,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnSistemaPausa
   sistemaPausaPrefab: {fileID: 1386145844037768630, guid: acbd01555098ed64e8da53cab6a624f6, type: 3}
-  tiempoAparicion: 1
+  tiempoAparicion: 1.5
 --- !u!61 &164033616
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7303,6 +7304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fed55dc5956250d458bffcf988c62323, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level_Trasition_Helper
+  isLevelTransition: 0
 --- !u!114 &624224904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15690,6 +15692,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fed55dc5956250d458bffcf988c62323, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level_Trasition_Helper
+  isLevelTransition: 0
 --- !u!114 &1094315112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18988,6 +18991,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fed55dc5956250d458bffcf988c62323, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level_Trasition_Helper
+  isLevelTransition: 0
 --- !u!114 &1683923507
 MonoBehaviour:
   m_ObjectHideFlags: 0
