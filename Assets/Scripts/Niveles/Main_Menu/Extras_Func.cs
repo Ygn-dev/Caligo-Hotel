@@ -17,8 +17,9 @@ public class Extras_Func : MonoBehaviour
 
     [Header("Botones")]
     public GameObject primerBoton;
-    public GameObject botonInicial;
+    public GameObject botonDefault;
     public GameObject botonInicial2;
+    public GameObject botonDefault2;
 
     public Animator LogoAnimator; 
     public Animator LeyendaAnimator;
@@ -70,7 +71,7 @@ public class Extras_Func : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(primerBoton);
 
         mainMenuMap.Enable();
-        Input_Schema_Manager.Instance.defaultCovered = botonInicial;
+        Input_Schema_Manager.Instance.defaultCovered = botonDefault;
 
         backAction.performed += OnBackActionPerformed;
     }
@@ -113,8 +114,8 @@ public class Extras_Func : MonoBehaviour
 
         yield return new WaitForSeconds(0.6f);
 
-        EventSystem.current.SetSelectedGameObject(botonInicial);
-        Input_Schema_Manager.Instance.defaultCovered = botonInicial2;
+        EventSystem.current.SetSelectedGameObject(botonInicial2);
+        Input_Schema_Manager.Instance.defaultCovered = botonDefault2;
 
         mainMenuMap.Enable();
     }

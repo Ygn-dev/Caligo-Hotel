@@ -4664,8 +4664,9 @@ MonoBehaviour:
   inputActionAsset: {fileID: -944628639613478452, guid: e75c53da0f7f49f4aae3d0a6e4b3cca4, type: 3}
   fadeDuration: 1
   primerBoton: {fileID: 1480438530}
-  botonInicial: {fileID: 1549646603}
+  botonDefault: {fileID: 1549646603}
   botonInicial2: {fileID: 77794357}
+  botonDefault2: {fileID: 1680303846}
   LogoAnimator: {fileID: 1500260020}
   LeyendaAnimator: {fileID: 678838743}
 --- !u!1 &1014773869
@@ -4778,7 +4779,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1014773873}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 578883305}
+        m_TargetAssemblyTypeName: Main_Menu_Functions, Assembly-CSharp
+        m_MethodName: ExitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1014773873
 MonoBehaviour:
   m_ObjectHideFlags: 0
