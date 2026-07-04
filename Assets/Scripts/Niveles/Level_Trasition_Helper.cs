@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Level_Trasition_Helper : MonoBehaviour
 {
-    public bool isLevelTransition = false;
+    private bool isLevelTransition = false;
     public void LoadScene(string sceneName)
     {
         if(Game_Loader_Manager.Instance != null && !isLevelTransition)

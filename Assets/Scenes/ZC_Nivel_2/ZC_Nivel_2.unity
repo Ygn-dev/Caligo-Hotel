@@ -119,135 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &10268710
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 10268711}
-  - component: {fileID: 10268712}
-  m_Layer: 0
-  m_Name: Audio Source
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &10268711
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 10268710}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 760964389}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &10268712
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 10268710}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: 2499bda890a6c0c498f0e30e04671973, type: 2}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: ab5243dabbf35584e9193fcf6ce09abe, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0.2
-  m_Pitch: 1
-  Loop: 1
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 0
-  MinDistance: 13.3
-  MaxDistance: 22.32
-  Pan2D: 0
-  rolloffMode: 2
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0.5958781
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.94296265
-      value: 0
-      inSlope: 0.36288598
-      outSlope: 0.36288598
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 1
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &46069377
 GameObject:
   m_ObjectHideFlags: 0
@@ -594,6 +465,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b15be65998b0a684f853442602ee4a64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Interact_Handler
+--- !u!114 &214669614 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 552510945623591277, guid: d8279bca878e277499b262bba50b15a7, type: 3}
+  m_PrefabInstance: {fileID: 2086604365}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d75e4c9945019546be94080e4352b7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SoundFX_Helper
 --- !u!1 &220661114
 GameObject:
   m_ObjectHideFlags: 0
@@ -716,7 +598,7 @@ Transform:
   m_GameObject: {fileID: 220661114}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 7.77, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5452,7 +5334,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 663341773}
-  - {fileID: 10268711}
+  - {fileID: 1313511445}
   m_Father: {fileID: 676118987}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &760964390
@@ -5472,7 +5354,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 760964391}
         m_TargetAssemblyTypeName: Dialogue_Trigger_Helper, Assembly-CSharp
-        m_MethodName: TriggerDialogue
+        m_MethodName: TriggerDialogueOnlyOnce
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5698,7 +5580,7 @@ MonoBehaviour:
   levelData: {fileID: 11400000, guid: a885e1ab0f4c75d48b1c861faad7dd6c, type: 2}
   puerta: {fileID: 953309241}
   puertaBloqueada: {fileID: 1355858339}
-  telefono: {fileID: 10268712}
+  trigger: {fileID: 1798850721}
 --- !u!1 &877773243
 GameObject:
   m_ObjectHideFlags: 0
@@ -7455,6 +7337,87 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8122695665693546141, guid: c3f865ca684f38446908ec911187ac35, type: 3}
   m_PrefabInstance: {fileID: 627023302}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1313511444
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1313511445}
+  - component: {fileID: 1313511447}
+  - component: {fileID: 1313511446}
+  m_Layer: 0
+  m_Name: Circle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1313511445
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1313511444}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 24.36369, y: 24.36369, z: 24.36369}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 760964389}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1313511446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1313511444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa0158082580d454a98d72351f3bbc91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Telefono_Controller
+--- !u!58 &1313511447
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1313511444}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.5
 --- !u!1 &1355858339
 GameObject:
   m_ObjectHideFlags: 0
@@ -7465,6 +7428,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1355858340}
   - component: {fileID: 1355858344}
+  - component: {fileID: 1355858345}
   - component: {fileID: 1355858343}
   - component: {fileID: 1355858342}
   - component: {fileID: 1355858341}
@@ -7510,6 +7474,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: SoundFX_Helper, Assembly-CSharp
         m_MethodName: PlaySound
         m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: PUERTA_BLOQUEADA
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1355858345}
+        m_TargetAssemblyTypeName: Dialogue_Trigger_Helper, Assembly-CSharp
+        m_MethodName: TriggerDialogue
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -7589,6 +7565,20 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &1355858345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355858339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f9868a3b576a37418f23f7df180de9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Dialogue_Trigger_Helper
+  dialogueID: puerta_bloqueada
+  zoomCamara: 6
 --- !u!1 &1398957552
 GameObject:
   m_ObjectHideFlags: 0
@@ -10782,7 +10772,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 11, y: 11}
+  m_Offset: {x: 11.083643, y: 11}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -10792,7 +10782,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 9.5, y: 1.5}
+  m_Size: {x: 5.864276, y: 1.5}
   m_EdgeRadius: 0
 --- !u!61 &1711412973
 BoxCollider2D:
@@ -10966,7 +10956,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -5, y: -9}
+  m_Offset: {x: -5, y: -8.837065}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -10976,7 +10966,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 5.5, y: 1.5}
+  m_Size: {x: 5.5, y: 1.1741304}
   m_EdgeRadius: 0
 --- !u!61 &1711412977
 BoxCollider2D:
@@ -11012,7 +11002,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -9, y: 9}
+  m_Offset: {x: -9, y: 9.122201}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -11022,7 +11012,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.5, y: 1.5}
+  m_Size: {x: 1.5, y: 1.2555981}
   m_EdgeRadius: 0
 --- !u!61 &1711412978
 BoxCollider2D:
@@ -11158,7 +11148,7 @@ Transform:
   m_GameObject: {fileID: 1752739293}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 7.77, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13267,15 +13257,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4852065355308587885, guid: d8279bca878e277499b262bba50b15a7, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4852065355308587885, guid: d8279bca878e277499b262bba50b15a7, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4852065355308587885, guid: d8279bca878e277499b262bba50b15a7, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 604742329}
     - target: {fileID: 4852065355308587885, guid: d8279bca878e277499b262bba50b15a7, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 214669614}
+    - target: {fileID: 4852065355308587885, guid: d8279bca878e277499b262bba50b15a7, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: EjecutarAccion
+      objectReference: {fileID: 0}
+    - target: {fileID: 4852065355308587885, guid: d8279bca878e277499b262bba50b15a7, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlaySound
+      objectReference: {fileID: 0}
+    - target: {fileID: 4852065355308587885, guid: d8279bca878e277499b262bba50b15a7, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: SoundFX_Helper, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4852065355308587885, guid: d8279bca878e277499b262bba50b15a7, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: PALANCA
       objectReference: {fileID: 0}
     - target: {fileID: 4964177042344177805, guid: d8279bca878e277499b262bba50b15a7, type: 3}
       propertyPath: m_LocalScale.x

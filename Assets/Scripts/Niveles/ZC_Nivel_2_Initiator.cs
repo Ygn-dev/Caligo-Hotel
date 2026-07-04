@@ -13,7 +13,7 @@ public class ZC_Nivel_2_Initiator : MonoBehaviour
     public ScriptableObject levelData;
     public GameObject puerta;
     public GameObject puertaBloqueada;
-    public AudioSource telefono;
+    public GameObject trigger;
 
     private GameObject character;
     private Level_Data_Base nivelData;
@@ -46,7 +46,10 @@ public class ZC_Nivel_2_Initiator : MonoBehaviour
             case "ZC_Nivel_3":
                 spawnPoint = nivelData.spawnPoints[1];
                 break;
-        
+            case "ZC_Nivel_4":
+                spawnPoint = nivelData.spawnPoints[2];
+                break;
+
             default:
                 Debug.LogWarning("Current level not recognized.");
                 spawnPoint = nivelData.spawnPoints[0];
@@ -56,21 +59,10 @@ public class ZC_Nivel_2_Initiator : MonoBehaviour
         Save_Manager.Instance.data.currentLevel = "ZC_Nivel_2";
         Save_Manager.Instance.SaveData();
 
-        if(Save_Manager.Instance.data.telefonoSonando == true) {
-            telefono.Play();
-        }
-        else
-        {
-            telefono.Stop();
-        }
-
         //Spawn personaje y camara
         StartCoroutine(DevTools.SetupCharacter(character, spawnPoint, newCharacter => { character = newCharacter; }));
         StartCoroutine(DevTools.SetupCamara(cinemachineCamera, levelData, character));
         
-        //Completar Fade de Carga
-        yield return StartCoroutine(Game_Loader_Manager.Instance.CompleteLoadScene());
-
         //Musica
         Music_Manager.Instance.PlayMusic(MusicType.ZONA_CAMARAS);
 
@@ -80,14 +72,12 @@ public class ZC_Nivel_2_Initiator : MonoBehaviour
         if(Save_Manager.Instance.data.tieneLlaveN2 == true) {
             puerta.SetActive(true);
             puertaBloqueada.SetActive(false);
+            trigger.SetActive(false);
         }
-        yield return null;
-    }
 
-    public void ApagarTelefono()
-    {
-        telefono.Stop();
-        Save_Manager.Instance.data.telefonoSonando = false;
-        Save_Manager.Instance.SaveData();
+        //Completar Fade de Carga
+        yield return StartCoroutine(Game_Loader_Manager.Instance.CompleteLoadScene());
+        
+        yield return null;
     }
 }

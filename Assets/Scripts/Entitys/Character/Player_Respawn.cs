@@ -44,6 +44,8 @@ public class Player_Respawn : MonoBehaviour
     private void OnRespawn()
     {
         SoundFX_Manager.Instance.PlaySound(SoundType.VISTO);
+        Save_Manager.Instance.data.contadorMuertes++;
+        Save_Manager.Instance.SaveData();
         StartCoroutine(SecuenciaPreRespawn());
     }
 
@@ -68,6 +70,8 @@ public class Player_Respawn : MonoBehaviour
         gameplayInputs.Enable();
         DeathTrigger.enabled = true;
         animator.SetFloat("moveY",-1);
+        
+        if(Save_Manager.Instance.data.contadorMuertes == 1) Dialogue_Manager.Instance.StartDialogue("primera_muerte",6f);
         yield return null;
     }
 

@@ -15,7 +15,9 @@ AudioMixerController:
   m_SuspendThreshold: -80
   m_EnableSuspend: 1
   m_UpdateMode: 0
-  m_ExposedParameters: []
+  m_ExposedParameters:
+  - guid: 5c708adf70cfb9d4fa037d74af5e320c
+    name: MusicVolume
   m_AudioMixerGroupViews:
   - guids:
     - fc167556e626bf04fb46bf4a01f1c543
@@ -64,5 +66,20 @@ AudioMixerSnapshotController:
   m_Name: Snapshot
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 566b8359afdfc754495dbc8f1cbe4cd7
-  m_FloatValues: {}
+  m_FloatValues:
+    5c708adf70cfb9d4fa037d74af5e320c: 0
   m_TransitionOverrides: {}
+--- !u!244 &4113236590089844366
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 7c8db38d5864da240ab57bfe81e9ba28
+  m_EffectName: Send
+  m_MixLevel: 357c0d0900e229b43b3d3c21e4cffcc4
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0

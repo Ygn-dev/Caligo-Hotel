@@ -25,13 +25,10 @@ public enum SoundType
     ABRIR_CAJA_DIALOGO,
     PASAR_HOJA,
     TYPEWRITER,
-    PAUSE
-
-/*
-    TIMBRE,
-    ELEGIR_LLAVE,
+    PAUSE,
     COGER_LLAVE,
-    ENTE_MOVIENDO*/
+    USAR_LLAVE,
+    COGER_CUADRO
 }
 
 [Serializable]

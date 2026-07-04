@@ -1,0 +1,18 @@
+{
+	"dialogueId": "puerta_bloqueada",
+	"startNode": 0,
+	"nodes": [
+		{
+			"nodeId": 0,
+			"personaje": "Monologo",
+			"text": "No tengo la llave para esta habitación.",
+			"nextNodeId": 1
+		},
+		{
+			"nodeId": 1,
+			"personaje": "Monologo",
+			"text": "Debo ir por otro camino…",
+			"nextNodeId": -1
+		}
+	]
+}
