@@ -1,6 +1,8 @@
 using System;
 using UnityEngine;
 using System.Collections;
+using UnityEngine.Audio;
+
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -24,6 +26,10 @@ public class Music_Manager : MonoBehaviour
 {
     //SINGLETON
     public static Music_Manager Instance { get; private set; }
+    
+    public AudioMixer MusicMixer;
+    public AudioMixerGroup Master; 
+
     [SerializeField] public MusicList[] musicList;
 
     private string prefabPath = "Prefabs/Audio/Music_Prefab";
@@ -111,6 +117,11 @@ public class Music_Manager : MonoBehaviour
         }
 
         audioSource.volume = targetVolume;
+    }
+
+    public void SetVolume(float volume)
+    {
+        MusicMixer.SetFloat("MusicVolume", volume);
     }
 
     

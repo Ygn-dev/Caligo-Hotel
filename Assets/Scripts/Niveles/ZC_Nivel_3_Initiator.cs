@@ -40,9 +40,6 @@ public class ZC_Nivel_3_Initiator : MonoBehaviour
         StartCoroutine(DevTools.SetupCharacter(character, nivelData.spawnPoints[0], newCharacter => { character = newCharacter; }));
         StartCoroutine(DevTools.SetupCamara(cinemachineCamera, levelData, character));
         
-        //Completar Fade de Carga
-        yield return StartCoroutine(Game_Loader_Manager.Instance.CompleteLoadScene());
-
         //Musica
         Music_Manager.Instance.PlayMusic(MusicType.ZONA_CAMARAS);
 
@@ -54,6 +51,10 @@ public class ZC_Nivel_3_Initiator : MonoBehaviour
             puerta.SetActive(true);
             puertaBloqueada.SetActive(false);
         }
+
+        //Completar Fade de Carga
+        yield return StartCoroutine(Game_Loader_Manager.Instance.CompleteLoadScene());
+        
         yield return null;
     }
 

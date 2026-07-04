@@ -40,13 +40,13 @@ public class Lobby_Initiator : MonoBehaviour
         Save_Manager.Instance.SaveData();
 
         // Completar Fade de Carga
-        //yield return StartCoroutine(FadeBlanco());
-        //yield return StartCoroutine(Game_Loader_Manager.Instance.CompleteLoadScene());
+        yield return StartCoroutine(FadeBlanco());
+        yield return StartCoroutine(Game_Loader_Manager.Instance.CompleteLoadScene());
                 
         //Settear Personaje y Camara mientras se reproduce la cinemática
         StartCoroutine(SpawnCharacter());
         StartCoroutine(SetupCamara());
-        //yield return StartCoroutine(CinematicaInicial());
+        yield return StartCoroutine(CinematicaInicial());
         
         //Levantarse del sillon
         yield return new WaitForSeconds(2f);
