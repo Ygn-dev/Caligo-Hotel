@@ -12,6 +12,8 @@ public class ZC_Nivel_6_Initiator : MonoBehaviour
     public InputActionAsset inputActions;
     public ScriptableObject levelData;
 
+    public GameObject llave;
+
     private GameObject character;
     private Level_Data_Base nivelData;
     private CinemachineCamera cinemachineCamera;
@@ -21,6 +23,8 @@ public class ZC_Nivel_6_Initiator : MonoBehaviour
         inputActions.Disable();
         nivelData = (Level_Data_Base)levelData;
         if(cinemachineCamera == null) cinemachineCamera = FindAnyObjectByType<CinemachineCamera>();
+        // Este nivel usara cinimatica, asi que se asegura de que el Cinematic Manager exista en la escena
+        if (Cinematic_Manager.Instance == null) DevTools.SetupCinematicManager();
     }
 
     void Start()
@@ -36,6 +40,9 @@ public class ZC_Nivel_6_Initiator : MonoBehaviour
         //Spawn personaje y camara
         StartCoroutine(DevTools.SetupCharacter(character, nivelData.spawnPoints[0], newCharacter => { character = newCharacter; }));
         StartCoroutine(DevTools.SetupCamara(cinemachineCamera, levelData, character));
+
+        GameObject sistemaPausaPrefab = Resources.Load<GameObject>("Prefabs/UI/CanvasPausa");
+        GameObject canvasInstanciado = MenuPausaSystem.InicializarSistemas(sistemaPausaPrefab);
         
         //Completar Fade de Carga
         yield return StartCoroutine(Game_Loader_Manager.Instance.CompleteLoadScene());
@@ -46,5 +53,33 @@ public class ZC_Nivel_6_Initiator : MonoBehaviour
         //Habilitar Input
         inputActions.FindActionMap("Gameplay").Enable();
         yield return null;
+    }
+
+    public void AccionFinalPlayer()
+    {
+        StartCoroutine(AccionFinalPlayerCoroutine());
+    }
+
+    private IEnumerator AccionFinalPlayerCoroutine()
+    {
+        //Deshabilitar Input
+        inputActions.FindActionMap("Gameplay").Disable();
+
+        //Detener Musica
+        Music_Manager.Instance.StopMusic();
+
+        //Desactivar la llave
+        llave.SetActive(false);
+
+        yield return Cinematic_Manager.Instance.PlayCinematic("Flashback_Cinematic");
+
+        inputActions.FindActionMap("Gameplay").Enable();
+    }
+
+    public void ReiniciarElBucle()
+    {
+        Music_Manager.Instance.StopMusic();
+        Save_Manager.Instance.ResetSaveData();
+        Game_Loader_Manager.Instance.NewGame();
     }
 }

@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class Main_Menu_Functions : MonoBehaviour
 {
-    private bool isSelected = false; 
+    private bool isSelected = false;
+    public Extras_Func extras;
 
     private void OnEnable()
     {
@@ -28,5 +29,10 @@ public class Main_Menu_Functions : MonoBehaviour
     {
         SoundType soundType = (SoundType)System.Enum.Parse(typeof(SoundType), tipoSonido);
         SoundFX_Manager.Instance.PlaySound(soundType);
+    }
+
+    public void Extras()
+    {
+        extras.ActivarExtras();
     }
 }

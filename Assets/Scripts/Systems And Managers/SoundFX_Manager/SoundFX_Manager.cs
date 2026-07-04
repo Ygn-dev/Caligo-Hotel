@@ -28,7 +28,9 @@ public enum SoundType
     PAUSE,
     COGER_LLAVE,
     USAR_LLAVE,
-    COGER_CUADRO
+    COGER_CUADRO,
+    CAMARA_SE_DETUVO,
+    CAMARA_SE_MUEVE
 }
 
 [Serializable]

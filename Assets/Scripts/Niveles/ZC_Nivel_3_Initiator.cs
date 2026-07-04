@@ -43,6 +43,9 @@ public class ZC_Nivel_3_Initiator : MonoBehaviour
         //Musica
         Music_Manager.Instance.PlayMusic(MusicType.ZONA_CAMARAS);
 
+        GameObject sistemaPausaPrefab = Resources.Load<GameObject>("Prefabs/UI/CanvasPausa");
+        GameObject canvasInstanciado = MenuPausaSystem.InicializarSistemas(sistemaPausaPrefab);
+
         //Habilitar Input
         inputActions.FindActionMap("Gameplay").Enable();
         yield return null;

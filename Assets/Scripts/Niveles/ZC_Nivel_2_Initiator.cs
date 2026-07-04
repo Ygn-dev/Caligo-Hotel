@@ -62,6 +62,9 @@ public class ZC_Nivel_2_Initiator : MonoBehaviour
         //Spawn personaje y camara
         StartCoroutine(DevTools.SetupCharacter(character, spawnPoint, newCharacter => { character = newCharacter; }));
         StartCoroutine(DevTools.SetupCamara(cinemachineCamera, levelData, character));
+
+        GameObject sistemaPausaPrefab = Resources.Load<GameObject>("Prefabs/UI/CanvasPausa");
+        GameObject canvasInstanciado = MenuPausaSystem.InicializarSistemas(sistemaPausaPrefab);
         
         //Musica
         Music_Manager.Instance.PlayMusic(MusicType.ZONA_CAMARAS);

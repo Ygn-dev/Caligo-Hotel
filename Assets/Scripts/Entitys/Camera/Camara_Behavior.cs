@@ -70,6 +70,7 @@ public class Camara_Behavior : MonoBehaviour
     private Collider2D triggerDeathZone;
 
     private Player_Respawn playerRespawn;
+    private AudioSource sonidoGirando;
 
     private Quaternion rotacionInicialLente;
 
@@ -119,8 +120,6 @@ public class Camara_Behavior : MonoBehaviour
         {
             Debug.LogWarning("No se ha asignado la lente de la cámara en " + gameObject.name + ". La cámara no funcionará correctamente.");
         }
-
-        
     }
 
     private void OnEnable()
@@ -196,6 +195,8 @@ public class Camara_Behavior : MonoBehaviour
             // IDA
             Quaternion rotacionInicial = lente.transform.localRotation;
 
+            IniciarSonidoGiro();
+
             yield return RotarLente(
                 rotacionInicial,
                 gradosRotacionPaneo,
@@ -203,13 +204,15 @@ public class Camara_Behavior : MonoBehaviour
                 curvaRotacionPaneo
             );
 
+            DetenerSonidoGiro();
+
             if (tiempoEsperaPaneo > 0f)
-            {
                 yield return EsperarPaneo(tiempoEsperaPaneo);
-            }
 
             // VUELTA
             rotacionInicial = lente.transform.localRotation;
+
+            IniciarSonidoGiro();
 
             yield return RotarLente(
                 rotacionInicial,
@@ -218,13 +221,12 @@ public class Camara_Behavior : MonoBehaviour
                 curvaRotacionPaneo
             );
 
+            DetenerSonidoGiro();
+
             yield return EjecutarGiroPendienteSiExiste();
 
-            // TIEMPO DE ESPERA
             if (tiempoEsperaPaneo > 0f)
-            {
                 yield return EsperarPaneo(tiempoEsperaPaneo);
-            }
 
             yield return EjecutarGiroPendienteSiExiste();
         }
@@ -249,6 +251,7 @@ public class Camara_Behavior : MonoBehaviour
     private IEnumerator GiroConstanteCamara()
     {
         estaGirandoConstante = true;
+        IniciarSonidoGiro(true);
 
         while (true)
         {
@@ -389,6 +392,7 @@ public class Camara_Behavior : MonoBehaviour
         giroPendienteEsAbsoluto = false;
         gradosGiroPendiente = 0f;
         invertirGiroPaneoPendiente = false;
+        DetenerSonidoGiro();
     }
 
     public void EjecutarAccion()
@@ -623,6 +627,34 @@ public class Camara_Behavior : MonoBehaviour
         }
     }
 
+    private void IniciarSonidoGiro(bool volumenReducido = false)
+    {
+        if (sonidoGirando != null)
+            return;
+
+        sonidoGirando = SoundFX_Manager.Instance.GetRandomClip(SoundType.CAMARA_SE_MUEVE);
+
+        if (sonidoGirando == null)
+            return;
+
+        sonidoGirando.loop = true;
+        sonidoGirando.volume = volumenReducido ? 0.4f : 1f;
+        sonidoGirando.enabled = true;
+        sonidoGirando.Play();
+    }
+
+    private void DetenerSonidoGiro()
+    {
+        if (sonidoGirando == null)
+            return;
+
+        sonidoGirando.Stop();
+        sonidoGirando.enabled = false;
+        sonidoGirando = null;
+
+        SoundFX_Manager.Instance.PlaySound(SoundType.CAMARA_SE_DETUVO);
+    }
+
     private void InvertirGiro()
     {
         switch (modoCamara)
@@ -706,7 +738,7 @@ public class Camara_Behavior : MonoBehaviour
     private IEnumerator GirarCamara(float grados)
     {
         estaGirando = true;
-
+        IniciarSonidoGiro();
         Quaternion rotacionInicial = lente.transform.localRotation;
 
         yield return RotarLente(
@@ -716,6 +748,8 @@ public class Camara_Behavior : MonoBehaviour
             curvaGiro
         );
 
+        DetenerSonidoGiro();
+
         estaGirando = false;
         corrutinaGiro = null;
     }
@@ -723,7 +757,7 @@ public class Camara_Behavior : MonoBehaviour
     private IEnumerator GirarCamaraHacia(Quaternion rotacionFinal)
     {
         estaGirando = true;
-
+        IniciarSonidoGiro();
         Quaternion rotacionInicial = lente.transform.localRotation;
         float deltaZ = Mathf.DeltaAngle(rotacionInicial.eulerAngles.z, rotacionFinal.eulerAngles.z);
 
@@ -733,6 +767,8 @@ public class Camara_Behavior : MonoBehaviour
             duracionGiro,
             curvaGiro
         );
+
+        DetenerSonidoGiro();
 
         estaGirando = false;
         corrutinaGiro = null;
