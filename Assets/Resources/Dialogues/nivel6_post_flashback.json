@@ -1,0 +1,36 @@
+{
+	"dialogueId": "nivel6_post_flashback",
+	"startNode": 0,
+	"nodes": [
+		{
+			"nodeId": 0,
+			"personaje": "Monologo",
+			"text": "Siento una cascada violenta estallar contra mi mente.",
+			"nextNodeId": 1
+		},
+		{
+			"nodeId": 1,
+			"personaje": "Personaje",
+			"text": "¿Ese hombre era yo?",
+			"nextNodeId": 2
+		},
+		{
+			"nodeId": 2,
+			"personaje": "Monologo",
+			"text": "Todo se siente más confuso aún. Pero a ella... a ella sé que la he visto.",
+			"nextNodeId": 3
+		},
+		{
+			"nodeId": 3,
+			"personaje": "Personaje",
+			"text": "¿Por qué no recuerdo quien eres?",
+			"nextNodeId": 4
+		},
+		{
+			"nodeId": 4,
+			"personaje": "Monologo",
+			"text": "Debo seguir. Necesito recordar.",
+			"nextNodeId": -1
+		}
+	]
+}

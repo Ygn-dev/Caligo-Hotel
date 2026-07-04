@@ -1,0 +1,24 @@
+{
+	"dialogueId": "nivel4_puerta",
+	"startNode": 0,
+	"nodes": [
+		{
+			"nodeId": 0,
+			"personaje": "Monologo",
+			"text": "Suena el seguro de la puerta.",
+			"nextNodeId": 1
+		},
+		{
+			"nodeId": 1,
+			"personaje": "Personaje",
+		"text": "Ya puedo salir de aquí.",
+			"nextNodeId": 2
+		},
+		{
+			"nodeId": 2,
+			"personaje": "Monologo",
+		"text": "No quiero seguir viendo estas imágenes.",
+			"nextNodeId": -1
+		}
+	]
+}

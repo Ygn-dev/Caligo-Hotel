@@ -5,13 +5,13 @@
 		{
 			"nodeId": 0,
 			"personaje": "Monologo",
-			"text": "No tengo la llave para esta habitación.",
+			"text": "Está cerrada. Pero si hay una puerta, hay una llave. ",
 			"nextNodeId": 1
 		},
 		{
 			"nodeId": 1,
 			"personaje": "Monologo",
-			"text": "Debo ir por otro camino…",
+			"text": "Mientras tanto, buscaré otro camino.",
 			"nextNodeId": -1
 		}
 	]

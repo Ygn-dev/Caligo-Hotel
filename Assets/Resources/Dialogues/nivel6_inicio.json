@@ -1,0 +1,24 @@
+{
+	"dialogueId": "nivel6_inicio",
+	"startNode": 0,
+	"nodes": [
+		{
+			"nodeId": 0,
+			"personaje": "Monologo",
+			"text": "Me tiembla todo el cuerpo.\nY la cabeza me sigue latiendo.",
+			"nextNodeId": 1
+		},
+		{
+			"nodeId": 1,
+			"personaje": "Monologo",
+			"text": "Esto es... una pesadilla. O he sido drogado. ¿Por qué desperté en ese pasadizo?",
+			"nextNodeId": 2
+		},
+		{
+			"nodeId": 2,
+			"personaje": "Personaje",
+			"text": "¿Cómo llegué aquí?",
+			"nextNodeId": -1
+		}
+	]
+}

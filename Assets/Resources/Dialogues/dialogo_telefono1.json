@@ -5,7 +5,7 @@
 		{
 			"nodeId": 0,
 			"personaje": "Monologo",
-			"text": "Rayos. No me dijo el número de recepción.",
+			"text": "Diantres. No me dijo el número de recepción.",
 			"nextNodeId": 1
 		},
 		{
@@ -58,66 +58,78 @@
 		},
 		{
 			"nodeId": 9,
-			"personaje": "Personaje",
-			"text": "¿Perdón? ¿Me conoce?",
+			"personaje": "Monologo",
+			"text": "Se me cierra la garganta. Solo oigo su respiración por unos segundos.",
 			"nextNodeId": 10
 		},
 		{
 			"nodeId": 10,
-			"personaje": "SiluetaMujer",
-			"text": "Ya no. Lo lamento.",
+			"personaje": "Personaje",
+			"text": "Perdón. ¿Sentir? ¿Me conoce?",
 			"nextNodeId": 11
 		},
 		{
 			"nodeId": 11,
-			"personaje": "Personaje",
-			"text": "Estoy... demasiado confundido.",
+			"personaje": "SiluetaMujer",
+			"text": "Ya no. Lo lamento.",
 			"nextNodeId": 12
 		},
 		{
 			"nodeId": 12,
-			"personaje": "SiluetaMujer",
-			"text": "Espero que todo salga bien para ti.\nDe verdad lo deseo.",
+			"personaje": "Monologo",
+			"text": "Su voz resiste de quebrarse, creo que ella siempre fue así.",
 			"nextNodeId": 13
 		},
 		{
 			"nodeId": 13,
 			"personaje": "Personaje",
-			"text": "¿De qué está hablando?\nSeñorita, ¿me escucha?",
+			"text": "Estoy... demasiado confundido.",
 			"nextNodeId": 14
 		},
 		{
 			"nodeId": 14,
-			"personaje": "Monologo",
-			"text": "Creo que no.",
+			"personaje": "SiluetaMujer",
+			"text": "Espero que todo salga bien para ti.\nDe verdad lo deseo.",
 			"nextNodeId": 15
 		},
 		{
 			"nodeId": 15,
-			"personaje": "SiluetaMujer",
-			"text": "Cuídate mucho.\nPero, por favor...",
+			"personaje": "Personaje",
+			"text": "¿De qué está hablando?\nSeñorita, ¿me escucha?",
 			"nextNodeId": 16
 		},
 		{
 			"nodeId": 16,
-			"personaje": "SiluetaMujer",
-			"text": "... No vuelvas a llamar.",
+			"personaje": "Monologo",
+			"text": "Creo que no.",
 			"nextNodeId": 17
 		},
 		{
 			"nodeId": 17,
-			"personaje": "Personaje",
-			"text": "¿Qué? No, no, no. ¡ESPERE!",
+			"personaje": "SiluetaMujer",
+			"text": "Cuídate mucho.\nPero, por favor...",
 			"nextNodeId": 18
 		},
 		{
 			"nodeId": 18,
-			"personaje": "Monologo",
-			"text": "MALDICIÓN.\nCortó la llamada y ahora solo tengo más preguntas.",
+			"personaje": "SiluetaMujer",
+			"text": "... No vuelvas a llamar.",
 			"nextNodeId": 19
 		},
 		{
 			"nodeId": 19,
+			"personaje": "Personaje",
+			"text": "¿Qué? No, no, no. ¡ESPERE!",
+			"nextNodeId": 20
+		},
+		{
+			"nodeId": 20,
+			"personaje": "Monologo",
+			"text": "MALDICIÓN.\nCortó la llamada y ahora solo tengo más preguntas.",
+			"nextNodeId": 21
+		},
+		{
+			"nodeId": 21,
 			"personaje": "Monologo",
 			"text": "¿Quién eres?",
 			"nextNodeId": -1
