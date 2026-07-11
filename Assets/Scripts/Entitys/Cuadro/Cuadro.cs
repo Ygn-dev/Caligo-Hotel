@@ -45,7 +45,6 @@ public class Cuadro : MonoBehaviour
                 }
                 break;
         }
-
     }
 
     public void GuardarCuadro()
@@ -72,3 +71,4 @@ public class Cuadro : MonoBehaviour
         cuadro.SetActive(false);
     }
 }
+

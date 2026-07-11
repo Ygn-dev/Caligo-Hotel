@@ -127,6 +127,7 @@ public class Main_Menu_Initiator : MonoBehaviour
         yield return new WaitForSeconds(seconds);
         SoundFX_Manager.Instance.PlaySound(SoundType.APARECE_CAJA);
     }
+    
 }
 
 

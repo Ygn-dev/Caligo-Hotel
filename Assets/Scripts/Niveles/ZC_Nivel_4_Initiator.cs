@@ -12,6 +12,9 @@ public class ZC_Nivel_4_Initiator : MonoBehaviour
     public InputActionAsset inputActions;
     public ScriptableObject levelData;
     public AudioSource audioSource;
+    public GameObject cuadro1;
+    public GameObject cuadro2;
+    public GameObject cuadro3;
 
     private GameObject character;
     private Level_Data_Base nivelData;
@@ -44,13 +47,30 @@ public class ZC_Nivel_4_Initiator : MonoBehaviour
         //Musica
         Music_Manager.Instance.PlayMusic(MusicType.ZONA_CAMARAS);
 
-        //Habilitar Input
-        inputActions.FindActionMap("Gameplay").Enable();
+        GameObject sistemaPausaPrefab = Resources.Load<GameObject>("Prefabs/UI/CanvasPausa");
+        GameObject canvasInstanciado = MenuPausaSystem.InicializarSistemas(sistemaPausaPrefab);
+
+        GameObject player = null;
+        while (player == null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+            yield return null;
+        }
+
+        Player_Respawn playerRespawn = player.GetComponent<Player_Respawn>();
+
+        if (playerRespawn != null)
+        {
+            playerRespawn.RespawnEvent += OnPlayerRespawn;
+        }
 
         if(Save_Manager.Instance.data.habloPorTelefonoZC4)
         {
             audioSource.Stop();
         }
+
+        //Habilitar Input
+        inputActions.FindActionMap("Gameplay").Enable();
 
         //Completar Fade de Carga
         yield return StartCoroutine(Game_Loader_Manager.Instance.CompleteLoadScene());
@@ -102,5 +122,18 @@ public class ZC_Nivel_4_Initiator : MonoBehaviour
         Save_Manager.Instance.SaveData();
         isCuadreandoxd = false;
         yield return null;
+    }
+
+    private void OnPlayerRespawn()
+    {
+        cuadro1.SetActive(true);
+        cuadro2.SetActive(true);
+        cuadro3.SetActive(true);
+
+        Save_Manager.Instance.data.cuadro1 = false;
+        Save_Manager.Instance.data.cuadro2 = false;
+        Save_Manager.Instance.data.cuadro3 = false;
+        Save_Manager.Instance.data.puedeAbrirPuertaZC4 = false;
+        Save_Manager.Instance.SaveData();
     }
 }
