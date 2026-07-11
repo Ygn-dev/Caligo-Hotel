@@ -417,6 +417,9 @@ public class Dialogue_Manager : MonoBehaviour
         // Reanudar acciones
         inputActions.FindActionMap("Dialogue").Disable();
 
+        inputActions.FindActionMap("Gameplay").Enable();
+        inputActions.FindActionMap("Pause").Enable();
+
         SoundFX_Manager.Instance.PlaySound(SoundType.ABRIR_CAJA_DIALOGO);
         // Ocultar el dialogue system 
         yield return StartCoroutine(DevTools.AnimarCamaraYBackground(cinemachineCamera, zoomCamIni, camPosIni.x, camPosIni.y, 
@@ -430,9 +433,6 @@ public class Dialogue_Manager : MonoBehaviour
         confiner.enabled = enabled;
         // vincular camara al personaje
         cinemachineCamera.Follow = GameObject.FindGameObjectWithTag("Player").transform;;
-
-        inputActions.FindActionMap("Gameplay").Enable();
-        inputActions.FindActionMap("Pause").Enable();
 
         yield return null;
     }
