@@ -5,67 +5,97 @@
 		{
 			"nodeId": 0,
 			"personaje": "Personaje",
-			"text": "¿Aló? ¿Nos conocemos?",
+			"text": "¿Aló? ¿Señorita?",
 			"nextNodeId": 1
 		},
 		{
 			"nodeId": 1,
 			"personaje": "Recepcionista",
-			"text": "¡Caballero! Por supuesto.",
+			"text": "¡Caballero! ¿Cómo le fue?\nEspero que haya sido una gran noche.",
 			"nextNodeId": 2
 		},
 		{
 			"nodeId": 2,
 			"personaje": "Personaje",
-			"text": "Eres tú otra vez.",
+			"text": "Ah. Es usted.",
 			"nextNodeId": 3
 		},
 		{
 			"nodeId": 3,
 			"personaje": "Personaje",
-			"text": "Hablé con una mujer.\n¿Se hospeda aquí también?",
+			"text": "No realmente.\nNecesito preguntarle algo, pero-",
 			"nextNodeId": 4
 		},
 		{
 			"nodeId": 4,
-			"personaje": "Personaje",
-			"text": "No, no. ESPERA.\nPRIMERO dime CUÁNDO hice una reservación yo.",
+			"personaje": "Recepcionista",
+			"text": "Estoy a su servicio. Pregunte.",
 			"nextNodeId": 5
 		},
 		{
 			"nodeId": 5,
 			"personaje": "Personaje",
-			"text": "Pero ANTES,\n¿qué demonios son las cámaras, y POR QUÉ-",
+			"text": "Hablé con una mujer, y...\n\nEspere.",
 			"nextNodeId": 6
 		},
 		{
 			"nodeId": 6,
-			"personaje": "Recepcionista",
-			"text": "Caballero,\nestaré contento de resolver toda duda si se acerca a la RECEPCIÓN.",
+			"personaje": "Monologo",
+			"text": "Debo preguntar con cuidado.\nNo recuerdo CÓMO ni CUANDO llegué a este lugar.",
 			"nextNodeId": 7
 		},
 		{
 			"nodeId": 7,
-			"personaje": "Recepcionista",
-			"text": "Pero antes,\nno olvide sus PERTENENCIAS en la galería.",
+			"personaje": "Personaje",
+			"text": "Señor... ¿Podría recordarme en qué fecha\nhice la RESERVACIÓN?",
 			"nextNodeId": 8
 		},
 		{
 			"nodeId": 8,
-			"personaje": "Personaje",
-			"text": "NO-",
+			"personaje": "Recepcionista",
+			"text": "Caballero...",
 			"nextNodeId": 9
 		},
 		{
 			"nodeId": 9,
-			"personaje": "Monologo",
-			"text": "No cortes.",
+			"personaje": "Recepcionista",
+			"text": "Estaré contento de resolver sus DUDAS\nsi se acerca a la RECEPCIÓN.",
 			"nextNodeId": 10
 		},
 		{
 			"nodeId": 10,
 			"personaje": "Monologo",
-			"text": "¿Qué está pasando?",
+			"text": "Por alguna razón,\nsé que lo dijo sonriendo.",
+			"nextNodeId": 11
+		},
+		{
+			"nodeId": 11,
+			"personaje": "Recepcionista",
+			"text": "Pero antes,\nya ha terminado la EXHIBICIÓN.",
+			"nextNodeId": 12
+		},
+		{
+			"nodeId": 12,
+			"personaje": "Recepcionista",
+			"text": "No olvide dejar vacías\nlas paredes de la GALERÍA.",
+			"nextNodeId": 13
+		},
+		{
+			"nodeId": 13,
+			"personaje": "Personaje",
+			"text": "NO-",
+			"nextNodeId": 14
+		},
+		{
+			"nodeId": 14,
+			"personaje": "Monologo",
+			"text": "No cortes.",
+			"nextNodeId": 15
+		},
+		{
+			"nodeId": 15,
+			"personaje": "Monologo2",
+			"text": "¿GALERÍA? ¿EXHIBICIÓN de quién?\n¿Qué está pasando?",
 			"nextNodeId": -1
 		}
 	]

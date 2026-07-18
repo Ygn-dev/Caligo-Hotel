@@ -251,7 +251,7 @@ MonoBehaviour:
   velocidadMovimientoAutoScroll: 0.5
   velocidadMovimientoManualScroll: 0.5
   velocidadMovimientoAutoRegresarAbajo: 0.5
-  velocidadEscritura: 30
+  velocidadEscritura: 22
   inputActions: {fileID: -944628639613478452, guid: e75c53da0f7f49f4aae3d0a6e4b3cca4, type: 3}
   prefabDialogueScroll: {fileID: 4634716866516083672, guid: d22ef6fb2f2dd2c4ba4a2241a9301892, type: 3}
   prefabBlackBackground: {fileID: 302262870722617376, guid: d7f8cf2916daa9443bbcb74d90152882, type: 3}

@@ -5,19 +5,19 @@
 		{
 			"nodeId": 0,
 			"personaje": "Monologo",
-			"text": "Suena el seguro de la puerta.",
+			"text": "Oigo un pequeño crujido al final de la sala.",
 			"nextNodeId": 1
 		},
 		{
 			"nodeId": 1,
 			"personaje": "Personaje",
-		"text": "Ya puedo salir de aquí.",
+		"text": "La puerta.",
 			"nextNodeId": 2
 		},
 		{
 			"nodeId": 2,
 			"personaje": "Monologo",
-		"text": "No quiero seguir viendo estas imágenes.",
+		"text": "Ya no quiero ver más estas imágenes.",
 			"nextNodeId": -1
 		}
 	]

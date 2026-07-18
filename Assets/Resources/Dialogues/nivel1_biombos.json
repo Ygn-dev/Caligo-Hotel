@@ -10,7 +10,7 @@
 		},
 		{
 			"nodeId": 1,
-			"personaje": "Monologo",
+			"personaje": "Monologo2",
 			"text": "¿Qué clase de habitación es esta?",
 			"nextNodeId": -1
 		}

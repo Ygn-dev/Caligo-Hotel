@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 6807960721438149858}
   - component: {fileID: 6862830172108238252}
   m_Layer: 5
-  m_Name: Caja_Monologo_Prefab
+  m_Name: Caja_Monologo2_Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -442,7 +442,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 375, y: -49}
+  m_AnchoredPosition: {x: 375, y: -16}
   m_SizeDelta: {x: 750, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6549281327350867128
@@ -541,7 +541,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7414924107234399978
 RectTransform:
   m_ObjectHideFlags: 0
@@ -556,9 +556,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 3135577695725316035}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 375, y: -2.5}
   m_SizeDelta: {x: 500, y: 3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &716607205550872030
@@ -582,7 +582,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5176471, g: 0.5176471, b: 0.5176471, a: 0.5176471}
+  m_Color: {r: 0.5176471, g: 0.5176471, b: 0.5176471, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

@@ -11292,7 +11292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue_Trigger
   dialogueID: nivel2_mesa
-  zoomCamara: 7
+  zoomCamara: 9
 --- !u!61 &1798850723
 BoxCollider2D:
   m_ObjectHideFlags: 0

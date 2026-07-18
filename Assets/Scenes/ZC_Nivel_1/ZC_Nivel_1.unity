@@ -2928,8 +2928,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: -1078116567
-  m_SortingLayer: 5
+  m_SortingLayerID: -1231417785
+  m_SortingLayer: 3
   m_SortingOrder: 2
   m_MaskInteraction: 0
   m_Sprite: {fileID: 0}
@@ -9575,7 +9575,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue_Trigger
   dialogueID: nivel1_biombos
-  zoomCamara: 6
+  zoomCamara: 8
 --- !u!61 &2068437344
 BoxCollider2D:
   m_ObjectHideFlags: 0

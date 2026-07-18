@@ -11,7 +11,7 @@
 		{
 			"nodeId": 1,
 			"personaje": "Monologo",
-			"text": "Juraría reconocer el diseño pero se ve tan gastada.",
+			"text": "Uhm. Juraría reconocer el diseño\npero se ve tan gastada.",
 			"nextNodeId": 2
 		},
 		{
@@ -23,7 +23,19 @@
 		{
 			"nodeId": 3,
 			"personaje": "Monologo",
-			"text": "Guardé la LLAVE DE LA GALERÍA",
+			"text": "Guardé la *LLAVE DE LA GALERÍA*",
+			"nextNodeId": 4
+		},
+		{
+			"nodeId": 4,
+			"personaje": "Monologo2",
+			"text": "Me siento un poco mejor, pero-",
+			"nextNodeId": 5
+		},
+		{
+			"nodeId": 5,
+			"personaje": "Monologo2",
+			"text": "¿En qué momento\nme quedé dormido ahí?",
 			"nextNodeId": -1
 		}
 	]

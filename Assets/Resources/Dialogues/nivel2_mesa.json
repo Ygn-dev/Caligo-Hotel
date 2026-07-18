@@ -10,8 +10,8 @@
 		},
 		{
 			"nodeId": 1,
-			"personaje": "Monologo",
-		"text": "Bueno. Solo puedo salir avanzando.",
+			"personaje": "Monologo2",
+		"text": "Ahora si sé bien\nqué decirle a ese sujeto.",
 			"nextNodeId": -1
 		}
 	]

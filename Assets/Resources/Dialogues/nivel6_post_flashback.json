@@ -11,25 +11,25 @@
 		{
 			"nodeId": 1,
 			"personaje": "Personaje",
-			"text": "¿Ese hombre era yo?",
+			"text": "¿Ese hombre era YO?",
 			"nextNodeId": 2
 		},
 		{
 			"nodeId": 2,
 			"personaje": "Monologo",
-			"text": "Todo se siente más confuso aún. Pero a ella... a ella sé que la he visto.",
+			"text": "Todo se siente más confuso aún.\n\nPero a ella... a ELLA sé que la he visto.",
 			"nextNodeId": 3
 		},
 		{
 			"nodeId": 3,
 			"personaje": "Personaje",
-			"text": "¿Por qué no recuerdo quien eres?",
+			"text": "¿Por qué no recuerdo QUIÉN eres?",
 			"nextNodeId": 4
 		},
 		{
 			"nodeId": 4,
 			"personaje": "Monologo",
-			"text": "Debo seguir. Necesito recordar.",
+			"text": "Debo salir.\nNecesito algo que me ayude a RECORDAR.",
 			"nextNodeId": -1
 		}
 	]

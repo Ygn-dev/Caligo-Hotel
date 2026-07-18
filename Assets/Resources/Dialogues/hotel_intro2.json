@@ -5,13 +5,19 @@
 		{
 			"nodeId": 0,
 			"personaje": "Monologo",
-			"text": "Un hombre delgado me observa expectante.",
+			"text": "Parece que no hay nadie. ¿Qué hora es?.",
 			"nextNodeId": 1
 		},
 		{
 			"nodeId": 1,
-			"personaje": "Monologo",
-			"text": "Debe ser el encargado.",
+			"personaje": "Monologo2",
+			"text": "Pero al menos ALGUIEN\nestá haciendo su trabajo.",
+			"nextNodeId": 2
+		},
+		{
+			"nodeId": 2,
+			"personaje": "Monologo2",
+			"text": "Hasta tiene un ANIMAL de asistente.",
 			"nextNodeId": -1
 		}
 	]

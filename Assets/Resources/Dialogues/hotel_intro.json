@@ -5,18 +5,18 @@
 		{
 			"nodeId": 0,
 			"personaje": "Personaje",
-			"text": "Ay... ¿En qué momento-?",
+			"text": "Ay... Mi cabeza...",
 			"nextNodeId": 1
 		},
 		{
 			"nodeId": 1,
-			"personaje": "Monologo",
-			"text": "La cabeza me da vueltas...",
+			"personaje": "Monologo2",
+			"text": "Todo me da vueltas.",
 			"nextNodeId": 2
 		},
 		{
 			"nodeId": 2,
-			"personaje": "Monologo",
+			"personaje": "Monologo2",
 			"text": "Debo haberme quedado dormido.",
 			"nextNodeId": -1
 		}

@@ -5,7 +5,7 @@
 		{
 			"nodeId": 0,
 			"personaje": "Recepcionista",
-			"text": "Su cuarto se halla subiendo la escalera.\n¡Disfrute su estadía!",
+			"text": "Suba las escaleras, caballero.\nVerá su PUERTA al medio del pasillo.\n\n¡Y que disfrute su estadía!",
 			"nextNodeId": 1
 		},
 		{

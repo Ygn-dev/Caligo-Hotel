@@ -1,0 +1,48 @@
+{
+	"dialogueId": "nivel4_telefono",
+	"startNode": 0,
+	"nodes": [
+		{
+			"nodeId": 0,
+			"personaje": "Personaje",
+			"text": "¿Señor?",
+			"nextNodeId": 1
+		},
+		{
+			"nodeId": 1,
+			"personaje": "Recepcionista",
+			"text": "¿Caballero?",
+			"nextNodeId": 2
+		},
+		{
+			"nodeId": 2,
+			"personaje": "Recepcionista",
+			"text": "No olvide dejar vacías\nlas paredes de la GALERÍA.",
+			"nextNodeId": 3
+		},
+		{
+			"nodeId": 3,
+			"personaje": "Recepcionista",
+			"text": "NO. Eso no.",
+			"nextNodeId": 4
+		},
+		{
+			"nodeId": 4,
+			"personaje": "Recepcionista",
+			"text": "Le espero en la RECEPCIÓN",
+			"nextNodeId": 5
+		},
+		{
+			"nodeId": 5,
+			"personaje": "Personaje",
+			"text": "Pero...",
+			"nextNodeId": 6
+		},
+		{
+			"nodeId": 6,
+			"personaje": "Monologo",
+			"text": "Colgó.",
+			"nextNodeId": -1
+		}
+	]
+}

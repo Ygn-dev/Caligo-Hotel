@@ -4,14 +4,20 @@
 	"nodes": [
 		{
 			"nodeId": 0,
-			"personaje": "Monologo",
-			"text": "Está cerrada. Pero si hay una puerta, hay una llave. ",
+			"personaje": "Personaje",
+			"text": "Cerrada.",
 			"nextNodeId": 1
 		},
 		{
 			"nodeId": 1,
-			"personaje": "Monologo",
-			"text": "Mientras tanto, buscaré otro camino.",
+			"personaje": "Monologo2",
+			"text": "Pero si hay una PUERTA,\nhay una LLAVE.",
+			"nextNodeId": 2
+		},
+		{
+			"nodeId": 2,
+			"personaje": "Monologo2",
+			"text": "Aunque no veo ninguna en ESTA habitación.",
 			"nextNodeId": -1
 		}
 	]

@@ -5,19 +5,19 @@
 		{
 			"nodeId": 0,
 			"personaje": "Monologo",
-			"text": "Creo que casi me tropiezo.",
+			"text": "Demonios... mi vista.",
 			"nextNodeId": 1
 		},
 		{
 			"nodeId": 1,
-			"personaje": "Monologo",
-		"text": "Sigo algo mareado y estas luces empeoran todo.",
+			"personaje": "Personaje",
+		"text": "Esas LUCES.",
 			"nextNodeId": 2
 		},
 		{
 			"nodeId": 2,
-			"personaje": "Monologo",
-		"text": "Será mejor guardar distancia.",
+			"personaje": "Monologo2",
+		"text": "Me siento peor... Guardaré distancia.",
 			"nextNodeId": -1
 		}
 	]
