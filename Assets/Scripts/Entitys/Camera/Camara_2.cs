@@ -9,15 +9,12 @@ public class Camara_2 : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("Camara_2: Start called.");
         if (camaraBehavior.modoCamara == ModoCamara.Idle)
         {
-            Debug.Log("Camara_2: Camera is in Idle mode.");
             isIdle = true;
         }
         else
         {
-            Debug.Log("Camara_2: Camera is not in Idle mode.");
             isIdle = false;
         }
     }

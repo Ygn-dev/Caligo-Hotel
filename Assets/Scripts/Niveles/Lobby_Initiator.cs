@@ -58,9 +58,6 @@ public class Lobby_Initiator : MonoBehaviour
         //Dialogo de introduccion
         yield return new WaitForSeconds(1f);
         yield return Dialogue_Manager.Instance.StartDialogueCoroutine("hotel_intro", 6f);
-        
-        //Habilitar Input
-        inputActions.FindActionMap("Gameplay").Enable();
         yield return null;
     }
 
