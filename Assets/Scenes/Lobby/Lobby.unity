@@ -295,7 +295,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &70656570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -335,7 +335,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fed55dc5956250d458bffcf988c62323, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level_Trasition_Helper
-  isLevelTransition: 0
 --- !u!114 &70656572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7304,7 +7303,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fed55dc5956250d458bffcf988c62323, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level_Trasition_Helper
-  isLevelTransition: 0
 --- !u!114 &624224904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15677,7 +15675,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fed55dc5956250d458bffcf988c62323, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level_Trasition_Helper
-  isLevelTransition: 0
 --- !u!114 &1094315112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18971,12 +18968,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1683923502}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fed55dc5956250d458bffcf988c62323, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level_Trasition_Helper
-  isLevelTransition: 0
 --- !u!114 &1683923507
 MonoBehaviour:
   m_ObjectHideFlags: 0
