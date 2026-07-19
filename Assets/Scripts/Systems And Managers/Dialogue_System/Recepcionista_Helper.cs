@@ -8,13 +8,15 @@ public class Recepcionista_Helper : MonoBehaviour
 
     public void TriggerDialogue()
     {
-        if(Save_Manager.Instance.data.habloConRecepcionista)
+        if (Save_Manager.Instance.data.habloConRecepcionista)
         {
             Dialogue_Manager.Instance.StartDialogue(dialogueID2, zoomCamara);
-        }else{
+        }
+        else
+        {
+            Dialogue_Manager.Instance.StartDialogue(dialogueID1, zoomCamara);
             Save_Manager.Instance.data.habloConRecepcionista = true;
             Save_Manager.Instance.SaveData();
-            Dialogue_Manager.Instance.StartDialogue(dialogueID1, zoomCamara);
-        }        
+        }
     }
 }
