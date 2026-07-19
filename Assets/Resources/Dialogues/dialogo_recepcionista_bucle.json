@@ -5,11 +5,17 @@
 		{
 			"nodeId": 0,
 			"personaje": "Recepcionista",
-			"text": "Suba las escaleras, caballero.\nVerá su PUERTA al medio del pasillo.\n\n¡Y que disfrute su estadía!",
+			"text": "Suba las escaleras, caballero.\nVerá su PUERTA al medio del pasillo.",
 			"nextNodeId": 1
 		},
 		{
 			"nodeId": 1,
+			"personaje": "Recepcionista",
+			"text": "¡Disfrute su estadía!",
+			"nextNodeId": 2
+		},
+		{
+			"nodeId": 2,
 			"personaje": "Monologo",
 			"text": "Deje de sonreírme.",
 			"nextNodeId": -1

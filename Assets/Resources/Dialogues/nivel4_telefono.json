@@ -41,7 +41,7 @@
 		{
 			"nodeId": 6,
 			"personaje": "Monologo",
-			"text": "Debo preguntar con cuidado.\nNo recuerdo CÓMO ni CUANDO\nllegué a este lugar.",
+			"text": "Debo preguntar con cuidado.\n\nNo recuerdo CÓMO ni CUANDO\nllegué a este lugar.",
 			"nextNodeId": 7
 		},
 		{

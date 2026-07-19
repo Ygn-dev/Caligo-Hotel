@@ -70,19 +70,25 @@
 		{
 			"nodeId": 12,
 			"personaje": "Recepcionista",
-			"text": "Suba las escaleras, caballero.\nVerá su puerta al medio del pasillo.\n\n¡Y que disfrute su estadía!",
+			"text": "Suba las escaleras, caballero.\nVerá su puerta al medio del pasillo.",
 			"nextNodeId": 13
 		},
 		{
 			"nodeId": 13,
-			"personaje": "Personaje",
-			"text": "Gracias.",
+			"personaje": "Recepcionista",
+			"text": "¡Y que disfrute su estadía!",
 			"nextNodeId": 14
 		},
 		{
 			"nodeId": 14,
+			"personaje": "Personaje",
+			"text": "Gracias.",
+			"nextNodeId": 15
+		},
+		{
+			"nodeId": 15,
 			"personaje": "Monologo",
-			"text": "Iré por mis cosas primero...\n\nTengo que ordenar mis ideas.",
+			"text": "Iré por mis cosas primero...\nTengo que ordenar mis ideas.",
 			"nextNodeId": -1
 		}
 	]
