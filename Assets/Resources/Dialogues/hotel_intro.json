@@ -10,7 +10,7 @@
 		},
 		{
 			"nodeId": 1,
-			"personaje": "Monologo2",
+			"personaje": "Monologo",
 			"text": "Todo me da vueltas.",
 			"nextNodeId": 2
 		},

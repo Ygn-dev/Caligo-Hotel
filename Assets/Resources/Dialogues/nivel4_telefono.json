@@ -35,19 +35,19 @@
 		{
 			"nodeId": 5,
 			"personaje": "Personaje",
-			"text": "Hablé con una mujer, y...\n\nEspere.",
+			"text": "Hablé con una mujer, y...\nEspere.",
 			"nextNodeId": 6
 		},
 		{
 			"nodeId": 6,
 			"personaje": "Monologo",
-			"text": "Debo preguntar con cuidado.\nNo recuerdo CÓMO ni CUANDO llegué a este lugar.",
+			"text": "Debo preguntar con cuidado.\nNo recuerdo CÓMO ni CUANDO\nllegué a este lugar.",
 			"nextNodeId": 7
 		},
 		{
 			"nodeId": 7,
 			"personaje": "Personaje",
-			"text": "Señor... ¿Podría recordarme en qué fecha\nhice la RESERVACIÓN?",
+			"text": "Señor...\n¿Podría recordarme en qué\nfecha hice la RESERVACIÓN?",
 			"nextNodeId": 8
 		},
 		{

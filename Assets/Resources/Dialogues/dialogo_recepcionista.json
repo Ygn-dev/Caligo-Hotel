@@ -5,7 +5,7 @@
 		{
 			"nodeId": 0,
 			"personaje": "Monologo",
-			"text": "De cerca, esa sonrisa...\nempeora la migraña.",
+			"text": "De cerca...\nesa sonrisa empeora la migraña.",
 			"nextNodeId": 1
 		},{
 			"nodeId": 1,
@@ -52,19 +52,19 @@
 		{
 			"nodeId": 8,
 			"personaje": "Monologo",
-			"text": "Apenas puedo pensar bien.\nQuizás necesito descansar.",
+			"text": "Apenas puedo pensar bien.\nAún sigo mareado.",
 			"nextNodeId": 9
 		},
 		{
 			"nodeId": 9,
 			"personaje": "Personaje",
-			"text": "Nada. No por ahora.",
+			"text": "Nada. Solo estoy algo cansado.",
 			"nextNodeId": 10
 		},
 		{
 			"nodeId": 10,
 			"personaje": "Monologo",
-			"text": "Está helada.\n\nRecibí la *LLAVE DE LA SUITE*.",
+			"text": "Recibí la *LLAVE DE LA SUITE*.",
 			"nextNodeId": 11
 		},
 		{

@@ -5,19 +5,19 @@
 		{
 			"nodeId": 0,
 			"personaje": "Personaje",
-			"text": "Cerrada.",
+			"text": "¡Cerrada!",
 			"nextNodeId": 1
 		},
 		{
 			"nodeId": 1,
-			"personaje": "Monologo2",
+			"personaje": "Monologo",
 			"text": "Pero si hay una PUERTA,\nhay una LLAVE.",
 			"nextNodeId": 2
 		},
 		{
 			"nodeId": 2,
 			"personaje": "Monologo2",
-			"text": "Aunque no veo ninguna en ESTA habitación.",
+			"text": "Aunque no veo ninguna\nen ESTA habitación.",
 			"nextNodeId": -1
 		}
 	]

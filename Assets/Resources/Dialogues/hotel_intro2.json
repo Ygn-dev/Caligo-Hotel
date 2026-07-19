@@ -5,13 +5,13 @@
 		{
 			"nodeId": 0,
 			"personaje": "Monologo",
-			"text": "Parece que no hay nadie.\n¿Qué hora es?.",
+			"text": "¿No hay nadie más?...\n¿Qué hora es?.",
 			"nextNodeId": 1
 		},
 		{
 			"nodeId": 1,
 			"personaje": "Monologo2",
-			"text": "Pero al menos ALGUIEN\nestá haciendo su trabajo.",
+			"text": "Veo que al menos ALGUIEN\nestá haciendo su trabajo.",
 			"nextNodeId": 2
 		},
 		{

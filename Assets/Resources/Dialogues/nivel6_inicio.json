@@ -5,19 +5,19 @@
 		{
 			"nodeId": 0,
 			"personaje": "Monologo",
-			"text": "Me tiembla toda el alma.\nY mi cabeza vuelve a latir con fuerza.",
+			"text": "Se me escapa el alma.\nMi cabeza late con fuerza.",
 			"nextNodeId": 1
 		},
 		{
 			"nodeId": 1,
 			"personaje": "Monologo2",
-			"text": "Una pesadilla.",
+			"text": "Una PESADILLA.",
 			"nextNodeId": 2
 		},
 		{
 			"nodeId": 2,
 			"personaje": "Personaje",
-			"text": "¿QUÉ hago AQUÍ?",
+			"text": "¿QUÉ es este LUGAR?",
 			"nextNodeId": -1
 		}
 	]

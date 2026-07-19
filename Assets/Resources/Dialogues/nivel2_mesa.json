@@ -5,13 +5,13 @@
 		{
 			"nodeId": 0,
 			"personaje": "Monologo",
-			"text": "Esto es absurdo.",
+			"text": "Esto es ABSURDO.",
 			"nextNodeId": 1
 		},
 		{
 			"nodeId": 1,
 			"personaje": "Monologo2",
-		"text": "Ahora si sé bien\nqué decirle a ese sujeto.",
+		"text": "No se imagina la QUEJA\nque voy a presentar.",
 			"nextNodeId": -1
 		}
 	]

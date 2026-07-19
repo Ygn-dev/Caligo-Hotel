@@ -16,7 +16,7 @@
 		},
 		{
 			"nodeId": 2,
-			"personaje": "Monologo2",
+			"personaje": "Monologo",
 		"text": "Me siento peor... Guardaré distancia.",
 			"nextNodeId": -1
 		}

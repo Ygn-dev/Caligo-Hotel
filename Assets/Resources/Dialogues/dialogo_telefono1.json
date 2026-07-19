@@ -17,7 +17,7 @@
 		{
 			"nodeId": 2,
 			"personaje": "Monologo",
-			"text": "Una voz suave, a través de mucha interferencia.\nQuizá alguién olvidó colgar antes.",
+			"text": "Una voz suave,\na través de mucha interferencia.\nQuizá alguién olvidó colgar antes.",
 			"nextNodeId": 3
 		},
 		{
@@ -35,7 +35,7 @@
 		{
 			"nodeId": 5,
 			"personaje": "Monologo",
-			"text": "Distingo un suspiro a través del ruido.\nDebe trabajar aquí.\n\nLa voz más cansada del mundo.",
+			"text": "Distingo un suspiro\na través del ruido.\nDebe trabajar aquí.\n\nLa voz más cansada del mundo.",
 			"nextNodeId": 6
 		},
 		{
@@ -47,25 +47,25 @@
 		{
 			"nodeId": 7,
 			"personaje": "Monologo",
-			"text": "¿La conozco?\nSuave, a pesar del cansacio, y quizás familiar.\nSiento que la conozco.",
+			"text": "¿La conozco?\nSuave, a pesar del cansacio,\ny quizás familiar.\n\nSiento que la conozco.",
 			"nextNodeId": 8
 		},
 		{
 			"nodeId": 8,
 			"personaje": "SiluetaMujer",
-			"text": "Lo sé.\n\nPero se va a sentir diferente después.",
+			"text": "Lo sé.\nPero se va a sentir diferente después.",
 			"nextNodeId": 9
 		},
 		{
 			"nodeId": 9,
 			"personaje": "Monologo",
-			"text": "Se me cierra la garganta.\nOigo su respiración a través del crujir\npor unos segundos.",
+			"text": "Se me cierra la garganta.\nOigo su respiración a través\ndel crujir por unos segundos.",
 			"nextNodeId": 10
 		},
 		{
 			"nodeId": 10,
 			"personaje": "Personaje",
-			"text": "Perdón. ¿Diferente? ¿Me conoce?",
+			"text": "Perdón...\n¿Diferente? ¿Me conoce?",
 			"nextNodeId": 11
 		},
 		{
@@ -77,7 +77,7 @@
 		{
 			"nodeId": 12,
 			"personaje": "Monologo",
-			"text": "Su voz resiste de quebrarse.\nCreo que ella siempre fue así.",
+			"text": "Su voz resiste de quebrarse.\nQuizás siempre fue así.",
 			"nextNodeId": 13
 		},
 		{
@@ -113,7 +113,7 @@
 		{
 			"nodeId": 18,
 			"personaje": "SiluetaMujer",
-			"text": "... No vuelvas a llamar.",
+			"text": "No vuelvas a llamar.",
 			"nextNodeId": 19
 		},
 		{
@@ -137,7 +137,7 @@
 		{
 			"nodeId": 22,
 			"personaje": "Monologo2",
-			"text": "¿Quién eres?",
+			"text": "¿QUIÉN eres?",
 			"nextNodeId": -1
 		}
 	]
