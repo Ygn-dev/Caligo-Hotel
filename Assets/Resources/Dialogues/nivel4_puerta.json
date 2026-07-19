@@ -5,7 +5,7 @@
 		{
 			"nodeId": 0,
 			"personaje": "Monologo",
-			"text": "Oigo un pequeño crujido al final de la sala.",
+			"text": "Oigo un pequeño crujido\nal final de la sala.",
 			"nextNodeId": 1
 		},
 		{
@@ -17,7 +17,7 @@
 		{
 			"nodeId": 2,
 			"personaje": "Monologo",
-		"text": "Ya no quiero ver más estas imágenes.",
+		"text": "No puedo esperar a salir de aquí.",
 			"nextNodeId": -1
 		}
 	]

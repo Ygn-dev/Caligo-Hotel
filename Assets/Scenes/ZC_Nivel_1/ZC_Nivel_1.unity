@@ -1744,8 +1744,8 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: 0, y: -0.5}
-      - {x: -4, y: -10.5}
-      - {x: 4, y: -10.5}
+      - {x: -3, y: -8.5}
+      - {x: 3, y: -8.5}
   m_UseDelaunayMesh: 1
 --- !u!1 &562114453
 GameObject:
@@ -2928,8 +2928,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: -1231417785
-  m_SortingLayer: 3
+  m_SortingLayerID: 526084475
+  m_SortingLayer: 2
   m_SortingOrder: 2
   m_MaskInteraction: 0
   m_Sprite: {fileID: 0}
@@ -3837,8 +3837,8 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: 0, y: -0.5}
-      - {x: -3, y: -9}
-      - {x: 3, y: -9}
+      - {x: -2, y: -7}
+      - {x: 2, y: -7}
   m_UseDelaunayMesh: 1
 --- !u!4 &1448938380 stripped
 Transform:
@@ -8880,16 +8880,6 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: -6, y: 3, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 23
-      m_TileSpriteIndex: 23
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
   - first: {x: 3, y: 3, z: 0}
     second:
       serializedVersion: 2
@@ -9002,7 +8992,7 @@ Tilemap:
     m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 319ea72801501ff4b98252918d11e834, type: 2}
   - serializedVersion: 2
-    m_RefCount: 1
+    m_RefCount: 0
     m_Data: {fileID: 11400000, guid: 611a86df93fcd9d4893ddcd20ef28085, type: 2}
   m_TileSpriteArray:
   - serializedVersion: 2
@@ -9075,11 +9065,11 @@ Tilemap:
     m_RefCount: 1
     m_Data: {fileID: 1163068944, guid: c18e99db1e2ece640b51b9f48326ca39, type: 3}
   - serializedVersion: 2
-    m_RefCount: 1
+    m_RefCount: 0
     m_Data: {fileID: -4279969421728809087, guid: 234a761dfd5a7fd478d3a29bc6e285c9, type: 3}
   m_TileMatrixArray:
   - serializedVersion: 2
-    m_RefCount: 47
+    m_RefCount: 46
     m_Data:
       e00: 1
       e01: 0
@@ -9175,7 +9165,7 @@ Tilemap:
       e33: 1
   m_TileColorArray:
   - serializedVersion: 2
-    m_RefCount: 52
+    m_RefCount: 51
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1

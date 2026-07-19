@@ -524,15 +524,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2782740314839246527, guid: c3f865ca684f38446908ec911187ac35, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].x
-      value: -3
+      value: -2.5
       objectReference: {fileID: 0}
     - target: {fileID: 2782740314839246527, guid: c3f865ca684f38446908ec911187ac35, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].y
-      value: -10.5
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 2782740314839246527, guid: c3f865ca684f38446908ec911187ac35, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].x
-      value: 3
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2782740314839246527, guid: c3f865ca684f38446908ec911187ac35, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].y
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 8122695665693546141, guid: c3f865ca684f38446908ec911187ac35, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4989,7 +4993,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2782740314839246527, guid: c3f865ca684f38446908ec911187ac35, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].y
-      value: -8
+      value: -7.5
       objectReference: {fileID: 0}
     - target: {fileID: 2782740314839246527, guid: c3f865ca684f38446908ec911187ac35, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].x
@@ -4997,7 +5001,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2782740314839246527, guid: c3f865ca684f38446908ec911187ac35, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].y
-      value: -8
+      value: -7.5
       objectReference: {fileID: 0}
     - target: {fileID: 8122695665693546141, guid: c3f865ca684f38446908ec911187ac35, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5053,11 +5057,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8320784759246014821, guid: c3f865ca684f38446908ec911187ac35, type: 3}
       propertyPath: m_PointLightInnerAngle
-      value: 55
+      value: 65
       objectReference: {fileID: 0}
     - target: {fileID: 8320784759246014821, guid: c3f865ca684f38446908ec911187ac35, type: 3}
       propertyPath: m_PointLightOuterAngle
-      value: 75
+      value: 85
       objectReference: {fileID: 0}
     - target: {fileID: 8320784759246014821, guid: c3f865ca684f38446908ec911187ac35, type: 3}
       propertyPath: m_PointLightInnerRadius
