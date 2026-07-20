@@ -5,88 +5,101 @@
 		{
 			"nodeId": 0,
 			"personaje": "Monologo",
-			"text": "De cerca...\nesa sonrisa empeora la migraña.",
+			"text": "De cerca su sonrisa\nempeora la migraña.",
 			"nextNodeId": 1
-		},{
+		},
+		{
 			"nodeId": 1,
-			"personaje": "Personaje",
-			"text": "Ehm... Disculpe-",
+			"personaje": "Monologo2",
+			"text": "Prefiero hablar con el gato.",
 			"nextNodeId": 2
 		},
 		{
 			"nodeId": 2,
-			"personaje": "Recepcionista",
-			"text": "¡Caballero!\nGracias por su paciencia.",
+			"personaje": "Personaje",
+			"text": "Ehm... Disculpe-",
 			"nextNodeId": 3
 		},
 		{
 			"nodeId": 3,
 			"personaje": "Recepcionista",
-			"text": "La suite está más que lista.\nSus pertenencias le esperan.",
+			"text": "¡Caballero!\nGracias por su paciencia.",
 			"nextNodeId": 4
 		},
 		{
 			"nodeId": 4,
-			"personaje": "Monologo",
-			"text": "¿Mis PERTENENCIAS?\nDormí demasiado.",
+			"personaje": "Recepcionista",
+			"text": "La suite está lista.\nSus pertenencias le esperan.",
 			"nextNodeId": 5
 		},
 		{
 			"nodeId": 5,
-			"personaje": "Recepcionista",
-			"text": "Aquí está su LLAVE.\n¡Que disfru-",
+			"personaje": "Monologo",
+			"text": "¿Mis PERTENENCIAS?\nDormí demasiado.",
 			"nextNodeId": 6
 		},
 		{
 			"nodeId": 6,
-			"personaje": "Personaje",
-			"text": "Espere.",
+			"personaje": "Recepcionista",
+			"text": "Aquí está su LLAVE.\n¡Que disfrute su-",
 			"nextNodeId": 7
 		},
 		{
 			"nodeId": 7,
-			"personaje": "Recepcionista",
-			"text": "¿Algo más, señor?.\nDígame. Encantado de ayudarle.",
+			"personaje": "Personaje",
+			"text": "Espere.",
 			"nextNodeId": 8
 		},
 		{
 			"nodeId": 8,
-			"personaje": "Monologo",
-			"text": "Apenas puedo pensar bien.\nAún sigo mareado.",
+			"personaje": "Recepcionista",
+			"text": "¿Algo más, señor?.\nDígame. Encantado de ayudarle.",
 			"nextNodeId": 9
 		},
 		{
 			"nodeId": 9,
-			"personaje": "Personaje",
-			"text": "Nada. Solo estoy algo cansado.",
+			"personaje": "Monologo",
+			"text": "Dos pares de ojos me observan.",
 			"nextNodeId": 10
 		},
 		{
 			"nodeId": 10,
-			"personaje": "Monologo",
-			"text": "Recibí la *LLAVE DE LA SUITE*.",
+			"personaje": "Monologo2",
+			"text": "Apenas puedo pensar bien.\nAún sigo mareado.",
 			"nextNodeId": 11
 		},
 		{
+			"nodeId": 11,
+			"personaje": "Personaje",
+			"text": "Nada... Solo estoy algo cansado.",
+			"nextNodeId": 12
+		},
+		{
 			"nodeId": 12,
-			"personaje": "Recepcionista",
-			"text": "Suba las escaleras, caballero.\nVerá su puerta al medio del pasillo.",
+			"personaje": "Monologo",
+			"text": "Recibí la *LLAVE DE LA SUITE*.",
 			"nextNodeId": 13
 		},
 		{
 			"nodeId": 13,
 			"personaje": "Recepcionista",
-			"text": "¡Y que disfrute su estadía!",
+			"text": "Suba las escaleras, caballero.\nVerá su puerta a mitad del pasillo.",
 			"nextNodeId": 14
 		},
 		{
 			"nodeId": 14,
-			"personaje": "Personaje",
-			"text": "Gracias.",
+			"personaje": "Recepcionista",
+			"text": "¡Y que disfrute su estadía!",
 			"nextNodeId": 15
 		},
 		{
 			"nodeId": 15,
+			"personaje": "Personaje",
+			"text": "Gracias.",
+			"nextNodeId": 16
+		},
+		{
+			"nodeId": 16,
 			"personaje": "Monologo",
 			"text": "Iré por mis cosas primero...\nTengo que ordenar mis ideas.",
 			"nextNodeId": -1

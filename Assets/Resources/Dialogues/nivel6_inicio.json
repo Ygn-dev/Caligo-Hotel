@@ -10,14 +10,14 @@
 		},
 		{
 			"nodeId": 1,
-			"personaje": "Monologo2",
-			"text": "Una PESADILLA.",
+			"personaje": "Personaje",
+			"text": "¡Qué pesadilla!",
 			"nextNodeId": 2
 		},
 		{
 			"nodeId": 2,
 			"personaje": "Personaje",
-			"text": "¿QUÉ es este LUGAR?",
+			"text": "¿Qué es este LUGAR?",
 			"nextNodeId": -1
 		}
 	]

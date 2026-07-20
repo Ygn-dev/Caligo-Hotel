@@ -5,7 +5,7 @@
 		{
 			"nodeId": 0,
 			"personaje": "Recepcionista",
-			"text": "Suba las escaleras, caballero.\nVerá su PUERTA al medio del pasillo.",
+			"text": "Suba las escaleras, caballero.\nVerá su PUERTA a mitad del pasillo.",
 			"nextNodeId": 1
 		},
 		{
@@ -17,7 +17,7 @@
 		{
 			"nodeId": 2,
 			"personaje": "Monologo",
-			"text": "Deje de sonreírme.",
+			"text": "Deje de sonreírme, hombre.",
 			"nextNodeId": -1
 		}
 	]

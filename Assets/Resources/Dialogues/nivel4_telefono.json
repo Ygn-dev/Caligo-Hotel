@@ -41,59 +41,65 @@
 		{
 			"nodeId": 6,
 			"personaje": "Monologo",
-			"text": "Debo preguntar con cuidado.\n\nNo recuerdo CÓMO ni CUANDO\nllegué a este lugar.",
+			"text": "Debo preguntar con cuidado.",
 			"nextNodeId": 7
 		},
 		{
 			"nodeId": 7,
-			"personaje": "Personaje",
-			"text": "Señor...\n¿Podría recordarme en qué\nfecha hice la RESERVACIÓN?",
+			"personaje": "Monologo2",
+			"text": "No recuerdo CÓMO ni CUÁNDO llegué a este lugar.",
 			"nextNodeId": 8
 		},
 		{
 			"nodeId": 8,
-			"personaje": "Recepcionista",
-			"text": "Caballero...",
+			"personaje": "Personaje",
+			"text": "Señor...\n¿Podría recordarme en qué\nfecha hice la RESERVACIÓN?",
 			"nextNodeId": 9
 		},
 		{
 			"nodeId": 9,
 			"personaje": "Recepcionista",
-			"text": "Estaré contento de resolver sus DUDAS\nsi se acerca a la RECEPCIÓN.",
+			"text": "Caballero...",
 			"nextNodeId": 10
 		},
 		{
 			"nodeId": 10,
-			"personaje": "Monologo",
-			"text": "Por alguna razón,\nsé que lo dijo sonriendo.",
+			"personaje": "Recepcionista",
+			"text": "Estaré contento de resolver sus DUDAS\nsi se acerca a la RECEPCIÓN.",
 			"nextNodeId": 11
 		},
 		{
 			"nodeId": 11,
-			"personaje": "Recepcionista",
-			"text": "Pero antes,\nya ha terminado la EXHIBICIÓN.",
+			"personaje": "Monologo",
+			"text": "Por alguna razón,\nsé que lo dijo sonriendo.",
 			"nextNodeId": 12
 		},
 		{
 			"nodeId": 12,
 			"personaje": "Recepcionista",
-			"text": "No olvide dejar vacías\nlas paredes de la GALERÍA.",
+			"text": "Pero antes,\nya ha terminado la EXHIBICIÓN.",
 			"nextNodeId": 13
 		},
 		{
 			"nodeId": 13,
-			"personaje": "Personaje",
-			"text": "NO-",
+			"personaje": "Recepcionista",
+			"text": "No olvide dejar vacías\nlas paredes de la GALERÍA.",
 			"nextNodeId": 14
 		},
 		{
 			"nodeId": 14,
-			"personaje": "Monologo",
-			"text": "No cortes.",
+			"personaje": "Personaje",
+			"text": "NO-",
 			"nextNodeId": 15
 		},
 		{
 			"nodeId": 15,
+			"personaje": "Monologo",
+			"text": "No cortes.",
+			"nextNodeId": 16
+		},
+		{
+			"nodeId": 16,
 			"personaje": "Monologo2",
 			"text": "¿GALERÍA? ¿EXHIBICIÓN de quién?\n¿Qué está pasando?",
 			"nextNodeId": -1

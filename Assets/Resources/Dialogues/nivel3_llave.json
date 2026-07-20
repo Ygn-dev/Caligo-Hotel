@@ -29,13 +29,19 @@
 		{
 			"nodeId": 4,
 			"personaje": "Monologo2",
-			"text": "Me siento un poco mejor, pero-",
+			"text": "Necesito tomar un poco de aire, pero...",
 			"nextNodeId": 5
 		},
 		{
 			"nodeId": 5,
 			"personaje": "Monologo2",
-			"text": "¿En qué momento\nme quedé dormido ahí?",
+			"text": "Aún no he visto una sola ventana.",
+			"nextNodeId": -1
+		},
+		{
+			"nodeId": 5,
+			"personaje": "Monologo2",
+			"text": "¿Cómo diablos terminé hospedado aquí?",
 			"nextNodeId": -1
 		}
 	]

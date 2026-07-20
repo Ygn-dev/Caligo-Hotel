@@ -22,7 +22,7 @@
 		},
 		{
 			"nodeId": 3,
-			"personaje": "Recepcionista",
+			"personaje": "Personaje",
 			"text": "NO. Eso no.",
 			"nextNodeId": 4
 		},

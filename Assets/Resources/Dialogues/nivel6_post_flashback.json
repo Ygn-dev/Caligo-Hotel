@@ -5,7 +5,7 @@
 		{
 			"nodeId": 0,
 			"personaje": "Monologo",
-			"text": "Una cascada violenta\nestalla contra mi mente.",
+			"text": "Una violenta cascada de imágenes\ninunda mi mente.",
 			"nextNodeId": 1
 		},
 		{
@@ -17,19 +17,31 @@
 		{
 			"nodeId": 2,
 			"personaje": "Monologo",
-			"text": "Todo se siente más confuso aún.\n\nPero a ella... a ELLA sé que la he visto.",
+			"text": "Todo se siente más confuso aún.\n\nPero a ella...",
 			"nextNodeId": 3
 		},
 		{
 			"nodeId": 3,
-			"personaje": "Personaje",
-			"text": "¿Por qué no recuerdo QUIÉN eres?",
+			"personaje": "Monologo2",
+			"text": "A ELLA sé que la he visto.",
 			"nextNodeId": 4
 		},
 		{
 			"nodeId": 4,
+			"personaje": "Personaje",
+			"text": "¿Por qué no sé QUIÉN eres?",
+			"nextNodeId": 5
+		},
+		{
+			"nodeId": 5,
 			"personaje": "Monologo",
-			"text": "Debo salir.\nNecesito algo que me ayude a RECORDAR.",
+			"text": "Debo salir.\nNecesito ayuda.",
+			"nextNodeId": 6
+		},
+		{
+			"nodeId": 6,
+			"personaje": "Monologo2",
+			"text": "¡Necesito RECORDAR!",
 			"nextNodeId": -1
 		}
 	]
