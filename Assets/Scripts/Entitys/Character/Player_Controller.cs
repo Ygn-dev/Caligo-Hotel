@@ -11,7 +11,7 @@ public class Player_Controller : MonoBehaviour
     [Header("No Editable")]
     public InputActionReference move;
     [HideInInspector] public Vector2 moveInputVector;
-    
+
     void Update()
     {
         moveInputVector = Vector4Direcciones();
