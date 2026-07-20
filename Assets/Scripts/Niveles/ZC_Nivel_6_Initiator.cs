@@ -25,6 +25,8 @@ public class ZC_Nivel_6_Initiator : MonoBehaviour
         if(cinemachineCamera == null) cinemachineCamera = FindAnyObjectByType<CinemachineCamera>();
         // Este nivel usara cinimatica, asi que se asegura de que el Cinematic Manager exista en la escena
         if (Cinematic_Manager.Instance == null) DevTools.SetupCinematicManager();
+        //este nivel usara el sistema de dialogos asi que se debe llamar
+        if(Dialogue_Manager.Instance == null) DevTools.SetupDialogueManager();
     }
 
     void Start()
@@ -72,6 +74,7 @@ public class ZC_Nivel_6_Initiator : MonoBehaviour
         llave.SetActive(false);
 
         yield return Cinematic_Manager.Instance.PlayCinematic("Flashback_Cinematic");
+        yield return StartCoroutine(Dialogue_Manager.Instance.StartDialogueCoroutine("nivel6_post_flashback", 6));
 
         inputActions.FindActionMap("Gameplay").Enable();
     }
