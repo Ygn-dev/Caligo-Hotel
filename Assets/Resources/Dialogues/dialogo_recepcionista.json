@@ -7,7 +7,8 @@
 			"personaje": "Monologo",
 			"text": "De cerca...\nesa sonrisa empeora la migraña.",
 			"nextNodeId": 1
-		},{
+		},
+		{
 			"nodeId": 1,
 			"personaje": "Personaje",
 			"text": "Ehm... Disculpe-",
