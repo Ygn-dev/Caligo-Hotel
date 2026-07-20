@@ -5,6 +5,7 @@ using System.Collections;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class MenuPausaSystem : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class MenuPausaSystem : MonoBehaviour
     private DepthOfField dof;
     private bool haySubPantallaActiva = false;
     private GameObject subPantallaActual;
+    public GameObject primerBotonPausa;
 
     void Start()
     {
@@ -130,20 +132,29 @@ public class MenuPausaSystem : MonoBehaviour
     private IEnumerator Pausa()
     {
         SoundFX_Manager.Instance.PlaySound(SoundType.PAUSE);
-        Time.timeScale = 0;
         ActionMapGameplay.Disable();
-        MenuPausa.transform.SetAsLastSibling();
-        yield return StartCoroutine(Animar(new Vector3(0f, 0f, 0f), 140f, 225f, 0f, duracionAparicion));
         ActionMapUI.Enable();
-        yield return null;
+
+        Time.timeScale = 0;
+        MenuPausa.transform.SetAsLastSibling();
+
+        if (EventSystem.current != null)
+        {
+            EventSystem.current.SetSelectedGameObject(null); // Limpia foco previo
+            if (primerBotonPausa != null)
+            {
+                EventSystem.current.SetSelectedGameObject(primerBotonPausa);
+            }
+        }
+        yield return StartCoroutine(Animar(new Vector3(0f, 0f, 0f), 140f, 225f, 0f, duracionAparicion));
     }
 
     private IEnumerator Reanudar()
     {
         ActionMapUI.Disable();
         yield return StartCoroutine(Animar(new Vector3(0f, 1500f, 0f), 10f, 0f, 1f, duracionAparicion));
-        ActionMapGameplay.Enable();
         Time.timeScale = 1;
+        ActionMapGameplay.Enable();
         yield return null;
     }
 
