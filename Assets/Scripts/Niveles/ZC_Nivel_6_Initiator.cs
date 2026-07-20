@@ -6,14 +6,13 @@ using UnityEngine.InputSystem;
 public class ZC_Nivel_6_Initiator : MonoBehaviour
 {
     [Header("La parte editable está en su Scriptable Object")]
-
+    
     [Space]
     [Header("No Editable")]
     public InputActionAsset inputActions;
     public ScriptableObject levelData;
 
     public GameObject llave;
-    //public GameObject trigger;
 
     private GameObject character;
     private Level_Data_Base nivelData;
@@ -23,11 +22,11 @@ public class ZC_Nivel_6_Initiator : MonoBehaviour
     {
         inputActions.Disable();
         nivelData = (Level_Data_Base)levelData;
-        if (cinemachineCamera == null) cinemachineCamera = FindAnyObjectByType<CinemachineCamera>();
+        if(cinemachineCamera == null) cinemachineCamera = FindAnyObjectByType<CinemachineCamera>();
         // Este nivel usara cinimatica, asi que se asegura de que el Cinematic Manager exista en la escena
         if (Cinematic_Manager.Instance == null) DevTools.SetupCinematicManager();
         //este nivel usara el sistema de dialogos asi que se debe llamar
-        if (Dialogue_Manager.Instance == null) DevTools.SetupDialogueManager();
+        if(Dialogue_Manager.Instance == null) DevTools.SetupDialogueManager();
     }
 
     void Start()
@@ -46,7 +45,7 @@ public class ZC_Nivel_6_Initiator : MonoBehaviour
 
         GameObject sistemaPausaPrefab = Resources.Load<GameObject>("Prefabs/UI/CanvasPausa");
         GameObject canvasInstanciado = MenuPausaSystem.InicializarSistemas(sistemaPausaPrefab);
-
+        
         //Completar Fade de Carga
         yield return StartCoroutine(Game_Loader_Manager.Instance.CompleteLoadScene());
 
@@ -75,6 +74,7 @@ public class ZC_Nivel_6_Initiator : MonoBehaviour
         llave.SetActive(false);
 
         yield return Cinematic_Manager.Instance.PlayCinematic("Flashback_Cinematic");
+        yield return StartCoroutine(Dialogue_Manager.Instance.StartDialogueCoroutine("nivel6_post_flashback", 6));
 
         inputActions.FindActionMap("Gameplay").Enable();
     }

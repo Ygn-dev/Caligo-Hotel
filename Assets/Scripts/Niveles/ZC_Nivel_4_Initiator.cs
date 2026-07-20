@@ -2,6 +2,7 @@ using UnityEngine;
 using Unity.Cinemachine;
 using System.Collections;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering.Universal;
 
 public class ZC_Nivel_4_Initiator : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public class ZC_Nivel_4_Initiator : MonoBehaviour
     public GameObject cuadro1;
     public GameObject cuadro2;
     public GameObject cuadro3;
+    public GameObject[] luces;
+
+
 
     private GameObject character;
     private Level_Data_Base nivelData;
@@ -117,6 +121,14 @@ public class ZC_Nivel_4_Initiator : MonoBehaviour
         {
             SoundFX_Manager.Instance.PlaySound(SoundType.PALANCA);
             Save_Manager.Instance.data.puedeAbrirPuertaZC4 = true;
+            
+            //apagar camaras
+            for(int i = 0; i < luces.Length; i++)
+            {
+                luces[i].SetActive(false);
+            }
+
+            yield return StartCoroutine(Dialogue_Manager.Instance.StartDialogueCoroutine("nivel4_puerta",6));
         }
 
         Save_Manager.Instance.SaveData();
