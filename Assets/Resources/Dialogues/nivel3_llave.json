@@ -36,10 +36,10 @@
 			"nodeId": 5,
 			"personaje": "Monologo2",
 			"text": "Aún no he visto una sola ventana.",
-			"nextNodeId": -1
+			"nextNodeId": 6
 		},
 		{
-			"nodeId": 5,
+			"nodeId": 6,
 			"personaje": "Monologo2",
 			"text": "¿Cómo diablos terminé hospedado aquí?",
 			"nextNodeId": -1

@@ -17,7 +17,7 @@
 		{
 			"nodeId": 2,
 			"personaje": "Monologo",
-			"text": "Una voz suave,\na través de mucha interferencia.\nQuizá alguién olvidó colgar antes.",
+			"text": "Una voz suave,\na través de mucha interferencia.\n\nQuizá alguién olvidó colgar antes.",
 			"nextNodeId": 3
 		},
 		{
