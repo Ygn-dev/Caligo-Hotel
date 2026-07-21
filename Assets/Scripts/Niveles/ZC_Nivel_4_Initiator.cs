@@ -84,12 +84,22 @@ public class ZC_Nivel_4_Initiator : MonoBehaviour
 
     public void ContestarTelefono()
     {
-        if(Save_Manager.Instance.data.habloPorTelefonoZC4) return;
-
         audioSource.Stop();
-        Save_Manager.Instance.data.habloPorTelefonoZC4 = true;
-        Save_Manager.Instance.SaveData();
-        Dialogue_Manager.Instance.StartDialogue("nivel4_telefono",8);
+
+        if(!Save_Manager.Instance.data.habloPorTelefonoZC4)
+        {
+            //si no hablo
+            Save_Manager.Instance.data.habloPorTelefonoZC4 = true;
+            Save_Manager.Instance.SaveData();
+
+            Dialogue_Manager.Instance.StartDialogue("nivel4_telefono",8);
+        }
+        else
+        {
+            //si ya hablo
+            Dialogue_Manager.Instance.StartDialogue("nivel4_telefono_bucle",8);
+            return;
+        }
     }
 
     public void InteractuarPuerta()
