@@ -14863,7 +14863,6 @@ GameObject:
   - component: {fileID: 1839943854}
   - component: {fileID: 1839943853}
   - component: {fileID: 1839943852}
-  - component: {fileID: 1839943851}
   - component: {fileID: 1839943850}
   m_Layer: 0
   m_Name: Telephone (1)
@@ -14928,20 +14927,6 @@ MonoBehaviour:
           m_StringArgument: ATENDER_TELEFONO
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1839943851
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1839943848}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f9868a3b576a37418f23f7df180de9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Dialogue_Trigger_Helper
-  dialogueID: nivel4_telefono
-  zoomCamara: 8
 --- !u!114 &1839943852
 MonoBehaviour:
   m_ObjectHideFlags: 0
