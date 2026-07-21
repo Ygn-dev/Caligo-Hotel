@@ -29,7 +29,7 @@
 		{
 			"nodeId": 4,
 			"personaje": "Recepcionista",
-			"text": "Le espero en la RECEPCIÓN",
+			"text": "Le espero en la RECEPCIÓN.",
 			"nextNodeId": 5
 		},
 		{
