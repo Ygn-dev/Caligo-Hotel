@@ -69,6 +69,7 @@ public class ZC_Nivel_6_Initiator : MonoBehaviour
 
         //Detener Musica
         Music_Manager.Instance.StopMusic();
+        SoundFX_Manager.Instance.PlaySound(SoundType.COGER_LLAVE);
 
         //Desactivar la llave
         llave.SetActive(false);
