@@ -270,7 +270,7 @@ public class Dialogue_Manager : MonoBehaviour
 
         if(dialogueData.dialogueId == "dialogo_recepcionista" || dialogueData.dialogueId == "nivel3_llave") 
         {
-            if(currentNodeId == 3 || currentNodeId == 10) 
+            if(currentNodeId == 3 || currentNodeId == 12) 
             {
                 SoundFX_Manager.Instance.PlaySound(SoundType.COGER_LLAVE);
             }
