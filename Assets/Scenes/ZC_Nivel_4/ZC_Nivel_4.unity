@@ -14863,9 +14863,7 @@ GameObject:
   - component: {fileID: 1839943854}
   - component: {fileID: 1839943853}
   - component: {fileID: 1839943852}
-  - component: {fileID: 1839943851}
   - component: {fileID: 1839943850}
-  - component: {fileID: 1839943856}
   m_Layer: 0
   m_Name: Telephone (1)
   m_TagString: Untagged
@@ -14929,32 +14927,6 @@ MonoBehaviour:
           m_StringArgument: ATENDER_TELEFONO
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1839943856}
-        m_TargetAssemblyTypeName: Recepcionista_Helper, Assembly-CSharp
-        m_MethodName: TriggerDialogue
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: ATENDER_TELEFONO
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1839943851
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1839943848}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f9868a3b576a37418f23f7df180de9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Dialogue_Trigger_Helper
-  dialogueID: nivel4_telefono
-  zoomCamara: 8
 --- !u!114 &1839943852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15014,7 +14986,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.4687996, y: -0.5028753}
+  m_Offset: {x: 0.031200886, y: -0.5028753}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -15024,7 +14996,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 3.1906128, y: 3.4751282}
+  m_Size: {x: 2.1906118, y: 3.4751282}
   m_EdgeRadius: 0
 --- !u!212 &1839943855
 SpriteRenderer:
@@ -15085,21 +15057,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &1839943856
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1839943848}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 464e76a4812f58849a79301667a41f51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Recepcionista_Helper
-  dialogueID1: nivel4_telefono
-  dialogueID2: nivel4_telefono_bucle
-  zoomCamara: 8
 --- !u!1 &1885665675
 GameObject:
   m_ObjectHideFlags: 0
@@ -17584,7 +17541,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 4.8872204, y: 2.2951522}
+  m_Size: {x: 2.8872204, y: 2.2951522}
   m_EdgeRadius: 0
 --- !u!114 &2139487796
 MonoBehaviour:
