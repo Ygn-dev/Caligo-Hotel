@@ -1,0 +1,111 @@
+{
+	"dialogueId": "test_dialogo_pibble",
+	"startNode": 0,
+	"nodes": [
+		{
+			"nodeId": 0,
+			"personaje": "Monologo",
+			"textosPorIdioma": [
+				{
+					"idioma": "es",
+					"texto": "Pibble: Voy a conocer a Town!!!!"
+				},
+				{
+					"idioma": "en",
+					"texto": "Pibble: I'm going to meet Town!!!!"
+				}
+			],
+			"nextNodeId": 1
+		},
+		{
+			"nodeId": 1,
+			"personaje": "Monologo",
+			"textosPorIdioma": [
+				{
+					"idioma": "es",
+					"texto": "Pibble: Voy a conocer a Town!!!!"
+				},
+				{
+					"idioma": "en",
+					"texto": "Pibble: I'm going to meet Town!!!!"
+				}
+			],
+			"nextNodeId": 2
+		},
+		{
+			"nodeId": 2,
+			"personaje": "Monologo",
+			"textosPorIdioma": [
+				{
+					"idioma": "es",
+					"texto": "Pibble: Voy a conocer a Town!!!!"
+				},
+				{
+					"idioma": "en",
+					"texto": "Pibble: I'm going to meet Town!!!!"
+				}
+			],
+			"nextNodeId": 3
+		},
+		{
+			"nodeId": 3,
+			"personaje": "Monologo",
+			"textosPorIdioma": [
+				{
+					"idioma": "es",
+					"texto": "Town: Hola a Todos!!!!"
+				},
+				{
+					"idioma": "en",
+					"texto": "Town: Hello everyone!!!!"
+				}
+			],
+			"nextNodeId": 4
+		},
+		{
+			"nodeId": 4,
+			"personaje": "Monologo",
+			"textosPorIdioma": [
+				{
+					"idioma": "es",
+					"texto": "Town: Y Bienvenidos a Towngameplays...!"
+				},
+				{
+					"idioma": "en",
+					"texto": "Town: Welcome to Towngameplays...!"
+				}
+			],
+			"nextNodeId": 5
+		},
+		{
+			"nodeId": 5,
+			"personaje": "Monologo",
+			"textosPorIdioma": [
+				{
+					"idioma": "es",
+					"texto": "Town: Vuestro canal de Terror y Diversión..."
+				},
+				{
+					"idioma": "en",
+					"texto": "Town: Your channel of Horror and Fun..."
+				}
+			],
+			"nextNodeId": 6
+		},
+		{
+			"nodeId": 6,
+			"personaje": "Monologo",
+			"textosPorIdioma": [
+				{
+					"idioma": "es",
+					"texto": "Pibble: No puede ser... Town Soy tu fan...!"
+				},
+				{
+					"idioma": "en",
+					"texto": "Pibble: No way... Town I'm your fan...!"
+				}
+			],
+			"nextNodeId": -1
+		}
+	]
+}
