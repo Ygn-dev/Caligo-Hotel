@@ -33,4 +33,6 @@ EditorBuildSettings:
     path: Assets/Scenes/ZC_Nivel_6/ZC_Nivel_6.unity
     guid: 122c11fddf5ab1b4a982cd7e1d522b90
   m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 5f2cf89f075105b49b470d577f69f4f7, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+    com.unity.localization.settings: {fileID: 11400000, guid: e51fa0dd2d79a9247b11c0182345d8bd, type: 2}

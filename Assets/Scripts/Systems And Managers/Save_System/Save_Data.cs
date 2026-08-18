@@ -11,4 +11,5 @@ public class Save_Data
     public bool cuadro2 = false;
     public bool cuadro3 = false;
     public bool puedeAbrirPuertaZC4 = false;
+    public string idioma = "es";
 }

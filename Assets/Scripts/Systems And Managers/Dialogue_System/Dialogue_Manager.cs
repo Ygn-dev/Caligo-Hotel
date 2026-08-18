@@ -397,7 +397,7 @@ public class Dialogue_Manager : MonoBehaviour
     {
         //Datos del nodo
         string personaje = dialogueData.nodes[currentNodeId].personaje;
-        string idiomaActual = "en";
+        string idiomaActual = Save_Manager.Instance.data.idioma;
         string texto = dialogueData.nodes[currentNodeId].ObtenerTexto(idiomaActual);
 
         //TO DO

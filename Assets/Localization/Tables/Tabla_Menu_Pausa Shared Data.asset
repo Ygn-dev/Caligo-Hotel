@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Tabla_Menu_Pausa Shared Data
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.SharedTableData
+  m_TableCollectionName: Tabla_Menu_Pausa
+  m_TableCollectionNameGuidString: 843a2ea4578c3d8489c1156f3b4046f8
+  m_Entries:
+  - m_Id: 11362045657088
+    m_Key: P001
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11362045657089
+    m_Key: P002
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11362045657090
+    m_Key: P003
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11362045657091
+    m_Key: P004
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11362045657092
+    m_Key: P005
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11362045657093
+    m_Key: P006
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11362045657094
+    m_Key: P007
+    m_Metadata:
+      m_Items: []
+  - m_Id: 170617029656576
+    m_Key: 'P009
+
+'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 170868574650368
+    m_Key: P010
+    m_Metadata:
+      m_Items: []
+  - m_Id: 178691350069248
+    m_Key: P011
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 6627159413058175188
+  references:
+    version: 2
+    RefIds:
+    - rid: 6627159413058175188
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1787026860951
