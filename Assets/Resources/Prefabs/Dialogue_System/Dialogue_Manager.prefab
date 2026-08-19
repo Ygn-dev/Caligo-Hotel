@@ -113,7 +113,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   duracionAparicionRetrato: 0.15
   duracionMovimientoScroll: 0.5
-  duracionAparicionLeyenda: 1
+  duracionAparicionLeyenda: 0.8
   duracionAparicionScrollBar: 0.25
   curvaAparicionRetrato:
     serializedVersion: 2

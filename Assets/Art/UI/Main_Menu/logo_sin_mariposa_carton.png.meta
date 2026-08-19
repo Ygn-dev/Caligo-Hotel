@@ -1,0 +1,572 @@
+fileFormatVersion: 2
+guid: 3fb05a3f69243d644b0bce5b17f55226
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5339187142899930526
+    second: logo_sin_mariposa_carton_0
+  - first:
+      213: 1230291805981837651
+    second: logo_sin_mariposa_carton_1
+  - first:
+      213: 3595467951852962770
+    second: logo_sin_mariposa_carton_2
+  - first:
+      213: 3419316677957124407
+    second: logo_sin_mariposa_carton_3
+  - first:
+      213: -2955192891776638742
+    second: logo_sin_mariposa_carton_4
+  - first:
+      213: 4225372856526066341
+    second: logo_sin_mariposa_carton_5
+  - first:
+      213: -8368291409024189579
+    second: logo_sin_mariposa_carton_6
+  - first:
+      213: -3379755470307317550
+    second: logo_sin_mariposa_carton_7
+  - first:
+      213: 2498412945628832550
+    second: logo_sin_mariposa_carton_8
+  - first:
+      213: -5091229289786933467
+    second: logo_sin_mariposa_carton_9
+  - first:
+      213: -5642615628389371360
+    second: logo_sin_mariposa_carton_10
+  - first:
+      213: -6933082731255729452
+    second: logo_sin_mariposa_carton_11
+  - first:
+      213: -7469604353321432898
+    second: logo_sin_mariposa_carton_12
+  - first:
+      213: 1692832645259204725
+    second: logo_sin_mariposa_carton_13
+  - first:
+      213: -6146308571509630576
+    second: logo_sin_mariposa_carton_14
+  - first:
+      213: -5770170090813798437
+    second: logo_sin_mariposa_carton_15
+  - first:
+      213: 2930780883529130345
+    second: logo_sin_mariposa_carton_16
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: logo_sin_mariposa_carton_0
+      rect:
+        serializedVersion: 2
+        x: 499
+        y: 377
+        width: 80
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26aed1ee49567e5b0800000000000000
+      internalID: -5339187142899930526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_sin_mariposa_carton_1
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 340
+        width: 76
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3590f9111efd21110800000000000000
+      internalID: 1230291805981837651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_sin_mariposa_carton_2
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 352
+        width: 193
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d34f777d0ba5e130800000000000000
+      internalID: 3595467951852962770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_sin_mariposa_carton_3
+      rect:
+        serializedVersion: 2
+        x: 632
+        y: 352
+        width: 193
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 731043cf66ad37f20800000000000000
+      internalID: 3419316677957124407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_sin_mariposa_carton_4
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 153
+        width: 109
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae0e4e2e8bb0df6d0800000000000000
+      internalID: -2955192891776638742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_sin_mariposa_carton_5
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 158
+        width: 136
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a250dcd93a83aa30800000000000000
+      internalID: 4225372856526066341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_sin_mariposa_carton_6
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 158
+        width: 112
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57bf824fc4bdddb80800000000000000
+      internalID: -8368291409024189579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_sin_mariposa_carton_7
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 158
+        width: 63
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d826a47e42b811d0800000000000000
+      internalID: -3379755470307317550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_sin_mariposa_carton_8
+      rect:
+        serializedVersion: 2
+        x: 644
+        y: 154
+        width: 143
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 623a17e36552ca220800000000000000
+      internalID: 2498412945628832550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_sin_mariposa_carton_9
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 156
+        width: 137
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52f7f287fe15859b0800000000000000
+      internalID: -5091229289786933467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_sin_mariposa_carton_10
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 78
+        width: 86
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 022b8c95bf661b1b0800000000000000
+      internalID: -5642615628389371360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_sin_mariposa_carton_11
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 59
+        width: 56
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d27b1d2dfdb8cf90800000000000000
+      internalID: -6933082731255729452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_sin_mariposa_carton_12
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 59
+        width: 52
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb880939a62a65890800000000000000
+      internalID: -7469604353321432898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_sin_mariposa_carton_13
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 59
+        width: 48
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5781cd462562e7710800000000000000
+      internalID: 1692832645259204725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_sin_mariposa_carton_14
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 59
+        width: 48
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 099da333bece3baa0800000000000000
+      internalID: -6146308571509630576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_sin_mariposa_carton_15
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 59
+        width: 45
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd7c573cfdc3cefa0800000000000000
+      internalID: -5770170090813798437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_sin_mariposa_carton_16
+      rect:
+        serializedVersion: 2
+        x: 737
+        y: 78
+        width: 86
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96162458fa93ca820800000000000000
+      internalID: 2930780883529130345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      logo_sin_mariposa_carton_0: -5339187142899930526
+      logo_sin_mariposa_carton_1: 1230291805981837651
+      logo_sin_mariposa_carton_10: -5642615628389371360
+      logo_sin_mariposa_carton_11: -6933082731255729452
+      logo_sin_mariposa_carton_12: -7469604353321432898
+      logo_sin_mariposa_carton_13: 1692832645259204725
+      logo_sin_mariposa_carton_14: -6146308571509630576
+      logo_sin_mariposa_carton_15: -5770170090813798437
+      logo_sin_mariposa_carton_16: 2930780883529130345
+      logo_sin_mariposa_carton_2: 3595467951852962770
+      logo_sin_mariposa_carton_3: 3419316677957124407
+      logo_sin_mariposa_carton_4: -2955192891776638742
+      logo_sin_mariposa_carton_5: 4225372856526066341
+      logo_sin_mariposa_carton_6: -8368291409024189579
+      logo_sin_mariposa_carton_7: -3379755470307317550
+      logo_sin_mariposa_carton_8: 2498412945628832550
+      logo_sin_mariposa_carton_9: -5091229289786933467
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
