@@ -17,7 +17,7 @@
 		{
 			"nodeId": 2,
 			"personaje": "Monologo",
-			"text": "Una voz suave,\na través de mucha interferencia.\n\nQuizá alguién olvidó colgar antes.",
+			"text": "Una voz suave,\na través de mucha interferencia.\n\nQuizá alguien olvidó colgar antes.",
 			"nextNodeId": 3
 		},
 		{
@@ -35,7 +35,7 @@
 		{
 			"nodeId": 5,
 			"personaje": "Monologo",
-			"text": "Distingo un suspiro\na través del ruido.\nDebe trabajar aquí.\n\nLa voz más cansada del mundo.",
+			"text": "Distingo un suspiro\na través del ruido.\n\nDebe trabajar aquí.\nLa voz más cansada del mundo.",
 			"nextNodeId": 6
 		},
 		{

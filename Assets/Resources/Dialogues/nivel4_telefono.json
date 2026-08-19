@@ -47,7 +47,7 @@
 		{
 			"nodeId": 7,
 			"personaje": "Monologo2",
-			"text": "No recuerdo CÓMO ni CUÁNDO llegué a este lugar.",
+			"text": "No recuerdo CÓMO ni CUÁNDO\nllegué a este lugar.",
 			"nextNodeId": 8
 		},
 		{

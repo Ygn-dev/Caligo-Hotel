@@ -83,6 +83,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player_Respawn_Trigger
   playerRespawn: {fileID: 7078307095271022054}
+  capaParedes:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &3851179027187527990
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,8 +269,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.061556697, y: 0.90064645}
-  m_Size: {x: 1.3338735, y: 1.5330267}
+  m_Offset: {x: 0, y: 0.75}
+  m_Size: {x: 1.8, y: 1.8}
   m_Direction: 0
 --- !u!114 &5446591379806569782
 MonoBehaviour:
@@ -317,7 +320,7 @@ MonoBehaviour:
   characterTransform: {fileID: 6248925369724994488}
   spriteRenderer: {fileID: 1923287043528573702}
   DeathTrigger: {fileID: 1518395190169985094}
-  nivelData: {fileID: 0}
+  spawnPoint: {x: 0, y: 0, z: 0}
 --- !u!114 &113335022753730307
 MonoBehaviour:
   m_ObjectHideFlags: 0
