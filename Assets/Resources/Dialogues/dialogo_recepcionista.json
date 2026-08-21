@@ -5,103 +5,273 @@
 		{
 			"nodeId": 0,
 			"personaje": "Monologo",
-			"text": "De cerca, su sonrisa\nempeora la migraña.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "De cerca, su sonrisa\nempeora la migraña." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "Up close, that grin\nworsens any migraine." 
+			}
+		],
 			"nextNodeId": 1
 		},
 		{
 			"nodeId": 1,
 			"personaje": "Monologo2",
-			"text": "Prefiero hablar con el gato.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Prefiero hablar con el gato." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "I'd rather speak to the cat." 
+			}
+		],
 			"nextNodeId": 2
 		},
 		{
 			"nodeId": 2,
 			"personaje": "Personaje",
-			"text": "Ehm... Disculpe-",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Ehm... Disculpe-" 
+			},
+			{	
+				"idioma": "en",
+				"texto": "Uhm... Excuse me-" 
+			}
+		],
 			"nextNodeId": 3
 		},
 		{
 			"nodeId": 3,
 			"personaje": "Recepcionista",
-			"text": "¡Caballero!\nGracias por su paciencia.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "¡Caballero!\nGracias por su paciencia." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "Gentleman!\nThank you for your patience." 
+			}
+		],
 			"nextNodeId": 4
 		},
 		{
 			"nodeId": 4,
 			"personaje": "Recepcionista",
-			"text": "La suite está lista.\nSus pertenencias le esperan.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "La suite está lista.\nSus pertenencias le esperan." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "The suite is ready.\nYour belongings await." 
+			}
+		],
 			"nextNodeId": 5
 		},
 		{
 			"nodeId": 5,
 			"personaje": "Monologo",
-			"text": "¿Mis PERTENENCIAS?\n¿Cuánto he dormido?",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "¿Mis PERTENENCIAS?\n¿Cuánto he dormido?" 
+			},
+			{	
+				"idioma": "en",
+				"texto": "My BELONGINGS?\nHow long have I slept?" 
+			}
+		],
 			"nextNodeId": 6
 		},
 		{
 			"nodeId": 6,
 			"personaje": "Recepcionista",
-			"text": "Aquí está su LLAVE.\n¡Que disfrute su-",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Aquí está su LLAVE.\n¡Que disfrute su-" 
+			},
+			{	
+				"idioma": "en",
+				"texto": "Here is your KEY.\nEnjoy your-" 
+			}
+		],
 			"nextNodeId": 7
 		},
 		{
 			"nodeId": 7,
 			"personaje": "Personaje",
-			"text": "Espere.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Espere." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "Wait." 
+			}
+		],
 			"nextNodeId": 8
 		},
 		{
 			"nodeId": 8,
 			"personaje": "Recepcionista",
-			"text": "¿Algo más, señor?.\nDígame. Encantado de ayudarle.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "¿Algo más, señor?.\nDígame. Encantado de ayudarle." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "Anything else, sir?.\nTell me. I'm pleased to help." 
+			}
+		],
 			"nextNodeId": 9
 		},
 		{
 			"nodeId": 9,
 			"personaje": "Monologo",
-			"text": "Dos pares de ojos me observan.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Dos pares de ojos me observan." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "Both pairs of eyes gaze upon me." 
+			}
+		],
 			"nextNodeId": 10
 		},
 		{
 			"nodeId": 10,
 			"personaje": "Monologo2",
-			"text": "Apenas puedo pensar bien.\nAún sigo mareado.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Apenas puedo pensar bien.\nAún sigo mareado." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "I can barely form a thought.\nStill lightheaded." 
+			}
+		],
 			"nextNodeId": 11
 		},
 		{
 			"nodeId": 11,
 			"personaje": "Personaje",
-			"text": "Nada... Solo estoy algo cansado.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Nada... Solo estoy algo cansado." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "Nothing... I'm just a little tired." 
+			}
+		],
 			"nextNodeId": 12
 		},
 		{
 			"nodeId": 12,
 			"personaje": "Monologo",
-			"text": "Recibí la *LLAVE DE LA SUITE*.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Recibí la *LLAVE DE LA SUITE*." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "I received the *SUITE KEY*." 
+			}
+		],
 			"nextNodeId": 13
 		},
 		{
 			"nodeId": 13,
 			"personaje": "Recepcionista",
-			"text": "Suba las escaleras, caballero.\nVerá su puerta a mitad del pasillo.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Suba las escaleras, caballero.\nVerá su puerta a mitad del pasillo." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "Head upstairs, mister.\nFind the door halfway down the hall." 
+			}
+		],
 			"nextNodeId": 14
 		},
 		{
 			"nodeId": 14,
 			"personaje": "Recepcionista",
-			"text": "¡Y que disfrute su estadía!",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "¡Y que disfrute su estadía!" 
+			},
+			{	
+				"idioma": "en",
+				"texto": "And enjoy your stay!" 
+			}
+		],
 			"nextNodeId": 15
 		},
 		{
 			"nodeId": 15,
 			"personaje": "Personaje",
-			"text": "Gracias.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Gracias." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "Thank you." 
+			}
+		],
 			"nextNodeId": 16
 		},
 		{
 			"nodeId": 16,
 			"personaje": "Monologo",
-			"text": "Iré por mis cosas primero...\nTengo que ordenar mis ideas.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Iré por mis cosas primero...\nTengo que ordenar mis ideas." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "I'll go and get my things first…\nI need to get my mind in order. " 
+			}
+		],
 			"nextNodeId": -1
 		}
 	]

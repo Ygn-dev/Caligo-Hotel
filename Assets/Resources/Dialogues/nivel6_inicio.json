@@ -5,19 +5,49 @@
 		{
 			"nodeId": 0,
 			"personaje": "Monologo",
-			"text": "Se me escapa el alma.\nMi cabeza late con fuerza.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Se me escapa el alma.\nMi cabeza late con fuerza." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "I feel my soul slipping away.\nMy head is throbbing." 
+			}
+		],
 			"nextNodeId": 1
 		},
 		{
 			"nodeId": 1,
 			"personaje": "Personaje",
-			"text": "¡Qué pesadilla!",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "¡Qué pesadilla!" 
+			},
+			{	
+				"idioma": "en",
+				"texto": "This is a nightmare!" 
+			}
+		],
 			"nextNodeId": 2
 		},
 		{
 			"nodeId": 2,
 			"personaje": "Personaje",
-			"text": "¿Qué es este LUGAR?",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "¿Qué es este lugar?" 
+			},
+			{	
+				"idioma": "en",
+				"texto": "What is this place?" 
+			}
+		],
 			"nextNodeId": -1
 		}
 	]

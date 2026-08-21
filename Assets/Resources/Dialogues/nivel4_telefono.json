@@ -5,103 +5,273 @@
 		{
 			"nodeId": 0,
 			"personaje": "Personaje",
-			"text": "¿Aló? ¿Señorita?",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "¿Aló? ¿Señorita?" 
+			},
+			{	
+				"idioma": "en",
+				"texto": "Hello? Lady?" 
+			}
+		],
 			"nextNodeId": 1
 		},
 		{
 			"nodeId": 1,
 			"personaje": "Recepcionista",
-			"text": "¡Caballero! ¿Cómo le fue?\nEspero que haya sido una gran noche.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "¡Caballero! ¿Cómo le fue?\nEspero que haya sido una gran noche." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "Gentleman! How did it go?\nI hope you've had a wonderful night." 
+			}
+		],
 			"nextNodeId": 2
 		},
 		{
 			"nodeId": 2,
 			"personaje": "Personaje",
-			"text": "Ah. Es usted.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Ah. Es usted." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "Oh. It is you." 
+			}
+		],
 			"nextNodeId": 3
 		},
 		{
 			"nodeId": 3,
 			"personaje": "Personaje",
-			"text": "No realmente.\nNecesito preguntarle algo, pero-",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "No realmente.\nNecesito preguntarle algo, pero-" 
+			},
+			{	
+				"idioma": "en",
+				"texto": "Not quite.\nI have a question for you, but-" 
+			}
+		],
 			"nextNodeId": 4
 		},
 		{
 			"nodeId": 4,
 			"personaje": "Recepcionista",
-			"text": "Estoy a su servicio. Pregunte.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Estoy a su servicio. Pregunte." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "I am at your service. Ask away." 
+			}
+		],
 			"nextNodeId": 5
 		},
 		{
 			"nodeId": 5,
 			"personaje": "Personaje",
-			"text": "Hablé con una mujer, y...\nEspere.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Hablé con una mujer, y...\nEspere." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "I spoke to a woman earlier, and...\nWait." 
+			}
+		],
 			"nextNodeId": 6
 		},
 		{
 			"nodeId": 6,
 			"personaje": "Monologo",
-			"text": "Debo preguntar con cuidado.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Debo preguntar con cuidado." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "I should ask carefully." 
+			}
+		],
 			"nextNodeId": 7
 		},
 		{
 			"nodeId": 7,
 			"personaje": "Monologo2",
-			"text": "No recuerdo CÓMO ni CUÁNDO\nllegué a este lugar.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "No recuerdo CÓMO ni CUÁNDO\nllegué a este lugar." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "I do not recall HOW or WHEN\nI arrived at this place." 
+			}
+		],
 			"nextNodeId": 8
 		},
 		{
 			"nodeId": 8,
 			"personaje": "Personaje",
-			"text": "Señor...\n¿Podría recordarme en qué\nfecha hice la RESERVACIÓN?",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Señor...\n¿Podría recordarme en qué\nfecha hice la RESERVACIÓN." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "Sir...\nWould you remind me\nthe date I made the RESERVATION?" 
+			}
+		],
 			"nextNodeId": 9
 		},
 		{
 			"nodeId": 9,
 			"personaje": "Recepcionista",
-			"text": "Caballero...",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Caballero..." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "Gentleman..." 
+			}
+		],
 			"nextNodeId": 10
 		},
 		{
 			"nodeId": 10,
 			"personaje": "Recepcionista",
-			"text": "Estaré contento de resolver sus DUDAS\nsi se acerca a la RECEPCIÓN.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Estaré contento de resolver sus DUDAS\nsi se acerca a la RECEPCIÓN. " 
+			},
+			{	
+				"idioma": "en",
+				"texto": "I'll be glad to answer your questions\nwhen you approach the LOBBY." 
+			}
+		],
 			"nextNodeId": 11
 		},
 		{
 			"nodeId": 11,
 			"personaje": "Monologo",
-			"text": "Por alguna razón,\nsé que lo dijo sonriendo.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Por alguna razón,\nsé que lo dijo sonriendo." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "For some reason,\nI know he said it with a smile. " 
+			}
+		],
 			"nextNodeId": 12
 		},
 		{
 			"nodeId": 12,
 			"personaje": "Recepcionista",
-			"text": "Pero antes,\nya ha terminado la EXHIBICIÓN.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Pero antes,\nya ha terminado la EXHIBICIÓN." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "But first,\nthe EXHIBITION is over." 
+			}
+		],
 			"nextNodeId": 13
 		},
 		{
 			"nodeId": 13,
 			"personaje": "Recepcionista",
-			"text": "No olvide dejar vacías\nlas paredes de la GALERÍA.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "No olvide DEJAR VACÍAS\nLAS PAREDES de la GALERÍA." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "Do not forget to EMPTY THE WALLS in the GALLERY." 
+			}
+		],
 			"nextNodeId": 14
 		},
 		{
 			"nodeId": 14,
 			"personaje": "Personaje",
-			"text": "NO-",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "NO-" 
+			},
+			{	
+				"idioma": "en",
+				"texto": "But first,\nDON'T-" 
+			}
+		],
 			"nextNodeId": 15
 		},
 		{
 			"nodeId": 15,
 			"personaje": "Monologo",
-			"text": "No cortes.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "No cortes." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "Don't hang up." 
+			}
+		],
 			"nextNodeId": 16
 		},
 		{
 			"nodeId": 16,
 			"personaje": "Monologo2",
-			"text": "¿GALERÍA? ¿EXHIBICIÓN de quién?\n¿Qué está pasando?",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "¿GALERÍA? ¿EXHIBICIÓN de quién?\n¿Qué está pasando?" 
+			},
+			{	
+				"idioma": "en",
+				"texto": "GALLERY? Whose EXHIBITION?\nWhat is happening?" 
+			}
+		],
 			"nextNodeId": -1
 		}
 	]

@@ -5,19 +5,49 @@
 		{
 			"nodeId": 0,
 			"personaje": "Personaje",
-			"text": "¡Cerrada!",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "¡Cerrada!" 
+			},
+			{	
+				"idioma": "en",
+				"texto": "Closed!" 
+			}
+		],
 			"nextNodeId": 1
 		},
 		{
 			"nodeId": 1,
 			"personaje": "Monologo",
-			"text": "Pero si hay una PUERTA,\nhay una LLAVE.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Pero si hay una PUERTA,\nhay una LLAVE." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "But for every DOOR,\nthere's a KEY." 
+			}
+		],
 			"nextNodeId": 2
 		},
 		{
 			"nodeId": 2,
 			"personaje": "Monologo2",
-			"text": "Aunque no veo ninguna\nen ESTA habitación.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Aunque no veo ninguna\nen ESTA habitación." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "Although i don't see one\nin THIS room. " 
+			}
+		],
 			"nextNodeId": -1
 		}
 	]

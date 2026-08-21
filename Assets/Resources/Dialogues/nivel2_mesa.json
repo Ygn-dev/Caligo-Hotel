@@ -5,13 +5,33 @@
 		{
 			"nodeId": 0,
 			"personaje": "Monologo",
-			"text": "Esto es ABSURDO.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Esto es ABSURDO." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "This is ABSURD." 
+			}
+		],
 			"nextNodeId": 1
 		},
 		{
 			"nodeId": 1,
 			"personaje": "Monologo2",
-		"text": "No se imagina la QUEJA\nque voy a presentar.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "No se imagina la QUEJA\nque voy a presentar." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "You don't know the COMPLAINT\nI'm filing after this." 
+			}
+		],
 			"nextNodeId": -1
 		}
 	]

@@ -5,13 +5,33 @@
 		{
 			"nodeId": 0,
 			"personaje": "Personaje",
-			"text": "¿Cámaras?",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "¿Cámaras?" 
+			},
+			{	
+				"idioma": "en",
+				"texto": "Cameras?" 
+			}
+		],
 			"nextNodeId": 1
 		},
 		{
 			"nodeId": 1,
 			"personaje": "Monologo",
-			"text": "¿Qué clase de habitación es esta?",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "¿Qué clase de habitación es esta?" 
+			},
+			{	
+				"idioma": "en",
+				"texto": "What kind of room is this?" 
+			}
+		],
 			"nextNodeId": -1
 		}
 	]

@@ -5,43 +5,113 @@
 		{
 			"nodeId": 0,
 			"personaje": "Personaje",
-			"text": "AL FIN.\nCómo me hacen perder el tiempo.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "AL FIN.\nCómo me hacen perder el tiempo." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "Finally!\nWhat a waste of my time." 
+			}
+		],
 			"nextNodeId": 1
 		},
 		{
 			"nodeId": 1,
 			"personaje": "Monologo",
-			"text": "Uhm... Juraría reconocer el diseño\npero se ve tan gastada.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Uhm... Juraría reconocer el diseño!\npero se ve tan gastada." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "Uhm… I could swear I know the\ndesign, but it looks so worn out." 
+			}
+		],
 			"nextNodeId": 2
 		},
 		{
 			"nodeId": 2,
 			"personaje": "Personaje",
-			"text": "Qué raro.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Qué raro." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "How strange." 
+			}
+		],
 			"nextNodeId": 3
 		},
 		{
 			"nodeId": 3,
 			"personaje": "Monologo",
-			"text": "Guardé la *LLAVE DE LA GALERÍA*",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Guardé la *LLAVE DE LA GALERÍA*." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "I stored the *GALLERY KEY*." 
+			}
+		],
 			"nextNodeId": 4
 		},
 		{
 			"nodeId": 4,
 			"personaje": "Monologo2",
-			"text": "Necesito tomar un poco de aire, pero...",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Necesito tomar un poco de aire, pero..." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "I need some fresh air, but..." 
+			}
+		],
 			"nextNodeId": 5
 		},
 		{
 			"nodeId": 5,
 			"personaje": "Monologo2",
-			"text": "Aún no he visto una sola ventana.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Aún no he visto una sola ventana." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "I have not seen a single window yet." 
+			}
+		],
 			"nextNodeId": 6
 		},
 		{
 			"nodeId": 6,
 			"personaje": "Monologo2",
-			"text": "¿Cómo diablos terminé hospedado aquí?",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "¿Cómo diablos terminé hospedado aquí?" 
+			},
+			{	
+				"idioma": "en",
+				"texto": "How the hell\ndid I end up staying here?" 
+			}
+		],
 			"nextNodeId": -1
 		}
 	]

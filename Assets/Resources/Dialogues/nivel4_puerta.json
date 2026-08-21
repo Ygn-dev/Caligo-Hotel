@@ -5,19 +5,49 @@
 		{
 			"nodeId": 0,
 			"personaje": "Monologo",
-			"text": "Oigo un pequeño crujido\nal final de la sala.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Oigo un pequeño crujido\nal final de la sala." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "I hear a small creaking sound\nat the end of the room." 
+			}
+		],
 			"nextNodeId": 1
 		},
 		{
 			"nodeId": 1,
 			"personaje": "Personaje",
-		"text": "La puerta.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "La puerta." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "The door." 
+			}
+		],
 			"nextNodeId": 2
 		},
 		{
 			"nodeId": 2,
 			"personaje": "Monologo",
-		"text": "No puedo esperar a salir de aquí.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "No puedo esperar a salir de aquí." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "I can't wait to leave this place." 
+			}
+		],
 			"nextNodeId": -1
 		}
 	]

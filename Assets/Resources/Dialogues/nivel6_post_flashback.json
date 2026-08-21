@@ -5,43 +5,113 @@
 		{
 			"nodeId": 0,
 			"personaje": "Monologo",
-			"text": "Una violenta cascada de imágenes\ninunda mi mente.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Una violenta cascada de imágenes\ninunda mi mente." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "A violent wave of images\nfloods my mind." 
+			}
+		],
 			"nextNodeId": 1
 		},
 		{
 			"nodeId": 1,
 			"personaje": "Personaje",
-			"text": "¿Ese hombre era YO?",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "¿Ese hombre era YO?" 
+			},
+			{	
+				"idioma": "en",
+				"texto": "Was that man ME?" 
+			}
+		],
 			"nextNodeId": 2
 		},
 		{
 			"nodeId": 2,
 			"personaje": "Monologo",
-			"text": "Todo se siente más confuso aún.\n\nPero a ella...",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Todo se siente más confuso aún.\n\nPero a ella..." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "Everything gets even more confusing.\n\nBut her..." 
+			}
+		],
 			"nextNodeId": 3
 		},
 		{
 			"nodeId": 3,
 			"personaje": "Monologo2",
-			"text": "A ELLA sé que la he visto.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "A ELLA sé que la he visto." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "I know I've seen HER." 
+			}
+		],
 			"nextNodeId": 4
 		},
 		{
 			"nodeId": 4,
 			"personaje": "Personaje",
-			"text": "¿Por qué no sé QUIÉN eres?",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "¿Por qué no sé QUIÉN eres?" 
+			},
+			{	
+				"idioma": "en",
+				"texto": "Why don't I know WHO you are?" 
+			}
+		],
 			"nextNodeId": 5
 		},
 		{
 			"nodeId": 5,
 			"personaje": "Monologo",
-			"text": "Debo salir.\nNecesito ayuda.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Debo salir.\nNecesito ayuda." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "I must get out.\nI need help." 
+			}
+		],
 			"nextNodeId": 6
 		},
 		{
 			"nodeId": 6,
 			"personaje": "Monologo2",
-			"text": "¡Necesito RECORDAR!",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "¡Necesito RECORDAR!" 
+			},
+			{	
+				"idioma": "en",
+				"texto": "I need to REMEMBER!" 
+			}
+		],
 			"nextNodeId": -1
 		}
 	]

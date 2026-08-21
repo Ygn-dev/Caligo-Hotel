@@ -5,19 +5,51 @@
 		{
 			"nodeId": 0,
 			"personaje": "Personaje",
-			"text": "Ay... Mi cabeza...", 
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Ay... Mi cabeza..." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "OOww... My head... " 
+			}
+		],
 			"nextNodeId": 1
 		},
+		
 		{
 			"nodeId": 1,
 			"personaje": "Monologo",
-			"text": "Todo me da vueltas.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Todo me da vueltas." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "Everything is spinning." 
+			}
+		],
 			"nextNodeId": 2
 		},
+
 		{
 			"nodeId": 2,
 			"personaje": "Monologo2",
-			"text": "Debo haberme quedado dormido.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Debo haberme quedado dormido." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "I must have fallen asleep." 
+			}
+		],			
 			"nextNodeId": -1
 		}
 	]

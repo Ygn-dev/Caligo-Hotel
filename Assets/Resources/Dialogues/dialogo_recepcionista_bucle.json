@@ -5,19 +5,49 @@
 		{
 			"nodeId": 0,
 			"personaje": "Recepcionista",
-			"text": "Suba las escaleras, caballero.\nVerá su PUERTA a mitad del pasillo.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Suba las escaleras, caballero.\nVerá su puerta a mitad del pasillo." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "Head upstairs, mister.\nFind the door halfway down the hall." 
+			}
+		],
 			"nextNodeId": 1
 		},
 		{
 			"nodeId": 1,
 			"personaje": "Recepcionista",
-			"text": "¡Disfrute su estadía!",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "¡Y que disfrute su estadía!" 
+			},
+			{	
+				"idioma": "en",
+				"texto": "Please enjoy your stay!" 
+			}
+		],
 			"nextNodeId": 2
 		},
 		{
 			"nodeId": 2,
 			"personaje": "Monologo",
-			"text": "Deje de sonreírme, hombre.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Deje de sonreírme, hombre." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "Stop smiling at me, man." 
+			}
+		],
 			"nextNodeId": -1
 		}
 	]

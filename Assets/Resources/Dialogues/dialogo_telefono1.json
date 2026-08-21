@@ -5,139 +5,368 @@
 		{
 			"nodeId": 0,
 			"personaje": "Monologo",
-			"text": "Un teléfono.\nPero no sé cómo llamar a RECEPCIÓN.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Un teléfono.\nPero no sé cómo llamar a RECEPCIÓN." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "A telephone.\nNow, how do I dial the LOBBY?" 
+			}
+		],
 			"nextNodeId": 1
 		},
 		{
 			"nodeId": 1,
 			"personaje": "SiluetaMujer",
-			"text": "Hola…",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Hola..." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "Hello..." 
+			}
+		],
 			"nextNodeId": 2
 		},
 		{
 			"nodeId": 2,
 			"personaje": "Monologo",
-			"text": "Una voz suave,\na través de mucha interferencia.\n\nQuizá alguien olvidó colgar antes.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Una voz suave,\na través de mucha interferencia.\n\nQuizá alguien olvidó colgar antes." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "A quiet voice,\nthrough loud interference.\n\nMaybe someone forgot to hang earlier. " 
+			}
+		],
 			"nextNodeId": 3
 		},
 		{
 			"nodeId": 3,
 			"personaje": "Personaje",
-			"text": "¿Hola? ¿Quién es?",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "¿Hola? ¿Quién es?" 
+			},
+			{	
+				"idioma": "en",
+				"texto": "Hello? Who is this?" 
+			}
+		],
 			"nextNodeId": 4
 		},
 		{
 			"nodeId": 4,
 			"personaje": "SiluetaMujer",
-			"text": "Está bien. Dime qué sucede.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Está bien. Dime qué sucede." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "It's alright. Tell me." 
+			}
+		],
 			"nextNodeId": 5
 		},
 		{
 			"nodeId": 5,
 			"personaje": "Monologo",
-			"text": "Distingo un suspiro\na través del ruido.\n\nDebe trabajar aquí.\nLa voz más cansada del mundo.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Distingo un suspiro\na través del ruido.\n\nDebe trabajar aquí.\nLa voz más cansada del mundo." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "I can make out a sigh\nthrough the phone.\n\nShe must work here.\nThe tiredest voice in the world. " 
+			}
+		],
 			"nextNodeId": 6
 		},
 		{
 			"nodeId": 6,
 			"personaje": "Personaje",
-			"text": "Señorita, comuníqueme con su -",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Señorita, comuníqueme con su -" 
+			},
+			{	
+				"idioma": "en",
+				"texto": "Lady, contact me with your -" 
+			}
+		],
 			"nextNodeId": 7
 		},
 		{
 			"nodeId": 7,
 			"personaje": "Monologo",
-			"text": "¿La conozco?\nSuave, a pesar del cansacio,\ny quizás familiar.\n\nSiento que la conozco.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "¿La conozco?\nSuave, a pesar del cansacio,\ny quizás familiar.\n\nSiento que la conozco." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "Do I know her?\nTender, despite the tiredness,\nand perhaps familiar.\n\nI feel like I know her." 
+			}
+		],
 			"nextNodeId": 8
 		},
 		{
 			"nodeId": 8,
 			"personaje": "SiluetaMujer",
-			"text": "Lo sé.\nPero se va a sentir diferente después.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Lo sé.\nPero se va a sentir diferente después." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "I know.\nBut it will feel different later." 
+			}
+		],
 			"nextNodeId": 9
 		},
 		{
 			"nodeId": 9,
 			"personaje": "Monologo",
-			"text": "Se me cierra la garganta.\nOigo su respiración a través\ndel crujir por unos segundos.",
+			"textosPorIdioma":
+		[
+			{	
+				"texto": "Se me cierra la garganta\n\nOigo su respiración a través\ndel crujir por unos segundos." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "A knot in my throat.\n\nI listen to her breathing through\nthe crackling for a second." 
+			}
+		],
 			"nextNodeId": 10
 		},
 		{
 			"nodeId": 10,
 			"personaje": "Personaje",
-			"text": "Perdón...\n¿Diferente? ¿Me conoce?",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Perdón.\n¿Diferente? ¿Me conoce?" 
+			},
+			{	
+				"idioma": "en",
+				"texto": "Excuse me.\nDifferent? Do you know me?" 
+			}
+		],
 			"nextNodeId": 11
 		},
 		{
 			"nodeId": 11,
 			"personaje": "SiluetaMujer",
-			"text": "Ya no. Lo lamento.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Ya no. Lo lamento." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "Not anymore. I am sorry." 
+			}
+		],
 			"nextNodeId": 12
 		},
 		{
 			"nodeId": 12,
 			"personaje": "Monologo",
-			"text": "Su voz resiste de quebrarse.\nQuizás siempre fue así.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Su voz resiste de quebrarse.\n¿Quizás siempre fue así?" 
+			},
+			{	
+				"idioma": "en",
+				"texto": "Her voice resists breaking.\nWas she always this way? " 
+			}
+		],
 			"nextNodeId": 13
 		},
 		{
 			"nodeId": 13,
 			"personaje": "Personaje",
-			"text": "Estoy... demasiado confundido.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Estoy... demasiado confundido." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "I'm... very confused." 
+			}
+		],
 			"nextNodeId": 14
 		},
 		{
 			"nodeId": 14,
 			"personaje": "SiluetaMujer",
-			"text": "Espero que todo salga bien para ti.\nDe verdad lo deseo.",
-			"nextNodeId": 15
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Espero que todo salga bien para ti.\nDe verdad lo deseo." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "I hope things turn out well for you.\nI truly do." 
+			}
+		],
+					"nextNodeId": 15
 		},
 		{
 			"nodeId": 15,
 			"personaje": "Personaje",
-			"text": "¿De qué está hablando?\nSeñorita, ¿me escucha?",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "¿De qué está hablando?\nSeñorita, ¿me escucha?" 
+			},
+			{	
+				"idioma": "en",
+				"texto": "What are you saying?\nLady, are you listening to me?" 
+			}
+		],
 			"nextNodeId": 16
 		},
 		{
 			"nodeId": 16,
 			"personaje": "Monologo",
-			"text": "Creo que no.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Creo que no." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "I think not." 
+			}
+		],
 			"nextNodeId": 17
 		},
 		{
 			"nodeId": 17,
 			"personaje": "SiluetaMujer",
-			"text": "Cuídate mucho.\nPero, por favor...",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Cuídate mucho.\nPero, por favor..." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "Take care of yourself.\nBut, please..." 
+			}
+		],
 			"nextNodeId": 18
 		},
 		{
 			"nodeId": 18,
 			"personaje": "SiluetaMujer",
-			"text": "No vuelvas a llamar.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "No vuelvas a llamar." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "Don't call again." 
+			}
+		],
 			"nextNodeId": 19
 		},
 		{
 			"nodeId": 19,
 			"personaje": "Personaje",
-			"text": "¿Qué? No, no, no.\n\n¡ESPERE!",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "¿Qué? No, no, no. \n\n¡ESPERE!" 
+			},
+			{	
+				"idioma": "en",
+				"texto": "What? No, no, no.\n\nWAIT!" 
+			}
+		],
 			"nextNodeId": 20
 		},
 		{
 			"nodeId": 20,
 			"personaje": "Monologo",
-			"text": "Maldición...\n\nCortó la llamada.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Maldición...\n\nCortó la llamada." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "Damn it...\n\nShe hung up." 
+			}
+		],
 			"nextNodeId": 21
 		},
 		{
 			"nodeId": 21,
 			"personaje": "Monologo2",
-			"text": "¿Por qué me siento tan -",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "¿Por qué me siento tan -" 
+			},
+			{	
+				"idioma": "en",
+				"texto": "Why am I feeling so -" 
+			}
+		],
 			"nextNodeId": 22
 		},
 		{
 			"nodeId": 22,
 			"personaje": "Monologo2",
-			"text": "¿QUIÉN eres?",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "¿QUIÉN eres?" 
+			},
+			{	
+				"idioma": "en",
+				"texto": "WHO are you?" 
+			}
+		],
 			"nextNodeId": -1
 		}
 	]

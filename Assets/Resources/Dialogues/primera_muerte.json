@@ -5,19 +5,49 @@
 		{
 			"nodeId": 0,
 			"personaje": "Monologo",
-			"text": "Demonios... mi vista.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Demonios... Mi vista." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "Damn... My eyes." 
+			}
+		],
 			"nextNodeId": 1
 		},
 		{
 			"nodeId": 1,
 			"personaje": "Personaje",
-		"text": "Esas LUCES.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Esas LUCES." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "Those LIGHTS." 
+			}
+		],
 			"nextNodeId": 2
 		},
 		{
 			"nodeId": 2,
 			"personaje": "Monologo",
-		"text": "Me siento peor... Guardaré distancia.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Me siento peor... Guardaré distancia." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "I feel worse... I'll keep a distance." 
+			}
+		],
 			"nextNodeId": -1
 		}
 	]

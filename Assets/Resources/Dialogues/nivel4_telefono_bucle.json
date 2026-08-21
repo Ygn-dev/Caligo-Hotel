@@ -5,43 +5,113 @@
 		{
 			"nodeId": 0,
 			"personaje": "Personaje",
-			"text": "¿Señor?",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "¿Señor?" 
+			},
+			{	
+				"idioma": "en",
+				"texto": "Mister?" 
+			}
+		],
 			"nextNodeId": 1
 		},
 		{
 			"nodeId": 1,
 			"personaje": "Recepcionista",
-			"text": "¿Caballero?",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "¿Caballero?" 
+			},
+			{	
+				"idioma": "en",
+				"texto": "Gentleman?" 
+			}
+		],
 			"nextNodeId": 2
 		},
 		{
 			"nodeId": 2,
 			"personaje": "Recepcionista",
-			"text": "No olvide dejar vacías\nlas paredes de la GALERÍA.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "No olvide DEJAR VACÍAS\nLAS PAREDES de la GALERÍA." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "Do not forget to EMPTY\nTHE WALLS in the GALLERY." 
+			}
+		],
 			"nextNodeId": 3
 		},
 		{
 			"nodeId": 3,
 			"personaje": "Personaje",
-			"text": "NO. Eso no.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "No. Eso no." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "No. That's not-" 
+			}
+		],
 			"nextNodeId": 4
 		},
 		{
 			"nodeId": 4,
 			"personaje": "Recepcionista",
-			"text": "Le espero en la RECEPCIÓN.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Le espero en la RECEPCIÓN." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "I'll be waiting for you at the LOBBY." 
+			}
+		],
 			"nextNodeId": 5
 		},
 		{
 			"nodeId": 5,
 			"personaje": "Personaje",
-			"text": "Pero...",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Pero..." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "But..." 
+			}
+		],
 			"nextNodeId": 6
 		},
 		{
 			"nodeId": 6,
 			"personaje": "Monologo",
-			"text": "Colgó.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Colgó" 
+			},
+			{	
+				"idioma": "en",
+				"texto": "He hung up." 
+			}
+		],
 			"nextNodeId": -1
 		}
 	]

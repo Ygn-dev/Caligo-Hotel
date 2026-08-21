@@ -5,19 +5,49 @@
 		{
 			"nodeId": 0,
 			"personaje": "Monologo",
-			"text": "¿No hay nadie más?...\n¿Qué hora es?",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "¿No hay nadie más?...\n¿Qué hora es?" 
+			},
+			{	
+				"idioma": "en",
+				"texto": "Is there no one else here?...\nWhat time is it?" 
+			}
+		],
 			"nextNodeId": 1
 		},
 		{
 			"nodeId": 1,
 			"personaje": "Monologo2",
-			"text": "Veo que al menos ALGUIEN\nestá haciendo su trabajo.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Veo que al menos ALGUIEN\nestá haciendo su trabajo." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "Well, at least SOMEONE\nis doing their job." 
+			}
+		],
 			"nextNodeId": 2
 		},
 		{
 			"nodeId": 2,
 			"personaje": "Monologo2",
-			"text": "Hasta tiene un ANIMAL de asistente.",
+			"textosPorIdioma":
+		[
+			{	
+				"idioma": "es",
+				"texto": "Hasta tiene un ANIMAL de asistente." 
+			},
+			{	
+				"idioma": "en",
+				"texto": "There's even a helper ANIMAL." 
+			}
+		],
 			"nextNodeId": -1
 		}
 	]
