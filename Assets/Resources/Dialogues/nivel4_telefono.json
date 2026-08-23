@@ -221,7 +221,7 @@
 			},
 			{	
 				"idioma": "en",
-				"texto": "Do not forget to EMPTY THE WALLS in the GALLERY." 
+				"texto": "Do not forget to EMPTY\nTHE WALLS in the GALLERY." 
 			}
 		],
 			"nextNodeId": 14
@@ -237,7 +237,7 @@
 			},
 			{	
 				"idioma": "en",
-				"texto": "But first,\nDON'T-" 
+				"texto": "DON'T-" 
 			}
 		],
 			"nextNodeId": 15

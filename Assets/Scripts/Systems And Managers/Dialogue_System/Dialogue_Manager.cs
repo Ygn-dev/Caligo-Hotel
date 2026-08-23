@@ -418,11 +418,7 @@ public class Dialogue_Manager : MonoBehaviour
 
     private IEnumerator TerminarGuion()
     {
-        // Reanudar acciones
-        inputActions.FindActionMap("Dialogue").Disable();
 
-        inputActions.FindActionMap("Gameplay").Enable();
-        inputActions.FindActionMap("Pause").Enable();
 
         SoundFX_Manager.Instance.PlaySound(SoundType.ABRIR_CAJA_DIALOGO);
         // Ocultar el dialogue system 
@@ -436,7 +432,15 @@ public class Dialogue_Manager : MonoBehaviour
         // Desactivar confiner
         confiner.enabled = enabled;
         // vincular camara al personaje
-        cinemachineCamera.Follow = GameObject.FindGameObjectWithTag("Player").transform; ;
+        cinemachineCamera.Follow = GameObject.FindGameObjectWithTag("Player").transform;
+
+        yield return new WaitForSeconds(1);
+        
+        // Reanudar acciones
+        inputActions.FindActionMap("Dialogue").Disable();
+
+        inputActions.FindActionMap("Gameplay").Enable();
+        inputActions.FindActionMap("Pause").Enable();
 
         yield return null;
     }
