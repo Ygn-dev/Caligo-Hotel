@@ -7,16 +7,21 @@ using UnityEngine.InputSystem;
 public class Lobby_Initiator : MonoBehaviour
 {
     [Header("La parte editable está en su Scriptable Object")]
+
+    [Space]
+    [Header("Editable")]
+    public AnimationCurve fadeCurve;
+    public float duracionFade;
     
     [Space]
     [Header("No Editable")]
     public Image fade;
-    private GameObject character;
-    public AnimationCurve fadeCurve;
     public ScriptableObject levelData;
     public GameObject characterPrefab;
     public InputActionAsset inputActions;
     public CinemachineCamera cinemachineCamera;
+
+    private GameObject character;
 
     void Awake()
     {
@@ -36,28 +41,33 @@ public class Lobby_Initiator : MonoBehaviour
 
     private IEnumerator InitializeLobby()
     {
+        // Guardar en el Save Manager que el nivel actual es el Lobby
         Save_Manager.Instance.data.currentLevel = "Lobby";
         Save_Manager.Instance.SaveData();
 
-        // Completar Fade de Carga
-        yield return StartCoroutine(FadeBlanco());
+        // Cargar fade blanco
+        //yield return StartCoroutine(FadeBlanco());
+        
+        // Avisar al Game Loader Manager que complete la carga de la escena
         yield return StartCoroutine(Game_Loader_Manager.Instance.CompleteLoadScene());
                 
-        //Settear Personaje y Camara mientras se reproduce la cinemática
+        //Settear Personaje y Camara mientras se reproduce la cinemática, luego quitar el fade
         StartCoroutine(SpawnCharacter());
         StartCoroutine(SetupCamara());
         yield return StartCoroutine(CinematicaInicial());
         
         //Levantarse del sillon
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.5f);
 
         //Animacion de levantarse
         character.GetComponent<Animator>().SetTrigger("WakeUp");
         while (!character.GetComponent<Animator>().GetBool("isAwake")) yield return null;
-        
+
+        inputActions.FindActionMap("Gameplay").Enable();
+        /*
         //Dialogo de introduccion
         yield return new WaitForSeconds(1f);
-        yield return Dialogue_Manager.Instance.StartDialogueCoroutine("hotel_intro", 6f);
+        yield return Dialogue_Manager.Instance.StartDialogueCoroutine("hotel_intro", 6f);*/
         yield return null;
     }
 
@@ -70,7 +80,7 @@ public class Lobby_Initiator : MonoBehaviour
     private IEnumerator CinematicaInicial()
     {
         StartCoroutine(EsperarYquitarFade(0.5f));
-        yield return Cinematic_Manager.Instance.PlayCinematic("Lobby_Cinematic");
+        //yield return Cinematic_Manager.Instance.PlayCinematic("Lobby_Cinematic");
         yield return null;
     }
 
@@ -88,7 +98,7 @@ public class Lobby_Initiator : MonoBehaviour
     {
         fade.color = new Color(1f, 1f, 1f, 0f);
         fade.gameObject.SetActive(true);
-        yield return DevTools.AnimarImage(fade, 1f,3f, fadeCurve);
+        yield return DevTools.AnimarImage(fade, 1f, duracionFade, fadeCurve);
         yield return null;
     }
 
@@ -96,11 +106,6 @@ public class Lobby_Initiator : MonoBehaviour
     {
         yield return new WaitForSeconds(duration);
         fade.gameObject.SetActive(false);
-    }
-
-    public void Prueba()
-    {
-        Debug.Log("Prueba");
     }
 }
 

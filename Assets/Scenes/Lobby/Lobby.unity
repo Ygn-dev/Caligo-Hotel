@@ -5587,7 +5587,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffb4e4bf46964cb4fbcb67ab9867e862, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Lobby_Initiator
-  fade: {fileID: 174100223}
   fadeCurve:
     serializedVersion: 2
     m_Curve:
@@ -5612,6 +5611,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  duracionFade: 0
+  fade: {fileID: 174100223}
   levelData: {fileID: 11400000, guid: 3dfd25f1bc49a9e4d988df350e1c2c57, type: 2}
   characterPrefab: {fileID: 3851179027187527990, guid: ad7913bd969e63d49ac0e729cf821025, type: 3}
   inputActions: {fileID: -944628639613478452, guid: e75c53da0f7f49f4aae3d0a6e4b3cca4, type: 3}
@@ -23227,8 +23228,8 @@ SceneRoots:
   - {fileID: 1773953729}
   - {fileID: 475637467}
   - {fileID: 28293655}
-  - {fileID: 558984756}
   - {fileID: 1700897602}
+  - {fileID: 558984756}
   - {fileID: 1308939006}
   - {fileID: 1229392709}
   - {fileID: 1051357215}

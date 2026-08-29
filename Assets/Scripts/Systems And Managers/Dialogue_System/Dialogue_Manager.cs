@@ -85,11 +85,13 @@ public class Dialogue_Manager : MonoBehaviour
     //==================================================
     // REFERENCIAS
     //==================================================
-    private Canvas canvas;
     public InputActionAsset inputActions;
     public GameObject prefabDialogueScroll;
     public GameObject prefabBlackBackground;
 
+
+    private Canvas canvas;
+    private bool estaTerminando = false;
 
     private void Awake()
     {
@@ -144,6 +146,8 @@ public class Dialogue_Manager : MonoBehaviour
     // INICIO DE DIALOGO
     private IEnumerator IniciarDialogo(string jsonFileName, float zoomCamara, float camPosX, float camPosY)
     {
+        if(estaTerminando) yield break;
+
         // Cargar Json
         jsonFile = Resources.Load<TextAsset>("Dialogues/" + jsonFileName);
         dialogueData = JsonUtility.FromJson<Dialogue_Struct>(jsonFile.text);
@@ -163,7 +167,7 @@ public class Dialogue_Manager : MonoBehaviour
         instanceBlackBackground = Instantiate(prefabBlackBackground, canvas.transform);
         instanceDialogueScroll = Instantiate(prefabDialogueScroll, canvas.transform);
 
-        // Obtener referencias Globales del prefab de dialogos
+        // Obtener referencias globales del prefab de dialogos
         scrollHelper = instanceDialogueScroll.GetComponent<DialogueScroll_Helper>();
         content = scrollHelper.content;
         layoutGroup = content.GetComponent<VerticalLayoutGroup>();
@@ -414,6 +418,9 @@ public class Dialogue_Manager : MonoBehaviour
 
     private IEnumerator TerminarGuion()
     {
+        // 
+        estaTerminando = true;
+
         // Reanudar acciones
         inputActions.FindActionMap("Dialogue").Disable();
 
@@ -421,6 +428,7 @@ public class Dialogue_Manager : MonoBehaviour
         inputActions.FindActionMap("Pause").Enable();
 
         SoundFX_Manager.Instance.PlaySound(SoundType.ABRIR_CAJA_DIALOGO);
+
         // Ocultar el dialogue system 
         yield return StartCoroutine(DevTools.AnimarCamaraYBackground(cinemachineCamera, zoomCamIni, camPosIni.x, camPosIni.y, 
                                                                         duracionZoomCamara, curvaZoomCamara, instanceBlackBackground, 
@@ -432,8 +440,10 @@ public class Dialogue_Manager : MonoBehaviour
         // Desactivar confiner
         confiner.enabled = enabled;
         // vincular camara al personaje
-        cinemachineCamera.Follow = GameObject.FindGameObjectWithTag("Player").transform;;
+        cinemachineCamera.Follow = GameObject.FindGameObjectWithTag("Player").transform;
 
+        // 
+        estaTerminando = false;
         yield return null;
     }
 

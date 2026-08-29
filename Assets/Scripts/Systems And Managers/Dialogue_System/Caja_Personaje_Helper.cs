@@ -72,7 +72,7 @@ public class Caja_Personaje_Helper : MonoBehaviour, ICaja_De_Texto_Helper
             elapsedTime += Time.deltaTime;
             yield return null;
         }
-        Debug.Log("Animación de mostrar caja completada.");
+        //Debug.Log("Animación de mostrar caja completada.");
         yield return null;
     }
 
