@@ -14,6 +14,7 @@ public class Input_Schema_Manager : MonoBehaviour
 
     //HIDE IN INSPECTOR
     [HideInInspector] public String currentSchema;
+    [HideInInspector] public String currentGamepad = null;
     [HideInInspector] public bool isCursorMode;
     
     public InputActionAsset actions;
@@ -26,8 +27,51 @@ public class Input_Schema_Manager : MonoBehaviour
         // Implementación del patrón Singleton
         if (Instance == null) Instance = this;
 
-        GetFirstCurrentSchema();
-        SuscribirTodasLasAcciones();
+        // obtener el esquema inicial
+        if(Gamepad.current != null)
+        {
+            currentSchema = "Gamepad";
+
+            InputDevice device = Gamepad.current;
+            if (device != null)
+            {
+                string manufacturer = device.description.manufacturer?.ToLower() ?? "";
+                string product = device.description.product?.ToLower() ?? "";
+                string displayName = device.displayName?.ToLower() ?? "";
+
+                if (product.Contains("dualsense") ||
+                    product.Contains("dualshock") ||
+                    displayName.Contains("dualsense") ||
+                    displayName.Contains("dualshock") ||
+                    manufacturer.Contains("sony"))
+                {
+                    currentGamepad = "PS";
+                }
+                else if (product.Contains("xbox") ||
+                        displayName.Contains("xbox") ||
+                        manufacturer.Contains("microsoft"))
+                {
+                    currentGamepad = "Xbox";
+                }
+                else
+                {
+                    currentGamepad = "Unknown";
+                }
+            }
+        }
+        else currentSchema = "Keyboard";
+        isCursorMode = false;
+
+
+        // suscribir todas las acciones a un evento que detecte el cambio de esquema
+        foreach (var map in actions.actionMaps)
+        {
+            foreach (var action in map.actions)
+            {
+                action.started += OnAnyActionPerformed;
+                action.performed += OnAnyActionPerformed;
+            }
+        }
     }
 
 
@@ -56,35 +100,42 @@ public class Input_Schema_Manager : MonoBehaviour
         }
     }
 
-
-    private void GetFirstCurrentSchema()
-    {
-        if(Gamepad.current != null)  currentSchema = "Gamepad";
-        else currentSchema = "Keyboard";
-        isCursorMode = false;
-    }
-
-
-    private void SuscribirTodasLasAcciones()
-    {
-        foreach (var map in actions.actionMaps)
-        {
-            foreach (var action in map.actions)
-            {
-                action.started += OnAnyActionPerformed;
-                action.performed += OnAnyActionPerformed;
-            }
-        }
-    }
-    
-
     private void OnAnyActionPerformed(InputAction.CallbackContext context)
     {
         if(esDrift(context)) return;
         if( currentSchema != GetSchema(context))
         {
-            //Debug.Log("Esquema de control cambiado a: " + GetSchema(context));
+            Debug.Log("Esquema de control cambiado a: " + GetSchema(context));
             currentSchema = GetSchema(context);
+            
+            InputDevice device = Gamepad.current;
+            if (device != null)
+            {
+                string manufacturer = device.description.manufacturer?.ToLower() ?? "";
+                string product = device.description.product?.ToLower() ?? "";
+                string displayName = device.displayName?.ToLower() ?? "";
+
+                if (product.Contains("dualsense") ||
+                    product.Contains("dualshock") ||
+                    displayName.Contains("dualsense") ||
+                    displayName.Contains("dualshock") ||
+                    manufacturer.Contains("sony"))
+                {
+                    currentGamepad = "PS";
+                }
+                else if (product.Contains("xbox") ||
+                        displayName.Contains("xbox") ||
+                        manufacturer.Contains("microsoft"))
+                {
+                    currentGamepad = "Xbox";
+                }
+                else
+                {
+                    currentGamepad = "Unknown";
+                }
+            }
+
+
             ChangedSchema?.Invoke(currentSchema);
         }
         SetMouseMode(false);
@@ -173,32 +224,32 @@ public class Input_Schema_Manager : MonoBehaviour
     }
 
     private GameObject GetTopLevelUIInteractable(List<GameObject> hoveredObjects)
-{
-    // Componentes UI interactuables que nos interesan
-    Type[] interactableTypes = new Type[]
     {
-        typeof(Button),
-        typeof(Toggle),
-        typeof(Slider),
-        typeof(Dropdown),
-        typeof(TMP_Dropdown),
-        typeof(InputField),
-        typeof(TMP_InputField),
-        typeof(Scrollbar),
-        typeof(ScrollRect),
-    };
-
-    foreach (GameObject obj in hoveredObjects)
-    {
-        foreach (Type type in interactableTypes)
+        // Componentes UI interactuables que nos interesan
+        Type[] interactableTypes = new Type[]
         {
-            if (obj.GetComponent(type) != null)
-                return obj;
-        }
-    }
+            typeof(Button),
+            typeof(Toggle),
+            typeof(Slider),
+            typeof(Dropdown),
+            typeof(TMP_Dropdown),
+            typeof(InputField),
+            typeof(TMP_InputField),
+            typeof(Scrollbar),
+            typeof(ScrollRect),
+        };
 
-    return null;
-}
+        foreach (GameObject obj in hoveredObjects)
+        {
+            foreach (Type type in interactableTypes)
+            {
+                if (obj.GetComponent(type) != null)
+                    return obj;
+            }
+        }
+
+        return null;
+    }
 
 
     List<GameObject> GetAllUIUnderMouse()

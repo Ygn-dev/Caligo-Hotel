@@ -46,7 +46,7 @@ public class Lobby_Initiator : MonoBehaviour
         Save_Manager.Instance.SaveData();
 
         // Cargar fade blanco
-        //yield return StartCoroutine(FadeBlanco());
+        yield return StartCoroutine(FadeBlanco());
         
         // Avisar al Game Loader Manager que complete la carga de la escena
         yield return StartCoroutine(Game_Loader_Manager.Instance.CompleteLoadScene());
@@ -62,12 +62,10 @@ public class Lobby_Initiator : MonoBehaviour
         //Animacion de levantarse
         character.GetComponent<Animator>().SetTrigger("WakeUp");
         while (!character.GetComponent<Animator>().GetBool("isAwake")) yield return null;
-
-        inputActions.FindActionMap("Gameplay").Enable();
-        /*
+        
         //Dialogo de introduccion
         yield return new WaitForSeconds(1f);
-        yield return Dialogue_Manager.Instance.StartDialogueCoroutine("hotel_intro", 6f);*/
+        yield return Dialogue_Manager.Instance.StartDialogueCoroutine("hotel_intro", 6f);
         yield return null;
     }
 
@@ -80,7 +78,7 @@ public class Lobby_Initiator : MonoBehaviour
     private IEnumerator CinematicaInicial()
     {
         StartCoroutine(EsperarYquitarFade(0.5f));
-        //yield return Cinematic_Manager.Instance.PlayCinematic("Lobby_Cinematic");
+        yield return Cinematic_Manager.Instance.PlayCinematic("Lobby_Cinematic");
         yield return null;
     }
 

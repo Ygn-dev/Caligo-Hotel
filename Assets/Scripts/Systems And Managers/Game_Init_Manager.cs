@@ -11,6 +11,7 @@ public class Game_Init_Manager : MonoBehaviour
         if (initialized) return;
 
         GameObject persistObject = Resources.Load<GameObject>("Prefabs/PERSIST_OBJECT");
+        Application.targetFrameRate = 60;
 
         if (persistObject != null)
         {

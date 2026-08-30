@@ -88,7 +88,17 @@ public class Dynamc_Icon : MonoBehaviour
             if (binding.isComposite)
             {
                 string actionMap = action.actionMap.name;
-                string resultado = "Sprites_Icons_UI/" + newSchema + "/" + actionMap + "/" + action.name;
+                string resultado;
+
+                if (newSchema == "Gamepad")
+                {
+                    resultado = "Sprites_Icons_UI/" + newSchema + "/" + Input_Schema_Manager.Instance.currentGamepad + "/" + actionMap + "/" + action.name;
+                }
+                else
+                {
+                    resultado = "Sprites_Icons_UI/" + newSchema + "/" + actionMap + "/" + action.name;
+                }
+
                 Sprite nuevoSprite = Resources.Load<Sprite>(resultado);
 
                 if (nuevoSprite == null)
@@ -111,8 +121,17 @@ public class Dynamc_Icon : MonoBehaviour
                 }
 
                 string actionMap = action.actionMap.name;
-                string buttonName = path.Split('/')[1];
-                string resultado = "Sprites_Icons_UI/" + newSchema + "/" + actionMap + "/" + action.name;
+                string resultado;
+
+                if (newSchema == "Gamepad")
+                {
+                    resultado = "Sprites_Icons_UI/" + newSchema + "/" + Input_Schema_Manager.Instance.currentGamepad + "/" + actionMap + "/" + action.name;
+                }
+                else
+                {
+                    resultado = "Sprites_Icons_UI/" + newSchema + "/" + actionMap + "/" + action.name;
+                }
+
                 
                 Sprite nuevoSprite = Resources.Load<Sprite>(resultado);
 
