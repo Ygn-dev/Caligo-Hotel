@@ -12,7 +12,8 @@ public enum MusicType
 {
     PORTADA,
     ZONA_CAMARAS,
-    PREPORTADA
+    PREPORTADA,
+    LOBBY
 }
 
 [Serializable]
@@ -26,9 +27,9 @@ public class Music_Manager : MonoBehaviour
 {
     //SINGLETON
     public static Music_Manager Instance { get; private set; }
-    
+
     public AudioMixer MusicMixer;
-    public AudioMixerGroup Master; 
+    public AudioMixerGroup Master;
 
     [SerializeField] public MusicList[] musicList;
 
@@ -52,7 +53,7 @@ public class Music_Manager : MonoBehaviour
         int index = UnityEngine.Random.Range(0, clips.Length);
         AudioClip randomClip = clips[index];
 
-        if(musicType == currentMusicType && currentMusicIndex == index && currentMusicSource != null && currentMusicSource.isPlaying)
+        if (musicType == currentMusicType && currentMusicIndex == index && currentMusicSource != null && currentMusicSource.isPlaying)
         {
             return;
         }
@@ -70,7 +71,7 @@ public class Music_Manager : MonoBehaviour
         newMusicSource.enabled = true;
 
         //transicion de musica
-        if(currentMusicSource != null)
+        if (currentMusicSource != null)
         {
             newMusicSource.volume = 0f;
             StartCoroutine(FadeOutAndStop(currentMusicSource, 1f));
@@ -124,7 +125,7 @@ public class Music_Manager : MonoBehaviour
         MusicMixer.SetFloat("MusicVolume", volume);
     }
 
-    
+
 #if UNITY_EDITOR
     private void OnValidate()
     {

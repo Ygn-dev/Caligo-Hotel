@@ -12,7 +12,7 @@ public class Lobby_Initiator : MonoBehaviour
     [Header("Editable")]
     public AnimationCurve fadeCurve;
     public float duracionFade;
-    
+
     [Space]
     [Header("No Editable")]
     public Image fade;
@@ -33,7 +33,7 @@ public class Lobby_Initiator : MonoBehaviour
         if (Dialogue_Manager.Instance == null) DevTools.SetupDialogueManager();
         return;
     }
-    
+
     void Start()
     {
         StartCoroutine(InitializeLobby());
@@ -47,25 +47,32 @@ public class Lobby_Initiator : MonoBehaviour
 
         // Cargar fade blanco
         yield return StartCoroutine(FadeBlanco());
-        
+
         // Avisar al Game Loader Manager que complete la carga de la escena
         yield return StartCoroutine(Game_Loader_Manager.Instance.CompleteLoadScene());
-                
+
         //Settear Personaje y Camara mientras se reproduce la cinemática, luego quitar el fade
         StartCoroutine(SpawnCharacter());
         StartCoroutine(SetupCamara());
         yield return StartCoroutine(CinematicaInicial());
-        
+
         //Levantarse del sillon
         yield return new WaitForSeconds(1.5f);
 
         //Animacion de levantarse
         character.GetComponent<Animator>().SetTrigger("WakeUp");
         while (!character.GetComponent<Animator>().GetBool("isAwake")) yield return null;
-        
+
         //Dialogo de introduccion
         yield return new WaitForSeconds(1f);
         yield return Dialogue_Manager.Instance.StartDialogueCoroutine("hotel_intro", 6f);
+
+        //Musica
+        if (Music_Manager.Instance != null)
+        {
+            Music_Manager.Instance.PlayMusic(MusicType.LOBBY);
+        }
+
         yield return null;
     }
 
@@ -84,7 +91,7 @@ public class Lobby_Initiator : MonoBehaviour
 
     private IEnumerator SpawnCharacter()
     {
-        character = Instantiate(characterPrefab,new Vector3(4.18f, -5.22f, 0f), Quaternion.identity);
+        character = Instantiate(characterPrefab, new Vector3(4.18f, -5.22f, 0f), Quaternion.identity);
         character.GetComponent<Animator>().SetTrigger("Sit");
         character.GetComponent<Player_Controller>().Turn(Vector2.left);
         character.GetComponent<Animator>().SetFloat("moveX", -1);

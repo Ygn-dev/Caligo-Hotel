@@ -241,6 +241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InputSchemaHandler
   currentSchema: 
+  currentGamepad: 
   isCursorMode: 0
   actions: {fileID: -944628639613478452, guid: e75c53da0f7f49f4aae3d0a6e4b3cca4, type: 3}
   defaultCovered: {fileID: 0}
@@ -407,6 +408,9 @@ MonoBehaviour:
   - name: PREPORTADA
     sounds:
     - {fileID: 8300000, guid: 246ee59124cfebc41a147098fc4fd1a9, type: 3}
+  - name: LOBBY
+    sounds:
+    - {fileID: 8300000, guid: a29fafbbcb3b3b64a9ab5eb3798a808f, type: 3}
 --- !u!114 &7266634729618659494
 MonoBehaviour:
   m_ObjectHideFlags: 0
